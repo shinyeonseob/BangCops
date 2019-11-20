@@ -9,16 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/member/login")
-public class MemberLoginController extends HttpServlet {
+@WebServlet("/member/join")
+public class MemberJoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		//VIEW
-		req.getRequestDispatcher("/WEB-INF/views/member/login.jsp")
-		.forward(req, resp);
-		
+		// VIEW
+				req.getRequestDispatcher("/WEB-INF/views/member/join.jsp")
+					.forward(req, resp);
 	}
 }
