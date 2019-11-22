@@ -25,34 +25,34 @@
          <label for="UserID" class="col-sm-2 control-label">Email</label>
          <div class="col-sm-10">
             <input type="email" class="form-control" name="UserID" id="UserID"
-               placeholder="UserID" required="required">
+               placeholder="email" required="required">
          </div>
       </div>
       <div class="form-group">
          <label for="pw" class="col-sm-2 control-label">Password</label>
          <div class="col-sm-10">
-            <input type="password" class="form-control" name="pw" id="pw"
-               placeholder="pw" required="required">
+            <input type="password" class="form-control" name="UserPW" id="UserPW"
+               placeholder="password" required="required">
          </div>
       </div>
       <div class="form-group">
          <label for="Nick" class="col-sm-2 control-label">닉네임</label>
          <div class="col-sm-10">
-            <input type="email" class="form-control" name="Nick" id="Nick"
+            <input type="text" class="form-control" name="UserNick" id="UserNick"
                placeholder="Nick" required="required">
          </div>
       </div>
       <div class="form-group">
          <label for="UserName" class="col-sm-2 control-label">이름</label>
          <div class="col-sm-10">
-            <input type="email" class="form-control" name="UserName"
+            <input type="text" class="form-control" name="UserName"
                id="UserName" placeholder="UserName" required="required">
          </div>
       </div>
       <div class="form-group">
          <label for="UserTel" class="col-sm-2 control-label">전화번호</label>
          <div class="col-sm-10">
-            <input type="email" class="form-control" name="UserTel" id="UserTel"
+            <input type="text" class="form-control" name="UserTel" id="UserTel"
                placeholder="UserTel" required="required">
          </div>
       </div>
