@@ -211,8 +211,7 @@
 
 			<c:if test="${sessionScope.login eq true }">
 				<a href="/member/logout"><button>로그아웃</button></a>
-				<a href="/board/list"><button>게시글</button></a>
-				<a href="/board/write"><button>게시글 작성</button></a>
+				<a href="/member/mypage"><button>마이페이지</button></a>
 			</c:if>
 
 		</ul>
