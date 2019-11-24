@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	//3초 동안 fadeOut(점점 흐려져서 사라짐)
+	//(시간 조절 가능)
+	$(".layer").fadeOut(3000);
+	
+});
+</script>
+
+<style type="text/css">
+
+/* 배경 이미지 지정 */
+body {
+	background-color: darkblue;
+	background-repeat: repeat-y;
+	background-size: cover;
+}
+
+/* 로고를 포함하는 레이어 div */
+.layer {
+
+	/* 고정 위치 잡기 */
+	position: fixed;
+	top: 0;
+	left: 0;
+	
+	/* 화면 전체 사이즈로 만들기 */
+	width: 100%;
+	height: 100%;
+	
+	/* 로고 배경 클릭 안되게 만들기 */
+	z-index: 100;
+}
+
+/* 레이어 안쪽 배경 div */
+.layer .logobg {
+	/* 절대위치 잡기 */
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+	/* 전체화면 사이즈 만들기 */
+	width: 100%;
+	height: 100%;
+	
+	/* 배경색 하얀색으로 흐리게 설정 */
+	background: rgb(255,255,255,0.3);
+}
+
+/* 로고 이지미 */
+.layer .logobg .logo {
+	/* 이미지가 화면 정가운데로 오도록 설정 */
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	/* 화면 크기에 따라 적응하도록 설정 */
+	max-width: 100%;
+	max-height: 100%;
+	
+	/* 이미지 크기 보정 */
+	margin: auto;
+}
+</style>
+
+</head>
+<body>
+
+<div class="layer">
+<div class="logobg">
+<img class="logo" src="/resources/se2/img/logo.png">
+</div>
+</div>
+
+<!-- 테스트용 버튼 -->
+<!-- 로고 레이어 없어지기 전에는 클릭 안됨 -->
+<button onclick="alert(123)">버튼</button>
+
+</body>
+</html>
