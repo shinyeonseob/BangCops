@@ -1,4 +1,4 @@
-package web.controller;
+package web.controller.mainmenu;
 
 import java.io.IOException;
 
@@ -9,18 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/mypage/main")
-public class MypageMainController extends HttpServlet {
+@WebServlet("/main/home")
+public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
+
 		//view
-		req.getRequestDispatcher("/WEB-INF/views/member/mypage.jsp")
-			.forward(req, resp);
-		
-		
-	}
+		req.getRequestDispatcher("/WEB-INF/views/home/home.jsp")
+		.forward(req, resp);
+		}
+
 }

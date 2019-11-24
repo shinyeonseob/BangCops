@@ -1,4 +1,4 @@
-package web.controller;
+package web.controller.member;
 
 import java.io.IOException;
 
