@@ -14,6 +14,5 @@ public interface MemberService {
 
 	void join(HttpServletRequest req);
 
-	boolean pwck(HttpServletRequest req);
 
 }
