@@ -16,12 +16,14 @@ public interface MemberService {
 	void join(HttpServletRequest req);
 	
 	
+	public void update(BUser member); 
+	
 	/**
-	 * 정보수정 (파일업로드 제외)
+	 * 회원정보 수정
 	 * 
-	 * @param member BUser 정보수정 수행
+	 * @param req - 요청 정보 객체
 	 */
-	void update(BUser member);
+	void update(HttpServletRequest req);
 
 
 }

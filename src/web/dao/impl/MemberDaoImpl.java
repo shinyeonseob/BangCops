@@ -113,7 +113,7 @@ public class MemberDaoImpl implements MemberDao {
 		
 		// 수행할 SQL 쿼리
 		String sql = "";
-		sql += "UPDATE BUser SET userid = ? , usernick = ?";
+		sql += "UPDATE BUser SET userid = ? , usernick = ? , usertel = ?";
 		sql += " WHERE userno = ?";
 		
 		try {
@@ -121,7 +121,9 @@ public class MemberDaoImpl implements MemberDao {
 			
 			ps.setString(1,  member.getUserid());
 			ps.setString(2,  member.getUsernick());
-//			ps.setString(2,  member.getUserno());
+			ps.setString(3,  member.getUsertel());
+			ps.setInt(4,  member.getUserno());
+			
 			
 			
 		} catch (SQLException e) {
