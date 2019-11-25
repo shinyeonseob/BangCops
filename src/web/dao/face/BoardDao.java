@@ -11,4 +11,6 @@ public interface BoardDao {
 	public List<BBoard> selectAll(Paging paging);
 	
 	public int selectCntAll();
+	
+	public BBoard selectBoardByBoardno(BBoard bBoard);
 }

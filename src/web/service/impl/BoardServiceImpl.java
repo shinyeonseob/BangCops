@@ -43,4 +43,9 @@ public class BoardServiceImpl implements BoardService {
 		return paging;
 	}
 
+	@Override
+	public BBoard view(BBoard bBoard) {
+		return boardDao.selectBoardByBoardno(bBoard);
+	}
+
 }

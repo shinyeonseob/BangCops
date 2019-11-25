@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import util.Paging;
 import web.dto.BBoard;
+import web.dto.BUser;
 import web.service.face.BoardService;
 import web.service.impl.BoardServiceImpl;
 
@@ -33,6 +34,7 @@ public class FreeBoardListController extends HttpServlet {
 			List<BBoard> list = boardService.getList(paging);
 			
 			req.setAttribute("list", list);
+			
 			
 			
 			req.getRequestDispatcher("/WEB-INF/views/board/freeboardList.jsp").forward(req, resp);

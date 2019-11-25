@@ -38,7 +38,7 @@ th {
 <h4>당신의 자유로운 이야기를 올려주세요.</h4>
 <hr style="background:grey;height:2px">
 <br>
-<table style="margin:0 auto;width:1140">
+<table>
 	<tr style="height:40">
 		<th class="text-center" style="width:5%">글번호</th>
 		<th class="text-center" style="width:55%">제목</th>
@@ -51,14 +51,22 @@ th {
 	<tr style="text-align:center;height:30">
 		<td>${ i.idx }</td>
 		<td><a>${ i.title }</a></td>
-		<td>${ i.userNo }</td>
+		<td>${ i.usernick }</td>
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>
 		<td>${ i.reco }</td>
 	</tr>
 </c:forEach>
 </table>
+<hr style="background:grey;height:2px">
+<a href="/main/community/freeboard/write"><button>게시글작성</button></a>
+<input style="float:right" id="select" name="select" type="text" />
+<a style="float:right"><select>
+	<option>제목</option>
+	<option>작성자</option>
+	<option>제목+작성자</option>
+</select></a>
 </div>
-<jsp:include page="/WEB-INF/views/layout/paging.jsp" />
+<div style="margin:0 auto"><jsp:include page="/WEB-INF/views/layout/paging.jsp" /></div>
 
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />

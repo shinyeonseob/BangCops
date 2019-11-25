@@ -11,6 +11,7 @@ public class BBoard {
 	private int reco;
 	private int boardNo;
 	private int userNo;
+	private String usernick;
 	
 	
 	
@@ -18,7 +19,16 @@ public class BBoard {
 	@Override
 	public String toString() {
 		return "BBoard [idx=" + idx + ", title=" + title + ", contents=" + contents + ", regDate=" + regDate + ", hits="
-				+ hits + ", reco=" + reco + ", boardNo=" + boardNo + ", userNo=" + userNo + "]";
+				+ hits + ", reco=" + reco + ", boardNo=" + boardNo + ", userNo=" + userNo + ", usernick=" + usernick
+				+ "]";
+	}
+
+	public String getUsernick() {
+		return usernick;
+	}
+
+	public void setUsernick(String usernick) {
+		this.usernick = usernick;
 	}
 
 	public int getHits() {

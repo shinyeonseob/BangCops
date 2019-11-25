@@ -1,6 +1,7 @@
 package web.dao.impl;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -71,8 +72,8 @@ public class BoardDaoImpl implements BoardDao {
 		sql += "SELECT * FROM (";
 		sql += "	SELECT rownum rnum, B .* FROM (";
 		sql += "	SELECT";
-		sql += "		idx, title, contents, regdate, hits, reco, userno, boardno";
-		sql += "	FROM Bboard";
+		sql += "		idx,title, contents, hits, reco, boardno, userno, regdate, (SELECT usernick FROM buser WHERE b.userno = userno)usernick ";
+		sql += "	FROM Bboard b";
 		sql += "	ORDER BY idx DESC";
 		sql += " ) B ORDER BY rnum";
 		sql += " ) BBoard";
@@ -99,6 +100,7 @@ public class BoardDaoImpl implements BoardDao {
 				bBoard.setReco(rs.getInt("reco"));
 				bBoard.setBoardNo(rs.getInt("BoardNo"));
 				bBoard.setUserNo(rs.getInt("UserNo"));
+				bBoard.setUsernick(rs.getString("usernick"));
 
 				list.add(bBoard);
 			}
@@ -145,6 +147,43 @@ public class BoardDaoImpl implements BoardDao {
 		}
 
 		return cnt;
+	}
+
+	@Override
+	public BBoard selectBoardByBoardno(BBoard bBoard) {
+		conn = DBconn.getConnection(); // DB연결
+		
+		String sql="SELECT * FROM BBoard WHERE boardno = ?";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, bBoard.getBoardNo());
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				bBoard.setBoardNo(rs.getInt("boardno"));
+				bBoard.setIdx(rs.getInt("idx"));
+				bBoard.setTitle(rs.getString("title"));
+				bBoard.setContents(rs.getString("contents"));
+				bBoard.setHits(rs.getInt("hit"));
+				bBoard.setUsernick(rs.getString("usernick"));
+				bBoard.setReco(rs.getInt("reco"));
+				bBoard.setRegDate(rs.getDate("regdate"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null) ps.close();
+				if(rs!=null) rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return bBoard;
 	}
 
 }
