@@ -30,6 +30,8 @@ public class MemberLoginController extends HttpServlet {
 			System.out.println(session.getAttribute("login"));
 			resp.sendRedirect("/main");
 			return;
+			
+			
 		}
 
 		BUser getLoginMember = memberService.getLoginMember(req);

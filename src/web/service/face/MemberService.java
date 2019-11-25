@@ -1,6 +1,7 @@
 package web.service.face;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import web.dto.BUser;
 
@@ -13,5 +14,8 @@ public interface MemberService {
 	BUser getMemberByUserid(BUser getLoginMember);
 
 	void join(BUser member);
+	
+	
+	
 
 }

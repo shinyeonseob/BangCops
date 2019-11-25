@@ -57,7 +57,7 @@ public class MemberDaoImpl implements MemberDao {
 		conn = DBconn.getConnection(); // DB 연결
 
 		// 수행할 SQL 쿼리
-		String sql = "SELECT * FROM member WHERE userid = ? ";
+		String sql = "SELECT * FROM BUser WHERE userid = ? ";
 
 		BUser member = new BUser();
 		try {

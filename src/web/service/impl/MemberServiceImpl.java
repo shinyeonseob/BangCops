@@ -1,6 +1,7 @@
 package web.service.impl;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import web.dao.face.MemberDao;
 import web.dao.impl.MemberDaoImpl;
@@ -49,5 +50,7 @@ public class MemberServiceImpl implements MemberService {
 		memberDao.insert(member);
 		
 	}
+
+	
 
 }
