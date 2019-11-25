@@ -111,6 +111,29 @@
    }
    
 </style>
+
+
+<script type="text/javascript">
+$(function() {
+	$("#alert-success").hide();
+	$("#alert-danger").hide();
+	$("input").keyup(function() {
+		var pwd1 = $("#UserPW").val();
+		var pwd2 = $("#UserPWck").val();
+		if (pwd1 != "" || pwd2 != "") {
+			if (pwd1 == pwd2) {
+				$("#alert-success").show();
+				$("#alert-danger").hide();
+				$("#submit").removeAttr("disabled");
+			} else {
+				$("#alert-success").hide();
+				$("#alert-danger").show();
+				$("#submit").attr("disabled", "disabled");
+			}
+		}
+	});
+});
+</script>
 </head>
 <body>
 <div class="signup-form">
@@ -130,8 +153,12 @@
         </div>
       <div class="form-group">
             <input id="pwcheck" type="password" class="form-control" name="confirm_password" placeholder="비밀번호 확인" required="required">
-            <button>확인</button>
+            
          </div>
+         				<div class="alert alert-success" id="alert-success">비밀번호가
+					일치합니다.</div>
+				<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지
+					않습니다.</div>
          <div class="form-group">
             <label for="Phone">연락처</label>
             <select>
@@ -157,3 +184,4 @@
 </div>
 </body>
 </html>
+
