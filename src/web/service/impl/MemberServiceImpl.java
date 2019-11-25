@@ -3,6 +3,7 @@ package web.service.impl;
 import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import web.dao.face.MemberDao;
 import web.dao.impl.MemberDaoImpl;
@@ -73,5 +74,29 @@ public class MemberServiceImpl implements MemberService {
 		memberDao.insert(member);
 		
 	}
+
+	@Override
+
+	public void update(BUser member) {
+	
+		memberDao.update(member);
+	}
+
+
+	
+
+	public boolean pwck(HttpServletRequest req) {
+		
+		String userpw = req.getParameter("UserPW");
+		String userpwck = req.getParameter("UserPWck");
+//		유저 패스워드와 패스워드 체크를 비교하여 
+//		같으면 false 를 리턴하고
+//		다르면 true 를 리턴한다
+		if (userpw == userpwck) {
+			return false;			
+		}
+		return true;
+	}
+
 
 }

@@ -71,9 +71,16 @@
 	<img src = "" alt = "사진을 등록해 주세요." width="98" height="98">
 
 </div>
-<div id = "info_name"> 이름 </div>
+<div id = "info_name"> 
+	<label> 이름  </label>
+	<label>${BUser.username } </label>
+
+</div>
 <br>
-<div id = "info_nick">닉네임</div>
+<div id = "info_nick">
+	<label> 닉네임  </label>
+	<label>${BUser.usernick } </label>
+</div>
 <br>
 <div id = "info_info"> ※ 닉네임 미등록 시 회원 실명이 표시됩니다.</div>
 </div>

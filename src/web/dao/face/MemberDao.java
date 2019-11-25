@@ -10,4 +10,11 @@ public interface MemberDao {
 
 	void insert(BUser member);
 
+	/**
+	 * BUser update 쿼리
+	 * 
+	 * @param member user에 해당하는 정보 수정
+	 */
+	void update(BUser member);
+
 }
