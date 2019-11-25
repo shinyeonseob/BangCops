@@ -19,7 +19,7 @@
       font-family: 'Roboto', sans-serif;
    }
     .form-control{
-       width: 290px;
+      width: 290px;
       height: 40px;
       box-shadow: none;
       color: #969fa4;
@@ -114,7 +114,7 @@
 </head>
 <body>
 <div class="signup-form">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="/member/join" method="post">
       <h2>회원가입</h2>
       <div class="form-group">
          <input type="text" class="form-control" name="nickname" placeholder="닉네임을 입력해주세요" required="required">
