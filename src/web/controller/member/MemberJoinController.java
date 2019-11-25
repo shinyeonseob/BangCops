@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dto.BUser;
 import web.service.face.MemberService;
 import web.service.impl.MemberServiceImpl;
 
@@ -28,6 +27,8 @@ public class MemberJoinController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+
 		
 		memberService.join(req);
 		

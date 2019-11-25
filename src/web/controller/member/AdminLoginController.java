@@ -9,17 +9,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import web.dto.BUser;
-import web.service.face.MemberService;
-import web.service.impl.MemberServiceImpl;
+import web.dto.Admin;
+import web.service.face.AdminMemberService;
+import web.service.impl.AdminMemberServiceImpl;
 
-@WebServlet("/member/login")
-public class MemberLoginController extends HttpServlet {
+/**
+ * Servlet implementation class AdminLoginController
+ */
+@WebServlet("/admin/login")
+public class AdminLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private MemberService memberService = new MemberServiceImpl();
+	private AdminMemberService adminMemberService = new AdminMemberServiceImpl();
 	HttpSession session = null;
 
+	@Override
+		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		System.out.println("/login");
+
+		
+		req.getRequestDispatcher("/WEB-INF/views/admin/adminlogin.jsp").forward(req, resp);
+		
+		}
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -29,20 +42,18 @@ public class MemberLoginController extends HttpServlet {
 			System.out.println("이미 로그인 되어있음");
 			System.out.println(session.getAttribute("login"));
 			resp.sendRedirect("/main");
-			return;	
-		}// 이부분 메인 컨트롤러로 옮겨서 이미 로그인되어있으면 로그인 버튼 안보이도록 설정하기
+			return;
+		}	// 이부분 메인 컨트롤러로 옮겨서 이미 로그인되어있으면 로그인 버튼 안보이도록 설정하기
 
-	
-
-		BUser getLoginMember = memberService.getLoginMember(req);
+		Admin admin = adminMemberService.getLoginAdmin(req);
 		
-		boolean login = memberService.login(getLoginMember);
+		boolean login = adminMemberService.login(admin);
 
 		if (login) {
-			BUser getMemberByUserid = memberService.getMemberByUserid(getLoginMember);
+			Admin getAdminByid = adminMemberService.getAdminByid(admin);
 			session.setAttribute("login", true);
-			session.setAttribute("loginid", getMemberByUserid.getUserid());
-			session.setAttribute("loginNick", getMemberByUserid.getUsernick());
+			session.setAttribute("loginid", getAdminByid.getAdminid());
+			session.setAttribute("loginNick", getAdminByid.getAdminnick());
 
 			System.out.println("로그인 성공");
 			resp.sendRedirect("/main");
@@ -54,3 +65,5 @@ public class MemberLoginController extends HttpServlet {
 	}
 
 }
+
+

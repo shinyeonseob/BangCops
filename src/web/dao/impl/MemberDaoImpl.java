@@ -57,7 +57,7 @@ public class MemberDaoImpl implements MemberDao {
 		conn = DBconn.getConnection(); // DB 연결
 
 		// 수행할 SQL 쿼리
-		String sql = "SELECT * FROM member WHERE userid = ? ";
+		String sql = "SELECT * FROM BUser WHERE userid = ? ";
 
 		BUser member = new BUser();
 		try {
@@ -66,13 +66,14 @@ public class MemberDaoImpl implements MemberDao {
 			rs = ps.executeQuery(); // SQL 수행결과 얻기
 
 			while (rs.next()) {
-
-				member.setUserid(rs.getString("UserID"));
-				member.setUserpw(rs.getString("UserPW"));
-				member.setUsernick(rs.getString("UserNick"));
-				member.setUsername(rs.getString("UserName"));
-				member.setUsertel(rs.getString("UserTel"));
-				member.setUserlevel(rs.getInt("userLevel"));
+				
+				member.setUserno(rs.getInt("userno"));
+				member.setUserid(rs.getString("userid"));
+				member.setUserpw(rs.getString("userpw"));
+				member.setUsernick(rs.getString("usernick"));
+				member.setUsername(rs.getString("username"));
+				member.setUsertel(rs.getString("usertel"));
+				member.setUserlevel(rs.getInt("userlevel"));
 				
 			}
 
@@ -88,7 +89,7 @@ public class MemberDaoImpl implements MemberDao {
 	public void insert(BUser member) {
 		conn = DBconn.getConnection(); // DB 연결
 
-		String sql = "INSERT INTO BUser(UserNo, UserID, UserPW, UserNick, UserName, UserTel, userlevel) VALUES (BUser_seq.nextval, ? , ? , ?, ?, ? , '1')";
+		String sql = "INSERT INTO BUser(UserNo, UserID, UserPW, UserNick, UserName, UserTel) VALUES (BUser_seq.nextval, ? , ? , ?, ?, ?)";
 
 		try {
 			ps = conn.prepareStatement(sql);
@@ -104,6 +105,32 @@ public class MemberDaoImpl implements MemberDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
+	}
+
+	@Override
+	public void update(BUser member) {
+		conn = DBconn.getConnection(); // DB연결
+		
+		// 수행할 SQL 쿼리
+		String sql = "";
+		sql += "UPDATE BUser SET userid = ? , usernick = ?";
+		sql += " WHERE userno = ?";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1,  member.getUserid());
+			ps.setString(2,  member.getUsernick());
+//			ps.setString(2,  member.getUserno());
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
 	}
 
 }

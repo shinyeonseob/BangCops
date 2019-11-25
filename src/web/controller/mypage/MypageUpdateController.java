@@ -13,17 +13,15 @@ import web.dto.BUser;
 import web.service.face.MemberService;
 import web.service.impl.MemberServiceImpl;
 
-
-@WebServlet("/mypage/main")
-public class MypageMainController extends HttpServlet {
+@WebServlet("/mypage/update")
+public class MypageUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	MemberService memberService = new MemberServiceImpl();
 	HttpSession session = null;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
+
 		req.setCharacterEncoding("utf-8");
 		String userid = new String();
 		session = req.getSession();
@@ -37,12 +35,20 @@ public class MypageMainController extends HttpServlet {
 		BUser getMemberByUserid = memberService.getMemberByUserid(buser);
 		System.out.println(getMemberByUserid);
 		
+		
 		req.setAttribute("BUser", getMemberByUserid);
 		
 		
+		
 		//view
-		req.getRequestDispatcher("/WEB-INF/views/member/mypage.jsp")
-			.forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/member/mypageupdate.jsp")
+		.forward(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		req.setCharacterEncoding("UTF-8");
 		
 		
 	}
