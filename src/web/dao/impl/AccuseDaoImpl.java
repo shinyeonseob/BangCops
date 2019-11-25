@@ -24,8 +24,8 @@ public class AccuseDaoImpl implements AccuseDao {
 		//다음 게시글 번호 조회 쿼리
 		
 		String sql = "";
-		sql += "INSERT INTO board(BOARDNO,TITLE,ID,CONTENT,HIT) ";
-		sql += " VALUES (?, ?, ?, ?, 0)";
+	//	sql += "INSERT INTO board(BOARDNO,TITLE,ID,CONTENT,HIT) ";
+	//	sql += " VALUES (?, ?, ?, ?, 0)";
 		
 		
 	}
@@ -34,5 +34,9 @@ public class AccuseDaoImpl implements AccuseDao {
 	public int selectBoardno() {
 		return 0;
 	}
-
+	
 }
+
+		
+
+

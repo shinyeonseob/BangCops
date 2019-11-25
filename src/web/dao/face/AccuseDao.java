@@ -23,7 +23,6 @@ public interface AccuseDao {
 	public int selectBoardno();
 
 
-	public void updateHit(BAccuse viewBAccuse);
 	
 
 	/**
