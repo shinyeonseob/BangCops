@@ -1,7 +1,6 @@
-package web.controller;
+package web.controller.member;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,7 +28,7 @@ public class MemberJoinController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-				
+		
 		memberService.join(req);
 		
 		resp.sendRedirect("/main");

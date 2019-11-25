@@ -187,6 +187,35 @@
 		$("#btn_join").click(function() {
 			location.href = "/member/join";
 		});
+		
+		<%--// 로그인 버튼
+		$("#btn_login").click(function() {
+			location.href = "/member/login";
+		}); --%>
+		
+		// 검색 버튼
+		$("#btn_search").click(function() {
+			location.href = "/main";
+		});
+		
+		// 신고 버튼
+		$("#btn_accuse").click(function() {
+			location.href = "/main/accuse";
+		});
+		
+		// 홈 버튼
+		$("#btn_home").click(function() {
+			location.href = "/main/home";
+		});
+		
+		// 커뮤니티 버튼
+		$("#btn_community").click(function() {
+			location.href = "/main/community";
+		});
+		
+		
+		
+		
 	});
 </script>
 
@@ -197,22 +226,21 @@
 
 	<nav id="topMenu">
 		<ul>
-			<li><a class="menuLink" href="#">검색</a></li>
-			<li><a class="menuLink" href="#">신고</a></li>
-			<li><a class="menuLink" href="#">홈</a></li>
-			<li><a class="menuLink" href="#">커뮤니티</a></li>
+			<li><a id = "btn_search" class="menuLink" href="#">검색</a></li>
+			<li><a id = "btn_accuse" class="menuLink" href="#">신고</a></li>
+			<li><a id = "btn_home" class="menuLink" href="#">홈</a></li>
+			<li><a id = "btn_community" class="menuLink" href="#">커뮤니티</a></li>
 			<li><a class="menuLink" href="#">광고/배너</a></li>
 
 			<li>
 			<c:if test="${sessionScope.login eq null }">
-			<a href="#myModal" class="trigger-btn" data-toggle="modal"><button>로그인</button></a>
+			<a href="#myModal" class="trigger-btn" data-toggle="modal"><button id = "btn_login" class = "btn_login">로그인</button></a>
 			<button id="btn_join" class="btn_join">회원가입</button></li>
 			</c:if>
 
 			<c:if test="${sessionScope.login eq true }">
 				<a href="/member/logout"><button>로그아웃</button></a>
-				<a href="/board/list"><button>게시글</button></a>
-				<a href="/board/write"><button>게시글 작성</button></a>
+				<a href="/mypage/main"><button>마이페이지</button></a>
 			</c:if>
 
 		</ul>

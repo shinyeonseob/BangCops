@@ -88,7 +88,7 @@ public class MemberDaoImpl implements MemberDao {
 	public void insert(BUser member) {
 		conn = DBconn.getConnection(); // DB 연결
 
-		String sql = "INSERT INTO BUser(UserID, UserPW, UserNick, UserName, UserTel) VALUES ( ? , ? , ?, ?, ? )";
+		String sql = "INSERT INTO BUser(UserNo, UserID, UserPW, UserNick, UserName, UserTel, userlevel) VALUES (BUser_seq.nextval, ? , ? , ?, ?, ? , '1')";
 
 		try {
 			ps = conn.prepareStatement(sql);
