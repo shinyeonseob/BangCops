@@ -13,9 +13,6 @@ public interface MemberService {
 
 	BUser getMemberByUserid(BUser getLoginMember);
 
-	void join(BUser member);
-	
-	
-	
+	void join(HttpServletRequest req);
 
 }
