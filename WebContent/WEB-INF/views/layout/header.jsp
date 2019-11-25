@@ -11,7 +11,6 @@
 <meta charset="utf-8" />
 <meta name="description"
 	content="The Overflowing church website's main page" />
-<meta name="author" content="unikys@gmail.com" />
 <title>방캅스 홈페이지</title>
 
 <!-- 부트스트랩 -->

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import web.dao.face.MemberDao;
-import web.dbutil.DBconn;
+import web.dbutil.DBConn;
 import web.dto.BUser;
 
 public class MemberDaoImpl implements MemberDao {
@@ -17,7 +17,7 @@ public class MemberDaoImpl implements MemberDao {
 	
 	@Override
 	public int selectCntMemberByUserid(BUser getLoginMember) {
-		conn = DBconn.getConnection(); // DB 연결
+		conn = DBConn.getConnection(); // DB 연결
 
 		String sql = "SELECT count(*) FROM BUser where UserID = ? and UserPW = ?";
 
@@ -35,7 +35,6 @@ public class MemberDaoImpl implements MemberDao {
 			a = rs.getInt(1);
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
@@ -44,7 +43,6 @@ public class MemberDaoImpl implements MemberDao {
 				if (ps != null)
 					ps.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -54,7 +52,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public BUser selectMemberByUserid(BUser getLoginMember) {
-		conn = DBconn.getConnection(); // DB 연결
+		conn = DBConn.getConnection(); // DB 연결
 
 		// 수행할 SQL 쿼리
 		String sql = "SELECT * FROM BUser WHERE userid = ? ";
@@ -87,7 +85,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public void insert(BUser member) {
-		conn = DBconn.getConnection(); // DB 연결
+		conn = DBConn.getConnection(); // DB 연결
 
 		String sql = "INSERT INTO BUser(UserNo, UserID, UserPW, UserNick, UserName, UserTel) VALUES (BUser_seq.nextval, ? , ? , ?, ?, ?)";
 
@@ -102,7 +100,6 @@ public class MemberDaoImpl implements MemberDao {
 			rs = ps.executeQuery(); // SQL 수행결과 얻기
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
 	}
