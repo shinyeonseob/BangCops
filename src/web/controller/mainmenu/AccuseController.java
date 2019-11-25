@@ -20,5 +20,8 @@ public class AccuseController extends HttpServlet {
 		//view
 		req.getRequestDispatcher("/WEB-INF/views/home/accuse.jsp")
 		.forward(req, resp);
+		
+		
+		
 	}
 }
