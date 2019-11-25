@@ -41,7 +41,6 @@
 
 <div class="container">
 
-
 	<form id="joinform" class="form-horizontal"
 		action="<%=response.encodeUrl("/member/join")%>" method="post">
 		<div class="form-group">
