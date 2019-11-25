@@ -106,5 +106,31 @@ public class MemberDaoImpl implements MemberDao {
 		}		
 	}
 
+	@Override
+	public void update(BUser member) {
+		conn = DBconn.getConnection(); // DB연결
+		
+		// 수행할 SQL 쿼리
+		String sql = "";
+		sql += "UPDATE BUser SET userid = ? , usernick = ?";
+		sql += " WHERE userno = ?";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1,  member.getUserid());
+			ps.setString(2,  member.getUsernick());
+//			ps.setString(2,  member.getUserno());
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+	}
+
 }
    

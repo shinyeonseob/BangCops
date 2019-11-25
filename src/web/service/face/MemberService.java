@@ -14,5 +14,13 @@ public interface MemberService {
 	BUser getMemberByUserid(BUser getLoginMember);
 
 	void join(HttpServletRequest req);
+	
+	
+	/**
+	 * 정보수정 (파일업로드 제외)
+	 * 
+	 * @param member BUser 정보수정 수행
+	 */
+	void update(BUser member);
 
 }

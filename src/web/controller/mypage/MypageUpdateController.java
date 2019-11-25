@@ -44,4 +44,12 @@ public class MypageUpdateController extends HttpServlet {
 		req.getRequestDispatcher("/WEB-INF/views/member/mypageupdate.jsp")
 		.forward(req, resp);
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		req.setCharacterEncoding("UTF-8");
+		
+		
+	}
 }

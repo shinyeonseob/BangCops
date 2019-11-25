@@ -75,6 +75,12 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public void update(BUser member) {
+	
+		memberDao.update(member);
+	}
+
 
 	
 
