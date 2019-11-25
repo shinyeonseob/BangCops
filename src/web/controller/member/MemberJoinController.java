@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dto.BUser;
 import web.service.face.MemberService;
 import web.service.impl.MemberServiceImpl;
 
@@ -29,20 +28,9 @@ public class MemberJoinController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String userid = req.getParameter("UserID");
-		String userpw = req.getParameter("UserPW");
-		String usernick = req.getParameter("UserNick");
-		String username = req.getParameter("UserName");
-		String usertel = req.getParameter("UserTel");
+
 		
-		BUser member = new BUser();
-		member.setUserid(userid);
-		member.setUserpw(userpw);
-		member.setUsernick(usernick);
-		member.setUsername(username);
-		member.setUsertel(usertel);
-		
-		memberService.join(member);
+		memberService.join(req);
 		
 		resp.sendRedirect("/main");
 	}
