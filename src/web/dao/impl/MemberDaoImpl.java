@@ -57,7 +57,7 @@ public class MemberDaoImpl implements MemberDao {
 		conn = DBconn.getConnection(); // DB 연결
 
 		// 수행할 SQL 쿼리
-		String sql = "SELECT * FROM member WHERE userid = ? ";
+		String sql = "SELECT * FROM BUser WHERE userid = ? ";
 
 		BUser member = new BUser();
 		try {
@@ -66,13 +66,13 @@ public class MemberDaoImpl implements MemberDao {
 			rs = ps.executeQuery(); // SQL 수행결과 얻기
 
 			while (rs.next()) {
-
-				member.setUserid(rs.getString("UserID"));
-				member.setUserpw(rs.getString("UserPW"));
-				member.setUsernick(rs.getString("UserNick"));
-				member.setUsername(rs.getString("UserName"));
-				member.setUsertel(rs.getString("UserTel"));
-				member.setUserlevel(rs.getInt("userLevel"));
+				
+				member.setUserid(rs.getString("userid"));
+				member.setUserpw(rs.getString("userpw"));
+				member.setUsernick(rs.getString("usernick"));
+				member.setUsername(rs.getString("username"));
+				member.setUsertel(rs.getString("usertel"));
+				member.setUserlevel(rs.getInt("userlevel"));
 				
 			}
 

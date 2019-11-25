@@ -30,18 +30,18 @@ public class MemberLoginController extends HttpServlet {
 			System.out.println(session.getAttribute("login"));
 			resp.sendRedirect("/main");
 			return;
-		}
+		}	// 이부분 메인 컨트롤러로 옮겨서 이미 로그인되어있으면 로그인 버튼 안보이도록 설정하기
 
 		BUser getLoginMember = memberService.getLoginMember(req);
-
+		
 		boolean login = memberService.login(getLoginMember);
 
 		if (login) {
 			BUser getMemberByUserid = memberService.getMemberByUserid(getLoginMember);
-			System.out.println("getMemberByUserid : " + getMemberByUserid);
 			session.setAttribute("login", true);
 			session.setAttribute("loginid", getMemberByUserid.getUserid());
 			session.setAttribute("loginNick", getMemberByUserid.getUsernick());
+
 			System.out.println("로그인 성공");
 			resp.sendRedirect("/main");
 		} else {
