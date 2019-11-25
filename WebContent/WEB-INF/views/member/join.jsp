@@ -149,7 +149,8 @@ $(function() {
            <input type="email" class="form-control" name="email" placeholder="이메일주소를 입력해주세요" required="required">
         </div>
       <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="4자리이상 비밀번호 입력(특수문자/한/영 제외)" required="required">
+            <input type="password" class="form-control" name="password"
+             placeholder="4자리이상 비밀번호 입력(특수문자/한/영 제외)" required="required">
         </div>
       <div class="form-group">
             <input id="pwcheck" type="password" class="form-control" name="confirm_password" placeholder="비밀번호 확인" required="required">

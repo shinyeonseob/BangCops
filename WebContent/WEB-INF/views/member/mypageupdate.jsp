@@ -5,6 +5,17 @@
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
 <jsp:include page="/WEB-INF/views/layout/mypageheader.jsp" />
 
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		// 정보수정 취소 버튼
+		$("#btnCancel").click(function() {
+			location.href = "/mypage/main";
+		});
+		
+	});
+</script>
+
 <style>
 #mypage_update{
 	height: 40px;
@@ -23,10 +34,11 @@
 <div id = "mypage_update" >
 	<h2>정보 수정</h2>
 </div>
+<br><br>
 
 <div class="container">
 
-   <hr>
+  
    <form name="update" action="/mypage/update" method="post" enctype="multipart/form-data">
       <%--<input type="hidden" name="userno" value="${BUser.userno }" />
       
@@ -43,7 +55,7 @@
          <tr>
             <td class="info">이름</td>
             <td colspan="3">
-               ${BUser.username } 아 직</td>
+               ${BUser.username }</td>
          </tr>
 
          <tr>
@@ -57,12 +69,14 @@
             <label for="phone">연락처</label>
             </td>
             <td>
-            <select>
+<%--             <select>
                <option value="010">010
                <option value="011">011
                <option value="016">016
                <option value="019">019
-            </select> - <input type="text" size='4' /> - <input type="text" size='4' />
+            </select> - <input type="text" size='4' /> - <input type="text" size='4' /> --%>
+            
+            <input type="text" class="form-control" id="usertel" name="usertel" value="${BUser.usertel }" />
 			</td>
 			<td> <button disabled="disabled"> 인증받기 </button></td>
          </tr>

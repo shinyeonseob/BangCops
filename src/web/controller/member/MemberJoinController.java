@@ -28,14 +28,7 @@ public class MemberJoinController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		if (memberService.pwck(req)) {
-			
-			req.setAttribute("pwck", memberService.pwck(req));
-			
-			req.getRequestDispatcher("/WEB-INF/views/member/join.jsp").forward(req, resp);
-			
-			return;
-		}
+
 		
 		memberService.join(req);
 		

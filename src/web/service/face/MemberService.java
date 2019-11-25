@@ -23,6 +23,5 @@ public interface MemberService {
 	 */
 	void update(BUser member);
 
-	boolean pwck(HttpServletRequest req);
 
 }
