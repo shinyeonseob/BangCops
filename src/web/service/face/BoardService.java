@@ -26,4 +26,6 @@ public interface BoardService {
 	public void write(HttpServletRequest req);
 	
 	public BAttached getFile(BBoard bBoard);
+	
+	public BBoard getIdx(HttpServletRequest req);
 }

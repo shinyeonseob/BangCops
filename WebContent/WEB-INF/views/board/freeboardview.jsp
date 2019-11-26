@@ -34,17 +34,25 @@ th {
 <h1>자유게시판</h1>
 <h4>당신의 자유로운 이야기를 올려주세요.</h4>
 <hr style="background:grey;height:2px">
-<br>
 
-<table>
+<table style="width:1140">
 	<tr>
-		<th></th>
+		<th colspan="2"><h3>${list.title }</h3></th>
 	</tr>
 	<tr>
-		<td></td>
+		<td><p>${list.usernick } | ${list.regDate }<p></td>
+		<td style="text-align:right;"><p>조회 ${list.hits } | 추천 ${list.reco }</p></td>
+	</tr>
+</table>
+<hr>
+<br>
+<table style="width:1140">
+	<tr>
+		<td colspan="2" style=";text-align:left"><div style="min-height:400">${list.contents }</div></td>
 	</tr>
 	<tr>
-		<td></td>
+		<th style="width:10">첨부파일</th>
+		<td style="width:90" class="info"><a href="/upload/${bAttached.storedName}">${bAttached.originName }</a></td>
 	</tr>
 </table>
 </div>

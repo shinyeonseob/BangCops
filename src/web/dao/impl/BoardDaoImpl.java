@@ -154,12 +154,14 @@ public class BoardDaoImpl implements BoardDao {
 	public BBoard selectBoardByBoardno(BBoard bBoard) {
 		conn = DBconn.getConnection(); // DB연결
 		
-		String sql="SELECT * FROM BBoard WHERE boardno = ?";
-		
+		String sql = "";
+		sql += " SELECT idx, title, contents, hits, reco, boardno, userno, regdate,";
+		sql	+= " (SELECT usernick FROM buser WHERE b.userno = userno)usernick";
+		sql += " FROM bboard b WHERE idx = ?";
 		try {
 			ps = conn.prepareStatement(sql);
 			
-			ps.setInt(1, bBoard.getBoardNo());
+			ps.setInt(1, bBoard.getIdx());
 			
 			rs = ps.executeQuery();
 			
@@ -168,10 +170,11 @@ public class BoardDaoImpl implements BoardDao {
 				bBoard.setIdx(rs.getInt("idx"));
 				bBoard.setTitle(rs.getString("title"));
 				bBoard.setContents(rs.getString("contents"));
-				bBoard.setHits(rs.getInt("hit"));
+				bBoard.setHits(rs.getInt("hits"));
 				bBoard.setUsernick(rs.getString("usernick"));
 				bBoard.setReco(rs.getInt("reco"));
 				bBoard.setRegDate(rs.getDate("regdate"));
+				bBoard.setUserNo(rs.getInt("userNo"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -193,14 +196,15 @@ public class BoardDaoImpl implements BoardDao {
 		
 		String sql = "";
 		sql += "INSERT INTO BBoard ( boardno, idx, title, contents, userno, hits, reco )";
-		sql += " VALUES ( 1, BBoard_seq.nextval, ?, ?, ?, 0, 0 )";
+		sql += " VALUES ( 1, ?, ?, ?, ?, 0, 0 )";
 		
 		try {
 			ps = conn.prepareStatement(sql);
 			
-			ps.setString(1, board.getTitle());
-			ps.setString(2, board.getContents());
-			ps.setInt(3, board.getUserNo());
+			ps.setInt(1, board.getIdx());
+			ps.setString(2, board.getTitle());
+			ps.setString(3, board.getContents());
+			ps.setInt(4, board.getUserNo());
 			
 			ps.executeUpdate();
 		} catch (SQLException e) {
@@ -222,7 +226,7 @@ public class BoardDaoImpl implements BoardDao {
 		int idx = 0;
 		
 		String sql = "";
-		sql += "SELECT BAttached_seq.nextval FROM dual";
+		sql += "SELECT bboard_seq.nextval FROM dual";
 		
 		try {
 			ps = conn.prepareStatement(sql);
@@ -243,8 +247,8 @@ public class BoardDaoImpl implements BoardDao {
 		conn = DBconn.getConnection();
 		
 		String sql = "";
-		sql += "INSERT INTO BAttached(fileno, idx, originname, storedname, fileroot)";
-		sql += " VALUES(boardFile_seq.nextval, ?, ?, ?, ? )";
+		sql += "INSERT INTO BAttached(fileno, idx, originname, storedname, fileroot, writedate)";
+		sql += " VALUES(BAttached_seq.nextval, ?, ?, ?, ?, sysdate )";
 		
 		try {
 			ps = conn.prepareStatement(sql);
@@ -261,7 +265,6 @@ public class BoardDaoImpl implements BoardDao {
 			try {
 				if(ps!=null) ps.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

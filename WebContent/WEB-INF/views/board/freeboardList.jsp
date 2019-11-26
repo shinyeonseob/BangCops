@@ -50,7 +50,7 @@ th {
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center;height:30">
 		<td>${ i.idx }</td>
-		<td><a>${ i.title }</a></td>
+		<td><a href ="/main/community/freeboardlist/view?idx=${ i.idx }">${ i.title }</a></td>
 		<td>${ i.usernick }</td>
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>

@@ -156,7 +156,7 @@ public class BoardServiceImpl implements BoardService {
 						bAttached = new BAttached();
 
 						UUID uuid = UUID.randomUUID(); // 랜덤 UID 생성
-
+						
 						// 12자리 uid 얻기
 						String u = uuid.toString().split("-")[4];
 						// ---------------------------------
@@ -169,7 +169,8 @@ public class BoardServiceImpl implements BoardService {
 						bAttached.setOriginName(item.getName());
 						bAttached.setStoredName(item.getName() + "_" + u);
 						bAttached.setFilesize(item.getSize());
-
+						bAttached.setFileRoot(path);
+						bAttached.setIdx(boardDao.selectIdx());
 						try {
 							item.write(up); // 실제 업로드
 							item.delete(); // 임시 파일 삭제
@@ -186,8 +187,8 @@ public class BoardServiceImpl implements BoardService {
 
 				HttpSession session = req.getSession();
 
-				board.setUsernick((String) session.getAttribute("loginNick"));
-				board.setUserNo(Integer.parseInt((String)session.getAttribute("")));
+				board.setUsernick((String) session.getAttribute("UserNick"));
+				board.setUserNo((int)session.getAttribute("Userno"));
 				board.setIdx(idx);
 				boardDao.insert(board);
 
@@ -195,13 +196,26 @@ public class BoardServiceImpl implements BoardService {
 					bAttached.setIdx(idx);
 					boardDao.insertFile(bAttached);
 			
-//					System.out.println(boardFile);
+//					System.out.println(bAttached);
 				}
 	}
 
 	@Override
 	public BAttached getFile(BBoard bBoard) {
 		return boardDao.selectFile(bBoard);
+	}
+
+	@Override
+	public BBoard getIdx(HttpServletRequest req) {
+		String param = req.getParameter("idx");
+		
+		int idx = 0;
+		if(param != null && !"".equals(param)) {
+			idx = Integer.parseInt(param);
+		}
+		BBoard bBoard = new BBoard();
+		bBoard.setIdx(idx);
+		return bBoard;
 	}
 
 }

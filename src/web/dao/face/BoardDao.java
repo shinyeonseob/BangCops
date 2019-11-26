@@ -9,6 +9,7 @@ import web.dto.BBoard;
 public interface BoardDao {
 	public List<BBoard> selectAll();
 	
+	// 내림차순으로 리스트 정렬 및 게시목록 조회
 	public List<BBoard> selectAll(Paging paging);
 	
 	public int selectCntAll();

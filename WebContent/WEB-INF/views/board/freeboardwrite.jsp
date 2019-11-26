@@ -58,9 +58,9 @@ th {
 <table style="margin:0 auto;width:1140;">
 	<tr style="height:40;margin:auto">
 		<th class="text-center" style="width:10%">아이디</th>
-		<td class="text-center" style="width:40%">${loginid}</td>
+		<td class="text-center" style="width:40%">${Userid}</td>
 		<th class="text-center" style="width:10%">닉네임</th>
-		<td class="text-center" style="width:40%">${loginNick}</td>
+		<td class="text-center" style="width:40%">${UserNick}</td>
 	</tr>
 	<tr style="height:40">
 		<th class="text-center" style="width:10%">제목</th>
@@ -75,7 +75,7 @@ th {
 	</tr>
 	<tr>
 		<th class="text-center" style="width:10%">첨부<br>파일</th>
-		<td colspan="3"><input type="file"/></td>
+		<td colspan="3"><input type="file" name="upfile"/></td>
 	</tr>
 </table>
 <a style="float:right"><button id="btnWrite">등록</button></a>
