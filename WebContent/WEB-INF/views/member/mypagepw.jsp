@@ -73,6 +73,11 @@
     line-height: 150%;
     margin-left: 300px;
 }
+#check_info{
+	width : 40%;
+	float:right;
+	margin-right: 200px;
+}
 </style>
 
 <script type="text/javascript">
@@ -80,12 +85,29 @@ $(document).ready(function() {
 	
 	//작성버튼 동작
 	$("#btn_updatepw").click(function() {
-		
-		//스마트에디터의 내용으로 <textarea>에 적용시키기
-		submitContents($("#btn_updatepw"));
-		
+		 // 현재 비밀번호 입력
+        if($("#userpw").val() ==''){
+            alert('현재 비밀번호를 입력하세요');
+            $("#userpw").focus();
+            return false;
+        }
+		 
+    	 // 변경할 비밀번호 입력
+        if($("#updatepw").val() ==''){
+            alert('변경할 비밀번호를 입력하세요');
+            $("#updatepw").focus();
+            return false;
+        }
+        // 비밀번호 확인
+        if($("#update_chk").val() ==''){
+            alert('비밀번호를 다시 한번 더 입력하세요');
+            $("#update_chk").focus();
+            return false;
+        }else{
 		//form submit 수행
 		$("form").submit();
+        	
+        }
 	});
 	
 	
@@ -109,6 +131,7 @@ $(function() {
        }
     });
  });
+
 </script>
 
 <div id = "container">
@@ -135,14 +158,16 @@ $(function() {
 <div id = "div_updatepw_chk">
 	<label> 비밀번호 확인  </label>
 	<input  type="password" class="form-control pwinput" id="updatepw_chk" name="updatepw_chk"  />
+	         <div id = "check_info">
 	         <div class="alert alert-success" id="alert-success">비밀번호가
             일치합니다.</div>
          <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지
             않습니다.</div>
+            </div>
 </div>
 
 </div>
-</div>
+<br>
 <hr>
 <button type = "submit" id = "btn_updatepw" class="btn btn-info"> 비밀번호 변경</button>
 </form>
