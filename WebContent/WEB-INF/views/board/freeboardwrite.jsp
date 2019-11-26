@@ -22,7 +22,7 @@ $(document).ready(function() {
 		submitContents($("#btnWrite"));
 
 		//form submit
-		$("form").submit();
+		$("#write").submit();
 	})
 
 });
@@ -54,23 +54,23 @@ th {
 <h4>당신의 자유로운 이야기를 올려주세요.</h4>
 <hr style="background:grey;height:2px">
 <br>
-<form action="/main/community/freeboard/write" method="POST">
+<form id="write" action="/main/community/freeboardlist/write" method="POST" enctype="multipart/form-data">
 <table style="margin:0 auto;width:1140;">
 	<tr style="height:40;margin:auto">
 		<th class="text-center" style="width:10%">아이디</th>
-		<td class="text-center" style="width:40%"></td>
+		<td class="text-center" style="width:40%">${loginid}</td>
 		<th class="text-center" style="width:10%">닉네임</th>
-		<td class="text-center" style="width:40%"></td>
+		<td class="text-center" style="width:40%">${loginNick}</td>
 	</tr>
 	<tr style="height:40">
 		<th class="text-center" style="width:10%">제목</th>
-		<td colspan="3" class="text-center" style="width:90%"><input type="text" size="125" placeholder="제목을 입력하세요."/></td>
+		<td colspan="3" class="text-center" style="width:90%"><input id="title" name="title" type="text" size="125" placeholder="제목을 입력하세요."/></td>
 	</tr>
 	<tr style="height:250">
 		<th class="text-center">내용</th>
-		<td colspan="3"><textarea class="form-control" id="p_content" placeholder="이미지 파일 업로드는 마우스 드롭다운으로 쉽게 가능합니다."></textarea>
+		<td colspan="3"><textarea class="form-control" id="contents" name="contents" placeholder="이미지 업로드는 파일 드롭다운으로 쉽게 가능합니다." ></textarea>
 <script type="text/javascript">
- CKEDITOR.replace('p_content', {height: 500});
+ CKEDITOR.replace('contents', {height: 400});
 </script></td>
 	</tr>
 	<tr>
@@ -78,7 +78,7 @@ th {
 		<td colspan="3"><input type="file"/></td>
 	</tr>
 </table>
+<a style="float:right"><button id="btnWrite">등록</button></a>
 </form>
-<a style="float:right"><button id="btnWrtie">등록</button></a>
 </div>
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />

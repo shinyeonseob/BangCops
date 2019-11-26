@@ -11,6 +11,7 @@ import java.util.List;
 import util.Paging;
 import web.dao.face.BoardDao;
 import web.dbutil.DBconn;
+import web.dto.BAttached;
 import web.dto.BBoard;
 
 public class BoardDaoImpl implements BoardDao {
@@ -184,6 +185,129 @@ public class BoardDaoImpl implements BoardDao {
 		}
 		
 		return bBoard;
+	}
+
+	@Override
+	public void insert(BBoard board) {
+		conn = DBconn.getConnection();
+		
+		String sql = "";
+		sql += "INSERT INTO BBoard ( boardno, idx, title, contents, userno, hits, reco )";
+		sql += " VALUES ( 1, BBoard_seq.nextval, ?, ?, ?, 0, 0 )";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, board.getTitle());
+			ps.setString(2, board.getContents());
+			ps.setInt(3, board.getUserNo());
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	@Override
+	public int selectIdx() {
+		conn = DBconn.getConnection();
+		
+		int idx = 0;
+		
+		String sql = "";
+		sql += "SELECT BAttached_seq.nextval FROM dual";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				idx = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return idx;
+	}
+
+	@Override
+	public void insertFile(BAttached bAttached) {
+		conn = DBconn.getConnection();
+		
+		String sql = "";
+		sql += "INSERT INTO BAttached(fileno, idx, originname, storedname, fileroot)";
+		sql += " VALUES(boardFile_seq.nextval, ?, ?, ?, ? )";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, bAttached.getIdx());
+			ps.setString(2, bAttached.getOriginName());
+			ps.setString(3, bAttached.getStoredName());
+			ps.setString(4, bAttached.getFileRoot());
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null) ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+
+	@Override
+	public BAttached selectFile(BBoard bBoard) {
+		conn = DBconn.getConnection();
+		
+		BAttached bAttached = new BAttached();
+		
+		String sql = "";
+		sql += "SELECT * FROM BAttached WHERE idx = ?";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, bBoard.getIdx());
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				
+				bAttached.setIdx(rs.getInt("idx"));
+				bAttached.setFileNo(rs.getInt("fileNo"));
+				bAttached.setOriginName(rs.getString("originName"));
+				bAttached.setStoredName(rs.getString("storedName"));
+				bAttached.setFileRoot(rs.getString("fileRoot"));
+				bAttached.setWriteDate(rs.getDate("writeDate"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null) ps.close();
+				if(rs!=null) rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return bAttached;
 	}
 
 }

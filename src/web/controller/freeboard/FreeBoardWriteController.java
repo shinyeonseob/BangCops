@@ -15,7 +15,7 @@ import web.service.impl.BoardServiceImpl;
 /**
  * Servlet implementation class FreeBoardWriteController
  */
-@WebServlet("/main/community/freeboard/write")
+@WebServlet("/main/community/freeboardlist/write")
 public class FreeBoardWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,9 +36,8 @@ public class FreeBoardWriteController extends HttpServlet {
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			req.setCharacterEncoding("UTF-8");
 			
-//			boardService.write(req);
-			// 뷰 작성완료(확인 요망)
+			boardService.write(req);
 			
-			resp.sendRedirect("/main/community/freeboard");
+			resp.sendRedirect("/main/community/freeboardlist");
 		}
 }

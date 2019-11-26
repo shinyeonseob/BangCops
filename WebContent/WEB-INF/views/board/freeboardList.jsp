@@ -38,7 +38,7 @@ th {
 <h4>당신의 자유로운 이야기를 올려주세요.</h4>
 <hr style="background:grey;height:2px">
 <br>
-<table>
+<table style="width:1140">
 	<tr style="height:40">
 		<th class="text-center" style="width:5%">글번호</th>
 		<th class="text-center" style="width:55%">제목</th>
@@ -59,7 +59,7 @@ th {
 </c:forEach>
 </table>
 <hr style="background:grey;height:2px">
-<a href="/main/community/freeboard/write"><button>게시글작성</button></a>
+<a href="/main/community/freeboardlist/write"><button>게시글작성</button></a>
 <input style="float:right" id="select" name="select" type="text" />
 <a style="float:right"><select>
 	<option>제목</option>
