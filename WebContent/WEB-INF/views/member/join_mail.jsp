@@ -36,11 +36,11 @@
 <body>
 
 <form action="<%= response.encodeUrl("/member/join") %>" method="post">
-<input  name="UserID" value="${bUser.userid }" />
-<input  name="UserPW" value="${bUser.userpw }" />
-<input  name="UserNick" value="${bUser.usernick }" />
-<input  name="UserName" value="${bUser.username }" />
-<input  name="UserTel" value="${bUser.usertel }" />
+<input type="hidden" name="UserID" value="${bUser.userid }" />
+<input type="hidden" name="UserPW" value="${bUser.userpw }" />
+<input type="hidden" name="UserNick" value="${bUser.usernick }" />
+<input type="hidden" name="UserName" value="${bUser.username }" />
+<input type="hidden" name="UserTel" value="${bUser.usertel }" />
 
 <div class="form-group">
 
