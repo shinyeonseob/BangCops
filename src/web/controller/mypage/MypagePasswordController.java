@@ -21,6 +21,9 @@ public class MypagePasswordController extends HttpServlet {
 	HttpSession session = null;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+
+		
 		// 세션에서 userid 받기
 		session = req.getSession();
 		String userid = new String();
@@ -62,7 +65,7 @@ public class MypagePasswordController extends HttpServlet {
 		if(memberService.getcurrpw(req).getUserpw().equals(memberService.getMemberByUserid(buser).getUserpw())) {
 			BUser param = memberService.getUpdatepw(req);
 			param.setUserno(userno);
-//			System.out.println("param : " + param);
+			//			System.out.println("param : " + param);
 			memberService.updatepw(param);
 
 		}

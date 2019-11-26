@@ -85,10 +85,7 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
-	@Override
-	public void update(BUser member) {
-		memberDao.update(member);
-	}
+	
 	
 
 	@Override
@@ -258,6 +255,25 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void join(BUser bUser) {
 
+		memberDao.insert(bUser);
+	}
+
+	@Override
+	public BUser getupdateUser(HttpServletRequest req) {
+		try {
+			req.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		BUser member = new BUser();
+		member.setUsernick(req.getParameter("usernick"));
+		member.setUsertel(req.getParameter("usertel"));
+		return member;
+
+
 	}
 
 	@Override
@@ -272,7 +288,16 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.nickcheck(usernick);
 	}
 
+
+
+
+
+
+	@Override
+	public void update(BUser member) {
+		memberDao.update(member);
 	}
-
-
+	
+	
+}
 
