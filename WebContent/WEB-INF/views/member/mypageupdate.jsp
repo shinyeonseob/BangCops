@@ -49,18 +49,15 @@
 <div class="container">
 
   
-   <form name="update" action="/mypage/update" method="post" enctype="multipart/form-data">
+ <%-- <form name="update" action="/mypage/update" method="post" enctype="multipart/form-data">--%>  
+   <form name="update" action="/mypage/update" method="post" >
       <input type="hidden" name="userno" value="${BUser.userno }" />
       
       <%-- 전화번호 입력값이 다를 시 사용안함 --%>
-		<input type="hidden" name="usertel" value="${BUser.usertel }" /> 
+		 <%--<input type="hidden" name="usertel" value="${BUser.usertel }" /> --%>
 
       <table class="table table-bordered">
-         <tr>
-            <td class="info">이메일 계정</td>
-            <td><input type="text" class="form-control" id="userid" name="userid" value="${BUser.userid }" /></td>
-            <td> <button disabled="disabled"> 이메일 인증 </button></td>
-         </tr>
+
 
          <tr>
             <td class="info">이름</td>
