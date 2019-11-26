@@ -63,8 +63,10 @@ public class MypageUpdateController extends HttpServlet {
 		
 		BUser buser = new BUser();
 		buser = memberService.getupdateUser(req);
-		System.out.println("reqUpdate : " + memberService.getupdateUser(req));
-		memberService.update( memberService.getupdateUser(req));
+		int userno = (int) session.getAttribute("Userno");
+		buser.setUserno(userno);
+		System.out.println("reqUpdate : " + buser);
+		memberService.update( buser);
 		
 //		memberService.update(buser);
 

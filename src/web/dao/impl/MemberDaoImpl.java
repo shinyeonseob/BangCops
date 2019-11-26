@@ -120,7 +120,7 @@ public class MemberDaoImpl implements MemberDao {
 			ps = conn.prepareStatement(sql);
 
 			ps.setString(1,  member.getUsernick());
-			ps.setString(2,  member.getUsertel());
+			ps.setString(2,  member.getUsertel()); 
 			ps.setInt(3,  member.getUserno());
 
 			ps.executeUpdate();

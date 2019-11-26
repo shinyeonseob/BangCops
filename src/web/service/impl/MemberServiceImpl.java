@@ -267,11 +267,10 @@ public class MemberServiceImpl implements MemberService {
 			e.printStackTrace();
 		}
 		
-		String usernick = req.getParameter("usernick");
-		String usertel = req.getParameter("usertel");
+		
 		BUser member = new BUser();
-		member.setUsernick(usernick);
-		member.setUsertel(usertel);
+		member.setUsernick(req.getParameter("usernick"));
+		member.setUsertel(req.getParameter("usertel"));
 		return member;
 
 
