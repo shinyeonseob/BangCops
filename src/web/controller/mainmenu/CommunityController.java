@@ -19,7 +19,7 @@ public class CommunityController extends HttpServlet {
 	
 
 		//view
-		req.getRequestDispatcher("/WEB-INF/views/home/accuse.jsp")
+		req.getRequestDispatcher("/WEB-INF/views/home/community.jsp")
 		.forward(req, resp);
 	}
 }

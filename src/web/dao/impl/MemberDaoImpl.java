@@ -35,7 +35,6 @@ public class MemberDaoImpl implements MemberDao {
 			a = rs.getInt(1);
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
@@ -44,7 +43,6 @@ public class MemberDaoImpl implements MemberDao {
 				if (ps != null)
 					ps.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -102,7 +100,6 @@ public class MemberDaoImpl implements MemberDao {
 			rs = ps.executeQuery(); // SQL 수행결과 얻기
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
 	}
