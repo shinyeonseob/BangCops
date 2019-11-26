@@ -160,7 +160,7 @@ body {
 </head>
 <body>
 <div class="signup-form">
-<form action="<%= response.encodeUrl("/member/join") %>" method="post">
+<form action="<%= response.encodeUrl("/member/join2") %>" method="post">
 <input type="hidden" name="UserID" value="${bUser.userid }" />
 <input type="hidden" name="UserPW" value="${bUser.userpw }" />
 <input type="hidden" name="UserNick" value="${bUser.usernick }" />

@@ -19,5 +19,9 @@ public interface MemberDao {
 	 */
 	void update(BUser member);
 
+	int cntUserid(BUser bUser);
+
+	boolean nickcheck(String usernick);
+
 
 }

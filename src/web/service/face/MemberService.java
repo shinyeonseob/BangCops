@@ -25,5 +25,9 @@ public interface MemberService {
 
 	BUser getbUser(HttpServletRequest req);
 
+	int cntUserid(BUser bUser);
+
+	boolean nickcheck(String usernick);
+
 
 }

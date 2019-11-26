@@ -133,6 +133,75 @@ public class MemberDaoImpl implements MemberDao {
 		
 	}
 
+	@Override
+	public int cntUserid(BUser bUser) {
+		conn = DBconn.getConnection(); // DB 연결
+
+		String sql = "SELECT count(*) FROM BUser where UserID = ?";
+
+		int a = -1;
+
+		try {
+			ps = conn.prepareStatement(sql); // 수행객체 얻기
+			ps.setString(1, bUser.getUserid()); // sql 'empno = ?'의 ? 채우기
+
+			rs = ps.executeQuery(); // SQL 수행결과 얻기
+
+			rs.next();
+
+			a = rs.getInt(1);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return a;
+	}
+
+	@Override
+	public boolean nickcheck(String usernick) {
+		conn = DBconn.getConnection(); // DB 연결
+
+		String sql = "SELECT count(*) FROM BUser where UserNick = ?";
+
+		
+		try {
+			ps = conn.prepareStatement(sql); // 수행객체 얻기
+			ps.setString(1, usernick); // sql 'empno = ?'의 ? 채우기
+
+			rs = ps.executeQuery(); // SQL 수행결과 얻기
+
+			rs.next();
+
+			if (rs.getInt(1) == 0) {
+				return false;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return true;
+	}
+
 
 }
    

@@ -160,11 +160,12 @@ body {
 </head>
 <body>
    <div class="signup-form">
-      <form action="/send" method="get">
+      <form action="/member/join" method="post">
          <h2>회원가입</h2>
          <div class="form-group">
             <input type="text" class="form-control" name="UserNick"
                placeholder="닉네임을 입력해주세요" required="required">
+               <a href="/member/check" target="_blank">닉네임 중복 확인하기</a>
          </div>
          <div class="form-group">
             <input type="text" class="form-control" name="UserName"
