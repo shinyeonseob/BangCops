@@ -8,6 +8,8 @@ import util.Paging;
 import web.dao.face.BoardDao;
 import web.dao.impl.BoardDaoImpl;
 import web.dto.BBoard;
+import web.dto.BBoardAndBboardType;
+import web.dto.BUser;
 import web.service.face.BoardService;
 
 public class BoardServiceImpl implements BoardService {
@@ -49,9 +51,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BBoard> getMyboardList(Paging paging) {
+	public List<BBoardAndBboardType> getMyboardList(Paging paging, BUser userno) {
 		
-		return boardDao.selectMyboard(paging);
+		return boardDao.selectMyboard(paging, userno);
 	}
 
 }

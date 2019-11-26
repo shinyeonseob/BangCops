@@ -35,7 +35,7 @@
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center;height:30">
 		<td>${ i.idx }</td>
-		<td> 보드넘버<%-- ${ i.boardno }--%></td>
+		<td>${ i.boardname }</td>
 		<td><a>${ i.title }</a></td>
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>

@@ -2,7 +2,7 @@ package web.dto;
 
 import java.util.Date;
 
-public class BBoard {
+public class BBoardAndBboardType {
 	private int idx;
 	private String title;
 	private String contents;
@@ -12,16 +12,35 @@ public class BBoard {
 	private int boardNo;
 	private int userNo;
 	private String usernick;
+	
+	private String boardname;
+	private String userlevel;
 
 	
 	
 	
 	
+	public String getBoardname() {
+		return boardname;
+	}
+
+	public void setBoardname(String boardname) {
+		this.boardname = boardname;
+	}
+
+	public String getUserlevel() {
+		return userlevel;
+	}
+
+	public void setUserlevel(String userlevel) {
+		this.userlevel = userlevel;
+	}
+
 	@Override
 	public String toString() {
-		return "BBoard [idx=" + idx + ", title=" + title + ", contents=" + contents + ", regDate=" + regDate + ", hits="
-				+ hits + ", reco=" + reco + ", boardNo=" + boardNo + ", userNo=" + userNo + ", usernick=" + usernick
-				+ "]";
+		return "BBoardAndBboardType [idx=" + idx + ", title=" + title + ", contents=" + contents + ", regDate="
+				+ regDate + ", hits=" + hits + ", reco=" + reco + ", boardNo=" + boardNo + ", userNo=" + userNo
+				+ ", usernick=" + usernick + ", boardname=" + boardname + ", userlevel=" + userlevel + "]";
 	}
 
 	public String getUsernick() {

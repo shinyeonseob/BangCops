@@ -12,6 +12,8 @@ import util.Paging;
 import web.dao.face.BoardDao;
 import web.dbutil.DBconn;
 import web.dto.BBoard;
+import web.dto.BBoardAndBboardType;
+import web.dto.BUser;
 
 public class BoardDaoImpl implements BoardDao {
 	
@@ -187,7 +189,7 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public List<BBoard> selectMyboard(Paging paging) {
+	public List<BBoardAndBboardType> selectMyboard(Paging paging, BUser userno) {
 
 		conn = DBconn.getConnection(); //DB 연결
 		
@@ -196,37 +198,42 @@ public class BoardDaoImpl implements BoardDao {
 		sql += "SELECT * FROM (";
 		sql += "	SELECT rownum rnum, B .* FROM (";
 		sql += "	SELECT";
-		sql += "		idx,title, contents, hits, reco, boardno, userno, regdate, (SELECT usernick FROM buser WHERE b.userno = userno)usernick ";
-		sql += "	FROM Bboard b";
+		sql += "		b.idx,b.title, b.contents, b.hits, b.reco, b.boardno, b.userno, b.regdate ";
+		sql += "		, t.boardname";
+		sql += "	FROM Bboard b , Bboardtype t";
+		sql += "	WHERE b.boardno = t.boardno";
+		sql += "	AND userno = ? ";
 		sql += "	ORDER BY idx DESC";
 		sql += " ) B ORDER BY rnum";
 		sql += " ) BBoard";
 		sql += " WHERE rnum BETWEEN ? AND ?";
 		
-		List<BBoard> list = new ArrayList<>();
+		List<BBoardAndBboardType> list = new ArrayList<>();
 		
 		try {
 			ps = conn.prepareStatement(sql);
 
-			ps.setInt(1, paging.getStartNo());
-			ps.setInt(2, paging.getEndNo());
+			ps.setInt(1, userno.getUserno());
+			ps.setInt(2, paging.getStartNo());
+			ps.setInt(3, paging.getEndNo());
 			
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				BBoard bBoard = new BBoard();
+//				BBoard bBoard = new BBoard();
+				BBoardAndBboardType myboard = new BBoardAndBboardType();
 				
-				bBoard.setIdx(rs.getInt("idx"));
-				bBoard.setTitle(rs.getString("title"));
-				bBoard.setContents(rs.getString("contents"));
-				bBoard.setRegDate(rs.getDate("regdate"));
-				bBoard.setHits(rs.getInt("hits"));
-				bBoard.setReco(rs.getInt("reco"));
-				bBoard.setBoardNo(rs.getInt("BoardNo"));
-				bBoard.setUserNo(rs.getInt("UserNo"));
-				bBoard.setUsernick(rs.getString("usernick"));
+				myboard.setIdx(rs.getInt("idx"));
+				myboard.setTitle(rs.getString("title"));
+				myboard.setContents(rs.getString("contents"));
+				myboard.setRegDate(rs.getDate("regdate"));
+				myboard.setHits(rs.getInt("hits"));
+				myboard.setReco(rs.getInt("reco"));
+				myboard.setBoardNo(rs.getInt("BoardNo"));
+				myboard.setUserNo(rs.getInt("UserNo"));
+				myboard.setBoardname(rs.getString("boardname"));
 
-				list.add(bBoard);
+				list.add(myboard);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
