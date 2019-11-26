@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko-KR">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -134,15 +135,13 @@ body {
    display: inline;
 }
 </style>
-
-
 <script type="text/javascript">
    $(function() {
       $("#alert-success").hide();
       $("#alert-danger").hide();
       $("input").keyup(function() {
-         var pwd1 = $("#UserPW").val();
-         var pwd2 = $("#UserPWck").val();
+         var pwd1 = $("#numcheck2").val();
+         var pwd2 = $("#numcheck").val();
          if (pwd1 != "" || pwd2 != "") {
             if (pwd1 == pwd2) {
                $("#alert-success").show();
@@ -157,54 +156,29 @@ body {
       });
    });
 </script>
+
 </head>
 <body>
-   <div class="signup-form">
-      <form action="/send" method="get">
-         <h2>회원가입</h2>
-         <div class="form-group">
-            <input type="text" class="form-control" name="UserNick"
-               placeholder="닉네임을 입력해주세요" required="required">
-         </div>
-         <div class="form-group">
-            <input type="text" class="form-control" name="UserName"
-               placeholder="이름(실명)을 입력해주세요" required="required">
-         </div>
-         <div class="form-group">
-            <input type="email" class="form-control" name="UserID"
-               placeholder="이메일주소를 입력해주세요" required="required">
-         </div>
-         <div class="form-group">
-            <input type="password" class="form-control" name="UserPW"
-               id="UserPW" placeholder="4자리이상 비밀번호 입력(특수문자/한/영 제외)"
-               required="required">
-         </div>
-         <div class="form-group">
-            <input id="UserPWck" type="password" class="form-control"
-               name="UserPWck" placeholder="비밀번호 확인" required="required">
-         </div>
-         <div class="alert alert-success" id="alert-success">비밀번호가
-            일치합니다.</div>
-         <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지
-            않습니다.</div>
-         <div class="form-group">
-            <input type="tel" class="form-control" name="UserTel" id="UserTel"
-               placeholder="전화번호" required="required" />
-         </div>
-         <div class="form-group">
-            <label class="checkbox-inline"><input type="checkbox"
-               required="required"> I accept the <a href="#">Terms of
-                  Use</a> &amp; <a href="#">Privacy Policy</a></label>
-         </div>
+<div class="signup-form">
+<form action="<%= response.encodeUrl("/member/join") %>" method="post">
+<input type="hidden" name="UserID" value="${bUser.userid }" />
+<input type="hidden" name="UserPW" value="${bUser.userpw }" />
+<input type="hidden" name="UserNick" value="${bUser.usernick }" />
+<input type="hidden" name="UserName" value="${bUser.username }" />
+<input type="hidden" name="UserTel" value="${bUser.usertel }" />
 
-         <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block">회원가입
-               완료</button>
-         </div>
-      </form>
-      <div class="text-center">
-         Already have an account? <a href="#">Sign in</a>
-      </div>
-   </div>
+<div class="form-group">
+
+<p> 입력한 이메일로 보내진 인증번호를 입력하세요</p> 
+
+<input id="numcheck2" type="hidden" class="form-control" name="numcheck2" value="${ranno }" >
+<input id="numcheck" type="text" class="form-control" name="Certification" placeholder="인증번호 입력" required="required">
+
+<div class="alert alert-success" id="alert-success"> 인증번호가 일치합니다. <button>확인</button></div>
+<div class="alert alert-danger" id="alert-danger">인증번호가 일치하지 않습니다.</div>
+</div>
+</form>
+</div>
+
 </body>
 </html>

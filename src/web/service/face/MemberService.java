@@ -13,8 +13,8 @@ public interface MemberService {
 
 	BUser getMemberByUserid(BUser getLoginMember);
 
+	void join(BUser bUser);
 	void join(HttpServletRequest req);
-	
 	
 	public void update(BUser member); 
 	
@@ -23,6 +23,7 @@ public interface MemberService {
 	 * 
 	 * @param req - 요청 정보 객체
 	 */
+
 	void update(HttpServletRequest req);
 
 	
@@ -33,6 +34,10 @@ public interface MemberService {
 	void updatepw(BUser param);
 
 	
+
+
+
+
 
 
 }
