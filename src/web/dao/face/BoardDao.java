@@ -10,6 +10,8 @@ public interface BoardDao {
 	
 	public List<BBoard> selectAll(Paging paging);
 	
+	public List<BBoard> selectMyboard(Paging paging);
+
 	public int selectCntAll();
 	
 	public BBoard selectBoardByBoardno(BBoard bBoard);

@@ -48,4 +48,10 @@ public class BoardServiceImpl implements BoardService {
 		return boardDao.selectBoardByBoardno(bBoard);
 	}
 
+	@Override
+	public List<BBoard> getMyboardList(Paging paging) {
+		
+		return boardDao.selectMyboard(paging);
+	}
+
 }

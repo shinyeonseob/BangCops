@@ -186,4 +186,54 @@ public class BoardDaoImpl implements BoardDao {
 		return bBoard;
 	}
 
+	@Override
+	public List<BBoard> selectMyboard(Paging paging) {
+
+		conn = DBconn.getConnection(); //DB 연결
+		
+		// 수행할 쿼리
+		String sql = "";
+		sql += "SELECT * FROM (";
+		sql += "	SELECT rownum rnum, B .* FROM (";
+		sql += "	SELECT";
+		sql += "		idx,title, contents, hits, reco, boardno, userno, regdate, (SELECT usernick FROM buser WHERE b.userno = userno)usernick ";
+		sql += "	FROM Bboard b";
+		sql += "	ORDER BY idx DESC";
+		sql += " ) B ORDER BY rnum";
+		sql += " ) BBoard";
+		sql += " WHERE rnum BETWEEN ? AND ?";
+		
+		List<BBoard> list = new ArrayList<>();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+
+			ps.setInt(1, paging.getStartNo());
+			ps.setInt(2, paging.getEndNo());
+			
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				BBoard bBoard = new BBoard();
+				
+				bBoard.setIdx(rs.getInt("idx"));
+				bBoard.setTitle(rs.getString("title"));
+				bBoard.setContents(rs.getString("contents"));
+				bBoard.setRegDate(rs.getDate("regdate"));
+				bBoard.setHits(rs.getInt("hits"));
+				bBoard.setReco(rs.getInt("reco"));
+				bBoard.setBoardNo(rs.getInt("BoardNo"));
+				bBoard.setUserNo(rs.getInt("UserNo"));
+				bBoard.setUsernick(rs.getString("usernick"));
+
+				list.add(bBoard);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
 }

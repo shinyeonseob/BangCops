@@ -36,12 +36,12 @@ public class MypageUpdateController extends HttpServlet {
 		BUser buser = new BUser();
 		buser.setUserid(userid);
 		buser.setUserno(userno);
-		System.out.println("session id : " + userid);
-		System.out.println(buser);
+//		System.out.println("session id : " + userid);
+//		System.out.println(buser);
 
 		// userid 에 해당하는 사용자 데이터 가져오기
 		BUser getMemberByUserid = memberService.getMemberByUserid(buser);
-		System.out.println(getMemberByUserid);
+//		System.out.println(getMemberByUserid);
 
 
 		// 모델 값 뷰로 전달
@@ -65,7 +65,7 @@ public class MypageUpdateController extends HttpServlet {
 		buser = memberService.getupdateUser(req);
 		int userno = (int) session.getAttribute("Userno");
 		buser.setUserno(userno);
-		System.out.println("reqUpdate : " + buser);
+//		System.out.println("reqUpdate : " + buser);
 		memberService.update( buser);
 		
 //		memberService.update(buser);
