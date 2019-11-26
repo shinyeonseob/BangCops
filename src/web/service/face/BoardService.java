@@ -27,5 +27,9 @@ public interface BoardService {
 	
 	public BAttached getFile(BBoard bBoard);
 	
+	//게시판 idx 추출
 	public BBoard getIdx(HttpServletRequest req);
+	
+	//게시글 삭제
+	public void delete(BBoard bBoard);
 }

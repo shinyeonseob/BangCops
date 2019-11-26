@@ -2,6 +2,7 @@ package web.dao.face;
 
 import java.util.List;
 
+
 import util.Paging;
 import web.dto.BAttached;
 import web.dto.BBoard;
@@ -22,7 +23,11 @@ public interface BoardDao {
 	
 	public int selectIdx();
 	
-	public void insertFile(BAttached bAttached);
+	public void updateHit(BBoard bBoard);
 	
-	public BAttached selectFile(BBoard bBoard);
+	public void delete(BBoard bBoard);
+	
+	
+	
+	
 }

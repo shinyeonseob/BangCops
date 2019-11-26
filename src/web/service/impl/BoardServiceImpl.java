@@ -17,14 +17,17 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import util.Paging;
 import web.dao.face.BoardDao;
+import web.dao.face.BoardFileDao;
 import web.dao.impl.BoardDaoImpl;
+import web.dao.impl.BoardFileDaoImpl;
 import web.dto.BAttached;
 import web.dto.BBoard;
 import web.service.face.BoardService;
 
 public class BoardServiceImpl implements BoardService {
 
-	public BoardDao boardDao = new BoardDaoImpl();
+	private BoardDao boardDao = new BoardDaoImpl();
+	private BoardFileDao boardFileDao = new BoardFileDaoImpl();
 
 	@Override
 	public List<BBoard> getList() {
@@ -57,6 +60,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public BBoard view(BBoard bBoard) {
+		boardDao.updateHit(bBoard);
 		return boardDao.selectBoardByBoardno(bBoard);
 	}
 
@@ -170,7 +174,7 @@ public class BoardServiceImpl implements BoardService {
 						bAttached.setStoredName(item.getName() + "_" + u);
 						bAttached.setFilesize(item.getSize());
 						bAttached.setFileRoot(path);
-						bAttached.setIdx(boardDao.selectIdx());
+//						bAttached.setIdx(boardDao.selectIdx());
 						try {
 							item.write(up); // 실제 업로드
 							item.delete(); // 임시 파일 삭제
@@ -194,7 +198,7 @@ public class BoardServiceImpl implements BoardService {
 
 				if(bAttached != null && bAttached.getFilesize() != 0) {
 					bAttached.setIdx(idx);
-					boardDao.insertFile(bAttached);
+					boardFileDao.insertFile(bAttached);
 			
 //					System.out.println(bAttached);
 				}
@@ -202,7 +206,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public BAttached getFile(BBoard bBoard) {
-		return boardDao.selectFile(bBoard);
+		return boardFileDao.selectFile(bBoard);
 	}
 
 	@Override
@@ -216,6 +220,11 @@ public class BoardServiceImpl implements BoardService {
 		BBoard bBoard = new BBoard();
 		bBoard.setIdx(idx);
 		return bBoard;
+	}
+
+	@Override
+	public void delete(BBoard bBoard) {
+		boardDao.delete(bBoard);
 	}
 
 }
