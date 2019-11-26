@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import web.dao.face.MemberDao;
-import web.dbutil.DBConn;
+import web.dbutil.DBconn;
 import web.dto.BUser;
 
 public class MemberDaoImpl implements MemberDao {
@@ -17,7 +17,7 @@ public class MemberDaoImpl implements MemberDao {
 	
 	@Override
 	public int selectCntMemberByUserid(BUser getLoginMember) {
-		conn = DBConn.getConnection(); // DB 연결
+		conn = DBconn.getConnection(); // DB 연결
 
 		String sql = "SELECT count(*) FROM BUser where UserID = ? and UserPW = ?";
 
@@ -52,7 +52,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public BUser selectMemberByUserid(BUser getLoginMember) {
-		conn = DBConn.getConnection(); // DB 연결
+		conn = DBconn.getConnection(); // DB 연결
 
 		// 수행할 SQL 쿼리
 		String sql = "SELECT * FROM BUser WHERE userid = ? ";
@@ -85,7 +85,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public void insert(BUser member) {
-		conn = DBConn.getConnection(); // DB 연결
+		conn = DBconn.getConnection(); // DB 연결
 
 		String sql = "INSERT INTO BUser(UserNo, UserID, UserPW, UserNick, UserName, UserTel) VALUES (BUser_seq.nextval, ? , ? , ?, ?, ?)";
 

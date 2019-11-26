@@ -56,10 +56,9 @@ public class AdminLoginController extends HttpServlet {
 			session.setAttribute("loginNick", getAdminByid.getAdminnick());
 
 			System.out.println("로그인 성공");
-			resp.sendRedirect("/main");
-		} else {
+			req.getRequestDispatcher("/WEB-INF/views/admin/admin_main.jsp").forward(req, resp);		} else {
 			System.out.println("로그인 실패");
-			resp.sendRedirect("/main");
+			resp.sendRedirect("/admin/login");
 		}
 
 	}

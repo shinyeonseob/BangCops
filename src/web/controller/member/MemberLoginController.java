@@ -41,8 +41,9 @@ public class MemberLoginController extends HttpServlet {
 		if (login) {
 			BUser getMemberByUserid = memberService.getMemberByUserid(getLoginMember);
 			session.setAttribute("login", true);
-			session.setAttribute("loginid", getMemberByUserid.getUserid());
-			session.setAttribute("loginNick", getMemberByUserid.getUsernick());
+			session.setAttribute("Userid", getMemberByUserid.getUserid());
+			session.setAttribute("UserNick", getMemberByUserid.getUsernick());
+			session.setAttribute("Userno", getMemberByUserid.getUserno());
 
 			System.out.println("로그인 성공");
 			resp.sendRedirect("/main");

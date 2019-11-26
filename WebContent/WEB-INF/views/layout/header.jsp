@@ -46,7 +46,6 @@
 	justify-content: center;
 	align-items: stretch;
 }
-
 #topMenu ul li {
 	list-style: none;
 	color: white;
@@ -56,7 +55,6 @@
 	vertical-align: middle;
 	text-align: center;
 }
-
 #topMenu .menuLink {
 	text-decoration: none;
 	color: white;
@@ -67,12 +65,10 @@
 	font-family: "Trebuchet MS", Dotum, Arial;
 	border: 1px solid #bcbcbc;
 }
-
 #topMenu .menuLink:hover {
 	color: red;
 	background-color: #FFFF66;
 }
-
 #topMenu .menulogin {
 	text-decoration: none;
 	color: white;
@@ -83,45 +79,37 @@
 	font-family: "Trebuchet MS", Dotum, Arial;
 	border: 1px solid #bcbcbc;
 }
-
 .modal-login {
 	color: #636363;
 	width: 350px;
 }
-
 .modal-login .modal-content {
 	padding: 20px;
 	border-radius: 5px;
 	border: none;
 }
-
 .modal-login .modal-header {
 	border-bottom: none;
 	position: relative;
 	justify-content: center;
 }
-
 .modal-login h4 {
 	text-align: center;
 	font-size: 26px;
 	margin: 30px 0 -15px;
 }
-
 .modal-login .form-control:focus {
 	border-color: #70c5c0;
 }
-
 .modal-login .form-control, .modal-login .btn {
 	min-height: 40px;
 	border-radius: 3px;
 }
-
 .modal-login .close {
 	position: absolute;
 	top: -5px;
 	right: -5px;
 }
-
 .modal-login .modal-footer {
 	background: #ecf0f1;
 	border-color: #dee4e7;
@@ -131,11 +119,9 @@
 	border-radius: 5px;
 	font-size: 13px;
 }
-
 .modal-login .modal-footer a {
 	color: #999;
 }
-
 .modal-login .avatar {
 	position: absolute;
 	margin: 0 auto;
@@ -150,15 +136,12 @@
 	padding: 15px;
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
 }
-
 .modal-login .avatar img {
 	width: 100%;
 }
-
 .modal-login.modal-dialog {
 	margin-top: 80px;
 }
-
 .modal-login .btn {
 	color: #fff;
 	border-radius: 4px;
@@ -168,12 +151,10 @@
 	line-height: normal;
 	border: none;
 }
-
 .modal-login .btn:hover, .modal-login .btn:focus {
 	background: #45aba6;
 	outline: none;
 }
-
 .trigger-btn {
 	display: inline-block;
 }
@@ -181,7 +162,6 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-
 		// 회원가입 버튼
 		$("#btn_join").click(function() {
 			location.href = "/member/join";
@@ -241,7 +221,7 @@
 				<a href="/member/logout"><button>로그아웃</button></a>
 				<a href="/mypage/main"><button>마이페이지</button></a>
 			</c:if>
-
+ 
 		</ul>
 	</nav>
 	<!-- Modal HTML -->
