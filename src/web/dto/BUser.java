@@ -8,12 +8,22 @@ public class BUser {
 	private String usernick;
 	private String username;
 	private String usertel;
+	private String photo;
 	private int userlevel;
 
 	@Override
 	public String toString() {
 		return "BUser [userno=" + userno + ", userid=" + userid + ", userpw=" + userpw + ", usernick=" + usernick
-				+ ", username=" + username + ", usertel=" + usertel + ", userlevel=" + userlevel + "]";
+				+ ", username=" + username + ", usertel=" + usertel + ", photo=" + photo + ", userlevel=" + userlevel
+				+ "]";
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 	public int getUserno() {
