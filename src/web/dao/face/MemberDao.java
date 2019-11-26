@@ -17,4 +17,6 @@ public interface MemberDao {
 	 */
 	void update(BUser member);
 
+	void updatepw(BUser param);
+
 }

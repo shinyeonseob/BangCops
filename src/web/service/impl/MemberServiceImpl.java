@@ -212,6 +212,34 @@ public class MemberServiceImpl implements MemberService {
 		return true;
 	}
 
+	@Override
+	public BUser getcurrpw(HttpServletRequest req) {
+
+		
+		BUser buser = new BUser();
+		buser.setUserpw(req.getParameter("userpw"));
+				
+		
+		return buser;
+	}
+
+	@Override
+	public BUser getUpdatepw(HttpServletRequest req) {
+		BUser buser = new BUser();
+		
+		buser.setUserpw(req.getParameter("updatepw"));
+		
+		return buser;
+	}
+
+	@Override
+	public void updatepw(BUser param) {
+		memberDao.updatepw(param);
+	}
+
+
+	
+
 
 
 

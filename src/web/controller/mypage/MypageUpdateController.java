@@ -28,13 +28,13 @@ public class MypageUpdateController extends HttpServlet {
 		// 세션에서 userid 받기
 		String userid = new String();
 		session = req.getSession();
-		userid = (String) session.getAttribute("loginid");
+		userid = (String) session.getAttribute("Userid");
 		
 		// BUser 객체에 userid 넣기
 		BUser buser = new BUser();
 		buser.setUserid(userid);
-//		System.out.println("session id : " + userid);
-//		System.out.println(buser);
+		System.out.println("session id : " + userid);
+		System.out.println(buser);
 		
 		// userid 에 해당하는 사용자 데이터 가져오기
 		BUser getMemberByUserid = memberService.getMemberByUserid(buser);

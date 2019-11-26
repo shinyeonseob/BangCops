@@ -75,8 +75,7 @@
          </tr>
 
          <tr>
-			<td class="info">
-            <label for="phone">연락처</label>
+			<td class="info">연락처
             </td>
             <td>
 <%--             <select>

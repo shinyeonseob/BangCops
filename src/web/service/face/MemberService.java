@@ -25,5 +25,14 @@ public interface MemberService {
 	 */
 	void update(HttpServletRequest req);
 
+	
+	BUser getcurrpw(HttpServletRequest req);
+
+	BUser getUpdatepw(HttpServletRequest req);
+
+	void updatepw(BUser param);
+
+	
+
 
 }
