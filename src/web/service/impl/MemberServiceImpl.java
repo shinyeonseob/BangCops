@@ -15,6 +15,7 @@ import web.service.face.MemberService;
 public class MemberServiceImpl implements MemberService {
 
 	MemberDao memberDao = new MemberDaoImpl();
+	
 	@Override
 	public BUser getLoginMember(HttpServletRequest req) {
 
@@ -47,33 +48,6 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 
-	@Override
-	public void join(HttpServletRequest req) {
-		
-		try {
-			req.setCharacterEncoding("utf-8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		String userid = req.getParameter("UserID");
-		String userpw = req.getParameter("UserPW");
-		String usernick = req.getParameter("UserNick");
-		String username = req.getParameter("UserName");
-		String usertel = req.getParameter("UserTel");
-		
-		BUser member = new BUser();
-		member.setUserid(userid);
-		member.setUserpw(userpw);
-		member.setUsernick(usernick);
-		member.setUsername(username);
-		member.setUsertel(usertel);
-		
-		
-		memberDao.insert(member);
-		
-	}
 
 	@Override
 
@@ -96,6 +70,38 @@ public class MemberServiceImpl implements MemberService {
 			return false;			
 		}
 		return true;
+	}
+
+	@Override
+	public BUser getbUser(HttpServletRequest req) {
+		
+
+		try {
+			req.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String userid = req.getParameter("UserID");
+		String userpw = req.getParameter("UserPW");
+		String usernick = req.getParameter("UserNick");
+		String username = req.getParameter("UserName");
+		String usertel = req.getParameter("UserTel");
+		
+		BUser member = new BUser();
+		member.setUserid(userid);
+		member.setUserpw(userpw);
+		member.setUsernick(usernick);
+		member.setUsername(username);
+		member.setUsertel(usertel);
+		
+		return member;
+	}
+
+	@Override
+	public void join(BUser bUser) {
+		memberDao.insert(bUser);
 	}
 
 

@@ -160,7 +160,7 @@ body {
 </head>
 <body>
    <div class="signup-form">
-      <form action="/member/join" method="post">
+      <form action="/send" method="get">
          <h2>회원가입</h2>
          <div class="form-group">
             <input type="text" class="form-control" name="UserNick"
@@ -182,7 +182,6 @@ body {
          <div class="form-group">
             <input id="UserPWck" type="password" class="form-control"
                name="UserPWck" placeholder="비밀번호 확인" required="required">
-
          </div>
          <div class="alert alert-success" id="alert-success">비밀번호가
             일치합니다.</div>
@@ -192,11 +191,6 @@ body {
             <input type="tel" class="form-control" name="UserTel" id="UserTel"
                placeholder="전화번호" required="required" />
          </div>
-         <!-- <div class="form-group">
-            <input id="numcheck" type="text" class="form-control"
-               name="Certification" placeholder="인증번호 입력" required="required">
-            <button disabled="disabled">확인</button>
-         </div> -->
          <div class="form-group">
             <label class="checkbox-inline"><input type="checkbox"
                required="required"> I accept the <a href="#">Terms of
