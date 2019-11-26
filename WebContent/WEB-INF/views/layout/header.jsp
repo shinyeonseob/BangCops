@@ -221,7 +221,7 @@
 				<a href="/member/logout"><button>로그아웃</button></a>
 				<a href="/mypage/main"><button>마이페이지</button></a>
 			</c:if>
-
+ 
 		</ul>
 	</nav>
 	<!-- Modal HTML -->
