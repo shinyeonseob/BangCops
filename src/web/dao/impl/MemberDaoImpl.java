@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpServletRequest;
+
 import web.dao.face.MemberDao;
 import web.dbutil.DBconn;
 import web.dto.BUser;
@@ -92,6 +94,7 @@ public class MemberDaoImpl implements MemberDao {
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, member.getUserid()); // sql 'empno = ?'의 ? 채우기
+			
 			ps.setString(2, member.getUserpw()); // sql 'empno = ?'의 ? 채우기
 			ps.setString(3, member.getUsernick()); // sql 'empno = ?'의 ? 채우기
 			ps.setString(4, member.getUsername()); // sql 'empno = ?'의 ? 채우기
@@ -129,6 +132,7 @@ public class MemberDaoImpl implements MemberDao {
 		
 		
 	}
+
 
 }
    

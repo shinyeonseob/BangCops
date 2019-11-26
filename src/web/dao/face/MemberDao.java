@@ -1,5 +1,7 @@
 package web.dao.face;
 
+import javax.servlet.http.HttpServletRequest;
+
 import web.dto.BUser;
 
 public interface MemberDao {
@@ -16,5 +18,6 @@ public interface MemberDao {
 	 * @param member user에 해당하는 정보 수정
 	 */
 	void update(BUser member);
+
 
 }
