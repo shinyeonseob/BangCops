@@ -26,6 +26,13 @@ public interface MemberService {
 
 	void update(HttpServletRequest req);
 
+
+	BUser getbUser(HttpServletRequest req);
+
+	int cntUserid(BUser bUser);
+
+	boolean nickcheck(String usernick);
+
 	
 	BUser getcurrpw(HttpServletRequest req);
 
@@ -36,10 +43,6 @@ public interface MemberService {
 	BUser getupdateUser(HttpServletRequest req);
 
 	
-
-
-
-
 
 
 }

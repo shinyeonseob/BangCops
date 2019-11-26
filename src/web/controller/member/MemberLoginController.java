@@ -49,7 +49,7 @@ public class MemberLoginController extends HttpServlet {
 			resp.sendRedirect("/main");
 		} else {
 			System.out.println("로그인 실패");
-			resp.sendRedirect("/main");
+			req.getRequestDispatcher("/WEB-INF/views/member/loginfail.jsp").forward(req, resp);
 		}
 
 	}

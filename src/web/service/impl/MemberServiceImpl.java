@@ -196,20 +196,6 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 
-	
-
-	public boolean pwck(HttpServletRequest req) {
-		
-		String userpw = req.getParameter("UserPW");
-		String userpwck = req.getParameter("UserPWck");
-//		유저 패스워드와 패스워드 체크를 비교하여 
-//		같으면 false 를 리턴하고
-//		다르면 true 를 리턴한다
-		if (userpw == userpwck) {
-			return false;			
-		}
-		return true;
-	}
 
 	@Override
 	public BUser getcurrpw(HttpServletRequest req) {
@@ -268,6 +254,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void join(BUser bUser) {
+
 		memberDao.insert(bUser);
 	}
 
@@ -286,7 +273,25 @@ public class MemberServiceImpl implements MemberService {
 		member.setUsernick(usernick);
 		member.setUsertel(usertel);
 		return member;
+
+
 	}
+
+	@Override
+	public int cntUserid(BUser bUser) {
+		
+		return memberDao.cntUserid(bUser);
+	}
+
+	@Override
+	public boolean nickcheck(String usernick) {
+		
+		return memberDao.nickcheck(usernick);
+	}
+
+
+
+
 
 
 	@Override
@@ -296,3 +301,4 @@ public class MemberServiceImpl implements MemberService {
 	
 	
 }
+
