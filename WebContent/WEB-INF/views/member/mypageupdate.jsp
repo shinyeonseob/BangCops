@@ -8,6 +8,16 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
+		//작성버튼 동작
+		$("#btnUpdate").click(function() {
+			
+			
+			
+			//form submit 수행
+			$("form").submit();
+		});
+		
+		
 		// 정보수정 취소 버튼
 		$("#btnCancel").click(function() {
 			location.href = "/mypage/main";
@@ -39,18 +49,15 @@
 <div class="container">
 
   
-   <form name="update" action="/mypage/update" method="post" enctype="multipart/form-data">
-      <%--<input type="hidden" name="userno" value="${BUser.userno }" />
+ <%-- <form name="update" action="/mypage/update" method="post" enctype="multipart/form-data">--%>  
+   <form name="update" action="/mypage/update" method="post" >
+      <input type="hidden" name="userno" value="${BUser.userno }" />
       
       <%-- 전화번호 입력값이 다를 시 사용안함 --%>
-		<input type="hidden" name="usertel" value="${BUser.usertel }" /> 
+		 <%--<input type="hidden" name="usertel" value="${BUser.usertel }" /> --%>
 
       <table class="table table-bordered">
-         <tr>
-            <td class="info">이메일 계정</td>
-            <td><input type="text" class="form-control" id="userid" name="userid" value="${BUser.userid }" /></td>
-            <td> <button disabled="disabled"> 이메일 인증 </button></td>
-         </tr>
+
 
          <tr>
             <td class="info">이름</td>
@@ -65,8 +72,7 @@
          </tr>
 
          <tr>
-			<td class="info">
-            <label for="phone">연락처</label>
+			<td class="info">연락처
             </td>
             <td>
 <%--             <select>
@@ -89,7 +95,7 @@
          <tr>
             <td class="info">프로필사진</td>
             <td colspan="3">사진 업로드하기
-			<input type="file" class="form-control" id = "upfile" name = "upfile" />
+			<input type="file" class="form-control" id = "photo" name = "photo" />
 			</td>
          </tr>
 

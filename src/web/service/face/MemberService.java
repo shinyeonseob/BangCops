@@ -14,16 +14,35 @@ public interface MemberService {
 	BUser getMemberByUserid(BUser getLoginMember);
 
 	void join(BUser bUser);
+	void join(HttpServletRequest req);
 	
+	public void update(BUser member); 
 	
 	/**
-	 * 정보수정 (파일업로드 제외)
+	 * 회원정보 수정
 	 * 
-	 * @param member BUser 정보수정 수행
+	 * @param req - 요청 정보 객체
 	 */
-	void update(BUser member);
+
+	void update(HttpServletRequest req);
+
 
 	BUser getbUser(HttpServletRequest req);
+
+	int cntUserid(BUser bUser);
+
+	boolean nickcheck(String usernick);
+
+	
+	BUser getcurrpw(HttpServletRequest req);
+
+	BUser getUpdatepw(HttpServletRequest req);
+
+	void updatepw(BUser param);
+
+	BUser getupdateUser(HttpServletRequest req);
+
+	
 
 
 }
