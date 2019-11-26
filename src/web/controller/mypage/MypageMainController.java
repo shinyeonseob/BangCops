@@ -25,14 +25,14 @@ public class MypageMainController extends HttpServlet {
 		
 		
 		req.setCharacterEncoding("utf-8");
-		String userid = new String();
 		session = req.getSession();
+		String userid = new String();
 		
-		userid = (String) session.getAttribute("loginid");
+		userid = (String) session.getAttribute("Userid");
 		BUser buser = new BUser();
 		buser.setUserid(userid);
-//		System.out.println("session id : " + userid);
-//		System.out.println(buser);
+		System.out.println("session id : " + userid);
+		System.out.println(buser);
 		
 		BUser getMemberByUserid = memberService.getMemberByUserid(buser);
 		System.out.println(getMemberByUserid);

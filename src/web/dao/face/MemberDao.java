@@ -24,4 +24,6 @@ public interface MemberDao {
 	boolean nickcheck(String usernick);
 
 
+	void updatepw(BUser param);
+
 }

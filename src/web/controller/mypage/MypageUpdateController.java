@@ -22,22 +22,27 @@ public class MypageUpdateController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		// 한글 인코딩
 		req.setCharacterEncoding("utf-8");
+		
+		// 세션에서 userid 받기
 		String userid = new String();
 		session = req.getSession();
+		userid = (String) session.getAttribute("Userid");
 		
-		userid = (String) session.getAttribute("loginid");
+		// BUser 객체에 userid 넣기
 		BUser buser = new BUser();
 		buser.setUserid(userid);
-//		System.out.println("session id : " + userid);
-//		System.out.println(buser);
+		System.out.println("session id : " + userid);
+		System.out.println(buser);
 		
+		// userid 에 해당하는 사용자 데이터 가져오기
 		BUser getMemberByUserid = memberService.getMemberByUserid(buser);
 		System.out.println(getMemberByUserid);
 		
 		
+		// 모델 값 뷰로 전달
 		req.setAttribute("BUser", getMemberByUserid);
-		
 		
 		
 		//view
@@ -49,6 +54,12 @@ public class MypageUpdateController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		req.setCharacterEncoding("UTF-8");
+		
+		// 파일업로드 까지 
+//		memberService.update(req);
+		
+
+		resp.sendRedirect("/mypage/main");	
 		
 		
 	}
