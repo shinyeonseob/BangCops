@@ -13,7 +13,7 @@ import web.service.impl.AccuseServiceImpl;
 
 
 
-@WebServlet("/accuse/write")
+@WebServlet("/accuse")
 public class WriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,7 +32,7 @@ public class WriteController extends HttpServlet {
 		}
 		
 		//VIEW 지정
-		req.getRequestDispatcher("/WEB-INF/views/home/accuse.jsp")
+		req.getRequestDispatcher("/WEB-INF/views/home/accuseWrite.jsp")
 			.forward(req, resp);
 	
 	}
@@ -44,8 +44,7 @@ public class WriteController extends HttpServlet {
 		accuseService.write(req);
 		
 		//목록으로 리다이렉션
-		resp.sendRedirect("/accuse/write");
-	
+		resp.sendRedirect("/accuse");
 	}
 	
 	
