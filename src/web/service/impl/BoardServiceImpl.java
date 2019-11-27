@@ -68,7 +68,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BBoardAndBboardType> getMyboardList(Paging paging, BUser userno) {
-		
+		System.out.println("service test : " + boardDao.selectMyboard(paging, userno));
 		return boardDao.selectMyboard(paging, userno);
 	}
 	public void write(BBoard board) {
