@@ -181,6 +181,7 @@ function warning() {
 <c:forEach items="${commentList }" var="comment">
 <tr data-commentno="${comment.commentno }">
 	<td>${comment.rnum }</td>
+	
 	<td>${comment.usernick }</td><!-- 닉네임으로 해도 좋음 -->
 	<td>${comment.contents }</td>
 	<td><fmt:formatDate value="${comment.regDate }" pattern="yy-MM-dd hh:mm:ss" /></td>
@@ -196,6 +197,7 @@ function warning() {
 </tbody>
 </table>	<!-- 댓글 리스트 end -->
 
+<jsp:include page="/WEB-INF/views/layout/paging.jsp" />
 </div>	<!-- 댓글 처리 end -->
 
 
