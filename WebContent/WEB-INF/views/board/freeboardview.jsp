@@ -181,7 +181,7 @@ function warning() {
 <c:forEach items="${commentList }" var="comment">
 <tr data-commentno="${comment.commentno }">
 	<td>${comment.rnum }</td>
-	<td>${comment.userno }</td><!-- 닉네임으로 해도 좋음 -->
+	<td>${comment.usernick }</td><!-- 닉네임으로 해도 좋음 -->
 	<td>${comment.contents }</td>
 	<td><fmt:formatDate value="${comment.regDate }" pattern="yy-MM-dd hh:mm:ss" /></td>
 	<td>

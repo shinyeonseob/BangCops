@@ -75,14 +75,17 @@ public class CommentDaoImpl implements CommentDao{
 		= "SELECT * FROM ("
 				+ "SELECT rownum rnum, B.* FROM ("
 				+ "	SELECT"
-				+ "		commentno,"
-				+ "		idx,"
-				+ "		regDate,"
-				+ "		contents,"
-				+ "		userlevel,"
-				+ "		userno "
-				+ "	FROM Bcomment"
+				+ "		c.commentno,"
+				+ "		c.idx,"
+				+ "		c.regDate,"
+				+ "		c.contents,"
+				+ "		c.userlevel,"
+				+ "		c.userno, "
+				+ "		u.userid, "
+				+ "		u.usernick "
+				+ "	FROM Bcomment c , BUser u"
 				+ "	WHERE idx = ?"
+				+ "	AND c.userno = u.userno"
 				+ "	ORDER BY regDate"
 				+ "	) B"
 				+ ") ORDER BY rnum";
@@ -107,6 +110,9 @@ public class CommentDaoImpl implements CommentDao{
 				comment.setContents(rs.getString("contents"));
 				comment.setUserlevel(rs.getInt("userlevel"));
 				comment.setUserno(rs.getInt("userno"));
+				comment.setUserid(rs.getString("userid"));
+				comment.setUsernick(rs.getString("usernick"));
+				
 				
 				commentList.add(comment);
 				

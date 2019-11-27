@@ -47,7 +47,7 @@ public class FreeBoardViewController extends HttpServlet {
 		
 		
 //		System.out.println(session.getAttribute("Userno"));
-//		System.out.println(list);
+		System.out.println(list);
 		
 		
 		

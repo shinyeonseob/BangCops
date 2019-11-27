@@ -11,10 +11,34 @@ public class Bcomment {
 	private int userlevel;
 	private int userno;
 	
+	private String userid;
+	private String usernick;
+	
+	public String getUserid() {
+		return userid;
+	}
+
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+
+	public String getUsernick() {
+		return usernick;
+	}
+
+
+	public void setUsernick(String usernick) {
+		this.usernick = usernick;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Bcomment [rnum=" + rnum + ", commentno=" + commentno + ", idx=" + idx + ", regDate=" + regDate
-				+ ", contents=" + contents + ", userlevel=" + userlevel + ", userno=" + userno + "]";
+				+ ", contents=" + contents + ", userlevel=" + userlevel + ", userno=" + userno + ", userid=" + userid
+				+ ", usernick=" + usernick + "]";
 	}
 	
 	
