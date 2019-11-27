@@ -1,7 +1,7 @@
 package web.controller.freeboard;
 
 import java.io.IOException;
-
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import web.dto.BAttached;
 import web.dto.BBoard;
+import web.dto.Bcomment;
 import web.service.face.BoardService;
 import web.service.impl.BoardServiceImpl;
 
@@ -46,7 +47,15 @@ public class FreeBoardViewController extends HttpServlet {
 		
 		
 //		System.out.println(session.getAttribute("Userno"));
-//		System.out.println(list);
+		System.out.println(list);
+		
+		
+		
+		// 댓글 리스트 전달
+		Bcomment comment = new Bcomment();
+		List<Bcomment> commentList = boardService.getCommentList(list);
+		req.setAttribute("commentList", commentList);
+		
 		
 		
 		req.getRequestDispatcher("/WEB-INF/views/board/freeboardview.jsp").forward(req, resp);

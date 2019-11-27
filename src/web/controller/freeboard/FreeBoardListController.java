@@ -26,6 +26,22 @@ public class FreeBoardListController extends HttpServlet {
 	
 	@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+			// 패치내용
+//			Paging paging = boardService.getPaging(req);
+//			
+//			req.setAttribute("paging", paging);
+//			
+//			List<BBoard> list = boardService.getList(paging);
+//			
+//			req.setAttribute("url", req.getRequestURI());
+//			System.out.println(req.getRequestURI());
+//			req.setAttribute("list", list);
+//			
+//			
+//			
+//			req.getRequestDispatcher("/WEB-INF/views/board/freeboardList.jsp").forward(req, resp);
+
 		
 		req.setCharacterEncoding("UTF-8");
 
@@ -87,7 +103,8 @@ public class FreeBoardListController extends HttpServlet {
 //			
 //			req.getRequestDispatcher("/WEB-INF/views/board/freeboardList.jsp").forward(req, resp);
 //======================================================================================================		
-	
+
+
 	}
 	
 	@Override

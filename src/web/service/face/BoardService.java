@@ -9,6 +9,7 @@ import web.dto.BAttached;
 import web.dto.BBoard;
 import web.dto.BBoardAndBboardType;
 import web.dto.BUser;
+import web.dto.Bcomment;
 
 public interface BoardService {
 	
@@ -36,6 +37,15 @@ public interface BoardService {
 	
 	//게시글 삭제
 	public void delete(BBoard bBoard);
+
 	
 	String getboardname(int boardno);
+
+	public Bcomment getComment(HttpServletRequest req);
+
+	public void insertComment(Bcomment comment);
+
+	public List<Bcomment> getCommentList(BBoard list);
+
+	public boolean deleteComment(Bcomment comment);
 }

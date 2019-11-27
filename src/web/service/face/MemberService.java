@@ -1,8 +1,11 @@
 package web.service.face;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import util.Paging;
 import web.dto.BUser;
 
 public interface MemberService {
@@ -26,7 +29,6 @@ public interface MemberService {
 
 	void update(HttpServletRequest req);
 
-
 	BUser getbUser(HttpServletRequest req);
 
 	int cntUserid(BUser bUser);
@@ -42,7 +44,10 @@ public interface MemberService {
 
 	BUser getupdateUser(HttpServletRequest req);
 
+	public List getmemberList();
+
+	public List getmemberList(Paging paging);
 	
-
-
+	public Paging getPaging(HttpServletRequest req);
+	
 }

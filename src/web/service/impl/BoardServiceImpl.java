@@ -2,6 +2,7 @@ package web.service.impl;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -18,19 +19,22 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import util.Paging;
 import web.dao.face.BoardDao;
 import web.dao.face.BoardFileDao;
+import web.dao.face.CommentDao;
 import web.dao.impl.BoardDaoImpl;
 import web.dao.impl.BoardFileDaoImpl;
+import web.dao.impl.CommentDaoImpl;
 import web.dto.BAttached;
 import web.dto.BBoard;
 import web.dto.BBoardAndBboardType;
 import web.dto.BUser;
+import web.dto.Bcomment;
 import web.service.face.BoardService;
 
 public class BoardServiceImpl implements BoardService {
 
 	private BoardDao boardDao = new BoardDaoImpl();
 	private BoardFileDao boardFileDao = new BoardFileDaoImpl();
-
+	private CommentDao commentDao = new CommentDaoImpl();
 	@Override
 	public List<BBoard> getList() {
 		return null;
@@ -68,7 +72,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BBoardAndBboardType> getMyboardList(Paging paging, BUser userno) {
-		
+		System.out.println("service test : " + boardDao.selectMyboard(paging, userno));
 		return boardDao.selectMyboard(paging, userno);
 	}
 	public void write(BBoard board) {
@@ -249,6 +253,47 @@ public class BoardServiceImpl implements BoardService {
 	public String getboardname(int boardno) {
 		// TODO Auto-generated method stub
 		return boardDao.getboardname(boardno);
+	}
+	public Bcomment getComment(HttpServletRequest req) {
+
+		try {
+			req.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		String idx = (String) req.getParameter("idx");
+		String userno = (String) req.getParameter("userno");
+		String contents = (String) req.getParameter("contents");
+//		Date regdate = (Date) req.getParameter("regDate");
+
+		Bcomment comment = new Bcomment();
+		comment.setIdx(Integer.parseInt(idx));
+		comment.setUserno(Integer.parseInt(userno));
+		comment.setContents(contents);
+		
+		return comment;
+	}
+
+	@Override
+	public void insertComment(Bcomment comment) {
+		commentDao.insertComment(comment);	
+	}
+
+	@Override
+	public List<Bcomment> getCommentList(BBoard list) {
+		return commentDao.selectComment(list);
+	}
+
+	@Override
+	public boolean deleteComment(Bcomment comment) {
+		commentDao.deleteComment(comment);
+		
+		if(commentDao.countComment(comment) > 0 ) {
+			return false;
+		}else {
+			return true;
+		}
 	}
 
 }
