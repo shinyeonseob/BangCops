@@ -33,6 +33,8 @@ public class FreeBoardListController extends HttpServlet {
 			
 			List<BBoard> list = boardService.getList(paging);
 			
+			req.setAttribute("url", req.getRequestURI());
+			System.out.println(req.getRequestURI());
 			req.setAttribute("list", list);
 			
 			
