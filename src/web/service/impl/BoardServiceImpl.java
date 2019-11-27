@@ -37,12 +37,12 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BBoard> getList(Paging paging) {
-		return boardDao.selectAll(paging);
+	public List<BBoard> getList(Paging paging, int boardno) {
+		return boardDao.selectAll(paging, boardno);
 	}
 
 	@Override
-	public Paging getPaging(HttpServletRequest req) {
+	public Paging getPaging(HttpServletRequest req, int boardno) {
 		// 요청파라미터 curPage를 파싱한다.
 		String param = req.getParameter("curPage");
 		int curPage = 0;
@@ -52,7 +52,7 @@ public class BoardServiceImpl implements BoardService {
 //				System.out.println("curPage : " + curPage);
 
 		// Board TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
-		int totalCount = boardDao.selectCntAll();
+		int totalCount = boardDao.selectCntBoard(boardno);
 
 		// paging 객체 생성
 		Paging paging = new Paging(totalCount, curPage);
@@ -77,7 +77,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void write(HttpServletRequest req) {
+	public int write(HttpServletRequest req) {
 		// 파일 업로드 형태의 데이터가 맞는지 확인
 				// = 멀티파트/폼데이터가 맞는지 확인
 				boolean isMultipart = false;
@@ -85,7 +85,7 @@ public class BoardServiceImpl implements BoardService {
 
 				if (!isMultipart) {
 					System.out.println("멀티파트 아님");
-					return;
+					return 0;
 				}
 
 				// 업로드된 파일을 디스크에 임시 저장하고 후처리한다.
@@ -160,7 +160,17 @@ public class BoardServiceImpl implements BoardService {
 								e.printStackTrace();
 							}
 
-						} 
+						} else if ("boardno".equals(key)) {
+							try {
+								board.setBoardNo(Integer.parseInt(item.getString("UTF-8")));
+							} catch (NumberFormatException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} catch (UnsupportedEncodingException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
 
 					} else { // 3) 파일처리
 						bAttached = new BAttached();
@@ -200,6 +210,7 @@ public class BoardServiceImpl implements BoardService {
 				board.setUsernick((String) session.getAttribute("UserNick"));
 				board.setUserNo((int)session.getAttribute("Userno"));
 				board.setIdx(idx);
+				
 				boardDao.insert(board);
 
 				if(bAttached != null && bAttached.getFilesize() != 0) {
@@ -208,6 +219,7 @@ public class BoardServiceImpl implements BoardService {
 			
 //					System.out.println(bAttached);
 				}
+				return board.getBoardNo();
 	}
 
 	@Override
@@ -231,6 +243,12 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void delete(BBoard bBoard) {
 		boardDao.delete(bBoard);
+	}
+
+	@Override
+	public String getboardname(int boardno) {
+		// TODO Auto-generated method stub
+		return boardDao.getboardname(boardno);
 	}
 
 }

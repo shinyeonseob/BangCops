@@ -27,6 +27,9 @@ $(document).ready(function() {
 
 });
 </script>
+<script>
+  CKEDITOR.replace('contents');
+  </script>
 
 
 <style type="text/css">
@@ -64,11 +67,11 @@ th {
 	</tr>
 	<tr style="height:40">
 		<th class="text-center" style="width:10%">제목</th>
-		<td colspan="3" class="text-center" style="width:90%"><input id="title" name="title" type="text" size="125" placeholder="제목을 입력하세요."/></td>
+		<td colspan="3" class="text-center" style="width:90%"><input id="title" name="title" type="text" size="125" value="${list.title }"/></td>
 	</tr>
 	<tr style="height:250">
 		<th class="text-center">내용</th>
-		<td colspan="3"><textarea class="form-control" id="contents" name="contents" placeholder="이미지 업로드는 파일 드롭다운으로 쉽게 가능합니다." ></textarea>
+		<td colspan="3"><textarea class="form-control" id="contents" name="contents" value="${list.contents }" ></textarea>
 <script type="text/javascript">
  CKEDITOR.replace('contents', {height: 400});
 </script></td>

@@ -14,11 +14,11 @@ public interface BoardService {
 	
 	public List<BBoard> getList();
 	
-	public List<BBoard> getList(Paging paging);
+	public List<BBoard> getList(Paging paging, int boardno);
 	
 	public List<BBoardAndBboardType> getMyboardList(Paging paging, BUser userno);
 
-	public Paging getPaging(HttpServletRequest req);
+	public Paging getPaging(HttpServletRequest req ,int boardno);
 	
 	//boardno로 조회해서 게시글 보기
 	public BBoard view(BBoard bBoard);
@@ -27,7 +27,7 @@ public interface BoardService {
 	public void write(BBoard board);
 	
 	//게시글 작성(파일첨부 o )
-	public void write(HttpServletRequest req);
+	public int write(HttpServletRequest req);
 	
 	public BAttached getFile(BBoard bBoard);
 	
@@ -36,4 +36,6 @@ public interface BoardService {
 	
 	//게시글 삭제
 	public void delete(BBoard bBoard);
+	
+	String getboardname(int boardno);
 }

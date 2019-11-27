@@ -15,7 +15,7 @@ import web.service.impl.BoardServiceImpl;
 /**
  * Servlet implementation class FreeBoardWriteController
  */
-@WebServlet("/main/community/freeboardlist/write")
+@WebServlet("/main/community/boardlist/write")
 public class FreeBoardWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,7 +28,9 @@ public class FreeBoardWriteController extends HttpServlet {
 			
 			req.setAttribute("userid", session.getAttribute("userid"));
 			req.setAttribute("usernick", session.getAttribute("usernick"));
-			
+			req.setAttribute("boardno", req.getParameter("boardno"));
+//			System.out.println("req.getParameter(\"boardno\")1 : "+req.getParameter("boardno"));
+
 			req.getRequestDispatcher("/WEB-INF/views/board/freeboardwrite.jsp").forward(req, resp);
 		}
 	
@@ -36,8 +38,8 @@ public class FreeBoardWriteController extends HttpServlet {
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			req.setCharacterEncoding("UTF-8");
 			
-			boardService.write(req);
-			
-			resp.sendRedirect("/main/community/freeboardlist");
+			int boardno  = boardService.write(req);
+//			System.out.println("boardno : "+ boardno);
+			resp.sendRedirect("/main/community/boardlist?boardno=" +boardno);
 		}
 }

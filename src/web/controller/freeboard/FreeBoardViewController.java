@@ -18,7 +18,7 @@ import web.service.impl.BoardServiceImpl;
 /**
  * Servlet implementation class FreeBoardViewController
  */
-@WebServlet("/main/community/freeboardlist/view")
+@WebServlet("/main/community/boardlist/view")
 public class FreeBoardViewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
