@@ -12,6 +12,11 @@
 
 <!-- </body> -->
 <!-- </html> -->
+<script type="text/javascript">
+function loginPlease(){
+	alert("로그인 해주세요");
+}
+</script>
 
 <style type="text/css">
 th {
@@ -38,7 +43,7 @@ th {
 <h4>당신의 자유로운 이야기를 올려주세요.</h4>
 <hr style="background:grey;height:2px">
 <br>
-<table>
+<table style="width:1140">
 	<tr style="height:40">
 		<th class="text-center" style="width:5%">글번호</th>
 		<th class="text-center" style="width:55%">제목</th>
@@ -50,7 +55,7 @@ th {
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center;height:30">
 		<td>${ i.idx }</td>
-		<td><a>${ i.title }</a></td>
+		<td style="text-align:left"><a href ="/main/community/freeboardlist/view?idx=${ i.idx }">${ i.title }</a></td>
 		<td>${ i.usernick }</td>
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>
@@ -59,7 +64,14 @@ th {
 </c:forEach>
 </table>
 <hr style="background:grey;height:2px">
-<a href="/main/community/freeboard/write"><button>게시글작성</button></a>
+
+<c:if test="${login }">
+<a href="/main/community/freeboardlist/write"><button>게시글작성</button></a>
+</c:if>
+<c:if test="${empty login }">
+<a style="float:left" ><button onclick="loginPlease();">게시글 작성</button></a>
+</c:if>
+
 <input style="float:right" id="select" name="select" type="text" />
 <a style="float:right"><select>
 	<option>제목</option>

@@ -19,6 +19,10 @@
 		$("#btn_mypagepw").click(function() {
 			location.href = "/mypage/pw";
 		});
+		// 마이페이지 내가 쓴 글 버튼
+		$("#btn_myboard").click(function() {
+			location.href = "/mypage/board";
+		});
 		
 		
 		
@@ -90,7 +94,7 @@
 			<li><a id = "btn_mypagemain" class="menuLink" href="#">나의 정보</a></li>
 			<li><a id = "btn_mypageupdate" class="menuLink" href="#">정보 수정</a></li>
 			<li><a id = "btn_mypagepw"class="menuLink" href="#">비밀번호 변경</a></li>
-			<li><a class="menuLink" href="#">내가 쓴 글 내역</a></li>
+			<li><a id = "btn_myboard" class="menuLink" href="#">내가 쓴 글 내역</a></li>
 			<li><a class="menuLink" href="#">내가 쓴 댓글</a></li>
 			<li><a class="menuLink" href="#">신고 내역 처리 현황</a></li>	
 			<li><a class="menuLink" href="#">이의신청</a></li>	

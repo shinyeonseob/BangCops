@@ -2,6 +2,7 @@ package web.dao.impl;
 
 import java.sql.Connection;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +12,10 @@ import java.util.List;
 import util.Paging;
 import web.dao.face.BoardDao;
 import web.dbutil.DBconn;
+import web.dto.BAttached;
 import web.dto.BBoard;
+import web.dto.BBoardAndBboardType;
+import web.dto.BUser;
 
 public class BoardDaoImpl implements BoardDao {
 	
@@ -153,12 +157,14 @@ public class BoardDaoImpl implements BoardDao {
 	public BBoard selectBoardByBoardno(BBoard bBoard) {
 		conn = DBconn.getConnection(); // DB연결
 		
-		String sql="SELECT * FROM BBoard WHERE boardno = ?";
-		
+		String sql = "";
+		sql += " SELECT idx, title, contents, hits, reco, boardno, userno, regdate,";
+		sql	+= " (SELECT usernick FROM buser WHERE b.userno = userno)usernick";
+		sql += " FROM bboard b WHERE idx = ?";
 		try {
 			ps = conn.prepareStatement(sql);
 			
-			ps.setInt(1, bBoard.getBoardNo());
+			ps.setInt(1, bBoard.getIdx());
 			
 			rs = ps.executeQuery();
 			
@@ -167,10 +173,11 @@ public class BoardDaoImpl implements BoardDao {
 				bBoard.setIdx(rs.getInt("idx"));
 				bBoard.setTitle(rs.getString("title"));
 				bBoard.setContents(rs.getString("contents"));
-				bBoard.setHits(rs.getInt("hit"));
+				bBoard.setHits(rs.getInt("hits"));
 				bBoard.setUsernick(rs.getString("usernick"));
 				bBoard.setReco(rs.getInt("reco"));
 				bBoard.setRegDate(rs.getDate("regdate"));
+				bBoard.setUserNo(rs.getInt("userNo"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -185,5 +192,166 @@ public class BoardDaoImpl implements BoardDao {
 		
 		return bBoard;
 	}
+
+	@Override
+	public List<BBoardAndBboardType> selectMyboard(Paging paging, BUser userno) {
+
+		conn = DBconn.getConnection(); //DB 연결
+		
+		// 수행할 쿼리
+		String sql = "";
+		sql += "SELECT * FROM (";
+		sql += "	SELECT rownum rnum, B .* FROM (";
+		sql += "	SELECT";
+		sql += "		b.idx,b.title, b.contents, b.hits, b.reco, b.boardno, b.userno, b.regdate ";
+		sql += "		, t.boardname";
+		sql += "	FROM Bboard b , Bboardtype t";
+		sql += "	WHERE b.boardno = t.boardno";
+		sql += "	AND userno = ? ";
+		sql += "	ORDER BY idx DESC";
+		sql += " ) B ORDER BY rnum";
+		sql += " ) BBoard";
+		sql += " WHERE rnum BETWEEN ? AND ?";
+		
+		List<BBoardAndBboardType> list = new ArrayList<>();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+
+			ps.setInt(1, userno.getUserno());
+			ps.setInt(2, paging.getStartNo());
+			ps.setInt(3, paging.getEndNo());
+			
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+//				BBoard bBoard = new BBoard();
+				BBoardAndBboardType myboard = new BBoardAndBboardType();
+				
+				myboard.setIdx(rs.getInt("idx"));
+				myboard.setTitle(rs.getString("title"));
+				myboard.setContents(rs.getString("contents"));
+				myboard.setRegDate(rs.getDate("regdate"));
+				myboard.setHits(rs.getInt("hits"));
+				myboard.setReco(rs.getInt("reco"));
+				myboard.setBoardNo(rs.getInt("BoardNo"));
+				myboard.setUserNo(rs.getInt("UserNo"));
+				myboard.setBoardname(rs.getString("boardname"));
+
+				list.add(myboard);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+	public void insert(BBoard board) {
+		conn = DBconn.getConnection();
+		
+		String sql = "";
+		sql += "INSERT INTO BBoard ( boardno, idx, title, contents, userno, hits, reco )";
+		sql += " VALUES ( 1, ?, ?, ?, ?, 0, 0 )";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, board.getIdx());
+			ps.setString(2, board.getTitle());
+			ps.setString(3, board.getContents());
+			ps.setInt(4, board.getUserNo());
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	@Override
+	public int selectIdx() {
+		conn = DBconn.getConnection();
+		
+		int idx = 0;
+		
+		String sql = "";
+		sql += "SELECT bboard_seq.nextval FROM dual";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				idx = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return idx;
+	}
+
+	@Override
+	public void updateHit(BBoard bBoard) {
+		conn = DBconn.getConnection(); // DB연결
+
+		// 수행할 쿼리
+		String sql = "";
+		sql += "UPDATE Bboard SET hits = hits + 1 WHERE idx = ?";
+
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, bBoard.getIdx());
+			rs = ps.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null)
+					ps.close();
+				if (rs != null)
+					rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public void delete(BBoard bBoard) {
+		conn = DBconn.getConnection();
+		
+		String sql = "";
+		sql += "DELETE FROM Bboard WHERE idx = ?";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, bBoard.getIdx());
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+
 
 }

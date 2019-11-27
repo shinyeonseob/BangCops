@@ -5,7 +5,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import util.Paging;
+import web.dto.BAttached;
 import web.dto.BBoard;
+import web.dto.BBoardAndBboardType;
+import web.dto.BUser;
 
 public interface BoardService {
 	
@@ -13,8 +16,24 @@ public interface BoardService {
 	
 	public List<BBoard> getList(Paging paging);
 	
+	public List<BBoardAndBboardType> getMyboardList(Paging paging, BUser userno);
+
 	public Paging getPaging(HttpServletRequest req);
 	
 	//boardno로 조회해서 게시글 보기
 	public BBoard view(BBoard bBoard);
+	
+	//게시글 작성(파일첨부 x )
+	public void write(BBoard board);
+	
+	//게시글 작성(파일첨부 o )
+	public void write(HttpServletRequest req);
+	
+	public BAttached getFile(BBoard bBoard);
+	
+	//게시판 idx 추출
+	public BBoard getIdx(HttpServletRequest req);
+	
+	//게시글 삭제
+	public void delete(BBoard bBoard);
 }
