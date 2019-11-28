@@ -55,7 +55,7 @@ th {
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center;height:30">
 		<td>${ i.idx }</td>
-		<td style="text-align:left"><a href ="/main/community/boardlist/view?idx=${ i.idx }">${ i.title }</a></td>
+		<td style="text-align:left"><a href ="/main/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
 		<td>${ i.usernick }</td>
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>
@@ -66,7 +66,7 @@ th {
 <hr style="background:grey;height:2px">
 
 <c:if test="${login }">
-<a href="/main/community/boardlist/write?boardno=${boardno }"><button>게시글작성</button></a>
+<a href="/main/community/board/write?boardno=${boardno }"><button>게시글작성</button></a>
 </c:if>
 <c:if test="${empty login }">
 <a style="float:left" ><button onclick="loginPlease();">게시글 작성</button></a>

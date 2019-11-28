@@ -49,4 +49,10 @@ public interface BoardService {
 	public List<Bcomment> getCommentList(BBoard list);
 
 	public boolean deleteComment(Bcomment comment);
+	
+	public boolean isRecommend(BBoard recommend);
+	
+	public BBoard getRecommend(HttpServletRequest req);
+	
+	public boolean recommend(BBoard recommend);
 }

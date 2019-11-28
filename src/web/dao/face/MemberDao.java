@@ -26,5 +26,7 @@ public interface MemberDao {
 
 
 	void updatepw(BUser param);
+
+	int cntUserNick(BUser bUser);
 	
 }

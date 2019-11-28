@@ -31,6 +31,9 @@ public class MemberCheckController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		req.setCharacterEncoding("UTF-8");
+
+		
 		String usernick = req.getParameter("UserNick");
 		
 		if (memberService.nickcheck(usernick)) {

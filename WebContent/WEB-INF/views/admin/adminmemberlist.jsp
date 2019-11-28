@@ -129,7 +129,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	<td>${list.usernick }</td>
 	<td>${list.username }</td>
 	<td>${list.usertel }</td>
-	<td><button>정보수정</button></td>
+	<td><button><a href="/admin/memberview?userno=${list.userno }">상세정보</a></button></td>
     <td><a href="/user/delete?userno=${i.userno }"><button>회원삭제</button></a></td>
 </tr>
 </c:forEach>

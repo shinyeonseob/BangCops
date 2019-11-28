@@ -1,6 +1,7 @@
 package web.service.impl;
 
 import java.io.File;
+
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.Iterator;
@@ -35,6 +36,7 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDao boardDao = new BoardDaoImpl();
 	private BoardFileDao boardFileDao = new BoardFileDaoImpl();
 	private CommentDao commentDao = new CommentDaoImpl();
+
 	@Override
 	public List<BBoard> getList() {
 		return null;
@@ -53,7 +55,7 @@ public class BoardServiceImpl implements BoardService {
 		if (param != null && !"".equals(param)) {
 			curPage = Integer.parseInt(param);
 		}
-		//	            System.out.println("curPage : " + curPage);
+		// System.out.println("curPage : " + curPage);
 
 		// Board TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
 		int totalCount = boardDao.selectCntAll();
@@ -63,6 +65,7 @@ public class BoardServiceImpl implements BoardService {
 
 		return paging;
 	}
+
 	@Override
 	public Paging getPaging(HttpServletRequest req, int boardno) {
 		// 요청파라미터 curPage를 파싱한다.
@@ -71,7 +74,7 @@ public class BoardServiceImpl implements BoardService {
 		if (param != null && !"".equals(param)) {
 			curPage = Integer.parseInt(param);
 		}
-		//				System.out.println("curPage : " + curPage);
+		// System.out.println("curPage : " + curPage);
 
 		// Board TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
 		int totalCount = boardDao.selectCntBoard(boardno);
@@ -93,6 +96,7 @@ public class BoardServiceImpl implements BoardService {
 		System.out.println("service test : " + boardDao.selectMyboard(paging, userno));
 		return boardDao.selectMyboard(paging, userno);
 	}
+
 	public void write(BBoard board) {
 		boardDao.insert(board);
 
@@ -155,7 +159,8 @@ public class BoardServiceImpl implements BoardService {
 			FileItem item = iter.next();
 
 			// 1)빈 파일 처리
-			if (item.getSize() <= 0) continue;
+			if (item.getSize() <= 0)
+				continue;
 
 			// 2) 일반적인 요청 데이터 처리
 			if (item.isFormField()) {
@@ -163,7 +168,7 @@ public class BoardServiceImpl implements BoardService {
 				// key값에 따라 처리방식 다르게 하기
 				String key = item.getFieldName();
 
-				//						Board board = new Board();
+				// Board board = new Board();
 
 				if ("title".equals(key)) {
 					try {
@@ -212,11 +217,11 @@ public class BoardServiceImpl implements BoardService {
 				bAttached.setStoredName(item.getName() + "_" + u);
 				bAttached.setFilesize(item.getSize());
 				bAttached.setFileRoot(path);
-				//						bAttached.setIdx(boardDao.selectIdx());
+				// bAttached.setIdx(boardDao.selectIdx());
 				try {
 					item.write(up); // 실제 업로드
 					item.delete(); // 임시 파일 삭제
-				} catch (Exception e) { 
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 
@@ -230,16 +235,16 @@ public class BoardServiceImpl implements BoardService {
 		HttpSession session = req.getSession();
 
 		board.setUsernick((String) session.getAttribute("UserNick"));
-		board.setUserNo((int)session.getAttribute("Userno"));
+		board.setUserNo((int) session.getAttribute("Userno"));
 		board.setIdx(idx);
 
 		boardDao.insert(board);
 
-		if(bAttached != null && bAttached.getFilesize() != 0) {
+		if (bAttached != null && bAttached.getFilesize() != 0) {
 			bAttached.setIdx(idx);
 			boardFileDao.insertFile(bAttached);
 
-			//					System.out.println(bAttached);
+			// System.out.println(bAttached);
 		}
 		return board.getBoardNo();
 	}
@@ -254,7 +259,7 @@ public class BoardServiceImpl implements BoardService {
 		String param = req.getParameter("idx");
 
 		int idx = 0;
-		if(param != null && !"".equals(param)) {
+		if (param != null && !"".equals(param)) {
 			idx = Integer.parseInt(param);
 		}
 		BBoard bBoard = new BBoard();
@@ -272,6 +277,7 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return boardDao.getboardname(boardno);
 	}
+
 	public Bcomment getComment(HttpServletRequest req) {
 
 		try {
@@ -283,7 +289,7 @@ public class BoardServiceImpl implements BoardService {
 		String idx = (String) req.getParameter("idx");
 		String userno = (String) req.getParameter("userno");
 		String contents = (String) req.getParameter("contents");
-		//		Date regdate = (Date) req.getParameter("regDate");
+		// Date regdate = (Date) req.getParameter("regDate");
 
 		Bcomment comment = new Bcomment();
 		comment.setIdx(Integer.parseInt(idx));
@@ -295,7 +301,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void insertComment(Bcomment comment) {
-		commentDao.insertComment(comment);	
+		commentDao.insertComment(comment);
 	}
 
 	@Override
@@ -307,11 +313,73 @@ public class BoardServiceImpl implements BoardService {
 	public boolean deleteComment(Bcomment comment) {
 		commentDao.deleteComment(comment);
 
-		if(commentDao.countComment(comment) > 0 ) {
+		if (commentDao.countComment(comment) > 0) {
 			return false;
-		}else {
+		} else {
 			return true;
 		}
 	}
+
+	@Override
+	public BBoard getRecommend(HttpServletRequest req) {
+
+		// 전달파라미터 파싱
+		int boardno = 0;
+		String param = req.getParameter("boardno");
+		if (param != null && !"".equals(param)) {
+			boardno = Integer.parseInt(param);
+		}
+
+		// 로그인한 유저의 아이디
+		String userid = (String) req.getSession().getAttribute("Userid");
+
+		BBoard recommend = new BBoard();
+		recommend.setBoardNo(boardno);
+		recommend.setUserid(userid);
+
+		return recommend;
+	}
+
+	@Override
+	public boolean isRecommend(BBoard recommend) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean recommend(BBoard recommend) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+//	@Override
+//	public boolean recommend(BBoard recommend) {
+//		if( isRecommend(recommend) ) { //추천한 상태
+//			recommendDao.deleteRecommend(recommend);
+//			
+//			return false;
+//			
+//		} else { //추천하지 않은 상태
+//			recommendDao.insertRecommend(recommend);
+//			
+//			return true;
+//			
+//		}
+//	}
+
+//	@Override
+//	public boolean isRecommend(BBoard recommend) {
+//int cnt = recommendDao.selectCntRecommend(recommend);
+//		
+//		if(cnt > 0) { //추천했음
+//			return true;
+//			
+//		} else { //추천하지 않았음
+//			return false;
+//			
+//		}
+//	}
+	
+	
 
 }

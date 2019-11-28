@@ -43,5 +43,7 @@ public interface MemberService {
 	void updatepw(BUser param);
 
 	BUser getupdateUser(HttpServletRequest req);
+
+	int cntUserNick(BUser bUser);
 	
 }

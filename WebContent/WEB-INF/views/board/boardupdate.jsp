@@ -57,7 +57,7 @@ th {
 <h4>당신의 자유로운 이야기를 올려주세요.</h4>
 <hr style="background:grey;height:2px">
 <br>
-<form id="write" action="/main/community/boardlist/write" method="POST" enctype="multipart/form-data">
+<form id="write" action="/main/community/board/write" method="POST" enctype="multipart/form-data">
 <table style="margin:0 auto;width:1140;">
 	<tr style="height:40;margin:auto">
 		<th class="text-center" style="width:10%">아이디</th>
