@@ -12,16 +12,26 @@ public class BBoard {
 	private int boardNo;
 	private int userNo;
 	private String usernick;
+	private String userid;
 
 	
 	
 	
 	
+
 	@Override
 	public String toString() {
 		return "BBoard [idx=" + idx + ", title=" + title + ", contents=" + contents + ", regDate=" + regDate + ", hits="
 				+ hits + ", reco=" + reco + ", boardNo=" + boardNo + ", userNo=" + userNo + ", usernick=" + usernick
-				+ "]";
+				+ ", userid=" + userid + "]";
+	}
+
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
 	public String getUsernick() {

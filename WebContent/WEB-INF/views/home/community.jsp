@@ -39,7 +39,7 @@ div .right {
 <hr>
 </div>
 </div><br>
-<div onclick="location.href='/main/community/boardlist?boardno=1'" id="left_middle" style="witdh:100px;border:1px solid black;height:180px;margin-right:15px;padding:5px">
+<div onclick="location.href='/main/community/board?boardno=1'" id="left_middle" style="witdh:100px;border:1px solid black;height:180px;margin-right:15px;padding:5px">
 <div id=left_middle_inner style="witdh:50px;height:168px;border:1px solid black;cursor:pointer">
 <h2>자유게시판</h2>
 <hr>

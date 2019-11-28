@@ -19,7 +19,7 @@ import web.service.impl.BoardServiceImpl;
 /**
  * Servlet implementation class FreeBoardViewController
  */
-@WebServlet("/main/community/boardlist/view")
+@WebServlet("/main/community/board/view")
 public class BoardViewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -58,7 +58,7 @@ public class BoardViewController extends HttpServlet {
 		
 		
 		
-		req.getRequestDispatcher("/WEB-INF/views/board/freeboardview.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/board/boardview.jsp").forward(req, resp);
 	}
 
 }
