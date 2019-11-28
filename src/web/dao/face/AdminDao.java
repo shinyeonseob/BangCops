@@ -21,5 +21,7 @@ public interface AdminDao {
 	public BUser selectMemberByUserno(BUser viewBoard);
 	
 	public void deleteMemberList(String names);
+
+	public void updateUser(BUser buser);
 		
 }

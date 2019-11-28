@@ -64,6 +64,7 @@ public class AdminServiceImpl implements AdminService {
 	public BUser getUserno(HttpServletRequest req) {
 		
 		String param = req.getParameter("userno");
+		System.out.println(req.getParameter("userno"));
 		int userno = 0;
 		if( param!=null && !"".equals(param) ) {
 			userno = Integer.parseInt(param);
@@ -100,16 +101,23 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public BUser view(BUser viewBuser) {
-		// TODO Auto-generated method stub
-		return null;
+		return adminDao.selectMemberByUserno(viewBuser);
 	}
 
 	@Override
 	public void update(HttpServletRequest req) {
 		
-		BUser buser = null;
+		BUser buser = new BUser();
 		
+		buser.setUserno(Integer.parseInt(req.getParameter("userno")));
+		buser.setUserid(req.getParameter("userid"));
+		buser.setUsernick(req.getParameter("usernick"));
+		buser.setUsername(req.getParameter("username"));
+		buser.setUsertel(req.getParameter("usertel"));
 		
+		System.out.println(buser);
+		
+		adminDao.updateUser(buser);
 	}
 
 }

@@ -254,5 +254,43 @@ public class AdminDaoImpl implements AdminDao {
 		return viewmember;
 
 	}
+
+	@Override
+	public void updateUser(BUser buser) {
+		conn = DBconn.getConnection();
+		
+		// 게시글 조회쿼리
+		String sql = "";	
+		sql += "UPDATE buser SET";
+		sql += "	userid=?";
+		sql += "	, usernick=?";
+		sql += "	, username=?";
+		sql += "	, usertel=?";
+		sql += "	WHERE userno=?";
+		
+		try {
+			System.out.println(buser);
+			
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, buser.getUserid());
+			ps.setString(2, buser.getUsernick());
+			ps.setString(3, buser.getUsername());
+			ps.setString(4, buser.getUsertel());
+			
+			ps.setInt(5, buser.getUserno());
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
 	
 }

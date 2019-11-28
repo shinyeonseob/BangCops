@@ -26,6 +26,7 @@ $(document).ready(function() {
 	
 	//수정버튼 동작
 	$("#btnUpdate").click(function() {
+		$(location).attr("href", "/admin/memberupdate?userno=${viewBuser.userno}");
 	});
 
 	//삭제버튼 동작
