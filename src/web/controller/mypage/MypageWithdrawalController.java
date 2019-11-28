@@ -33,7 +33,9 @@ public class MypageWithdrawalController extends HttpServlet {
 		loginuser.setUserid(userid);
 		loginuser.setUserno(userno);
 
+//		System.out.println("loginuser: " + loginuser);
 //		System.out.println(memberService.getMemberByUserid(loginuser).getUserpw());
+//		System.out.println(memberService.getcurrpw(req).getUserpw());
 		memberService.getMemberByUserid(loginuser).getUserpw();
 		req.setAttribute("usercurrpw", memberService.getMemberByUserid(loginuser).getUserpw());
 		
@@ -47,6 +49,7 @@ public class MypageWithdrawalController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		// 세션에서 userid 받기
+		session = req.getSession();
 		BUser buser = new BUser();
 		String userid = new String();
 		userid = (String) session.getAttribute("Userid");

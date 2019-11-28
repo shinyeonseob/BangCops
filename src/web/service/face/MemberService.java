@@ -43,7 +43,7 @@ public interface MemberService {
 	void updatepw(BUser param);
 
 	BUser getupdateUser(HttpServletRequest req);
-<<<<<<< HEAD
+
 
 	public List getmemberList();
 
@@ -52,7 +52,6 @@ public interface MemberService {
 	public Paging getPaging(HttpServletRequest req);
 
 	void DeleteUser(BUser buser);
-=======
->>>>>>> refs/remotes/origin/develop
+
 	
 }
