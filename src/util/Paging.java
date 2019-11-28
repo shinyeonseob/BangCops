@@ -15,6 +15,8 @@ private int endPage; //화면에 보인은 마지막 페이지 번호(계산으�
 private int startNo; //화면에 보이는 페이지의 게시글 시작 번호
 private int endNo; //화면에 보이는 페이지의 게시글 끝 번호
 
+private String search;
+
 
 // 총 게시글 수만 입력하는 생성자
 public Paging(int totalCount) {
@@ -142,4 +144,5 @@ public String toString() {
 			+ totalPage + ", pageCount=" + pageCount + ", starPage=" + startPage + ", endPage=" + endPage + ", startNo="
 			+ startNo + ", endNO=" + endNo + "]";
 }
+
 }

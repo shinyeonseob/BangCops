@@ -49,6 +49,12 @@ public class MailController extends HttpServlet {
 			req.getRequestDispatcher("/WEB-INF/views/member/join_fail_id.jsp").forward(req, resp);
 
 			return;
+		}if (memberService.cntUserNick(bUser) != 0) {
+			String string = bUser.getUsernick();
+			req.setAttribute("bUsernick", string);
+			req.getRequestDispatcher("/WEB-INF/views/member/join_fail_id.jsp").forward(req, resp);
+
+			return;
 		}
 
 		Random random = new Random();

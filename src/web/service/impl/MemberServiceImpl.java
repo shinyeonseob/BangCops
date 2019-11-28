@@ -293,6 +293,12 @@ public class MemberServiceImpl implements MemberService {
 	public void update(BUser member) {
 		memberDao.update(member);
 	}
+
+	@Override
+	public int cntUserNick(BUser bUser) {
+		return memberDao.cntUserNick(bUser);
+
+	}
 		
 }
 

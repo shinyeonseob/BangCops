@@ -278,7 +278,7 @@ public class BoardDaoImpl implements BoardDao {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		}
+		} 
 		
 	}
 
