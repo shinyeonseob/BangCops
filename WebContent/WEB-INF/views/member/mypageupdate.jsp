@@ -23,6 +23,11 @@
 			location.href = "/mypage/main";
 		});
 		
+// 		// 닉네임 중복검사 버튼
+// 		$("#nickcheck").click(function() {
+// 			location.href = "/member/check";
+// 		});
+		
 	});
 </script>
 
@@ -68,7 +73,11 @@
          <tr>
             <td class="info">닉네임</td>
             <td><input type="text" class="form-control" id="usernick" name="usernick" value="${BUser.usernick }" /></td>
-            <td> <button disabled="disabled"> 중복검사 </button></td>
+            <td> <button id = "nickcheck" class="btn btn-success">
+            <a href="/member/check" target="_blank">
+            	 중복검사 
+            	 </a>
+            	 </button></td>
          </tr>
 
          <tr>
@@ -92,13 +101,13 @@
             <td colspan="3"><input type="text" class="form-control" id="phonecheck" name="phonecheck"  /></td>
          </tr>
 
-         <tr>
+    <%--      <tr>
             <td class="info">프로필사진</td>
             <td colspan="3">사진 업로드하기
 			<input type="file" class="form-control" id = "photo" name = "photo" />
 			</td>
          </tr>
-
+--%>
 
       </table>
 

@@ -177,30 +177,6 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	@Override
-	public void deleteMemberList(String names) {
-
-		conn = DBconn.getConnection();
-		
-		String sql = "DELETE FROM BUser WHERE userno IN ( "+names+" )";
-		
-		try {
-			ps = conn.prepareStatement(sql);
-			
-			ps.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if(ps!=null)	ps.close();
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	@Override
 	public BUser selectMemberByUserno(BUser viewmember) {
 		
 		conn = DBconn.getConnection();
@@ -257,6 +233,7 @@ public class AdminDaoImpl implements AdminDao {
 
 	@Override
 	public void updateUser(BUser buser) {
+		
 		conn = DBconn.getConnection();
 		
 		// 게시글 조회쿼리
@@ -269,7 +246,6 @@ public class AdminDaoImpl implements AdminDao {
 		sql += "	WHERE userno=?";
 		
 		try {
-			System.out.println(buser);
 			
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, buser.getUserid());
@@ -291,6 +267,114 @@ public class AdminDaoImpl implements AdminDao {
 			}
 		}
 		
+	}
+
+	@Override
+	public void delete(BUser buser) {
+
+		conn = DBconn.getConnection();
+		
+		//다음 게시글 번호 조회 쿼리
+		String sql = "";
+		sql += "DELETE buser";
+		sql += " WHERE userno = ?";
+
+		// DB 객체
+		PreparedStatement ps = null;
+
+		try {
+			// DB작업
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, buser.getUserno());
+
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				// DB객체 닫기
+				if (ps != null)
+					ps.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	@Override
+	public void deleteMemberList(String names) {
+		
+		conn = DBconn.getConnection();
+		
+		String sql = "DELETE FROM buser WHERE userno IN ( " + names + " )";
+
+		try {
+			ps = conn.prepareStatement(sql);
+
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null)
+					ps.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	@Override
+	public int selectCntAll(String search) {
+		
+		conn = DBconn.getConnection();
+		
+		// 수행할 SQL
+		String sql = "";
+		sql += "SELECT ";
+		sql += "	count(*)";
+		sql += " FROM buser";
+		sql += " WHERE userid LIKE '%'||?||'%'";
+
+		// 최종 결과 변수
+		int cnt = 0;
+
+		try {
+			// SQL 수행 객체
+			ps = conn.prepareStatement(sql);
+
+			ps.setString(1, search);
+
+			// SQL 수행 및 결과 저장
+			rs = ps.executeQuery();
+
+			// SQL 수행 결과 처리
+			while (rs.next()) {
+				cnt = rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		// 최종 결과 반환
+		return cnt;
 	}
 	
 }

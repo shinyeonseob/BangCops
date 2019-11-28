@@ -29,4 +29,17 @@ public interface MemberDao {
 
 	int cntUserNick(BUser bUser);
 	
+
+	/**
+	 * 회원 전체 조회
+	 * 
+	 * @return List - 조회된 회원 목록
+	 */
+	public List selectAll();
+
+	public List selectAll(Paging paging);
+	
+	public int selectCntAll();
+
+	void deleteUser(BUser buser);
 }

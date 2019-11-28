@@ -45,4 +45,6 @@
 <hr style="background:grey;height:2px">
 </table>
 
+<jsp:include page="/WEB-INF/views/layout/paging.jsp" />
+
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />

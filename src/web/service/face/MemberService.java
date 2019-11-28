@@ -44,6 +44,19 @@ public interface MemberService {
 
 	BUser getupdateUser(HttpServletRequest req);
 
+
+
+	public List getmemberList();
+
+	public List getmemberList(Paging paging);
+	
+	public Paging getPaging(HttpServletRequest req);
+
+	void DeleteUser(BUser buser);
+
+
+
 	int cntUserNick(BUser bUser);
+
 	
 }

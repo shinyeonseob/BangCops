@@ -2,7 +2,9 @@ package web.dbutil;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 // DB 연결객체 - 싱글톤
 public class DBconn {
@@ -39,6 +41,8 @@ public class DBconn {
 		
 		return conn;
 	}
+	
+	
 	
 	
 }
