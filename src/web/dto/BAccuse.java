@@ -11,7 +11,7 @@ public class BAccuse {
 	private String accusetype;
 	private int idx;
 	private String agent;
-	private int PhoneNo;
+	private String PhoneNo;
 	private String Property;
 
 	@Override
@@ -85,11 +85,11 @@ public class BAccuse {
 		this.agent = agent;
 	}
 
-	public int getPhoneNo() {
+	public String getPhoneNo() {
 		return PhoneNo;
 	}
 
-	public void setPhoneNo(int phoneNo) {
+	public void setPhoneNo(String phoneNo) {
 		PhoneNo = phoneNo;
 	}
 

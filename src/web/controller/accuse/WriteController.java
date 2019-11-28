@@ -47,7 +47,7 @@ public class WriteController extends HttpServlet {
 		accuseService.write(req);
 		
 		//목록으로 리다이렉션
-		resp.sendRedirect("/accuse");
+		resp.sendRedirect("/main");
 	}
 	
 	

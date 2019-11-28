@@ -22,11 +22,34 @@ public class AccuseDaoImpl implements AccuseDao {
 		
 		conn = DBconn.getConnection(); //DB 연결
 
-		//다음 게시글 번호 조회 쿼리
+		System.out.println(baccuse);
+		String sql =  "INSERT INTO BAccuse ( AccuseNo, URL, City, Gu, sitename, AccuseType, idx, Agent, Property, PhoneNo)";
+		sql += " VALUES ( BAccuse_SEQ.nextval, ?, ?, ?, ?, ?, ?, ? ,? ,? )";
 		
-		String sql = "";
-	//	sql += "INSERT INTO board(BOARDNO,TITLE,ID,CONTENT,HIT) ";
-	//	sql += " VALUES (?, ?, ?, ?, 0)";
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, baccuse.getUrl());
+			ps.setString(2, baccuse.getCity());
+			ps.setString(3, baccuse.getGu());
+			ps.setString(4, baccuse.getSitename());
+			ps.setString(5, baccuse.getAccusetype());
+			ps.setInt(6, baccuse.getIdx());
+			ps.setString(7, baccuse.getAgent());
+			ps.setString(8, baccuse.getProperty());
+			ps.setString(9, baccuse.getPhoneNo());
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		
 	}
