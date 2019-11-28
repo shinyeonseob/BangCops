@@ -27,6 +27,7 @@ public interface MemberDao {
 
 	void updatepw(BUser param);
 	
+
 	/**
 	 * 회원 전체 조회
 	 * 

@@ -13,7 +13,7 @@ public interface BoardDao {
 	public List<BBoard> selectAll();
 	
 	// 내림차순으로 리스트 정렬 및 게시목록 조회
-	public List<BBoard> selectAll(Paging paging);
+	public List<BBoard> selectAll(Paging paging, int boardno);
 	
 	public List<BBoardAndBboardType> selectMyboard(Paging paging, BUser userno);
 
@@ -30,6 +30,10 @@ public interface BoardDao {
 	public void updateHit(BBoard bBoard);
 	
 	public void delete(BBoard bBoard);
+	
+	public int selectCntBoard(int boardno);
+	
+	public String getboardname(int boardno);
 	
 	
 	

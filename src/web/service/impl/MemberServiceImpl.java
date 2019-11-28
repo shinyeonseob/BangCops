@@ -332,6 +332,7 @@ public class MemberServiceImpl implements MemberService {
 	public void DeleteUser(BUser buser) {
 		memberDao.deleteUser(buser);
 	}
+
 		
 }
 

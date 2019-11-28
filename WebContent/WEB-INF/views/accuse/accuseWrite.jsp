@@ -20,7 +20,7 @@ able, td {
 	/*   border-collapse: collapse; */
 	
 }
-
+ 
 .tdleft {
 	width: 30px;
 }
@@ -33,72 +33,99 @@ input {
 	width: 70%;
 }
 </style>
+<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$("#btnWrite").click(function() {
+
+// 		console.log(111);
+
+		//스마트에디터의 내용을 <textarea>에 적용
+		submitContents($("#btnWrite"));
+
+		//form submit
+		$("#write").submit();
+	})
+
+});
+</script>
+
 
 <div class="container">
-
+<form action="/accuse/write" method="post" enctype="multipart/form-data">
 
 	<hr>
 
-
-	<Strong>신고 사항</Strong> <br> <br> <small>허위/과장매물 신고</small>
+	<Strong>신고 사항</Strong> <br> <br> <small>${accuseType}</small>
 	<hr>
 	<small>1단계 : 신고매물 기본정보</small> <br>
-
-
+<input type="hidden" name="boardno" value="6" />
+<input type="hidden" name="accuseType" value="${accuseType}" />
 	<table style="margin: 0 auto;">
 		<tr>
 			<td colspan="2" class="tdupper">신고 게시물 URL</td>
 		</tr>
 		<tr>
 			<td class="tdleft"></td>
-			<td class="tdright"><input type="text"
+			<td class="tdright"><input type="url" name="URL"
 				placeholder=" URL을 입력해주세요" /></td>
 		</tr>
 
-
-
 		<tr>
-			<td colspan="2" class="tdupper">부동산 이름</td>
+			<td colspan="2" class="tdupper">신고 사이트</td>
 		</tr>
 		<tr>
 			<td class="tdleft"></td>
-			<td class="tdright"><input type="text" placeholder="신고할 부동산의 상호" /></td>
+			<td class="tdright"><input type="text" name="sitename"
+				placeholder="ex)직방,다방,네이버부동산 등" /></td>
+		</tr>
+
+		<tr>
+			<td colspan="2" class="tdupper" >부동산 이름</td>
+		</tr>
+		<tr>
+			<td class="tdleft"></td>
+			<td class="tdright"><input type="text" name="Property" placeholder="신고할 부동산의 상호" /></td>
 		</tr>
 		<br>
 
 		<tr>
-			<td colspan="2" class="tdupper">중개인 이름</td>
+			<td colspan="2" class="tdupper" >중개인 이름</td>
 		</tr>
 		<tr>
 			<td class="tdleft"></td>
-			<td class="tdright"><input type="text"
-				placeholder="신고게시물에 기재된 중개인의 이름" /></td>
+			<td class="tdright"><input type="text" name="Agent"
+				placeholder="신고게시물에 기재된 중개인의 이름"  required="required"/></td>
 		</tr>
 		<br>
 
 		<tr>
-			<td colspan="2" class="tdupper">전화번호</td>
+			<td colspan="2" class="tdupper" >전화번호</td>
 		</tr>
 		<tr>
 			<td class="tdleft"></td>
-			<td class="tdright"><input type="int"
-				placeholder="신고게시물에 기재된 휴대폰 번호" /></td>
+			<td class="tdright"><input type="tel" name="PhoneNo"
+				placeholder="신고게시물에 기재된 휴대폰 번호" required="required"/></td>
 		<tr>
-			<td colspan="2" class="tdupper">지역</td>
+			<td colspan="2" class="tdupper" >지역</td>
 		</tr>
 		<tr>
 			<td class="tdleft"></td>
 			<td class="tdright">
-			<select name="location">
+			<select name="City" required="required">
 					<option value="seoul">서울</option>	
 			</select></td>
 		<tr>
 			<td class="tdleft"></td>
 			<td class="tdright">
-			<select name="city">
+			<select name="Gu" required="required">
 					<option value="gangnam">강남구</option>	
 					<option value="seocho">서초구</option>
 			</select></td>	
+			
+			
 			
 		</tr>
 		<br>
@@ -108,20 +135,25 @@ input {
 	<br>
 	<br>
 	<br>
+	
 
 	<hr>
 	<small>2단계 : 신고매물 상세정보</small>
+	
+
+
+	
 	<hr>
-	<small> 허위/과장된 부분을 입증할 수 있는 파일을 첨부해주세요<br> ex)문자 내용
+	<small> ${accuseType}임을 입증할 수 있는 파일을 첨부해주세요<br> ex)문자 내용
 		스크린샷(휴대폰 번호 보일 수 있도록)
 	</small> <br> <br> <label>상세내용</label><br>
-	<textarea placeholder="신고할 내용을 상세하게 입력해주세요" name="textarea"></textarea>
-
+	<textarea placeholder="신고할 내용을 상세하게 입력해주세요" id="contents" name="contents"></textarea>
+<script type="text/javascript">
+ CKEDITOR.replace('contents', {height: 400});
+</script></td>
 	<br> <small>파일첨부(최대 5개)</small>
 
-
-	<button>파일첨부</button>
-
+	<input type="file" name="upfile"/>
 	<br> <br>
 	<hr>
 
@@ -143,16 +175,17 @@ input {
 		불이익을 받을 수 있습니다. <br></small> <br>
 		
 		
-		<input type="checkbox" id="checkBox_01">
+		<input type="checkbox" id="checkBox_01" required="required">
 		 <small>허위매물 등록 약관에 동의합니다.</small>
 	<br> <br>
 	<hr>
-	<button type="button" id="btnAWrite">등록완료</button>
+	<button id="btnAWrite">등록완료</button>
 
 
 
 
-
+</form>
 </div>
+
 
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />

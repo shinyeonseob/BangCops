@@ -31,6 +31,8 @@ div {
 <hr>
 
 
+
+
 <div id="container">
 
 	<div id="container">
@@ -96,11 +98,10 @@ div {
 
 	</div>
 	<br>
-	<button class="btnAccuse">신고하기</button>
-	<button class="btnAccuse">신고하기</button>
-	<button class="btnAccuse">신고하기</button>
+	<a href="/accuse/write?accuseType=허위/과장매물"><button class="btnAccuse">신고하기</button></a>
+	<a href="/accuse/write?accuseType=불량 매물"><button class="btnAccuse">신고하기</button></a>
+	<a href="/accuse/write?accuseType=사기 의심 매물"><button class="btnAccuse">신고하기</button></a>
 </div>
-
 
 
 

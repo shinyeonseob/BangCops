@@ -411,6 +411,6 @@ public class MemberDaoImpl implements MemberDao {
 			e.printStackTrace();
 		} 
 	}
-}
 
+}
 

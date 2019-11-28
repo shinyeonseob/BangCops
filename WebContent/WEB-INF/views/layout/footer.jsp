@@ -3,7 +3,7 @@
 
 
 
-</div></div><!-- //footer -->
+<!-- </div></div>//footer -->
 
 
 <div style ="min-height : 800px">

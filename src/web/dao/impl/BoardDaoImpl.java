@@ -67,7 +67,7 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public List<BBoard> selectAll(Paging paging) {
+	public List<BBoard> selectAll(Paging paging,int boardno) {
 		
 		conn = DBconn.getConnection(); //DB 연결
 		
@@ -78,6 +78,7 @@ public class BoardDaoImpl implements BoardDao {
 		sql += "	SELECT";
 		sql += "		idx,title, contents, hits, reco, boardno, userno, regdate, (SELECT usernick FROM buser WHERE b.userno = userno)usernick ";
 		sql += "	FROM Bboard b";
+		sql += "	WHERE boardno = ? ";
 		sql += "	ORDER BY idx DESC";
 		sql += " ) B ORDER BY rnum";
 		sql += " ) BBoard";
@@ -88,8 +89,9 @@ public class BoardDaoImpl implements BoardDao {
 		try {
 			ps = conn.prepareStatement(sql);
 
-			ps.setInt(1, paging.getStartNo());
-			ps.setInt(2, paging.getEndNo());
+			ps.setInt(1, boardno);
+			ps.setInt(2, paging.getStartNo());
+			ps.setInt(3, paging.getEndNo());
 			
 			rs = ps.executeQuery();
 			
@@ -196,6 +198,7 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public List<BBoardAndBboardType> selectMyboard(Paging paging, BUser userno) {
 
+		System.out.println("1");
 		conn = DBconn.getConnection(); //DB 연결
 		
 		// 수행할 쿼리
@@ -216,14 +219,15 @@ public class BoardDaoImpl implements BoardDao {
 		List<BBoardAndBboardType> list = new ArrayList<>();
 		
 		try {
+			System.out.println("2");
 			ps = conn.prepareStatement(sql);
 
 			ps.setInt(1, userno.getUserno());
 			ps.setInt(2, paging.getStartNo());
 			ps.setInt(3, paging.getEndNo());
-			
+			System.out.println("3");
 			rs = ps.executeQuery();
-			
+			System.out.println("4");
 			while (rs.next()) {
 //				BBoard bBoard = new BBoard();
 				BBoardAndBboardType myboard = new BBoardAndBboardType();
@@ -238,13 +242,14 @@ public class BoardDaoImpl implements BoardDao {
 				myboard.setUserNo(rs.getInt("UserNo"));
 				myboard.setBoardname(rs.getString("boardname"));
 
+				System.out.println("5");
 				list.add(myboard);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		System.out.println("6");
 		return list;
 	}
 
@@ -253,15 +258,16 @@ public class BoardDaoImpl implements BoardDao {
 		
 		String sql = "";
 		sql += "INSERT INTO BBoard ( boardno, idx, title, contents, userno, hits, reco )";
-		sql += " VALUES ( 1, ?, ?, ?, ?, 0, 0 )";
+		sql += " VALUES ( ?, ?, ?, ?, ?, 0, 0 )";
 		
 		try {
 			ps = conn.prepareStatement(sql);
 			
-			ps.setInt(1, board.getIdx());
-			ps.setString(2, board.getTitle());
-			ps.setString(3, board.getContents());
-			ps.setInt(4, board.getUserNo());
+			ps.setInt(1, board.getBoardNo());
+			ps.setInt(2, board.getIdx());
+			ps.setString(3, board.getTitle());
+			ps.setString(4, board.getContents());
+			ps.setInt(5, board.getUserNo());
 			
 			ps.executeUpdate();
 		} catch (SQLException e) {
@@ -350,6 +356,54 @@ public class BoardDaoImpl implements BoardDao {
 			}
 		}
 		
+	}
+
+	@Override
+	public int selectCntBoard(int boardno) {
+		conn = DBconn.getConnection(); // DB 연결
+		
+		String sql = "SELECT count(*) FROM Bboard where boardno = ?";
+		
+		int cnt = 0;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, boardno);
+			
+			rs = ps.executeQuery(); // SQL 수행결과 얻기
+			
+			while (rs.next()) {
+				cnt = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
+
+	@Override
+	public String getboardname(int boardno) {
+		conn = DBconn.getConnection();
+		
+		String sql = "SELECT * FROM bboardtype WHERE boardno = ?";
+		
+		String boardname = null;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, boardno);
+			
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				boardname = rs.getString("boardno");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return boardname;
 	}
 
 

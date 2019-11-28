@@ -13,7 +13,7 @@ import web.service.impl.AccuseServiceImpl;
 
 
 
-@WebServlet("/accuse")
+@WebServlet("/accuse/write")
 public class WriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -27,19 +27,22 @@ public class WriteController extends HttpServlet {
 	
 		//로그인 되어있지 않으면 리다이렉트 
 		if( req.getSession().getAttribute("login") == null ) {
-			resp.sendRedirect("/main");
+			resp.sendRedirect("/member/join");
 			return;
 		}
+		//신고하기 클릭하기 누르면 신고 타입에 맞게 불러오기
+		req.setAttribute("accuseType",req.getParameter("accuseType"));
 		
 		//VIEW 지정
-		req.getRequestDispatcher("/WEB-INF/views/home/accuseWrite.jsp")
+		req.getRequestDispatcher("/WEB-INF/views/accuse/accuseWrite.jsp")
 			.forward(req, resp);
-	
+		
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
+		req.setCharacterEncoding("UTF-8");
+
 		//작성글 삽입
 		accuseService.write(req);
 		

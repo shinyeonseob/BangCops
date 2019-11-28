@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import util.Paging;
 import web.dto.BAccuse;
 
 
@@ -57,6 +58,24 @@ public interface AccuseService {
 	 * @param board - 삭제할 게시글 번호를 가진 객체
 	 */
 	public void delete(BAccuse baccuse);
+
+
+
+	public BAccuse view(BAccuse viewABoard);
+
+
+
+	public Paging getPaging(HttpServletRequest req);
+
+
+
+	public List getList(Paging paging);
+
+
+
+
+
+
 
 	/**
 	 * 댓글 전달파라미터 꺼내기
