@@ -43,11 +43,5 @@ public interface MemberService {
 	void updatepw(BUser param);
 
 	BUser getupdateUser(HttpServletRequest req);
-
-	public List getmemberList();
-
-	public List getmemberList(Paging paging);
-	
-	public Paging getPaging(HttpServletRequest req);
 	
 }
