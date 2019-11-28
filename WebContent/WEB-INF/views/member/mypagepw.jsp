@@ -83,7 +83,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	
-	//작성버튼 동작
+	//작성버튼 동작 ${usercurrpw }
 	$("#btn_updatepw").click(function() {
 		 // 현재 비밀번호 입력
         if($("#userpw").val() ==''){
@@ -91,6 +91,12 @@ $(document).ready(function() {
             $("#userpw").focus();
             return false;
         }
+		 // 현재 비밀번호 일치 여부 확인
+		 if($("#userpw").val() != "${usercurrpw }" ){
+			 alert('현재 비밀번호가 일치하지 않습니다');
+			 $("#userpw").focus();
+	            return false;
+		 }
 		 
     	 // 변경할 비밀번호 입력
         if($("#updatepw").val() ==''){
@@ -99,17 +105,29 @@ $(document).ready(function() {
             return false;
         }
         // 비밀번호 확인
-        if($("#update_chk").val() ==''){
+        if($("#updatepw_chk").val() ==''){
             alert('비밀번호를 다시 한번 더 입력하세요');
             $("#update_chk").focus();
             return false;
-        }else{
+        }
+     	 if($("#updatepw").val() != $("#updatepw_chk").val() ){
+        	alert('변경 비밀번호가 일치하지 않습니다');
+        	$("#update_chk").focus();
+        	return false;
+        } 
+        
+        
+        else{
 		//form submit 수행
 		$("form").submit();
         	
         }
+		// 취소 버튼
+		
 	});
-	
+	$("#btnCancel").click(function() {
+		location.href = "/mypage/main";
+	});
 	
 });
 $(function() {
@@ -126,7 +144,8 @@ $(function() {
           } else {
              $("#alert-success").hide();
              $("#alert-danger").show();
-             $("#submit").attr("disabled", "disabled");
+             $("#submit").attr("disabled", "disabled")
+             return false;
           }
        }
     });
@@ -170,6 +189,7 @@ $(function() {
 <br>
 <hr>
 <button type = "submit" id = "btn_updatepw" class="btn btn-info"> 비밀번호 변경</button>
+<button type="button" id="btnCancel" class="btn btn-danger">취소</button>
 </form>
 
 

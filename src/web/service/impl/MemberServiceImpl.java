@@ -14,6 +14,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import util.Paging;
 import web.dao.face.MemberDao;
 import web.dao.impl.MemberDaoImpl;
 import web.dto.BUser;
@@ -288,16 +289,10 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.nickcheck(usernick);
 	}
 
-
-
-
-
-
 	@Override
 	public void update(BUser member) {
 		memberDao.update(member);
 	}
-	
-	
+		
 }
 

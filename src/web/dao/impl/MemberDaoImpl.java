@@ -1,12 +1,16 @@
 package web.dao.impl;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import util.Paging;
 import web.dao.face.MemberDao;
 import web.dbutil.DBconn;
 import web.dto.BUser;
@@ -228,6 +232,7 @@ public class MemberDaoImpl implements MemberDao {
 
 		return true;
 	}
+
 }
 
 

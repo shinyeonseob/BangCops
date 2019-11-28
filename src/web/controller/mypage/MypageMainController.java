@@ -33,11 +33,11 @@ public class MypageMainController extends HttpServlet {
 		userid = (String) session.getAttribute("Userid");
 		BUser buser = new BUser();
 		buser.setUserid(userid);
-		System.out.println("session id : " + userid);
-		System.out.println(buser);
+//		System.out.println("session id : " + userid);
+//		System.out.println(buser);
 		
 		BUser getMemberByUserid = memberService.getMemberByUserid(buser);
-		System.out.println(getMemberByUserid);
+//		System.out.println(getMemberByUserid);
 		
 		req.setAttribute("BUser", getMemberByUserid);
 		
