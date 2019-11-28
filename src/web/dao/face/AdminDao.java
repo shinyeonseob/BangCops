@@ -3,6 +3,7 @@ package web.dao.face;
 import java.util.List;
 
 import util.Paging;
+import web.dto.BUser;
 
 public interface AdminDao {
 
@@ -17,6 +18,8 @@ public interface AdminDao {
 	
 	public int selectCntAll();
 
-	public void deleteMemberList(String names);
+	public BUser selectMemberByUserno(BUser viewBoard);
 	
+	public void deleteMemberList(String names);
+		
 }

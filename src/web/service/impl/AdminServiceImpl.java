@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import util.Paging;
 import web.dao.face.AdminDao;
 import web.dao.impl.AdminDaoImpl;
+import web.dto.BUser;
 import web.service.face.AdminService;
 
 public class AdminServiceImpl implements AdminService {
@@ -59,5 +60,56 @@ public class AdminServiceImpl implements AdminService {
 		adminDao.deleteMemberList(names);
 	}
 
-	
+	@Override
+	public BUser getUserno(HttpServletRequest req) {
+		
+		String param = req.getParameter("userno");
+		int userno = 0;
+		if( param!=null && !"".equals(param) ) {
+			userno = Integer.parseInt(param);
+		}
+				
+		//게시글 번호를 DTO에 넣기
+		BUser buser = new BUser();
+		buser.setUserno(userno);
+		
+		System.out.println(buser);
+		
+		return adminDao.selectMemberByUserno(buser);
+		
+	}
+
+	@Override
+	public boolean checkId(HttpServletRequest req) {
+		
+		// 로그인한 세션 ID얻기
+		String loginId = (String)req.getSession().getAttribute("userid");
+		
+		// 회원번호 얻기
+		BUser buser = getUserno(req);
+		
+		// 회원번호 얻기
+		buser = adminDao.selectMemberByUserno(buser);
+		
+		// 로그인 아이디 비교
+		if(!loginId.equals(buser.getUserid())) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public BUser view(BUser viewBuser) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(HttpServletRequest req) {
+		
+		BUser buser = null;
+		
+		
+	}
+
 }

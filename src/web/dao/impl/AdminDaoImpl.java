@@ -199,5 +199,60 @@ public class AdminDaoImpl implements AdminDao {
 			}
 		}
 	}
+
+	@Override
+	public BUser selectMemberByUserno(BUser viewmember) {
+		
+		conn = DBconn.getConnection();
+		
+		// 게시글 조회쿼리
+		String sql = "";
+		sql += "SELECT ";
+		sql += "	userno";
+		sql += "	, userid";
+		sql += "	, userpw";
+		sql += "	, usernick";
+		sql += "	, username";
+		sql += "	, usertel";
+		sql += " FROM buser";
+		sql += " WHERE userno = ?";
+
+		try {
+
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, viewmember.getUserno());
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+
+				viewmember.setUserno(rs.getInt("userno"));
+				viewmember.setUserid(rs.getString("userid"));
+				viewmember.setUserpw(rs.getString("userpw"));
+				viewmember.setUsernick(rs.getString("usernick"));
+				viewmember.setUsername(rs.getString("username"));
+				viewmember.setUsertel(rs.getString("usertel"));
+				System.out.println(viewmember);
+				
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				// 자원 해제
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return viewmember;
+
+	}
 	
 }
