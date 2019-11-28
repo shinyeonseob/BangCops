@@ -34,8 +34,9 @@ public class MypagePasswordController extends HttpServlet {
 		loginuser.setUserid(userid);
 		loginuser.setUserno(userno);
 
-
-
+		System.out.println(memberService.getMemberByUserid(loginuser).getUserpw());
+		memberService.getMemberByUserid(loginuser).getUserpw();
+		req.setAttribute("usercurrpw", memberService.getMemberByUserid(loginuser).getUserpw());
 
 		//		System.out.println(userno);
 		//		System.out.println(userid);
@@ -61,7 +62,9 @@ public class MypagePasswordController extends HttpServlet {
 		//		System.out.println("member : " + memberService.getMemberByUserid(buser).getUserpw());
 		//		buser.setUserpw(memberService.getMemberByUserid(userid));
 
-		//		System.out.println("curr : " + memberService.getcurrpw(req));
+//				System.out.println("curr : " + memberService.getcurrpw(req));
+		 
+
 		if(memberService.getcurrpw(req).getUserpw().equals(memberService.getMemberByUserid(buser).getUserpw())) {
 			BUser param = memberService.getUpdatepw(req);
 			param.setUserno(userno);

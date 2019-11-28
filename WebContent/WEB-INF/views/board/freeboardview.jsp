@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+   <script type="text/javascript"
+   src = "http://code.jquery.com/jquery-2.2.4.min.js"></script>
 <!-- <!DOCTYPE html> -->
 <!-- <html> -->
 <!-- <head> -->
@@ -12,6 +15,67 @@
 
 <!-- </body> -->
 <!-- </html> -->
+
+<script type="text/javascript">
+$(document).ready(function() {
+	// 댓글 입력
+	$("#btnCommInsert").click(function() {
+// 		게시글 번호.... ${list.idx}
+			console.log($("#commentWriter").val());
+			console.log($("#commentContent").val());
+		
+		$form = $("<form>").attr({
+			action: "/comment/insert",
+			method: "post"
+		}).append(
+			$("<input>").attr({
+				type:"hidden",
+				name:"idx",
+				value:"${list.idx }"
+			})
+		).append(
+			$("<input>").attr({
+				type:"hidden",
+				name:"userno",
+				value:"${sessionScope.Userno }"
+			})
+		).append(
+			$("<textarea>")
+				.attr("name", "contents")
+				.css("display", "none")
+				.text($("#commentContent").val())
+		);
+		$(document.body).append($form);
+		$form.submit();
+		
+	});
+	
+});
+
+//댓글 삭제
+function deleteComment(commentno) {
+	$.ajax({
+		type: "post"
+		, url: "/comment/delete"
+		, dataType: "json"
+		, data: {
+			commentno: commentno
+		}
+		, success: function(data){
+			if(data.success) {
+				
+				$("[data-commentno='"+commentno+"']").remove();
+				
+			} else {
+				alert("댓글 삭제 실패");
+			}
+		}
+		, error: function() {
+			console.log("error");
+		}
+	});
+}
+</script>
 <style type="text/css">
 th {
 	padding:10px;
@@ -76,5 +140,66 @@ function warning() {
 <c:if test="${Userno ne list.userNo }">
 	<a style="float:right"><button>댓글작성</button></a>
 </c:if>
+
+
+
+
+
+<!-- 댓글 처리 -->
+<div>
+
+<hr>
+
+<!-- 비로그인상태 -->
+<c:if test="${not login }">
+<strong>로그인이 필요합니다</strong><br>
+<button onclick='location.href="/main";'>로그인</button>
+<button onclick='location.href="/member/join";'>회원가입</button>
+</c:if>
+
+<!-- 로그인상태 -->
+<c:if test="${login }">
+<!-- 댓글 입력 -->
+<div class="form-inline text-center">
+	<input type="text" size="10" class="form-control" id="commentWriter" value="${Userno }" readonly="readonly"/>
+	<textarea rows="2" cols="60" class="form-control" id="commentContent"></textarea>
+	<button id="btnCommInsert" class="btn">입력</button>
+</div>	<!-- 댓글 입력 end -->
+</c:if>
+<!-- 댓글 리스트 -->
+<table class="table table-striped table-hover table-condensed">
+<thead>
+<tr>
+	<th style="width: 5%;">번호</th>
+	<th style="width: 10%;">작성자</th>
+	<th style="width: 50%;">댓글</th>
+	<th style="width: 20%;">작성일</th>
+	<th style="width: 5%;"></th>
+</tr>
+</thead>
+<tbody id="commentBody">
+<c:forEach items="${commentList }" var="comment">
+<tr data-commentno="${comment.commentno }">
+	<td>${comment.rnum }</td>
+	<td>${comment.usernick }</td><!-- 닉네임으로 해도 좋음 -->
+	<td>${comment.contents }</td>
+	<td><fmt:formatDate value="${comment.regDate }" pattern="yy-MM-dd hh:mm:ss" /></td>
+	<td>
+		<c:if test="${sessionScope.Userno eq comment.userno }">
+		<button class="btn btn-default btn-xs"
+			onclick="deleteComment(${comment.commentno });">삭제</button>
+		</c:if>
+	</td>
+	
+</tr>
+</c:forEach>
+</tbody>
+</table>	<!-- 댓글 리스트 end -->
+
+</div>	<!-- 댓글 처리 end -->
+
+
+
+
 </div>
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />
