@@ -23,6 +23,18 @@ public interface AccuseDao {
 	public int selectBoardno();
 
 
+	public BAccuse selectBoardByBoardno(BAccuse viewABoard);
+
+
+	public void updateHit(BAccuse viewABoard);
+
+
+	public int selectCntAll(String search);
+
+
+
+
+
 	
 
 	/**
