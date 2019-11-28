@@ -293,40 +293,6 @@ public class MemberServiceImpl implements MemberService {
 	public void update(BUser member) {
 		memberDao.update(member);
 	}
-
-	@Override
-	public List getmemberList() {
-		
-		return memberDao.selectAll();
-	}
-
-	@Override
-	public List getmemberList(Paging paging) {
-		
-		return memberDao.selectAll(paging);
-	}
-
-	@Override
-	public Paging getPaging(HttpServletRequest req) {
-		
-		//요청파라미터 curPage를 파싱한다
-				String param = req.getParameter("curPage");
-				int curPage = 0;
-				if( param!=null && !"".equals(param) ) {
-					curPage = Integer.parseInt(param);
-				}
-//				System.out.println("curPage : " + curPage);
-				
-				
-				//Board TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
-				int totalCount = memberDao.selectCntAll();
-				
-				// Paging 객체 생성 
-				Paging paging = new Paging(totalCount, curPage);
-				
-				return paging;
-		
-	}
 		
 }
 

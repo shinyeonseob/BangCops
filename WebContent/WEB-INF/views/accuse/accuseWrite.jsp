@@ -20,7 +20,7 @@ able, td {
 	/*   border-collapse: collapse; */
 	
 }
-
+ 
 .tdleft {
 	width: 30px;
 }
@@ -34,13 +34,15 @@ input {
 }
 </style>
 
-<div class="container">
 
+
+<div class="container">
+<form action="/accuse/write" method="post" enctype="UTF-8">
 
 	<hr>
 
 
-	<Strong>신고 사항</Strong> <br> <br> <small>허위/과장매물 신고</small>
+	<Strong>신고 사항</Strong> <br> <br> <small>${accuseType}</small>
 	<hr>
 	<small>1단계 : 신고매물 기본정보</small> <br>
 
@@ -55,7 +57,14 @@ input {
 				placeholder=" URL을 입력해주세요" /></td>
 		</tr>
 
-
+		<tr>
+			<td colspan="2" class="tdupper">신고 사이트</td>
+		</tr>
+		<tr>
+			<td class="tdleft"></td>
+			<td class="tdright"><input type="text"
+				placeholder="ex)직방,다방,네이버부동산 등" /></td>
+		</tr>
 
 		<tr>
 			<td colspan="2" class="tdupper">부동산 이름</td>
@@ -100,6 +109,9 @@ input {
 					<option value="seocho">서초구</option>
 			</select></td>	
 			
+			
+	<div type="hidden"><button></button></div>
+			
 		</tr>
 		<br>
 
@@ -108,11 +120,17 @@ input {
 	<br>
 	<br>
 	<br>
-
+	
+</form>
+<form action="/accuse/write" method="post" enctype="UTF-8">
 	<hr>
 	<small>2단계 : 신고매물 상세정보</small>
+	
+				
+		<button type ="hidden"></button>
+	
 	<hr>
-	<small> 허위/과장된 부분을 입증할 수 있는 파일을 첨부해주세요<br> ex)문자 내용
+	<small> ${accuseType}임을 입증할 수 있는 파일을 첨부해주세요<br> ex)문자 내용
 		스크린샷(휴대폰 번호 보일 수 있도록)
 	</small> <br> <br> <label>상세내용</label><br>
 	<textarea placeholder="신고할 내용을 상세하게 입력해주세요" name="textarea"></textarea>
@@ -147,12 +165,15 @@ input {
 		 <small>허위매물 등록 약관에 동의합니다.</small>
 	<br> <br>
 	<hr>
+</form>	
+<form action="/accuse/write" method="post" enctype="UTF-8">
 	<button type="button" id="btnAWrite">등록완료</button>
 
 
 
 
-
+</form>
 </div>
+
 
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />
