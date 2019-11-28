@@ -32,7 +32,7 @@ public class MemberLoginController extends HttpServlet {
 			return;	
 		}// 이부분 메인 컨트롤러로 옮겨서 이미 로그인되어있으면 로그인 버튼 안보이도록 설정하기
 
-	
+
 
 		BUser getLoginMember = memberService.getLoginMember(req);
 		

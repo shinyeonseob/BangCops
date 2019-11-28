@@ -327,6 +327,11 @@ public class MemberServiceImpl implements MemberService {
 				return paging;
 		
 	}
+
+	@Override
+	public void DeleteUser(BUser buser) {
+		memberDao.deleteUser(buser);
+	}
 		
 }
 

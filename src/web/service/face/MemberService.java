@@ -49,5 +49,7 @@ public interface MemberService {
 	public List getmemberList(Paging paging);
 	
 	public Paging getPaging(HttpServletRequest req);
+
+	void DeleteUser(BUser buser);
 	
 }

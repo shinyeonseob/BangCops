@@ -37,4 +37,6 @@ public interface MemberDao {
 	public List selectAll(Paging paging);
 	
 	public int selectCntAll();
+
+	void deleteUser(BUser buser);
 }

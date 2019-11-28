@@ -390,6 +390,27 @@ public class MemberDaoImpl implements MemberDao {
 		//최종 결과 반환
 		return cnt;
 	}
+
+	@Override
+	public void deleteUser(BUser buser) {
+		conn = DBconn.getConnection(); //DB 연결
+		
+		//수행할 SQL
+		String sql = "";
+		sql += "DELETE FROM";
+		sql += "	BUser";
+		sql += " WHERE userno = ?";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, buser.getUserno()); 
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+	}
 }
 
 

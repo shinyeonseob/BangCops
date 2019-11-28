@@ -13,18 +13,17 @@ import web.dto.BUser;
 import web.service.face.MemberService;
 import web.service.impl.MemberServiceImpl;
 
-@WebServlet("/mypage/pw")
-public class MypagePasswordController extends HttpServlet {
+
+
+@WebServlet("/mypage/with")
+public class MypageWithdrawalController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	MemberService memberService = new MemberServiceImpl();
 	HttpSession session = null;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
-		
-		// 세션에서 userid 받기
+	
 		session = req.getSession();
 		String userid = new String();
 		String userpw = new String();
@@ -37,47 +36,47 @@ public class MypagePasswordController extends HttpServlet {
 //		System.out.println(memberService.getMemberByUserid(loginuser).getUserpw());
 		memberService.getMemberByUserid(loginuser).getUserpw();
 		req.setAttribute("usercurrpw", memberService.getMemberByUserid(loginuser).getUserpw());
-
-		//		System.out.println(userno);
-		//		System.out.println(userid);
-
-
-
-
-
-
+		
+		
 		//view
-		req.getRequestDispatcher("/WEB-INF/views/member/mypagepw.jsp")
-		.forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/member/mypagewithdrawal.jsp")
+			.forward(req, resp);
 	}
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		session = req.getSession();
-		String userid = new String();
-		int userno = (int) session.getAttribute("Userno");
-		userid = (String) session.getAttribute("Userid");
+
+		// 세션에서 userid 받기
 		BUser buser = new BUser();
+		String userid = new String();
+		userid = (String) session.getAttribute("Userid");
+		int userno = (int) session.getAttribute("Userno");
+		buser.setUserno(userno);
 		buser.setUserid(userid);
-		//		System.out.println("member : " + memberService.getMemberByUserid(buser).getUserpw());
-		//		buser.setUserpw(memberService.getMemberByUserid(userid));
-
-//				System.out.println("curr : " + memberService.getcurrpw(req));
-		 
-
-		if(memberService.getcurrpw(req).getUserpw().equals(memberService.getMemberByUserid(buser).getUserpw())) {
-			BUser param = memberService.getUpdatepw(req);
-			param.setUserno(userno);
-			//			System.out.println("param : " + param);
-			memberService.updatepw(param);
-
+		// 비밀번호 입력받기
+		
+		System.out.println("buser : " + buser);
+		
+		if(memberService.getcurrpw(req).getUserpw().equals(
+				memberService.getMemberByUserid(buser).getUserpw())){
+			// 세션 삭제
+			session = req.getSession();
+			session.invalidate();
+			
+			//회원 삭제
+			memberService.DeleteUser(buser);
+			System.out.println("삭제완료");
+			//view
+//			resp.sendRedirect("/main");
+			req.getRequestDispatcher("/WEB-INF/views/home/main.jsp")
+			.forward(req, resp);
+			
+			
 		}
-
-		//		BUser param = new BUser();
-		//		System.out.println(memberService.getcurrpw(req).getUserpw());
-		//		param.setUserpw(memberService.getcurrpw(req).getUserpw());
-
-		//view
-		resp.sendRedirect("/mypage/main");
-
+				
+		
+		
+		
+		
 	}
 }
