@@ -19,6 +19,7 @@ public interface BoardService {
 	
 	public List<BBoardAndBboardType> getMyboardList(Paging paging, BUser userno);
 
+	public Paging getPaging(HttpServletRequest req);
 	public Paging getPaging(HttpServletRequest req ,int boardno);
 	
 	//boardno로 조회해서 게시글 보기

@@ -29,8 +29,8 @@ div .right {
 <h1>커뮤니티</h1>
 <hr>
 <br><br><br>
-<div class="text-center"><h1>부동산과 관련된 여러 정보를 공유해주세요.</h1></div><br>
-<div class="text-center"><h4>회원 여러분의 소중한 정보는 저희 방캅스가 소중하게 보관하겠습니다.</h4></div>
+<div class="text-center"><h2><strong>부동산과 관련된 여러 정보를 공유해주세요.</strong></h2></div><br>
+<div class="text-center"><small>회원 여러분의 소중한 정보는 저희 방캅스가 소중하게 보관하겠습니다.</small></div>
 <br><br><br><br>
 <div class="left" >
 <div id=left_top style="witdh:100px;border:1px solid black;height:180px;margin-right:15px;padding:5px">
