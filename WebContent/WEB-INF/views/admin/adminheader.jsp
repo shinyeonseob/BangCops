@@ -49,7 +49,8 @@ text-align: center;
 </script>
 
 <div class="logo">
-	<img src="/resources/img/logo.png" width="150"; style=" height:100px;"></div>
+	<img src="/resources/img/logo.png" width="150"; style=" height:100px;">
+</div>
 	
   <div class="row">
     <div class="col-md-12"> 
