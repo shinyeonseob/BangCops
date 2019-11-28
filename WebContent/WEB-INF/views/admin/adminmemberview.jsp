@@ -27,6 +27,7 @@ $(document).ready(function() {
 
 	//삭제버튼 동작
 	$("#btnDelete").click(function() {
+		$(location).attr("href", "/admin/memberdelete?userno=${viewBuser.userno}");
 	});
 	
 });

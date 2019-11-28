@@ -18,12 +18,12 @@ $(document).ready(function(){
 
    //회원 검색
    $("#btnsearch").click(function(){
-      location.href="/admin/list?search="+$("#search").val();
+	   location.href="/admin/memberlist?search="+$("#search").val();
    });
    
    //회원 탈퇴
-   $("#btndelete").click(function(){
-      $(location).attr("href","/user/delete?userno=${i.userno }");
+   $("#btnDelete").click(function(){
+      $(location).attr("href","/admin/memberlistdelete?userno=${i.userno }");
    })
    
 });
@@ -43,7 +43,7 @@ $(document).ready(function() {
 		
 		// 전송 폼
 		var $form = $("<form>")
-			.attr("action", "/admin/listDelete")
+			.attr("action", "/admin/memberlistdelete")
 			.attr("method", "post")
 			.append(
 				$("<input>")
@@ -125,19 +125,24 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	<td>${list.username }</td>
 	<td>${list.usertel }</td>
 	<td><button><a href="/admin/memberview?userno=${list.userno }">상세정보</a></button></td>
-    <td><a href="/user/delete?userno=${i.userno }"><button>회원삭제</button></a></td>
+    <td><a href="/admin/memberdelete?userno=${list.userno }"><button id="btnDelete">회원삭제</button></a></td>
 </tr>
 </c:forEach>
 	
 </table>
+
+<button id="btndelete" class="btn btn-warning pull-left">삭제</button>
+<div class="clearfix"></div>
 
 <c:import url="/WEB-INF/views/layout/paging.jsp">
 	<c:param name="url" value="${url }" />
 </c:import>
 
 <div class="form-inline text-center">
+<form action="/admin/memberlist" method="get">
       <input class="form-control" type="text" id="search">
       <button id ="btnsearch">검색</button>
+</form>
 </div>
 
 

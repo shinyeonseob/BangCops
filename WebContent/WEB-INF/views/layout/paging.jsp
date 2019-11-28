@@ -52,8 +52,6 @@
 	
 	<!-- 끝 페이지로 가기 -->
 	<c:if test="${paging.curPage ne paging.totalPage }">
-
-
 	<li><a href="${url }?curPage=${paging.totalPage }&boardno=${boardno}">&rarr;끝</a></li>
 
 	</c:if>
