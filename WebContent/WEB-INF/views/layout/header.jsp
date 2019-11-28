@@ -36,7 +36,13 @@
 	src=https://code.jquery.com/jquery-2.2.4.min.js></script>
 
 
-
+<style type="text/css">
+body {
+	background : url("/resources/img/background.PNG" ) ;   /* 배경 이미지 불러오기 */
+	background-repeat : no-repeat;  /* 반복 안함 */
+	background-size : cover;
+}
+</style>
 
 <style>
 #topMenu {
