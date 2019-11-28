@@ -54,6 +54,16 @@
    
 }
 
+#container {
+	list-style: none;
+	color: white;
+	background-color: #333399;
+	float: left;
+	line-height: 40px;
+	vertical-align: middle;
+	text-align: center;
+}
+
 </style>
 
 <script type="text/javascript">
@@ -69,6 +79,7 @@
 <body>
 <h1>관리자 메인 페이지</h1>
 
+<div class="container">
 <nav id="topMenu">
       <ul>
          <li><a id = "btn_admin_memberlist" class="menuLink" href="#">회원리스트</a></li>
@@ -79,6 +90,4 @@
       </ul>
 </nav>
 <hr>
-</body>
-</html>
-
+</div>

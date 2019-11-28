@@ -11,11 +11,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>    
     
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<jsp:include page="/WEB-INF/views/admin/adminheader.jsp" />
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -89,5 +85,4 @@ $(document).ready(function() {
 
 </div>
 
-</body>
-</html>
+<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
