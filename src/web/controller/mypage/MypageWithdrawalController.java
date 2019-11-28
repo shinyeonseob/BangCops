@@ -58,7 +58,7 @@ public class MypageWithdrawalController extends HttpServlet {
 		buser.setUserid(userid);
 		// 비밀번호 입력받기
 		
-		System.out.println("buser : " + buser);
+//		System.out.println("buser : " + buser);
 		
 		if(memberService.getcurrpw(req).getUserpw().equals(
 				memberService.getMemberByUserid(buser).getUserpw())){

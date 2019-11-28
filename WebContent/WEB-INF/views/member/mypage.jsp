@@ -67,10 +67,10 @@
 </div>
 
 <div class = "container">
-<div id = "photo" style = "height:200px;width:140px:">
+<%-- <div id = "photo" style = "height:200px;width:140px:">
 	<img src = "" alt = "사진을 등록해 주세요." width="98" height="98">
 
-</div>
+</div>--%>
 <div id = "info_name"> 
 	<label> 이름  </label>
 	<label>${BUser.username } </label>

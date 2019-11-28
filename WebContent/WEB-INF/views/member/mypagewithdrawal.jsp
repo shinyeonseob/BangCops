@@ -22,17 +22,14 @@
 				 $("#userpw").focus();
 		            return false;
 			 }
-// 			alert("회원 탈퇴를 진행하시겠습니까?");
-// 			if(confirm("회원 탈퇴를 진행하시겠습니까?")){
-// 				document.write("회원탈퇴")
-// 				$("form").submit();	
-// 			}
-// 			else{
-// 				document.write("취소");
-// 				location.href = "/mypage/with"
-// 			}
-			else{
+			if(confirm("회원 탈퇴를 진행하시겠습니까?") == true){
+			alert("회원탈퇴가 완료되었습니다");
 				$("form").submit();	
+			}
+			else{
+				history.go(-1);
+// 				document.write("취소");
+				return;
 			}
 
 		});
@@ -111,10 +108,10 @@
 <br><br>
 <br><br><br><hr>
 
+</form>
 <div id = "btns" class="text-center">
          <button type="submit" id="btnCancel" class="btn btn-danger">취소</button>
          <button type="submit" id="btnOut" class="btn btn-warning">회원 탈퇴</button>
 </div>
-</form>
 </div>
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />
