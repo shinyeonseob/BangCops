@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/member/join"><h1>${bUserId } 는 이미 존재하는 ID 입니다.</h1></a>
+<a href="/member/join"><h1>${bUserId } ${bUsernick } 는 이미 존재합니다.</h1></a>
 </body>
 </html>
