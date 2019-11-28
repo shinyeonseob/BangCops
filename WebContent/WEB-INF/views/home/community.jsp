@@ -33,8 +33,8 @@ div .right {
 <div class="text-center"><small>회원 여러분의 소중한 정보는 저희 방캅스가 소중하게 보관하겠습니다.</small></div>
 <br><br><br><br>
 <div class="left" >
-<div id=left_top style="witdh:100px;border:1px solid black;height:180px;margin-right:15px;padding:5px">
-<div id=left_top_inner style="witdh:50px;height:168px;border:1px solid black">
+<div onclick="location.href='/main/community/board?boardno=3'" id="left_top" style="witdh:100px;border:1px solid black;height:180px;margin-right:15px;padding:5px">
+<div id=left_top_inner style="witdh:50px;height:168px;border:1px solid black;cursor:pointer">
 <h2>공지사항</h2>
 <hr>
 </div>
@@ -45,8 +45,8 @@ div .right {
 <hr>
 </div>
 </div><br>
-<div id="left_bottom" style="witdh:100px;border:1px solid black;height:180px;margin-right:15px;padding:5px">
-<div id=left_bottom_inner style="witdh:50px;height:168px;border:1px solid black">
+<div onclick="location.href='/main/community/board?boardno=2'" id="left_bottom" style="witdh:100px;border:1px solid black;height:180px;margin-right:15px;padding:5px">
+<div id=left_bottom_inner style="witdh:50px;height:168px;border:1px solid black;cursor:pointer">
 <h2>이용후기게시판</h2>
 <hr>
 </div>
