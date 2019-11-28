@@ -28,6 +28,8 @@ public class BoardDeleteController extends HttpServlet {
 			
 			boardService.delete(bBoard);
 			
-			resp.sendRedirect("/main/community/freeboardlist");
+			System.out.println(req.getParameter("boardNo"));
+			
+			resp.sendRedirect("/main/community/boardlist?boardno=" + req.getParameter("boardno"));
 		}
 }

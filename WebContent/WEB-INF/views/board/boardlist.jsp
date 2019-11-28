@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <!-- <!DOCTYPE html> -->
 <!-- <html> -->
 <!-- <head> -->
@@ -56,7 +55,7 @@ th {
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center;height:30">
 		<td>${ i.idx }</td>
-		<td style="text-align:left"><a href ="/main/community/freeboardlist/view?idx=${ i.idx }">${ i.title }</a></td>
+		<td style="text-align:left"><a href ="/main/community/boardlist/view?idx=${ i.idx }">${ i.title }</a></td>
 		<td>${ i.usernick }</td>
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>
@@ -67,7 +66,7 @@ th {
 <hr style="background:grey;height:2px">
 
 <c:if test="${login }">
-<a href="/main/community/freeboardlist/write"><button>게시글작성</button></a>
+<a href="/main/community/boardlist/write?boardno=${boardno }"><button>게시글작성</button></a>
 </c:if>
 <c:if test="${empty login }">
 <a style="float:left" ><button onclick="loginPlease();">게시글 작성</button></a>
@@ -80,9 +79,6 @@ th {
 	<option>제목+작성자</option>
 </select></a>
 </div>
-
-<c:import url="/WEB-INF/views/layout/paging.jsp">
-	<c:param name="url" value="${url }" />
-</c:import>
+<div style="margin:0 auto"><jsp:include page="/WEB-INF/views/layout/paging.jsp" /></div>
 
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />
