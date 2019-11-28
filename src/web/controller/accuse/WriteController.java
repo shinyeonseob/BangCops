@@ -41,7 +41,8 @@ public class WriteController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
+		req.setCharacterEncoding("UTF-8");
+
 		//작성글 삽입
 		accuseService.write(req);
 		
