@@ -194,9 +194,6 @@
 			location.href = "/main/community";
 		});
 		
-		
-		
-		
 	});
 </script>
 

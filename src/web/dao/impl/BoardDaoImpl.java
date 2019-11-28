@@ -98,7 +98,7 @@ public class BoardDaoImpl implements BoardDao {
 			while (rs.next()) {
 				BBoard bBoard = new BBoard();
 				
-				bBoard.setIdx(rs.getInt("Idx"));
+				bBoard.setIdx(rs.getInt("idx"));
 				bBoard.setTitle(rs.getString("title"));
 				bBoard.setContents(rs.getString("contents"));
 				bBoard.setRegDate(rs.getDate("regdate"));
