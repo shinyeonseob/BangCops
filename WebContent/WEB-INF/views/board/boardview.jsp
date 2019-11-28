@@ -127,7 +127,7 @@ function warning() {
 	</tr>
 </table>
 <br>
-<a href="/main/community/boardlist?boardno=${list.boardNo }"><button>목록보기</button></a>
+<a href="/main/community/board?boardno=${list.boardNo }"><button>목록보기</button></a>
 <%-- ${session.Userno } | ${list.userNo } --%>
 <c:if test="${Userno eq list.userNo}">
 	<a style="float:right" href="/main/community/board/update?idx=${list.idx }&boardno=${list.boardNo}"><button>수정하기</button></a>
