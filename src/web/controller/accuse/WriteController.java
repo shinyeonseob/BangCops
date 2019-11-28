@@ -47,10 +47,9 @@ public class WriteController extends HttpServlet {
 		accuseService.write(req);
 		
 		//목록으로 리다이렉션
-		resp.sendRedirect("/accuse");
+		req.getRequestDispatcher("/WEB-INF/views/accuse/accuse_done.jsp")
+			.forward(req, resp);
 	}
-	
-	
 	
 	
 }

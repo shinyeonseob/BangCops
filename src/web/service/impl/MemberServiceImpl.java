@@ -333,6 +333,10 @@ public class MemberServiceImpl implements MemberService {
 		memberDao.deleteUser(buser);
 	}
 
+	public int cntUserNick(BUser bUser) {
+		return memberDao.cntUserNick(bUser);
+
+	}
 		
 }
 

@@ -3,21 +3,50 @@
     
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
 
+<style type="text/css">
+div {
+	
+}
+.container {
+	text-align: center;
+	margin : 10px
 
-<h3>검색한 결과""동의 신고된 허위매물 목록입니다. </h3>
+
+}
 
 
 
-<div class="row">
+
+
+</style>
+
+
+
+<div class= "container">
+<h3>검색한 결과""구의 신고된 허위매물 목록입니다. </h3>
+</div>
+
+<div class= "container">
+<div class="row" >
   <div class="col-xs-6 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="/resources/img/logo.png" alt="허위매물정보">
-      안녕해인아<br>
-      해인아 고백할게 난 담배피러갈꺼야? 부럽지?
-    </a>
+      <div class="thumbnail">
+      	<img src="/resources/img/logo.png" alt="허위매물정보">
+       <div class="caption">
+       
+       <h6> 신고사이트 : </h3>
+       <h6> 지역 :</h6>
+       <h6> 가격 :</h6>
+       <h6> 신고된 부동산 :</h6>
+       <h6> 중개사명 :</h6>
+       <h6> 전화번호 :</h6>
+        <p><a href="#" class="btn btn-primary" role="button">상세보기</a></p>
+   
+      </div>
+    </div>
   </div>
+</div>
+</div>
 
-  
 
 
 
