@@ -30,41 +30,32 @@ public class AdminServiceImpl implements AdminService {
 	public Paging getPaging(HttpServletRequest req) {
 		
 		//요청파라미터 curPage를 파싱한다
-				String param = req.getParameter("curPage");
-				int curPage = 0;
-				if( param!=null && !"".equals(param) ) {
-					curPage = Integer.parseInt(param);
-				}
+		String param = req.getParameter("curPage");
+		int curPage = 0;
+		if (param != null && !"".equals(param)) {
+			curPage = Integer.parseInt(param);
+		}
 //				System.out.println("curPage : " + curPage);
-				
-				
-				//Board TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
-				int totalCount = adminDao.selectCntAll();
-				
-				// Paging 객체 생성 
-				Paging paging = new Paging(totalCount, curPage);
-				
-				return paging;
-		
-	}
 
-	@Override
-	public void delete(HttpServletRequest req) {
-		
-		
-	}
+		String search = req.getParameter("search");
 
-	@Override
-	public void memberListDelete(String names) {
+		// Board TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
+		int totalCount = adminDao.selectCntAll(search);
 
-		adminDao.deleteMemberList(names);
+		// Paging 객체 생성
+		Paging paging = new Paging(totalCount, curPage);
+
+		paging.setSearch(search);
+		
+		return paging;
+		
 	}
 
 	@Override
 	public BUser getUserno(HttpServletRequest req) {
 		
 		String param = req.getParameter("userno");
-		System.out.println(req.getParameter("userno"));
+//		System.out.println(req.getParameter("userno"));
 		int userno = 0;
 		if( param!=null && !"".equals(param) ) {
 			userno = Integer.parseInt(param);
@@ -73,8 +64,6 @@ public class AdminServiceImpl implements AdminService {
 		//게시글 번호를 DTO에 넣기
 		BUser buser = new BUser();
 		buser.setUserno(userno);
-		
-		System.out.println(buser);
 		
 		return adminDao.selectMemberByUserno(buser);
 		
@@ -120,4 +109,18 @@ public class AdminServiceImpl implements AdminService {
 		adminDao.updateUser(buser);
 	}
 
+	@Override
+	public void delete(BUser buser) {
+		
+		adminDao.delete(buser);
+		
+	}
+
+	// 체크리스트로 삭제 - 아직 안함
+	@Override
+	public void memberListDelete(String names) {
+		
+		adminDao.deleteMemberList(names);
+	}
+	
 }
