@@ -79,6 +79,7 @@ public class BoardListController extends HttpServlet {
 		String boardname = boardService.getboardname(boardno);
 		
 		// 게시글 목록을 MODEL값으로 지정
+		System.out.println("boardno : " + boardno);
 		req.setAttribute("list", list);
 		req.setAttribute("boardno", boardno);
 		req.setAttribute("boardname", boardname);

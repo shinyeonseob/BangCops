@@ -200,7 +200,7 @@
 
 </head>
 <body>
-	※방캅스※
+	<a href="/main">※방캅스※</a>
 
 	<nav id="topMenu">
 		<ul>
