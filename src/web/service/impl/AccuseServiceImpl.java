@@ -125,6 +125,8 @@ public class AccuseServiceImpl implements AccuseService {
 				if ("title".equals(key)) {
 					try {
 						board.setTitle(item.getString("UTF-8"));
+						System.out.println(key);
+						System.out.println(item.getString("UTF-8"));
 					} catch (UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -134,6 +136,8 @@ public class AccuseServiceImpl implements AccuseService {
 
 					try {
 						board.setContents(item.getString("UTF-8"));
+						System.out.println(key);
+						System.out.println(item.getString("UTF-8"));
 					} catch (UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -142,6 +146,8 @@ public class AccuseServiceImpl implements AccuseService {
 				} else if ("boardno".equals(key)) {
 					try {
 						board.setBoardNo(Integer.parseInt(item.getString("UTF-8")));
+						System.out.println(key);
+						System.out.println(item.getString("UTF-8"));
 					} catch (NumberFormatException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -149,28 +155,34 @@ public class AccuseServiceImpl implements AccuseService {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				} else if ("url".equals(key)) {
+				} else if ("URL".equals(key)) {
 
 					try {
 						baccuse.setUrl(item.getString("UTF-8"));
+						System.out.println(key);
+						System.out.println(item.getString("UTF-8"));
 					} catch (UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 
-				} else if ("city".equals(key)) {
+				} else if ("City".equals(key)) {
 
 					try {
 						baccuse.setCity(item.getString("UTF-8"));
+						System.out.println(key);
+						System.out.println(item.getString("UTF-8"));
 					} catch (UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 
-				} else if ("gu".equals(key)) {
+				} else if ("Gu".equals(key)) {
 
 					try {
 						baccuse.setGu(item.getString("UTF-8"));
+						System.out.println(key);
+						System.out.println(item.getString("UTF-8"));
 					} catch (UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -180,24 +192,30 @@ public class AccuseServiceImpl implements AccuseService {
 
 					try {
 						baccuse.setSitename(item.getString("UTF-8"));
+						System.out.println(key);
+						System.out.println(item.getString("UTF-8"));
 					} catch (UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 
-				} else if ("accusetype".equals(key)) {
+				} else if ("accuseType".equals(key)) {
 
 					try {
 						baccuse.setAccusetype(item.getString("UTF-8"));
+						System.out.println(key);
+						System.out.println(item.getString("UTF-8"));
 					} catch (UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 
-				} else if ("agent".equals(key)) {
+				} else if ("Agent".equals(key)) {
 
 					try {
 						baccuse.setAgent(item.getString("UTF-8"));
+						System.out.println(key);
+						System.out.println(item.getString("UTF-8"));
 					} catch (UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -207,6 +225,8 @@ public class AccuseServiceImpl implements AccuseService {
 
 					try {
 						baccuse.setProperty(item.getString("UTF-8"));
+						System.out.println(key);
+						System.out.println(item.getString("UTF-8"));
 					} catch (UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -214,7 +234,9 @@ public class AccuseServiceImpl implements AccuseService {
 
 				}else if ("PhoneNo".equals(key)) {
 					try {
-						baccuse.setPhoneNo(Integer.parseInt(item.getString("UTF-8")));
+						baccuse.setPhoneNo(item.getString("UTF-8"));
+						System.out.println(key);
+						System.out.println(item.getString("UTF-8"));
 					} catch (NumberFormatException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -262,6 +284,7 @@ public class AccuseServiceImpl implements AccuseService {
 		board.setUsernick((String) session.getAttribute("UserNick"));
 		board.setUserNo((int) session.getAttribute("Userno"));
 		board.setIdx(idx);
+		board.setTitle(Integer.toString(idx));
 
 		boardDao.insert(board);
 

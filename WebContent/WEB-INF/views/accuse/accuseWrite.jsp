@@ -106,7 +106,7 @@ $(document).ready(function() {
 		</tr>
 		<tr>
 			<td class="tdleft"></td>
-			<td class="tdright"><input type="tel" name="PhoneNo"
+			<td class="tdright"><input type="text" name="PhoneNo"
 				placeholder="신고게시물에 기재된 휴대폰 번호" required="required"/></td>
 		<tr>
 			<td colspan="2" class="tdupper" >지역</td>
