@@ -98,6 +98,7 @@ public class BoardDaoImpl implements BoardDao {
 			while (rs.next()) {
 				BBoard bBoard = new BBoard();
 				
+				bBoard.setIdx(rs.getInt("rnum"));
 				bBoard.setIdx(rs.getInt("idx"));
 				bBoard.setTitle(rs.getString("title"));
 				bBoard.setContents(rs.getString("contents"));
@@ -198,7 +199,7 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public List<BBoardAndBboardType> selectMyboard(Paging paging, BUser userno) {
 
-		System.out.println("1");
+//		System.out.println("1");
 		conn = DBconn.getConnection(); //DB 연결
 		
 		// 수행할 쿼리
@@ -219,19 +220,20 @@ public class BoardDaoImpl implements BoardDao {
 		List<BBoardAndBboardType> list = new ArrayList<>();
 		
 		try {
-			System.out.println("2");
+//			System.out.println("2");
 			ps = conn.prepareStatement(sql);
 
 			ps.setInt(1, userno.getUserno());
 			ps.setInt(2, paging.getStartNo());
 			ps.setInt(3, paging.getEndNo());
-			System.out.println("3");
+//			System.out.println("3");
 			rs = ps.executeQuery();
-			System.out.println("4");
+//			System.out.println("4");
 			while (rs.next()) {
 //				BBoard bBoard = new BBoard();
 				BBoardAndBboardType myboard = new BBoardAndBboardType();
 				
+				myboard.setRnum(rs.getInt("rnum"));
 				myboard.setIdx(rs.getInt("idx"));
 				myboard.setTitle(rs.getString("title"));
 				myboard.setContents(rs.getString("contents"));
@@ -242,14 +244,14 @@ public class BoardDaoImpl implements BoardDao {
 				myboard.setUserNo(rs.getInt("UserNo"));
 				myboard.setBoardname(rs.getString("boardname"));
 
-				System.out.println("5");
+//				System.out.println("5");
 				list.add(myboard);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("6");
+//		System.out.println("6");
 		return list;
 	}
 
