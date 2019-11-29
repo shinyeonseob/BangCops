@@ -8,10 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import util.Paging;
 import web.dto.BBoard;
-import web.dto.BUser;
 import web.service.face.BoardService;
 import web.service.impl.BoardServiceImpl;
 
@@ -78,11 +78,14 @@ public class BoardListController extends HttpServlet {
 
 		String boardname = boardService.getboardname(boardno);
 		
+		HttpSession session = req.getSession();
+		
 		// 게시글 목록을 MODEL값으로 지정
 		System.out.println("boardno : " + boardno);
 		req.setAttribute("list", list);
 		req.setAttribute("boardno", boardno);
 		req.setAttribute("boardname", boardname);
+		req.setAttribute("Userlevel", session.getAttribute("Userlevel"));
 
 		// VIEW 지정
 		req.getRequestDispatcher("/WEB-INF/views/board/boardlist.jsp").forward(req, resp);

@@ -45,11 +45,11 @@ th {
 </c:if>
 <c:if test="${boardno eq 2}">
 <h1>이용후기게시판</h1>
-<h4>방캅스를 이용해 주신 여러분의 후기를 들려주세요.</h4>
+<h4>피해사례와 방캅스 이용에 대한 다양한 후기를 남겨주세요.</h4>
 </c:if>
 <c:if test="${boardno eq 3}">
 <h1>공지사항</h1>
-<h4>방캅스 회원 여러분들에게 전달사항을 전해드립니다.</h4>
+<h4>방캅스 회원 여러분들에게 공지사항을 전해드립니다.</h4>
 </c:if>
 <c:if test="${boardno eq 5}">
 <h1>FAQ</h1>
@@ -68,7 +68,6 @@ th {
 	</tr>
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center;height:30">
-	<tr data-idx="${i.idx }">
 		<td>${ i.idx }</td>
 		<td style="text-align:left"><a href ="/main/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
 		<td>${ i.usernick }</td>
@@ -87,9 +86,6 @@ th {
 <a style="float:left" ><button onclick="loginPlease();">게시글 작성</button></a>
 </c:if>
 
-
-
-
 <!-- 가짜 검색창 -->
 <!-- <input style="float:right" id="select" name="select" type="text" /> -->
 <!-- <a style="float:right"><select> -->
@@ -107,7 +103,7 @@ th {
 	
 	<input type="text" id ="searchtarget" name="searchtarget" size="15" placeholder="검색어를 입력하세요" />
 	<a href=""><button>검색</button></a>
-
+</form>
 </div>
 </div>
 <div style="margin:0 auto" ><jsp:include page="/WEB-INF/views/layout/paging.jsp" /></div>

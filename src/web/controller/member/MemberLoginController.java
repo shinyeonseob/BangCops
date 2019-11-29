@@ -44,7 +44,8 @@ public class MemberLoginController extends HttpServlet {
 			session.setAttribute("Userid", getMemberByUserid.getUserid());
 			session.setAttribute("UserNick", getMemberByUserid.getUsernick());
 			session.setAttribute("Userno", getMemberByUserid.getUserno());
-
+			session.setAttribute("Userlevel", getMemberByUserid.getUserlevel());
+			
 			System.out.println("로그인 성공");
 			resp.sendRedirect("/main");
 		} else {
