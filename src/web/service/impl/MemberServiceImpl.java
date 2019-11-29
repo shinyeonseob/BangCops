@@ -337,6 +337,18 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.cntUserNick(bUser);
 
 	}
+
+	@Override
+	public BUser getPwtoID(HttpServletRequest req) {
+		
+		String userid = req.getParameter("UserID");
+		
+		BUser member = new BUser();
+		member.setUserid(userid);
+				
+		
+		return memberDao.selectMemberByUserid(member);
+	}
 		
 }
 
