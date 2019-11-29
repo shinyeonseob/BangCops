@@ -49,7 +49,7 @@ text-align: center;
 </script>
 
 <div class="logo">
-	<img src="/resources/img/logo.png" width="150"; style=" height:100px;">
+	<a href="/admin/logout"><img src="/resources/img/logo.png" width="150"; style=" height:100px;"></a>
 </div>
 	
   <div class="row">
