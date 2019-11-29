@@ -3,6 +3,7 @@ package web.controller.mail;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.Random;
+import java.util.UUID;
 
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -57,8 +58,10 @@ public class MailController extends HttpServlet {
 			return;
 		}
 
-		Random random = new Random();
-		int ranno = random.nextInt(8999) + 1000;
+		UUID uuid = UUID.randomUUID(); // 랜덤 UID 생성
+
+		// 12자리 uid 얻기
+		String u = uuid.toString().split("-")[4];
 
 		// FROM
 		final String FROM = "bangcops@gmail.com"; // <<------------------------------수정하세요
@@ -75,7 +78,7 @@ public class MailController extends HttpServlet {
 		final String BODY = String.join("<h1>구글 SMTP Email Test</h1>", "<p>javax.mail을 이용한 구글 smtp 이메일 전송 테스트</p>",
 				"<p>다음 인증번호를 입력하세요</p>",
 
-				Integer.toString(ranno));// <<------------------------------수정하세요
+				u);// <<------------------------------수정하세요
 
 		// 인증 객체
 		Authenticator auth = new MailAuth("bangcops@gmail.com", "khacademy"); // <<------------------------------수정하세요
@@ -106,9 +109,9 @@ public class MailController extends HttpServlet {
 			System.out.println("Email sent!");
 
 			req.setAttribute("bUser", bUser);
-			req.setAttribute("ranno", ranno);
+			req.setAttribute("ranno", u);
 			System.out.println(bUser);
-			System.out.println(ranno);
+			System.out.println(u);
 
 			req.getRequestDispatcher("/WEB-INF/views/member/join_mail.jsp").forward(req, resp);
 		} catch (NoSuchProviderException e) {

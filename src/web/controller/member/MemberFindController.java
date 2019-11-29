@@ -3,6 +3,7 @@ package web.controller.member;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.Random;
+import java.util.UUID;
 
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -47,13 +48,18 @@ public class MemberFindController extends HttpServlet {
 
 		BUser bUser = memberService.getPwtoID(req);
 
+		UUID uuid = UUID.randomUUID(); // 랜덤 UID 생성
+
+		// 12자리 uid 얻기
+		String u = uuid.toString().split("-")[4];
+		
 		String string = bUser.getUserid();
 		if (memberService.cntUserid(bUser) == 0) {
 			req.setAttribute("bUserId", string);
 			req.getRequestDispatcher("/WEB-INF/views/member/find_fail_id.jsp").forward(req, resp);
 
 			return;
-		}		
+		}
 
 
 		// FROM
@@ -69,7 +75,7 @@ public class MemberFindController extends HttpServlet {
 
 		// 메일 본문
 		final String BODY = String.join("", "<p>javax.mail을 이용한 구글 smtp 이메일 전송 테스트</p>",
-				bUser.getUsernick(),"<p>님의 비밀번호는 </p><br><h2>", bUser.getUserpw(), "</h2><br><p>입니다 </p>"
+				bUser.getUsernick(),"<p>님의 임시 비밀번호는 </p><br><h2>", u, "</h2><br><p>입니다 </p>"
 
 				);// <<------------------------------수정하세요
 
@@ -101,6 +107,11 @@ public class MemberFindController extends HttpServlet {
 
 			System.out.println("Email sent!");
 			req.setAttribute("bUserId", string);
+			
+			bUser.setUserpw(u);
+			
+			memberService.updatepw(bUser);
+
 
 			req.getRequestDispatcher("/WEB-INF/views/member/pwmail2.jsp").forward(req, resp);
 		} catch (NoSuchProviderException e) {
