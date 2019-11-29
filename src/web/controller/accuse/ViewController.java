@@ -1,6 +1,7 @@
 package web.controller.accuse;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import web.dto.BAccuse;
+import web.dto.Bcomment;
 import web.service.face.AccuseService;
 import web.service.impl.AccuseServiceImpl;
 
@@ -39,10 +41,11 @@ public class ViewController extends HttpServlet {
 	//닉네임 전달
 	req.setAttribute("nick", accuseService);
 	
+	
+	
 	//VIEW 지정
 	req.getRequestDispatcher("/WEB-INF/view/accuse/accuserview.jsp")
 		.forward(req, resp);
-	
 	
 	
 	}

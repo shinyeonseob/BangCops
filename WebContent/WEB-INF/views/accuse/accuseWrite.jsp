@@ -121,8 +121,8 @@ $(document).ready(function() {
 			<td class="tdleft"></td>
 			<td class="tdright">
 			<select name="Gu" required="required">
-					<option value="gangnam">강남구</option>	
-					<option value="seocho">서초구</option>
+					<option value="강남">강남구</option>	
+					<option value="서초">서초구</option>
 			</select></td>	
 			
 			
