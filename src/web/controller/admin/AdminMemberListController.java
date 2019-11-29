@@ -22,7 +22,7 @@ public class AdminMemberListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		if (req.getSession().getAttribute("login") != null) {
+		if (req.getSession().getAttribute("adminlogin") != null) {
 
 			// 요청파라미터에서 curPage를 구하고 Paging 객체 반환
 			Paging paging = adminService.getPaging(req);
