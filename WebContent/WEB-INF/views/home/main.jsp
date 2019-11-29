@@ -19,7 +19,7 @@
 <div class = "container">
 <h1>MAIN</h1>
 <hr>
-<h3>메인메인</h3>
+<div style="margin-top:150px;margin-bottom:50px"><h2><strong>부동산 허위매물 검색</strong></h2></div>
 <form  class="form-inline"  action="" method="post">
 <div class="form-group">
 	<label class="sr-only" for="city"></label>

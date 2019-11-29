@@ -31,7 +31,7 @@ public class CommentInsertController extends HttpServlet {
 		
 		System.out.println(comment.getIdx());
 		System.out.println(comment);
-		resp.sendRedirect("/main/community/freeboardlist/view?idx="+comment.getIdx());
+		resp.sendRedirect("/main/community/board/view?idx="+comment.getIdx());
 	}
 	
 	
