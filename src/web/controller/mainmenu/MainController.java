@@ -24,6 +24,6 @@ public class MainController extends HttpServlet {
 		// VIEW
 		req.getRequestDispatcher("/WEB-INF/views/home/main.jsp")
 		.forward(req, resp);
-           // test
+           // test 
 	}
 }
