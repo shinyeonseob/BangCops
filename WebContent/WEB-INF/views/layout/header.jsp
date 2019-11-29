@@ -252,7 +252,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<a href="#">Forgot Password?</a>
+					<a href="/member/find">HOXY 비밀번호를.....?</a>
 				</div>
 			</div>
 		</div>
