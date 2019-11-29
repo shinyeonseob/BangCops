@@ -9,17 +9,29 @@ import web.dto.BUser;
 
 public interface AdminService {
 
+	/**
+	 * 회원목록 조회
+	 * 
+	 * @return List - 회원목록
+	 */
 	public List getmemberList();
 
+	/**
+	 * 페이징 정보 활용하여 보여질 회원목록 조회
+	 * 
+	 * @param paging - 페이징 정보
+	 * @return List - 회원목록
+	 */
 	public List getmemberList(Paging paging);
 	
+	/**
+	 * 요청파라미터 curPage를 파싱한다
+	 * Buser TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
+	 * 
+	 * @param req - 요청정보 객체
+	 * @return Paging - 페이징 정보
+	 */
 	public Paging getPaging(HttpServletRequest req);
-
-	
-	
-	public void delete(HttpServletRequest req);
-	
-	public void memberListDelete(String names);
 
 	/**
 	 * 요청 파라미터 회원번호 파싱
@@ -52,5 +64,18 @@ public interface AdminService {
 	 */
 	public void update(HttpServletRequest req);
 
+	/**
+	 * 회원 삭제
+	 * 
+	 * @param buser - 삭제할 회원 번호를 가진 객체
+	 */
+	public void delete(BUser buser);
+
+	/**
+	 * 회원리스트 삭제
+	 * 
+	 * @param names - 지울 userno를 문자열로 합친 것
+	 */
+	public void memberListDelete(String names);
 	
 }

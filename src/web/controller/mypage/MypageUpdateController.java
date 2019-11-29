@@ -22,11 +22,23 @@ public class MypageUpdateController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		
 
 		
 		// 한글 인코딩
 		req.setCharacterEncoding("utf-8");
 
+		try {
+			if (session.getAttribute("login") == null) { // 로그인 안돼있으면 메인으로 리다이렉트
+				System.out.println("로그인이 안돼있음");
+				System.out.println(session.getAttribute("login"));
+				resp.sendRedirect("/main");
+				return;	
+			}
+		}catch(NullPointerException e){
+			System.out.println("로그인 안돼있음");
+		}
+		
 		// 세션에서 userid 받기
 		String userid = new String();
 		session = req.getSession();

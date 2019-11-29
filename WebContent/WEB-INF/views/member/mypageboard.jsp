@@ -36,7 +36,7 @@
 	<tr style="text-align:center;height:30">
 		<td>${ i.idx }</td>
 		<td>${ i.boardname }</td>
-		<td><a>${ i.title }</a></td>
+		<td style="text-align:left"><a href ="/main/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>
 		<td>${ i.reco }</td>
@@ -44,5 +44,7 @@
 </c:forEach>
 <hr style="background:grey;height:2px">
 </table>
+
+<jsp:include page="/WEB-INF/views/layout/paging.jsp" />
 
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />

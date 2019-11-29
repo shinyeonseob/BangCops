@@ -23,7 +23,10 @@
 		$("#btn_myboard").click(function() {
 			location.href = "/mypage/board";
 		});
-		
+		// 마이페이지 회원탈퇴 버튼
+		$("#btn_withdrawal").click(function() {
+			location.href = "/mypage/with";
+		});
 		
 		
 	});
@@ -96,8 +99,8 @@
 			<li><a id = "btn_mypagepw"class="menuLink" href="#">비밀번호 변경</a></li>
 			<li><a id = "btn_myboard" class="menuLink" href="#">내가 쓴 글 내역</a></li>
 			<li><a class="menuLink" href="#">내가 쓴 댓글</a></li>
-			<li><a class="menuLink" href="#">신고 내역 처리 현황</a></li>	
-			<li><a class="menuLink" href="#">이의신청</a></li>	
+		<%-- 	<li><a class="menuLink" href="#">이의신청</a></li>	 --%>
+			<li><a id = "btn_withdrawal" class="menuLink" href="#">회원탈퇴</a></li>	
 
 			
 

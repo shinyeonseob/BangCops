@@ -194,16 +194,13 @@
 			location.href = "/main/community";
 		});
 		
-		
-		
-		
 	});
 </script>
 
 
 </head>
 <body>
-	※방캅스※
+	<a href="/main">※방캅스※</a>
 
 	<nav id="topMenu">
 		<ul>
@@ -255,7 +252,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<a href="#">Forgot Password?</a>
+					<a href="/member/find" target="_blank">HOXY Forgot Password?</a>
 				</div>
 			</div>
 		</div>

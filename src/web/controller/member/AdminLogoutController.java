@@ -1,4 +1,4 @@
-package web.controller.mainmenu;
+package web.controller.member;
 
 import java.io.IOException;
 
@@ -9,21 +9,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-
-@WebServlet("/main")
-public class MainController extends HttpServlet {
+@WebServlet("/admin/logout")
+public class AdminLogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+		// 세션 객체 얻어오기
+		HttpSession session = req.getSession();
 		
-		HttpSession session = null;
-//		System.out.println(session.getAttribute("Userid"));
-
-		// VIEW
-		req.getRequestDispatcher("/WEB-INF/views/home/main.jsp")
-		.forward(req, resp);
-           // test 
+		// 세션 삭제
+		System.out.println("관리자 로그아웃");
+		session.invalidate();
+		
+		// 리다이렉트
+		resp.sendRedirect("/admin/login");
+		
+		
+		
 	}
 }
