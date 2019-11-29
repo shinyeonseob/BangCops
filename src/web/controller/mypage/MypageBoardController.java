@@ -54,8 +54,8 @@ public class MypageBoardController extends HttpServlet {
 		//게시글 목록 조회
 		List<BBoardAndBboardType> list = boardService.getMyboardList(paging, userno);
 
-		System.out.println("test userno : " + userno);
-		System.out.println("test list : " + list);
+//		System.out.println("test userno : " + userno);
+//		System.out.println("test list : " + list);
 		//게시글 목록을 MODEL값으로 지정
 		req.setAttribute("list", list);
 		
