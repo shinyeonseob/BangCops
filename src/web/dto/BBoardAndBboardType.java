@@ -3,11 +3,19 @@ package web.dto;
 import java.util.Date;
 
 public class BBoardAndBboardType {
+	private int rnum;
 	private int idx;
 	private String title;
 	private String contents;
 	private Date regDate;
 	private int hits;
+	public int getRnum() {
+		return rnum;
+	}
+
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
+	}
 	private int reco;
 	private int boardNo;
 	private int userNo;
@@ -38,9 +46,9 @@ public class BBoardAndBboardType {
 
 	@Override
 	public String toString() {
-		return "BBoardAndBboardType [idx=" + idx + ", title=" + title + ", contents=" + contents + ", regDate="
-				+ regDate + ", hits=" + hits + ", reco=" + reco + ", boardNo=" + boardNo + ", userNo=" + userNo
-				+ ", usernick=" + usernick + ", boardname=" + boardname + ", userlevel=" + userlevel + "]";
+		return "BBoardAndBboardType [rnum=" + rnum + ", idx=" + idx + ", title=" + title + ", contents=" + contents
+				+ ", regDate=" + regDate + ", hits=" + hits + ", reco=" + reco + ", boardNo=" + boardNo + ", userNo="
+				+ userNo + ", usernick=" + usernick + ", boardname=" + boardname + ", userlevel=" + userlevel + "]";
 	}
 
 	public String getUsernick() {

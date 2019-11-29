@@ -86,9 +86,9 @@ public class CommentDaoImpl implements CommentDao{
 				+ "	FROM Bcomment c , BUser u"
 				+ "	WHERE idx = ?"
 				+ "	AND c.userno = u.userno"
-				+ "	ORDER BY regDate"
+				+ "	ORDER BY c.commentno"
 				+ "	) B"
-				+ ") ORDER BY rnum";
+				+ ") ORDER BY rnum DESC";
 
 		List commentList = new ArrayList();
 		

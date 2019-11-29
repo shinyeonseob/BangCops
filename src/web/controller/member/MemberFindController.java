@@ -1,4 +1,4 @@
-package web.controller.mail;
+package web.controller.member;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -24,44 +24,43 @@ import web.dto.BUser;
 import web.service.face.MemberService;
 import web.service.impl.MemberServiceImpl;
 
-@WebServlet("/member/join")
-public class MailController extends HttpServlet {
+/**
+ * Servlet implementation class MemberFindController
+ */
+@WebServlet("/member/find")
+public class MemberFindController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private MemberService memberService = new MemberServiceImpl();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 테스트
-		System.out.println("/member/join");
 
-		req.getRequestDispatcher("/WEB-INF/views/member/join.jsp").forward(req, resp);
+		// 테스트
+		System.out.println("/member/find");
+
+		req.getRequestDispatcher("/WEB-INF/views/member/pwmail.jsp").forward(req, resp);
 
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		BUser bUser = memberService.getbUser(req);
-
-		if (memberService.cntUserid(bUser) != 0) {
-			String string = bUser.getUserid();
-			req.setAttribute("bUserId", string);
-			req.getRequestDispatcher("/WEB-INF/views/member/join_fail_id.jsp").forward(req, resp);
-
-			return;
-		}if (memberService.cntUserNick(bUser) != 0) {
-			String string = bUser.getUsernick();
-			req.setAttribute("bUsernick", string);
-			req.getRequestDispatcher("/WEB-INF/views/member/join_fail_id.jsp").forward(req, resp);
-
-			return;
-		}
+		BUser bUser = memberService.getPwtoID(req);
 
 		UUID uuid = UUID.randomUUID(); // 랜덤 UID 생성
 
 		// 12자리 uid 얻기
 		String u = uuid.toString().split("-")[4];
+		
+		String string = bUser.getUserid();
+		if (memberService.cntUserid(bUser) == 0) {
+			req.setAttribute("bUserId", string);
+			req.getRequestDispatcher("/WEB-INF/views/member/find_fail_id.jsp").forward(req, resp);
+
+			return;
+		}
+
 
 		// FROM
 		final String FROM = "bangcops@gmail.com"; // <<------------------------------수정하세요
@@ -75,10 +74,10 @@ public class MailController extends HttpServlet {
 		final String SUBJECT = "방캅스 이메일 인증번호"; // <<------------------------------수정하세요
 
 		// 메일 본문
-		final String BODY = String.join("<h1>구글 SMTP Email Test</h1>", "<p>javax.mail을 이용한 구글 smtp 이메일 전송 테스트</p>",
-				"<p>다음 인증번호를 입력하세요</p>",
+		final String BODY = String.join("", "<p>javax.mail을 이용한 구글 smtp 이메일 전송 테스트</p>",
+				bUser.getUsernick(),"<p>님의 임시 비밀번호는 </p><br><h2>", u, "</h2><br><p>입니다 </p>"
 
-				u);// <<------------------------------수정하세요
+				);// <<------------------------------수정하세요
 
 		// 인증 객체
 		Authenticator auth = new MailAuth("bangcops@gmail.com", "khacademy"); // <<------------------------------수정하세요
@@ -107,13 +106,14 @@ public class MailController extends HttpServlet {
 			Transport.send(msg);
 
 			System.out.println("Email sent!");
+			req.setAttribute("bUserId", string);
+			
+			bUser.setUserpw(u);
+			
+			memberService.updatepw(bUser);
 
-			req.setAttribute("bUser", bUser);
-			req.setAttribute("ranno", u);
-			System.out.println(bUser);
-			System.out.println(u);
 
-			req.getRequestDispatcher("/WEB-INF/views/member/join_mail.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/views/member/pwmail2.jsp").forward(req, resp);
 		} catch (NoSuchProviderException e) {
 			e.printStackTrace();
 

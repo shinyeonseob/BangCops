@@ -96,6 +96,19 @@
 </div>
 <br>
 <div id = "withdrawal_info">
+<br><br>
+	
+	탈퇴 안내<br><br>
+	회원탈퇴를 신청하기 전에 안내 사항을 꼭 확인해주세요.<br>
+	<br>
+	사용하고 계신 계정은 탈퇴할 경우 재사용 및 복구가 불가능합니다.<br>
+	탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가하오니 신중하게 선택하시기 바랍니다.<br>
+	<br>
+	탈퇴 후 회원정보 및 개인형 서비스 이용기록은 모두 삭제됩니다.<br>
+	서비스 이용기록은 모두 삭제되며, 삭제된 데이터는 복구되지 않습니다.<br>
+	삭제되는 내용을 확인하시고 필요한 데이터는 미리 백업을 해주세요.<br><br>
+
+	
 	<h4>회원탈퇴를 진행합니다.</h4>
 	<br>
 	<h5>비밀번호를 입력해 주세요</h5>
@@ -107,7 +120,7 @@
 <br><br>
 <br><br>
 <br><br><br><hr>
-
+<br><br><br><br><br><br><br><br><br><br><br>	<br>
 </form>
 <div id = "btns" class="text-center">
          <button type="submit" id="btnCancel" class="btn btn-danger">취소</button>

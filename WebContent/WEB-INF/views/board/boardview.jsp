@@ -21,8 +21,8 @@ $(document).ready(function() {
 	// 댓글 입력
 	$("#btnCommInsert").click(function() {
 // 		게시글 번호.... ${list.idx}
-			console.log($("#commentWriter").val());
-			console.log($("#commentContent").val());
+// 			console.log($("#commentWriter").val());
+// 			console.log($("#commentContent").val());
 		
 		$form = $("<form>").attr({
 			action: "/comment/insert",
@@ -74,7 +74,32 @@ function deleteComment(commentno) {
 			console.log("error");
 		}
 	});
+	
+// 게시글 삭제    href="/main/community/board/delete?idx=${list.idx }&boardno=${list.boardNo}"
+// function deleteComment(commentno) {
+// 	$.ajax({
+// 		type: "post"
+// 		, url: "/main/community/board/delete"
+// 		, dataType: "json"
+// 		, data: {
+// 			commentno: commentno
+// 		}
+// 		, success: function(data){
+// 			if(data.success) {
+				
+// 				$("[data-idx='"+idx+"']").remove();
+				
+// 			} else {
+// 				alert("게시글 삭제 실패");
+// 			}
+// 		}
+// 		, error: function() {
+// 			console.log("error");
+// 		}
+// 	});
 }
+
+
 </script>
 <style type="text/css">
 th {
@@ -157,7 +182,7 @@ function warning() {
 
 <!-- 댓글 처리 -->
 <div>
-
+<div id = "commentbody"></div> <%-- 댓글입력 시 이동 위치 --%>
 <hr>
 
 <!-- 비로그인상태 -->

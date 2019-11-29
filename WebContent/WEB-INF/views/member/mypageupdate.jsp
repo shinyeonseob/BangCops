@@ -93,7 +93,7 @@
             
             <input type="text" class="form-control" id="usertel" name="usertel" value="${BUser.usertel }" />
 			</td>
-			<td> <button disabled="disabled"> 인증받기 </button></td>
+		<%--	<td> <button disabled="disabled"> 인증받기 </button></td> --%>
          </tr>
 
          <tr>

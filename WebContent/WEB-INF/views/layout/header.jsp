@@ -252,7 +252,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<a href="#">Forgot Password?</a>
+					<a href="/member/find" target="_blank">HOXY Forgot Password?</a>
 				</div>
 			</div>
 		</div>

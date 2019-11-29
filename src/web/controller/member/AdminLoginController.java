@@ -38,10 +38,10 @@ public class AdminLoginController extends HttpServlet {
 
 		session = req.getSession();
 
-		if (session.getAttribute("login") != null) { // 세션이 널이 아니면(=이미 다른아이디에 로그인되어있으면)
+		if (session.getAttribute("adminlogin") != null) { // 세션이 널이 아니면(=이미 다른아이디에 로그인되어있으면)
 			System.out.println("이미 로그인 되어있음");
-			System.out.println(session.getAttribute("login"));
-			resp.sendRedirect("/main");
+			System.out.println(session.getAttribute("adminlogin"));
+			resp.sendRedirect("/admin/login");
 			return;
 		}	// 이부분 메인 컨트롤러로 옮겨서 이미 로그인되어있으면 로그인 버튼 안보이도록 설정하기
 
@@ -51,9 +51,9 @@ public class AdminLoginController extends HttpServlet {
 
 		if (login) {
 			Admin getAdminByid = adminMemberService.getAdminByid(admin);
-			session.setAttribute("login", true);
-			session.setAttribute("loginid", getAdminByid.getAdminid());
-			session.setAttribute("loginNick", getAdminByid.getAdminnick());
+			session.setAttribute("adminlogin", true);
+			session.setAttribute("adminloginid", getAdminByid.getAdminid());
+			session.setAttribute("adminloginNick", getAdminByid.getAdminnick());
 
 			System.out.println("로그인 성공");
 			req.getRequestDispatcher("/WEB-INF/views/admin/adminheader.jsp").forward(req, resp);		} else {

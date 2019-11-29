@@ -58,5 +58,7 @@ public interface MemberService {
 
 	int cntUserNick(BUser bUser);
 
+	BUser getPwtoID(HttpServletRequest req);
+
 	
 }

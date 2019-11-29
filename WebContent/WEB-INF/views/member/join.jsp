@@ -203,9 +203,7 @@ body {
                완료</button>
          </div>
       </form>
-      <div class="text-center">
-         Already have an account? <a href="#">Sign in</a>
-      </div>
+      
    </div>
 </body>
 </html>

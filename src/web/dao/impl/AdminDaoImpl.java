@@ -87,6 +87,7 @@ public class AdminDaoImpl implements AdminDao {
 		sql += "            userno, userid, usernick,"; 
 		sql += "            username, usertel";
 		sql += "        FROM buser";
+		sql += "		WHERE userid LIKE '%'||?||'%'";
 		sql += "        ORDER BY userno DESC";
 		sql += "    ) M";
 		sql += "    ORDER BY rnum";
@@ -101,8 +102,9 @@ public class AdminDaoImpl implements AdminDao {
 			//SQL 수행 객체
 			ps = conn.prepareStatement(sql);
 			
-			ps.setInt(1, paging.getStartNo());
-			ps.setInt(2, paging.getEndNo());
+			ps.setString(1, paging.getSearch());
+			ps.setInt(2, paging.getStartNo());
+			ps.setInt(3, paging.getEndNo());
 			
 			//SQL 수행 및 결과 저장
 			rs = ps.executeQuery();
