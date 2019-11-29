@@ -140,7 +140,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 
 <div class="form-inline text-center">
 <form action="/admin/memberlist" method="get">
-      <input class="form-control" type="text" id="search">
+      <input class="form-control" type="text" id="search" name="search"/>
       <button id ="btnsearch">검색</button>
 </form>
 </div>
