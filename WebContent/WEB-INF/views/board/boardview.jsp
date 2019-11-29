@@ -118,13 +118,13 @@ function warning() {
 <h1>FAQ</h1>
 <h4>방캅스 회원 여러분의 궁금한 사항을 빠르게 해결해드립니다.</h4>
 </c:if>
-
+<hr style="background:grey;height:2px">
 <table style="width:1140">
 	<tr>
 		<th colspan="2"><h3>${list.title }</h3></th>
 	</tr>
 	<tr>
-		<td><p>${list.usernick } | ${list.regDate }<p></td>
+		<td><p>${list.usernick } | <fmt:formatDate value="${list.regDate }" pattern="yy-MM-dd hh:mm:ss" /><p></td>
 		<td style="text-align:right;"><p>조회 ${list.hits } | 추천 ${list.reco }</p></td>
 	</tr>
 </table>
@@ -135,7 +135,7 @@ function warning() {
 		<td colspan="2" style=";text-align:left"><div style="min-height:400">${list.contents }</div></td>
 	</tr>
 	<tr style="border:1px solid black;height:50">
-		<th style="width:10" >첨부파일</th>
+		<th style="width:10" >첨부<br>파일</th>
 		<td style="width:90" class="info"><a href="/upload/${bAttached.storedName}">${bAttached.originName }</a></td>
 	</tr>
 </table>
