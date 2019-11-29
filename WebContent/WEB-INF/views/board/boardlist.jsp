@@ -68,7 +68,6 @@ th {
 	</tr>
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center;height:30">
-	<tr data-idx="${i.idx }">
 		<td>${ i.idx }</td>
 		<td style="text-align:left"><a href ="/main/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
 		<td>${ i.usernick }</td>
@@ -87,10 +86,6 @@ th {
 <a style="float:left" ><button onclick="loginPlease();">게시글 작성</button></a>
 </c:if>
 
-
-
-
-
 <!-- 가짜 검색창 -->
 <!-- <input style="float:right" id="select" name="select" type="text" /> -->
 <!-- <a style="float:right"><select> -->
@@ -99,10 +94,8 @@ th {
 <!-- 	<option>제목+작성자</option> -->
 <!-- </select></a> -->
 
-
-<form id="searchform" name="searchform" action="main/community/board/search" method="POST">
-	<input style="margin-left: 769px" type="text" name="searchcategory" size = "8" list="searchcategory" placeholder="선택하세요"/>
-	<datalist id="searchcategory" >
+	<input style="margin-left: 748px" type="text" name="searchcategory" size = "11" list="searchcategory" placeholder="선택하세요"/>
+	<datalist id="searchcategory">
 		<option>제목</option>
 		<option>작성자</option>
 		<option>제목+작성자</option>
