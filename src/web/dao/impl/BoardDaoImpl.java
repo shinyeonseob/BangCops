@@ -3,6 +3,7 @@ package web.dao.impl;
 import java.sql.Connection;
 
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,7 +25,7 @@ public class BoardDaoImpl implements BoardDao {
 	private ResultSet rs = null; // SQL 수행 결과 객체
 	
 	@Override
-	public List<BBoard> selectAll() {
+	public List<BBoard> selectAll(int boardno) {
 		
 		conn = DBconn.getConnection(); //DB 연걸
 		
@@ -115,9 +116,65 @@ public class BoardDaoImpl implements BoardDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		System.out.println("[TEST] BoardDaoImpl : " + list);
 		return list;
 	}
+	
+	@Override
+	public List<BBoard> selectSearchAll(Paging paging, int boardno) {
+		
+		conn = DBconn.getConnection(); //DB 연결
+		
+		// 수행할 쿼리
+		String sql = "";
+		sql += "SELECT * FROM (";
+		sql += "	SELECT rownum rnum, B .* FROM (";
+		sql += "	SELECT";
+		sql += "		idx,title, contents, hits, reco, boardno, userno, regdate, (SELECT usernick FROM buser WHERE b.userno = userno)usernick ";
+		sql += "	FROM Bboard b";
+		sql += "	WHERE boardno = ? AND ? LIKE '%'||?||'%'";
+		sql += "	ORDER BY idx DESC";
+		sql += " ) B ORDER BY rnum";
+		sql += " ) BBoard";
+		sql += " WHERE rnum BETWEEN ? AND ?";
+		
+		List<BBoard> list = new ArrayList<>();
+
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, boardno);
+			ps.setString(2, paging.getSearchcategory());
+			ps.setString(3,paging.getSearchtarget());
+			ps.setInt(4, paging.getStartNo());
+			ps.setInt(5, paging.getEndNo());
+			
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				BBoard bBoard = new BBoard();
+				
+				bBoard.setIdx(rs.getInt("rnum"));
+				bBoard.setIdx(rs.getInt("idx"));
+				bBoard.setTitle(rs.getString("title"));
+				bBoard.setContents(rs.getString("contents"));
+				bBoard.setRegDate(rs.getDate("regdate"));
+				bBoard.setHits(rs.getInt("hits"));
+				bBoard.setReco(rs.getInt("reco"));
+				bBoard.setBoardNo(rs.getInt("BoardNo"));
+				bBoard.setUserNo(rs.getInt("UserNo"));
+				bBoard.setUsernick(rs.getString("usernick"));
+
+				list.add(bBoard);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println("[TEST] BoardDaoImpl : " + list);
+		return list;
+	}
+
 
 	@Override
 	public int selectCntAll() {
@@ -127,7 +184,7 @@ public class BoardDaoImpl implements BoardDao {
 		String sql = "";
 		sql += "SELECT ";
 		sql += " count(*)";
-		sql += " FROM board"; // 추후 편집이 용이해질 수 있도록 컬럼은 다 쓰는게 좋음
+		sql += " FROM Bboard"; // 추후 편집이 용이해질 수 있도록 컬럼은 다 쓰는게 좋음
 
 		// 결과 저장 리스트
 		int cnt = 0;
@@ -153,6 +210,42 @@ public class BoardDaoImpl implements BoardDao {
 			}
 		}
 
+		return cnt;
+	}
+	
+	@Override
+	public int selectCntAll(String search) {
+		
+		conn = DBconn.getConnection();
+		
+		String sql = "";
+		sql ="SELECT count(*) FROM bboard WHERE boardno = ? AND ? LIKE '%'||?||'%'";
+		
+		int cnt = 0;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, search);
+			ps.setString(2, search);
+			
+			rs = ps.executeQuery();
+			
+			while( rs.next() ) {
+				cnt = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null) rs.close();
+				if(ps!=null) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		return cnt;
 	}
 
@@ -407,6 +500,9 @@ public class BoardDaoImpl implements BoardDao {
 		}
 		return boardname;
 	}
+
+	
+	
 
 
 

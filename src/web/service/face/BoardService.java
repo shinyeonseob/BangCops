@@ -12,10 +12,12 @@ import web.dto.BUser;
 import web.dto.Bcomment;
 
 public interface BoardService {
+	public List<BBoard> getList(int boardno);
 	
-	public List<BBoard> getList();
-	
+	//각 게시판 별 게시글 전체조회 (검색조건 포함)
 	public List<BBoard> getList(Paging paging, int boardno);
+	
+	public List<BBoard> getSearchList(Paging paging, int boardno);
 	
 	public List<BBoardAndBboardType> getMyboardList(Paging paging, BUser userno);
 
