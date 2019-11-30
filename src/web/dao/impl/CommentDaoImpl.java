@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import util.Paging;
 import web.dao.face.CommentDao;
 import web.dbutil.DBconn;
@@ -211,7 +212,7 @@ public class CommentDaoImpl implements CommentDao{
 		sql += "	FROM Bcomment c , Bboard b";
 		sql += "	WHERE c.idx = b.idx";
 		sql += "	AND c.userno = ?";
-		sql += "	ORDER BY c.commentno";
+		sql += "	ORDER BY c.commentno desc";
 		sql += " ) B ORDER BY rnum";
 		sql += " ) Bcomment";
 		sql += " WHERE rnum BETWEEN ? AND ?";
@@ -255,6 +256,30 @@ public class CommentDaoImpl implements CommentDao{
 		
 		
 		return commentList;
+	}
+
+	@Override
+	public void deleteCommentList(String names) {
+		conn = DBconn.getConnection(); //DB 연결
+
+		String sql = "DELETE FROM Bcomment WHERE commentno IN ( "+names+" )";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null)	ps.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 
 }

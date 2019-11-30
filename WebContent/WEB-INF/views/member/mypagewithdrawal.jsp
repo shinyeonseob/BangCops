@@ -27,8 +27,7 @@
 				$("form").submit();	
 			}
 			else{
-				history.go(-1);
-// 				document.write("취소");
+// 				history.go(-1);
 				return;
 			}
 

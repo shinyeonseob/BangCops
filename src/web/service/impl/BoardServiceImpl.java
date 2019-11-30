@@ -370,6 +370,12 @@ public class BoardServiceImpl implements BoardService {
 
 	
 
+	@Override
+	public void commentMyListDelete(String names) {
+		commentDao.deleteCommentList(names);
+		
+	}
+
 //	@Override
 //	public boolean recommend(BBoard recommend) {
 //		if( isRecommend(recommend) ) { //추천한 상태
