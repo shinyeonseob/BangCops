@@ -19,4 +19,6 @@ public interface CommentDao {
 
 	List<Bcomment> selectMycomment(Paging paging, BUser userno);
 
+	void deleteCommentList(String names);
+
 }

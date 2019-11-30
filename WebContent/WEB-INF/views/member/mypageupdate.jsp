@@ -11,7 +11,24 @@
 		//작성버튼 동작
 		$("#btnUpdate").click(function() {
 			
-			
+			if ($("#usernick").val() == '') {
+				alert('닉네임을 입력하세요');
+				$("#usernick").focus();
+				return false;
+			}
+			if ($("#usertel").val() == '') {
+				alert('전화번호를 입력하세요');
+				$("#usertel").focus();
+				return false;
+			}
+
+			if(confirm("회원정보를 수정하시겠습니까?") == true){
+				alert("회원정보가 수정되었습니다");
+					$("form").submit();	
+				}
+				else{
+					return;
+				}
 			
 			//form submit 수행
 			$("form").submit();

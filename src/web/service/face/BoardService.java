@@ -58,4 +58,6 @@ public interface BoardService {
 
 	public List<Bcomment> getMycommentList(Paging paging, BUser userno);
 
+	public void commentMyListDelete(String names);
+
 }

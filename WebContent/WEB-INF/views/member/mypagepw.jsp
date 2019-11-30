@@ -58,8 +58,6 @@
 	margin-left: 300px;
 }
 
-
-
 #container {
 	text-align: center;
 	justify-content: center;
@@ -73,10 +71,10 @@
 }
 
 #check_info {
-    width: 35.7%;
-    float: right;
-    text-align: center;
-    margin-right: 265px;
+	width: 35.7%;
+	float: right;
+	text-align: center;
+	margin-right: 265px;
 }
 </style>
 
@@ -84,7 +82,7 @@
 	$(document).ready(function() {
 
 		//작성버튼 동작 ${usercurrpw }
-		$("#btn_updatepw").click(function() {
+		$("#btn_updatepw").on("click",function() {
 			// 현재 비밀번호 입력
 			if ($("#userpw").val() == '') {
 				alert('현재 비밀번호를 입력하세요');
@@ -116,14 +114,17 @@
 				return false;
 			}
 
-			else {
-				//form submit 수행
-				$("form").submit();
-
-			}
-			// 취소 버튼
+			if(confirm("비밀번호를 변경하시겠습니까?") == true){
+				alert("비밀번호가 변경되었습니다");
+					$("form").submit();	
+				}
+				else{
+					return false;
+				}
+			
 
 		});
+			// 취소 버튼
 		$("#btnCancel").click(function() {
 			location.href = "/mypage/main";
 		});
@@ -168,10 +169,10 @@
 			<br>
 			<div class="col-lg-2"></div>
 		</div>
-		
+
 		<div id="div_currpw" class="form-group">
 			<label for="userpw" class="col-lg-4 control-label"> 현재 비밀번호 </label>
-			
+
 			<div class="col-lg-8">
 				<input type="password" class="form-control" id="userpw"
 					name="userpw" />
@@ -190,9 +191,9 @@
 		</div>
 
 		<div id="div_updatepw" class="row">
-			
-				<label class="col-lg-4 control-label"> 변경 비밀번호 </label>
-			
+
+			<label class="col-lg-4 control-label"> 변경 비밀번호 </label>
+
 			<div class="col-md-8">
 				<input type="password" class="form-control" id="updatepw"
 					name="updatepw" />
@@ -212,21 +213,26 @@
 
 		<div id="div_updatepw_chk" class="row">
 
-				<label class="col-lg-4 control-label"> 비밀번호 확인 </label>
-		
+			<label class="col-lg-4 control-label"> 비밀번호 확인 </label>
+
 			<div class="col-md-8">
-				<input type="password" class="form-control"
-					id="updatepw_chk" name="updatepw_chk" />
+				<input type="password" class="form-control" id="updatepw_chk"
+					name="updatepw_chk" />
 			</div>
 		</div>
-		<div id="check_info" class="row " >
-			
-			<div class="alert alert-success col-lg-8" id="alert-success">비밀번호가 일치합니다.</div>
-			<div class="alert alert-danger col-lg-8" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+		<div id="check_info" class="row ">
+
+			<div class="alert alert-success col-lg-8" id="alert-success">비밀번호가
+				일치합니다.</div>
+			<div class="alert alert-danger col-lg-8" id="alert-danger">비밀번호가
+				일치하지 않습니다.</div>
 
 		</div>
 		<div class="row">
-			<br><br><br><br>
+			<br>
+			<br>
+			<br>
+			<br>
 			<div class="col-lg-2"></div>
 			<div class="col-md-8">
 				<hr>

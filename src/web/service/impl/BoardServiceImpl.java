@@ -358,6 +358,12 @@ public class BoardServiceImpl implements BoardService {
 		return commentDao.selectMycomment(paging, userno);
 	}
 
+	@Override
+	public void commentMyListDelete(String names) {
+		commentDao.deleteCommentList(names);
+		
+	}
+
 //	@Override
 //	public boolean recommend(BBoard recommend) {
 //		if( isRecommend(recommend) ) { //추천한 상태
