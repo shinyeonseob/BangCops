@@ -14,6 +14,23 @@ public class Bcomment {
 	private String userid;
 	private String usernick;
 	
+	private String title;
+	
+	
+	
+	
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
 	public String getUserid() {
 		return userid;
 	}
@@ -38,7 +55,7 @@ public class Bcomment {
 	public String toString() {
 		return "Bcomment [rnum=" + rnum + ", commentno=" + commentno + ", idx=" + idx + ", regDate=" + regDate
 				+ ", contents=" + contents + ", userlevel=" + userlevel + ", userno=" + userno + ", userid=" + userid
-				+ ", usernick=" + usernick + "]";
+				+ ", usernick=" + usernick + ", title=" + title + "]";
 	}
 	
 	

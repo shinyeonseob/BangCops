@@ -7,10 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import util.Paging;
 import web.dao.face.CommentDao;
 import web.dbutil.DBconn;
 import web.dto.BBoard;
+import web.dto.BUser;
 import web.dto.Bcomment;
 
 public class CommentDaoImpl implements CommentDao{
@@ -187,6 +188,73 @@ public class CommentDaoImpl implements CommentDao{
 		}
 		
 		return cnt;
+	}
+
+	@Override
+	public List<Bcomment> selectMycomment(Paging paging, BUser userno) {
+
+		conn = DBconn.getConnection();
+
+		
+
+		String sql = "";
+		sql += "SELECT * FROM (";
+		sql += "	SELECT rownum rnum, B .* FROM (";
+		sql += "	SELECT";
+		sql += "		c.commentno,";
+		sql += "		c.idx,";
+		sql += "		c.regDate,";
+		sql += "		c.contents,";
+		sql += "		c.USERLEVEL,";
+		sql += "		c.userno,";
+		sql += "		b.title";
+		sql += "	FROM Bcomment c , Bboard b";
+		sql += "	WHERE c.idx = b.idx";
+		sql += "	AND c.userno = ?";
+		sql += "	ORDER BY c.commentno";
+		sql += " ) B ORDER BY rnum";
+		sql += " ) Bcomment";
+		sql += " WHERE rnum BETWEEN ? AND ?";
+		List commentList = new ArrayList();
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, userno.getUserno());
+			ps.setInt(2, paging.getStartNo());
+			ps.setInt(3, paging.getEndNo());
+			
+			// ResultSet 반환
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Bcomment comment = new Bcomment();
+				
+				comment.setRnum(rs.getInt("rnum"));
+				comment.setCommentno(rs.getInt("commentno"));
+				comment.setIdx(rs.getInt("idx"));
+				comment.setRegDate(rs.getDate("regDate"));
+				comment.setContents(rs.getString("contents"));
+				comment.setUserno(rs.getInt("userno"));
+				comment.setUserlevel(rs.getInt("userlevel"));
+				comment.setTitle(rs.getString("title"));
+				
+				
+				commentList.add(comment);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+		
+		
+		return commentList;
 	}
 
 }

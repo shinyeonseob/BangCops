@@ -96,10 +96,7 @@
 		<%--	<td> <button disabled="disabled"> 인증받기 </button></td> --%>
          </tr>
 
-         <tr>
-            <td class="info">인증 번호 </td>
-            <td colspan="3"><input type="text" class="form-control" id="phonecheck" name="phonecheck"  /></td>
-         </tr>
+         
 
     <%--      <tr>
             <td class="info">프로필사진</td>

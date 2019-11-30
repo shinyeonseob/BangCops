@@ -55,4 +55,7 @@ public interface BoardService {
 	public BBoard getRecommend(HttpServletRequest req);
 	
 	public boolean recommend(BBoard recommend);
+
+	public List<Bcomment> getMycommentList(Paging paging, BUser userno);
+
 }

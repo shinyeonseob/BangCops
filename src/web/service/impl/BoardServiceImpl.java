@@ -93,7 +93,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BBoardAndBboardType> getMyboardList(Paging paging, BUser userno) {
-		System.out.println("service test : " + boardDao.selectMyboard(paging, userno));
+//		System.out.println("service test : " + boardDao.selectMyboard(paging, userno));
 		return boardDao.selectMyboard(paging, userno);
 	}
 
@@ -350,6 +350,12 @@ public class BoardServiceImpl implements BoardService {
 	public boolean recommend(BBoard recommend) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<Bcomment> getMycommentList(Paging paging, BUser userno) {
+		
+		return commentDao.selectMycomment(paging, userno);
 	}
 
 //	@Override
