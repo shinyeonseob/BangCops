@@ -60,8 +60,6 @@
 
 </style>
 <script type = "java/script">
-//$(document).ready(function() {
-//} // 알람!!
 
 </script>
 
