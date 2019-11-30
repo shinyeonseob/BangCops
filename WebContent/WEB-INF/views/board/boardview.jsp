@@ -75,28 +75,7 @@ function deleteComment(commentno) {
 		}
 	});
 	
-// 게시글 삭제    href="/main/community/board/delete?idx=${list.idx }&boardno=${list.boardNo}"
-// function deleteComment(commentno) {
-// 	$.ajax({
-// 		type: "post"
-// 		, url: "/main/community/board/delete"
-// 		, dataType: "json"
-// 		, data: {
-// 			commentno: commentno
-// 		}
-// 		, success: function(data){
-// 			if(data.success) {
-				
-// 				$("[data-idx='"+idx+"']").remove();
-				
-// 			} else {
-// 				alert("게시글 삭제 실패");
-// 			}
-// 		}
-// 		, error: function() {
-// 			console.log("error");
-// 		}
-// 	});
+
 }
 
 

@@ -83,7 +83,7 @@ th {
 <a href="/main/community/board/write?boardno=${boardno }"><button>게시글작성</button></a>
 </c:if>
 <c:if test="${empty login }">
-<a style="float:left" ><button onclick="loginPlease();">게시글 작성</button></a>
+<a style="float:left" href="#myModal" class="trigger-btn" data-toggle="modal"><button onclick="loginPlease();">게시글 작성</button></a>
 </c:if>
 
 <!-- 가짜 검색창 -->

@@ -212,7 +212,8 @@
 
 			<li>
 			<c:if test="${sessionScope.login eq null }">
-			<a href="#myModal" class="trigger-btn" data-toggle="modal"><button id = "btn_login" class = "btn_login">로그인</button></a>
+			<a href="#myModal" class="trigger-btn" data-toggle="modal">
+			<button id = "btn_login" class = "btn_login" on>로그인</button></a>
 			<button id="btn_join" class="btn_join">회원가입</button></li>
 			</c:if>
 
