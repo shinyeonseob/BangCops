@@ -63,8 +63,6 @@ public class BoardServiceImpl implements BoardService {
 		}
 		// System.out.println("curPage : " + curPage);
 		
-		String searchcate = (String)req.getParameter("searchcategory");
-		String searchtgt = (String) req.getParameter("searchtarget");
 		// Board TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
 		int totalCount = boardDao.selectCntAll();
 
@@ -87,7 +85,7 @@ public class BoardServiceImpl implements BoardService {
 		
 		
 		// Board TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
-		int totalCount = boardDao.selectCntBoard(boardno);
+		int totalCount = boardDao.selectCntBoard(req, boardno);
 
 		// paging 객체 생성
 		Paging paging = new Paging(totalCount, curPage);

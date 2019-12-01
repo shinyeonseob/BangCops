@@ -50,12 +50,13 @@ public class BoardListController extends HttpServlet {
 		
 		// 요청파라미터에서 curPage 를 구하고 Paging 객체 반환
 		
-		Paging paging = boardService.getPaging(req, boardno);
+		Paging paging = 
+				boardService.getPaging(req, boardno);
 		
+		System.out.println("[TEST] BoardListController : " + paging);		
 		paging.setSearchcategory(req.getParameter("searchcategory"));
 		paging.setSearchtarget(req.getParameter("searchtarget"));
 		
-		System.out.println("[TEST] BoardListController : " + paging);		
 
 		// Paging 객체를 MODEL 값으로 지정
 		req.setAttribute("paging", paging);
