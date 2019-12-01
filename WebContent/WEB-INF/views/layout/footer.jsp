@@ -24,7 +24,8 @@
 <br>
 Copyrights ⓒ Bangcops All Rights Reserved</p>
 <hr>
-
+</div>
+</div>
 </div>
 </body>
 </html>

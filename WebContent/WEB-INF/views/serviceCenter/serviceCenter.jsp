@@ -15,18 +15,21 @@ FAQ를 확인 후 그 외에 궁금한 사항을<br>
 <br>
 <br>
 
-<div onclick="location='/main/coummunity/board?boardn0=1'">
-<u><strong>▶FAQ 확인하기</strong></u><br>
+<div onclick="location.href='/main/community/board?boardno=5'" style="cursor:pointer">
+<strong><u>▶FAQ 확인하기</u></strong><br>
 </div>
+
+
 <br>
 <br>
-신고에 대한 이의 사항은 <u><Strong>bangcops@gmail.com</Strong></u>으로<br>
+신고에 대한 이의 사항은 <Strong><u>bangcops@gmail.com</u></Strong>으로<br>
 그 외에 사항은 하단의 채팅창으로 문의해주세요<br>
+
+
 </div>
 <br>
 </h5>
-</div>
- 
+
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />   
 
 

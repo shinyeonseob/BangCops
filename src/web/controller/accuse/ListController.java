@@ -41,6 +41,7 @@ public class ListController extends HttpServlet {
 		
 		//게시글 목록을 MODEL값으로 지정
 		
+		req.setAttribute("ABoard", list);
 		
 		// VIEW 지정
 		req.getRequestDispatcher("/WEB-INF/views/accuse/accuseList.jsp")
