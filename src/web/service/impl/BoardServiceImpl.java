@@ -1,9 +1,7 @@
 package web.service.impl;
 
 import java.io.File;
-
 import java.io.UnsupportedEncodingException;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -21,14 +19,17 @@ import util.Paging;
 import web.dao.face.BoardDao;
 import web.dao.face.BoardFileDao;
 import web.dao.face.CommentDao;
+import web.dao.face.RecommendDao;
 import web.dao.impl.BoardDaoImpl;
 import web.dao.impl.BoardFileDaoImpl;
 import web.dao.impl.CommentDaoImpl;
+import web.dao.impl.RecommendDaoImpl;
 import web.dto.BAttached;
 import web.dto.BBoard;
 import web.dto.BBoardAndBboardType;
 import web.dto.BUser;
 import web.dto.Bcomment;
+import web.dto.Recommend;
 import web.service.face.BoardService;
 
 public class BoardServiceImpl implements BoardService {
@@ -36,6 +37,7 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDao boardDao = new BoardDaoImpl();
 	private BoardFileDao boardFileDao = new BoardFileDaoImpl();
 	private CommentDao commentDao = new CommentDaoImpl();
+	private RecommendDao recommendDao = new RecommendDaoImpl();
 
 	@Override
 	public List<BBoard> getList(int boardno) {
@@ -329,36 +331,56 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BBoard getRecommend(HttpServletRequest req) {
+	public Recommend getRecommend(HttpServletRequest req) {
 
 		// 전달파라미터 파싱
-		int boardno = 0;
-		String param = req.getParameter("boardno");
+		int idx = 0;
+		String param = req.getParameter("idx");
 		if (param != null && !"".equals(param)) {
-			boardno = Integer.parseInt(param);
+			idx = Integer.parseInt(param);
 		}
 
 		// 로그인한 유저의 아이디
-		String userid = (String) req.getSession().getAttribute("Userid");
+		int userno = (int) req.getSession().getAttribute("Userno");
 
-		BBoard recommend = new BBoard();
-		recommend.setBoardNo(boardno);
-		recommend.setUserid(userid);
+		Recommend recommend = new Recommend();
+		recommend.setIdx(idx);
+		recommend.setUserno(userno);
 
 		return recommend;
 	}
 
 	@Override
-	public boolean isRecommend(BBoard recommend) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean recommend(Recommend recommend) {
+		if( isRecommend(recommend) ) {
+			recommendDao.deleteRecommend(recommend);
+			
+			return false;
+		} else {
+			recommendDao.insertRecommend(recommend);
+			
+			return true;
+		}
+	}
+	
+	@Override
+	public int getTotalCntRecommend(Recommend recommend) {
+		return recommendDao.selectTotalCntRecommend(recommend);
+	}
+	
+	@Override
+	public boolean isRecommend(Recommend recommend) {
+		int cnt = recommendDao.selectCntRecommend(recommend);
+		
+		if(cnt > 0) { //추천했음
+			return true;
+			
+		} else { //추천하지 않았음
+			return false;
+			
+		}
 	}
 
-	@Override
-	public boolean recommend(BBoard recommend) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	@Override
 	public List<Bcomment> getMycommentList(Paging paging, BUser userno) {
@@ -373,6 +395,7 @@ public class BoardServiceImpl implements BoardService {
 		commentDao.deleteCommentList(names);
 		
 	}
+
 
 //	@Override
 //	public boolean recommend(BBoard recommend) {
