@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
 
 <script
@@ -611,6 +611,13 @@ function initMap() {
 			style="border: 1px solid black; float: left; width: 30%; height: 200px;">
 			뉴스기사
 			<hr>
+			<table>
+			<c:forEach items="${ Newslist }" var="i">
+			<tr>
+				<td>1{i}</td>
+			</tr>
+			</c:forEach>
+			</table>
 		</div>
 	</div>
 
