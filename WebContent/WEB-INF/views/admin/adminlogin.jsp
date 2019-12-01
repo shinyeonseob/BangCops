@@ -16,18 +16,15 @@ text-align: center;
 </head>
 <body>
 <div class="container">
+	<a href="/admin/logout"><img src="/resources/img/logo.png" style="width:250px; height:200px;"></a>
 	<h1>관리자 로그인 페이지</h1><hr><br>
 
-	<div>
-	<!-- <form action="/login/login" method="post"> -->
 	<form action="<%= response.encodeUrl("/admin/login") %>" method="post">
 		<label>ID :</label> <input type="text" name="id" id="id" required="required" /><br><br>
 		<label>PW :</label> <input type="text" name="pw" id="pw" required="required" /><br><br>
 		<button>로그인</button>
 	</form>
 	</div>
-
-</div>
 
 </body>
 </html>

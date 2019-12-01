@@ -21,6 +21,11 @@ $(document).ready(function(){
 	   location.href="/admin/memberlist?search="+$("#search").val();
    });
    
+   //회원글 조회
+   $("#btnBoard").click(function(){
+      $(location).attr("href","");
+   })
+   
    //회원 탈퇴
    $("#btnDelete").click(function(){
       $(location).attr("href","/admin/memberlistdelete?userno=${i.userno }");
@@ -112,8 +117,9 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	<th style="width: 15%">닉네임</th>
 	<th style="width: 10%">이름</th>
 	<th style="width: 18%">전화번호</th>
-	<th style="width: 15%">회원정보</th>
-	<th style="width: 15%">회원삭제</th>
+	<th style="width: 10%">회원정보</th>
+	<th style="width: 10%">회원글</th>
+	<th style="width: 10%">회원삭제</th>
 </tr>
 
 <c:forEach var="list" items="${list }">
@@ -125,6 +131,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	<td>${list.username }</td>
 	<td>${list.usertel }</td>
 	<td><button><a href="/admin/memberview?userno=${list.userno }">상세정보</a></button></td>
+	<td><button id="btnBoard">회원글</button></td>
     <td><a href="/admin/memberdelete?userno=${list.userno }"><button id="btnDelete">회원삭제</button></a></td>
 </tr>
 </c:forEach>
