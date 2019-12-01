@@ -11,9 +11,17 @@ $(document).ready(function() {
 	
 	//3초 동안 fadeOut(점점 흐려져서 사라짐)
 	//(시간 조절 가능)
-	$(".layer").fadeOut(3000);
+	$(".layer").fadeOut(3000)
 	
 });
+
+	
+
+// 	$("#btn_main").on("click",function() {
+// 		location.href="/main";
+// 	}
+
+// $('#btn_main').trigger('click');
 </script>
 
 <style type="text/css">
@@ -72,6 +80,21 @@ body {
 	/* 이미지 크기 보정 */
 	margin: auto;
 }
+#btn_main{
+/* 이미지가 화면 정가운데로 오도록 설정 */
+	position: fixed;
+    top: 201px;
+    right: 231px;
+    bottom: 248px;
+       left: 265px;
+		/* 화면 크기에 따라 적응하도록 설정 */
+		width: 800px;
+	max-width: 1000%;
+	max-height: 100%;
+	
+		/* 이미지 크기 보정 */
+	margin: auto;
+}
 </style>
 
 </head>
@@ -79,13 +102,17 @@ body {
 
 <div class="layer">
 <div class="logobg">
-<img class="logo" src="/resources/img/logo.png">
+<!-- <a href = "/main"> -->
+<img id = "btn_logo" class="logo" src="/resources/img/logo.png">
+<!-- </a> -->
 </div>
 </div>
 
 <!-- 테스트용 버튼 -->
-<!-- 로고 레이어 없어지기 전에는 클릭 안됨 -->
-<button onclick="alert(123)">버튼</button>
+<!-- 로고 레이어 없어지기 전에는 클릭 안됨 /  버튼 투명: style = "cursor:hand; opacity:0;"-->
+
+<!-- <a href = "/main"> -->
+<!-- <button id = "btn_main" style="max-width: 100%; max-height: auto;cursor:hand; opacity:0;"> 버튼 </button></a> -->
 
 </body>
 </html>
