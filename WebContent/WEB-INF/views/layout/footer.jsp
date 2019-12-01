@@ -9,7 +9,7 @@
 <div style ="min-height : 800px">
 </div id="footer"> <!-- #wrapper -->
 	<div class="footerSection1">
-	<ul id =footerul>
+	<ul id =footerul> 
 	
 		<li class="first"><img src="https://thecheat.co.kr/rb/layouts/2014/images/common/f_menu1.gif" alt="사이트소개"></a></li>
 		<li><img src="https://thecheat.co.kr/rb/layouts/2014/images/common/f_menu2.gif" alt="제휴/후원 문의"></a></li>
