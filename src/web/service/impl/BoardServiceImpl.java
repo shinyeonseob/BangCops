@@ -38,13 +38,19 @@ public class BoardServiceImpl implements BoardService {
 	private CommentDao commentDao = new CommentDaoImpl();
 
 	@Override
-	public List<BBoard> getList() {
-		return null;
+	public List<BBoard> getList(int boardno) {
+		return boardDao.selectAll(boardno);
 	}
 
 	@Override
 	public List<BBoard> getList(Paging paging, int boardno) {
 		return boardDao.selectAll(paging, boardno);
+	}
+	
+	@Override
+	public List<BBoard> getSearchList(Paging paging, int boardno) {
+		System.out.println("[TEST] BoardServiceImpl : " + paging);
+		return boardDao.selectSearchAll(paging, boardno);
 	}
 
 	@Override
@@ -56,7 +62,9 @@ public class BoardServiceImpl implements BoardService {
 			curPage = Integer.parseInt(param);
 		}
 		// System.out.println("curPage : " + curPage);
-
+		
+		String searchcate = (String)req.getParameter("searchcategory");
+		String searchtgt = (String) req.getParameter("searchtarget");
 		// Board TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
 		int totalCount = boardDao.selectCntAll();
 
@@ -75,7 +83,9 @@ public class BoardServiceImpl implements BoardService {
 			curPage = Integer.parseInt(param);
 		}
 		// System.out.println("curPage : " + curPage);
-
+		
+		
+		
 		// Board TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
 		int totalCount = boardDao.selectCntBoard(boardno);
 
@@ -93,7 +103,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BBoardAndBboardType> getMyboardList(Paging paging, BUser userno) {
-		System.out.println("service test : " + boardDao.selectMyboard(paging, userno));
+//		System.out.println("service test : " + boardDao.selectMyboard(paging, userno));
 		return boardDao.selectMyboard(paging, userno);
 	}
 
@@ -350,6 +360,20 @@ public class BoardServiceImpl implements BoardService {
 	public boolean recommend(BBoard recommend) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<Bcomment> getMycommentList(Paging paging, BUser userno) {
+		
+		return commentDao.selectMycomment(paging, userno);
+	}
+
+	
+
+	@Override
+	public void commentMyListDelete(String names) {
+		commentDao.deleteCommentList(names);
+		
 	}
 
 //	@Override

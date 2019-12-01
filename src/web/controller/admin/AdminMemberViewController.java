@@ -18,11 +18,14 @@ import web.service.impl.AdminServiceImpl;
 @WebServlet("/admin/memberview")
 public class AdminMemberViewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	private AdminService adminService = new AdminServiceImpl();
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		// 관리자 로그인일 경우
+		if (req.getSession().getAttribute("adminlogin") != null) {
 
 		BUser viewBuser = adminService.getUserno(req);
 		
@@ -30,7 +33,11 @@ public class AdminMemberViewController extends HttpServlet {
 		
 		req.getRequestDispatcher("/WEB-INF/views/admin/adminmemberview.jsp").forward(req, resp);
 	
+		} else {
+			// 관리자 로그인 안됐을 경우
+            resp.sendRedirect("/admin/login");
+		}
+		
 	}
 	
-
 }

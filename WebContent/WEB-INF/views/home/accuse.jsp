@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
 
 
@@ -30,7 +30,11 @@ div {
 </style>
 <hr>
 
-
+<script type="text/javascript">
+function loginPlease(){
+	alert("로그인 해주세요");
+}
+</script>
 
 
 <div id="container">
@@ -98,9 +102,24 @@ div {
 
 	</div>
 	<br>
+	<c:if test="${login }">
 	<a href="/accuse/write?accuseType=허위/과장매물"><button class="btnAccuse">신고하기</button></a>
+	</c:if>
+	<c:if test="${empty login }">
+	<a href="#myModal" class="trigger-btn" data-toggle="modal"><button class="btnAccuse" onclick="loginPlease();">신고하기</button></a>	
+	</c:if>
+	<c:if test="${login }">
 	<a href="/accuse/write?accuseType=불량 매물"><button class="btnAccuse">신고하기</button></a>
+	</c:if>
+	<c:if test="${empty login }">
+	<a href="#myModal" class="trigger-btn" data-toggle="modal"><button class="btnAccuse" onclick="loginPlease();">신고하기</button></a>
+	</c:if>
+	<c:if test="${login }">
 	<a href="/accuse/write?accuseType=사기 의심 매물"><button class="btnAccuse">신고하기</button></a>
+	</c:if>
+	<c:if test="${empty login }">
+	<a href="#myModal" class="trigger-btn" data-toggle="modal"><button class="btnAccuse" onclick="loginPlease();">신고하기</button></a>
+	</c:if>
 </div>
 
 

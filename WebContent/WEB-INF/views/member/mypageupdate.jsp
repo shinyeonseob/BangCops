@@ -11,7 +11,24 @@
 		//작성버튼 동작
 		$("#btnUpdate").click(function() {
 			
-			
+			if ($("#usernick").val() == '') {
+				alert('닉네임을 입력하세요');
+				$("#usernick").focus();
+				return false;
+			}
+			if ($("#usertel").val() == '') {
+				alert('전화번호를 입력하세요');
+				$("#usertel").focus();
+				return false;
+			}
+
+			if(confirm("회원정보를 수정하시겠습니까?") == true){
+				alert("회원정보가 수정되었습니다");
+					$("form").submit();	
+				}
+				else{
+					return;
+				}
 			
 			//form submit 수행
 			$("form").submit();
@@ -51,55 +68,24 @@
 </div>
 <br><br>
 
-<div class="container">
 
   
  <%-- <form name="update" action="/mypage/update" method="post" enctype="multipart/form-data">--%>  
-   <form name="update" action="/mypage/update" method="post" >
-      <input type="hidden" name="userno" value="${BUser.userno }" />
-      
-      <%-- 전화번호 입력값이 다를 시 사용안함 --%>
+
+ 
 		 <%--<input type="hidden" name="usertel" value="${BUser.usertel }" /> --%>
 
-      <table class="table table-bordered">
-
-
-         <tr>
-            <td class="info">이름</td>
-            <td colspan="3">
-               ${BUser.username }</td>
-         </tr>
-
-         <tr>
-            <td class="info">닉네임</td>
-            <td><input type="text" class="form-control" id="usernick" name="usernick" value="${BUser.usernick }" /></td>
-            <td> <button id = "nickcheck" class="btn btn-success">
-            <a href="/member/check" target="_blank">
-            	 중복검사 
-            	 </a>
-            	 </button></td>
-         </tr>
-
-         <tr>
-			<td class="info">연락처
-            </td>
-            <td>
 <%--             <select>
                <option value="010">010
                <option value="011">011
                <option value="016">016
                <option value="019">019
             </select> - <input type="text" size='4' /> - <input type="text" size='4' /> --%>
-            
-            <input type="text" class="form-control" id="usertel" name="usertel" value="${BUser.usertel }" />
-			</td>
-		<%--	<td> <button disabled="disabled"> 인증받기 </button></td> --%>
-         </tr>
 
-         <tr>
-            <td class="info">인증 번호 </td>
-            <td colspan="3"><input type="text" class="form-control" id="phonecheck" name="phonecheck"  /></td>
-         </tr>
+		<%--	<td> <button disabled="disabled"> 인증받기 </button></td> --%>
+
+
+         
 
     <%--      <tr>
             <td class="info">프로필사진</td>
@@ -109,19 +95,48 @@
          </tr>
 --%>
 
-      </table>
+ 
 
-      <div class="text-center">
-         <button type="button" id="btnUpdate" class="btn btn-info">정보 수정</button>
+
+<div class="container list-container">
+<form name="update" action="/mypage/update" method="post" >
+      <input type="hidden" name="userno" value="${BUser.userno }" />
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-2">이름</div>
+  <div class="col-md-4">${BUser.username }</div>
+</div>
+<div class="row"><br><div class="col-lg-1"></div><div class = "col-md-8"><hr></div><br><div class="col-lg-2"></div></div>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-2">닉네임</div>
+  <div class="col-md-4">
+  <input type="text" class="form-control" id="usernick" name="usernick" value="${BUser.usernick }" />
+  </div>
+  <div class="col-md-4"> 
+  <a href="/member/check" target="_blank">
+  <button id = "nickcheck" class="btn btn-success">
+            	 중복검사 
+            	 </button> </a>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+<div class="row"><br><div class="col-lg-1"></div><div class = "col-md-8"><hr></div><br><div class="col-lg-2"></div></div>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-2">연락처</div>
+  <div class="col-md-6">
+  	<input type="text" class="form-control" id="usertel" name="usertel" value="${BUser.usertel }" />
+  </div>
+</div>
+<div class="row"><br><div class="col-lg-1"></div><div class = "col-md-8"><hr></div><br><div class="col-lg-2"></div></div>
+<div class="row text-center" >
+       <button type="button" id="btnUpdate" class="btn btn-info">정보 수정</button>
          <button type="button" id="btnCancel" class="btn btn-danger">취소</button>
-      </div>
-      <br>
-   </form>
 </div>
 
-
-
-
+</form>
+</div>
 
 
 

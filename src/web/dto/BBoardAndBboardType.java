@@ -9,13 +9,8 @@ public class BBoardAndBboardType {
 	private String contents;
 	private Date regDate;
 	private int hits;
-	public int getRnum() {
-		return rnum;
-	}
-
-	public void setRnum(int rnum) {
-		this.rnum = rnum;
-	}
+	
+	
 	private int reco;
 	private int boardNo;
 	private int userNo;
@@ -28,6 +23,13 @@ public class BBoardAndBboardType {
 	
 	
 	
+	public int getRnum() {
+		return rnum;
+	}
+	
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
+	}
 	public String getBoardname() {
 		return boardname;
 	}

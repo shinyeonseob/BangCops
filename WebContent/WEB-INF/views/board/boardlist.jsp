@@ -12,11 +12,6 @@
 
 <!-- </body> -->
 <!-- </html> -->
-<script type="text/javascript">
-function loginPlease(){
-	alert("로그인 해주세요");
-}
-</script>
 
 <style type="text/css">
 th {
@@ -27,6 +22,22 @@ th {
 </style>
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
+<script type="text/javascript">
+function loginPlease(){
+	alert("로그인 해주세요");
+}
+$(document).ready(function() {
+
+	$("#btnSearch").click(function() {
+		location.href="/main/community/board?boardno="
+				+${boardno}+"&searchcategory="
+				+$("#searchcategory").val()
+				+"&searchtarget="+$("#searchtarget")
+				.val();
+	});
+	
+});
+</script>
 <br>
 <table style="margin:0 auto;width:1200;height:50;table-layout:fixed">
 	<tr>
@@ -45,11 +56,11 @@ th {
 </c:if>
 <c:if test="${boardno eq 2}">
 <h1>이용후기게시판</h1>
-<h4>방캅스를 이용해 주신 여러분의 후기를 들려주세요.</h4>
+<h4>피해사례와 방캅스 이용에 대한 다양한 후기를 남겨주세요.</h4>
 </c:if>
 <c:if test="${boardno eq 3}">
 <h1>공지사항</h1>
-<h4>방캅스 회원 여러분들에게 전달사항을 전해드립니다.</h4>
+<h4>방캅스 회원 여러분들에게 공지사항을 전해드립니다.</h4>
 </c:if>
 <c:if test="${boardno eq 5}">
 <h1>FAQ</h1>
@@ -68,7 +79,6 @@ th {
 	</tr>
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center;height:30">
-	<tr data-idx="${i.idx }">
 		<td>${ i.idx }</td>
 		<td style="text-align:left"><a href ="/main/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
 		<td>${ i.usernick }</td>
@@ -84,30 +94,18 @@ th {
 <a href="/main/community/board/write?boardno=${boardno }"><button>게시글작성</button></a>
 </c:if>
 <c:if test="${empty login }">
-<a style="float:left" ><button onclick="loginPlease();">게시글 작성</button></a>
+<a style="float:left" href="#myModal" class="trigger-btn" data-toggle="modal"><button onclick="loginPlease();">게시글 작성</button></a>
 </c:if>
 
-
-
-
-<!-- 가짜 검색창 -->
-<!-- <input style="float:right" id="select" name="select" type="text" /> -->
-<!-- <a style="float:right"><select> -->
-<!-- 	<option>제목</option> -->
-<!-- 	<option>작성자</option> -->
-<!-- 	<option>제목+작성자</option> -->
-<!-- </select></a> -->
-
-	<input style="margin-left: 748px" type="text" name="searchcategory" size = "11" list="searchcategory" placeholder="선택하세요"/>
-	<datalist id="searchcategory">
-		<option>제목</option>
-		<option>작성자</option>
-		<option>제목+작성자</option>
-	</datalist>
+	<select id="searchcategory" >
+		<option value="title">제목</option>
+		<option value="usernick">작성자</option>
+		<option value="contents">내용</option>
+	</select>
 	
 	<input type="text" id ="searchtarget" name="searchtarget" size="15" placeholder="검색어를 입력하세요" />
-	<a href=""><button>검색</button></a>
-
+	<button id="btnSearch" >검색</button>
+	
 </div>
 </div>
 <div style="margin:0 auto" ><jsp:include page="/WEB-INF/views/layout/paging.jsp" /></div>

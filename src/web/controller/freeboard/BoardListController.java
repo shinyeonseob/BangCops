@@ -8,10 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import util.Paging;
 import web.dto.BBoard;
-import web.dto.BUser;
 import web.service.face.BoardService;
 import web.service.impl.BoardServiceImpl;
 
@@ -46,43 +46,56 @@ public class BoardListController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 
 		int boardno = Integer.parseInt(req.getParameter("boardno"));
-		System.out.println(boardno);
+//		System.out.println(boardno);
+		
 		// 요청파라미터에서 curPage 를 구하고 Paging 객체 반환
+		
 		Paging paging = boardService.getPaging(req, boardno);
-		System.out.println("paging" + paging);		
+		
+		paging.setSearchcategory(req.getParameter("searchcategory"));
+		paging.setSearchtarget(req.getParameter("searchtarget"));
+		
+		System.out.println("[TEST] BoardListController : " + paging);		
 
 		// Paging 객체를 MODEL 값으로 지정
 		req.setAttribute("paging", paging);
 
 
-		/*
-		 * if (req.getParameter("search") != null) { String search =
-		 * req.getParameter("search"); System.out.println(search);
-		 * 
-		 * 
-		 * // 게시글 목록 조회 List<BBoardAndBboardType> list =
-		 * boardService.getSearchList(paging, boardno, search);
-		 * System.out.println(list);
-		 * 
-		 * // 게시글 목록을 MODEL값으로 지정 req.setAttribute("list", list);
-		 * req.setAttribute("search", search);
-		 * 
-		 * 
-		 * // VIEW 지정
-		 * req.getRequestDispatcher("/WEB-INF/views/board/list.jsp").forward(req, resp);
-		 * 
-		 * return; }
-		 */
-		// 게시글 목록 조회
-		List<BBoard> list = boardService.getList(paging, boardno);
-
-		String boardname = boardService.getboardname(boardno);
 		
-		// 게시글 목록을 MODEL값으로 지정
-		System.out.println("boardno : " + boardno);
-		req.setAttribute("list", list);
-		req.setAttribute("boardno", boardno);
-		req.setAttribute("boardname", boardname);
+		  if (req.getParameter("searchcategory") != null ) {
+			  System.out.println("getSearchList 실행됨");
+			  List<BBoard> list = boardService.getSearchList(paging, boardno);
+			  
+			  String boardname = boardService.getboardname(boardno);
+			  
+			  HttpSession session = req.getSession();
+			  
+			  // 게시글 목록을 MODEL값으로 지정
+			  req.setAttribute("list", list);
+			  req.setAttribute("boardno", boardno);
+			  req.setAttribute("boardname", boardname);
+			  req.setAttribute("Userlevel", session.getAttribute("Userlevel"));
+			  
+			  System.out.println("[TEST] BoardListController_list : " + list);
+		  } else {
+			  System.out.println("getList 실행됨");
+			  List<BBoard> list = boardService.getList(paging, boardno);
+			  
+			  String boardname = boardService.getboardname(boardno);
+			  
+			  HttpSession session = req.getSession();
+			  
+			  // 게시글 목록을 MODEL값으로 지정
+			  req.setAttribute("list", list);
+			  req.setAttribute("boardno", boardno);
+			  req.setAttribute("boardname", boardname);
+			  req.setAttribute("Userlevel", session.getAttribute("Userlevel"));
+			  
+			  System.out.println("[TEST] BoardListController_list : " + list);
+		  }
+		// 게시글 목록 조회
+		
+
 
 		// VIEW 지정
 		req.getRequestDispatcher("/WEB-INF/views/board/boardlist.jsp").forward(req, resp);

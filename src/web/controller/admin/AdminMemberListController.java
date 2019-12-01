@@ -22,6 +22,7 @@ public class AdminMemberListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		// 관리자 로그인일 경우
 		if (req.getSession().getAttribute("adminlogin") != null) {
 
 			// 요청파라미터에서 curPage를 구하고 Paging 객체 반환
@@ -41,6 +42,11 @@ public class AdminMemberListController extends HttpServlet {
 
 			req.getRequestDispatcher("/WEB-INF/views/admin/adminmemberlist.jsp")
 			.forward(req, resp);
+		} else {
+      
+			// 관리자 로그인 안됐을 경우
+            resp.sendRedirect("/admin/login");
+
 		}
 
 	}

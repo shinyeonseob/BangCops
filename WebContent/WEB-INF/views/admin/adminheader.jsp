@@ -49,7 +49,7 @@ text-align: center;
 </script>
 
 <div class="logo">
-	<a href="/admin/logout"><img src="/resources/img/logo.png" width="150"; style=" height:100px;"></a>
+	<a href="/admin/logout"><img src="/resources/img/logo.png" style="width:200px; height:150px;"></a>
 </div>
 	
   <div class="row">
@@ -64,7 +64,6 @@ text-align: center;
           <li role="presentation"><a aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-plus-square-o"></i>  <span>신고게시판</span></a></li>
         </ul>
         
-        <!-- Tab panes -->
       </div>
     </div>
   </div>

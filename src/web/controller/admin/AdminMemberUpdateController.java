@@ -21,21 +21,22 @@ public class AdminMemberUpdateController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-//		if(!adminService.checkId(req)) {
-//			resp.sendRedirect("/admin/memberlist");
-//			return;
-//		}
+		// 관리자 로그인일 경우
+		if (req.getSession().getAttribute("adminlogin") != null) {
 		
-		// 회원번호 파싱
-		BUser viewBuser = adminService.getUserno(req);
+			// 회원번호 파싱
+			BUser viewBuser = adminService.getUserno(req);
 		
-		// 회원조회
-//		viewBuser = adminService.view(viewBuser);
+			// 회원조회
+			req.setAttribute("viewBuser", viewBuser);
 		
-		req.setAttribute("viewBuser", viewBuser);
+			// VIEW 지정
+			req.getRequestDispatcher("/WEB-INF/views/admin/adminmemberupdate.jsp").forward(req, resp);
+		} else {
+			// 관리자 로그인 안됐을 경우
+            resp.sendRedirect("/admin/login");
+		}
 		
-		// VIEW 지정
-		req.getRequestDispatcher("/WEB-INF/views/admin/adminmemberupdate.jsp").forward(req, resp);
 	}
 	
 	@Override
