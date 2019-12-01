@@ -90,7 +90,7 @@ $(document).ready(function() {
 </table>
 <hr style="background:grey;height:2px">
 <div>
-<c:if test="${login }">
+<c:if test="${login && boardno ne 3 && boardno ne 5}">
 <a href="/main/community/board/write?boardno=${boardno }"><button>게시글작성</button></a>
 </c:if>
 <c:if test="${empty login }">

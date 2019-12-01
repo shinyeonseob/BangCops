@@ -12,22 +12,22 @@ $(document).ready(function() {
 	
 	var link = document.location.href;
 	console.log(link);
-	if (mypagemain) {
-		$("#mypagemain").addClass("active");
-	} else if (mypageupdate) {
-		$("#mypageupdate").addClass("active");
-	} else if (mypagepw) {
-		$("#mypagepw").addClass("active");
-	} else if (myboard) {
-		$("#myboard").addClass("active");
-	} else if (mycomment) {
-		$("#mycomment").addClass("active");
-	} else {
-		$("#withdrawal").addClass("active");
-	}
+// 	if (mypagemain) {
+// 		$("#mypagemain").addClass("active");
+// 	} else if (mypageupdate) {
+// 		$("#mypageupdate").addClass("active");
+// 	} else if (mypagepw) {
+// 		$("#mypagepw").addClass("active");
+// 	} else if (myboard) {
+// 		$("#myboard").addClass("active");
+// 	} else if (mycomment) {
+// 		$("#mycomment").addClass("active");
+// 	} else {
+// 		$("#withdrawal").addClass("active");
+// 	}
 	
 	
-// 	// 마이페이지 메인 버튼
+	// 마이페이지 메인 버튼
 // 	if ($("#mypagemain").click(function()){
 // 		$("#mypagemain").addClass("active");
 // 	}
@@ -52,6 +52,11 @@ $(document).ready(function() {
 // 		$("#withdrawal").addClass("active")
 // 	}
 
+	$(document).ready(function(){
+		  $(".nav-tabs a").click(function(){
+		     $(this).tab('show');
+		  });
+		});
 
 });
 </script>
@@ -63,15 +68,14 @@ $(document).ready(function() {
 	display: flex;
 	justify-content: center;
 	align-items: stretch;
-	min-height : 200px;
-	margin-right: 730px;
+	min-height : 100px;
+	margin-right: 660px;
 }
 #mypagemenu {
-	height: 40px;
 	text-align: center;
 	display: flex;
 	justify-content: center;
-	align-items: stretch;
+	margin-right: 240px;
 }
 #menubar{
 	margin-top:9px;
@@ -89,25 +93,24 @@ $(document).ready(function() {
 <div id = "mypagetitle" class="row"><h1 >마이페이지</h1></div>
 
 	<div id = "mypagemenu" role="tabpanel">
-		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist" id="menubar">
-			<li role="presentation" id="mypagemain"><a href="/mypage/main" aria-controls="mypagemain" role="tab">나의 정보</a></li>
-			<li role="presentation" id="mypageupdate"><a href="/mypage/update" aria-controls="mypageupdate" role="tab">정보 수정</a></li>
-			<li role="presentation" id="mypagepw"><a href="/mypage/pw" aria-controls="mypagepw" role="tab">비밀번호 변경</a></li>
-			<li role="presentation" id="myboard"><a href="/mypage/board" aria-controls="myboard" role="tab">내가 쓴 글 내역</a></li>
-			<li role="presentation" id="mycomment"><a href="/mypage/comment" aria-controls="mycomment" role="tab">내가 쓴 댓글</a></li>
-			<li role="presentation" id="withdrawal"><a href="/mypage/with" aria-controls="withdrawal" role="tab">회원탈퇴</a></li>
+			<li id="mypagemain" role="presentation" ><a href="/mypage/main" aria-controls="mypagemain" role="tab">나의 정보</a></li>
+			<li id="mypageupdate" role="presentation" ><a href="/mypage/update" aria-controls="mypageupdate" role="tab">정보 수정</a></li>
+			<li id="mypagepw" role="presentation" ><a href="/mypage/pw" aria-controls="mypagepw" role="tab">비밀번호 변경</a></li>
+			<li id="myboard" role="presentation" ><a href="/mypage/board" aria-controls="myboard" role="tab">내가 쓴 글 내역</a></li>
+			<li id="mycomment" role="presentation" ><a href="/mypage/comment" aria-controls="mycomment" role="tab">내가 쓴 댓글</a></li>
+			<li id="withdrawal" role="presentation" ><a href="/mypage/with" aria-controls="withdrawal" role="tab">회원탈퇴</a></li>
 		</ul>
 
 		<!-- Tab panes -->
-		<div class="tab-content">
-			<div role="tabpanel" class="tab-pane " id="mypagemain"></div>
-			<div role="tabpanel" class="tab-pane " id="mypageupdate"></div>
-			<div role="tabpanel" class="tab-pane" id="mypagepw"></div>
-			<div role="tabpanel" class="tab-pane" id="myboard"></div>
-			<div role="tabpanel" class="tab-pane" id="mycomment"></div>
-			<div role="tabpanel" class="tab-pane" id="withdrawal"></div>
-		</div>
+	<%-- 	<div class="tab-content">
+			<div id="mypagemain" role="tabpanel" class="tab-pane" ></div>
+			<div id="mypageupdate" role="tabpanel" class="tab-pane" ></div>
+			<div id="mypagepw" role="tabpanel" class="tab-pane" ></div>
+			<div id="myboard" role="tabpanel" class="tab-pane" ></div>
+			<div id="mycomment" role="tabpanel" class="tab-pane" ></div>
+			<div id="withdrawal" role="tabpanel" class="tab-pane" ></div>
+		</div>--%>
 	</div>
 </div>
 
