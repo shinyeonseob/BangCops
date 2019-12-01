@@ -40,6 +40,12 @@ public class ListController extends HttpServlet {
 		List list = accuseService.getList(paging);
 		
 		//게시글 목록을 MODEL값으로 지정
+		
+		
+		// VIEW 지정
+		req.getRequestDispatcher("/WEB-INF/views/accuse/accuseList.jsp")
+		.forward(req, resp);
+
 	
 	}
 	

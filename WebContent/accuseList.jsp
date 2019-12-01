@@ -44,7 +44,7 @@ contain list-conta
       	<img src="/resources/img/logo.png" alt="허위매물정보">
        <div class="caption">
        
-       <h6> 신고사이트 : </h3>
+       <h6> 신고사이트 : </h6>
        <h6> 지역 :</h6>
        <h6> 가격 :</h6>
        <h6> 신고된 부동산 :</h6>
