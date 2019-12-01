@@ -12,11 +12,6 @@
 
 <!-- </body> -->
 <!-- </html> -->
-<script type="text/javascript">
-function loginPlease(){
-	alert("로그인 해주세요");
-}
-</script>
 
 <style type="text/css">
 th {
@@ -27,6 +22,22 @@ th {
 </style>
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
+<script type="text/javascript">
+function loginPlease(){
+	alert("로그인 해주세요");
+}
+$(document).ready(function() {
+
+	$("#btnSearch").click(function() {
+		location.href="/main/community/board?boardno="
+				+${boardno}+"&searchcategory="
+				+$("#searchcategory").val()
+				+"&searchtarget="+$("#searchtarget")
+				.val();
+	});
+	
+});
+</script>
 <br>
 <table style="margin:0 auto;width:1200;height:50;table-layout:fixed">
 	<tr>
@@ -79,31 +90,22 @@ th {
 </table>
 <hr style="background:grey;height:2px">
 <div>
-<c:if test="${login }">
+<c:if test="${login && boardno ne 3 && boardno ne 5}">
 <a href="/main/community/board/write?boardno=${boardno }"><button>게시글작성</button></a>
 </c:if>
 <c:if test="${empty login }">
 <a style="float:left" href="#myModal" class="trigger-btn" data-toggle="modal"><button onclick="loginPlease();">게시글 작성</button></a>
 </c:if>
 
-<!-- 가짜 검색창 -->
-<!-- <input style="float:right" id="select" name="select" type="text" /> -->
-<!-- <a style="float:right"><select> -->
-<!-- 	<option>제목</option> -->
-<!-- 	<option>작성자</option> -->
-<!-- 	<option>제목+작성자</option> -->
-<!-- </select></a> -->
-
-	<input style="margin-left: 748px" type="text" name="searchcategory" size = "11" list="searchcategory" placeholder="선택하세요"/>
-	<datalist id="searchcategory">
-		<option>제목</option>
-		<option>작성자</option>
-		<option>제목+작성자</option>
-	</datalist>
+	<select id="searchcategory" >
+		<option value="title">제목</option>
+		<option value="usernick">작성자</option>
+		<option value="contents">내용</option>
+	</select>
 	
 	<input type="text" id ="searchtarget" name="searchtarget" size="15" placeholder="검색어를 입력하세요" />
-	<a href=""><button>검색</button></a>
-</form>
+	<button id="btnSearch" >검색</button>
+	
 </div>
 </div>
 <div style="margin:0 auto" ><jsp:include page="/WEB-INF/views/layout/paging.jsp" /></div>

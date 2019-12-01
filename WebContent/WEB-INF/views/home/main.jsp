@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
 
-
 <style type="text/css">
 .container {
 	text-align: center;
