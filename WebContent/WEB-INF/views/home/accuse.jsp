@@ -102,7 +102,7 @@ function loginPlease(){
 
 	</div>
 	<br>
-	<c:if test="${login }">
+<c:if test="${login }">
 	<a href="/accuse/write?accuseType=허위/과장매물"><button class="btnAccuse">신고하기</button></a>
 	</c:if>
 	<c:if test="${empty login }">

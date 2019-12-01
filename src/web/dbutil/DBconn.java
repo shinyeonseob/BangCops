@@ -2,14 +2,12 @@ package web.dbutil;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class DBconn {
 	
 	private static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
-	private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+	private static final String URL = "jdbc:oracle:thin:@localhost:1521:orcl";
 	private static final String USERNAME = "scott";
 	private static final String PASSWORD = "tiger";
 	

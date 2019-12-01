@@ -14,8 +14,7 @@
 
 
 <div class="container">
-	<h1>MAIN</h1>
-	<hr>
+	
 	<div style="margin-top: 150px; margin-bottom: 50px">
 		<h2>
 			<strong>부동산 허위매물 검색</strong>

@@ -160,6 +160,19 @@
 .trigger-btn {
 	display: inline-block;
 }
+.logo {
+
+
+	/* 화면 크기에 따라 적응하도록 설정 */
+	   width: 120px;
+    height: 60px;
+/*     object-fit: none; */
+	/* 이미지 크기 보정 */
+	    margin-left: -75px;
+}
+#mainlogo{
+	width: 50px;
+}
 </style>
 
 <script type="text/javascript">
@@ -200,9 +213,12 @@
 
 </head>
 <body>
-	<a href="/main">※방캅스※</a>
+	
 
 	<nav id="topMenu">
+	<div id = "mainlogo" class="navbar-header">
+	<a href="/main"><img class="logo" src="/resources/img/logo2.png"></a>
+	</div>
 		<ul>
 			<li><a id = "btn_search" class="menuLink" href="#">검색</a></li>
 			<li><a id = "btn_accuse" class="menuLink" href="#">신고</a></li>
