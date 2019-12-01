@@ -15,6 +15,8 @@ public class Paging {
 	private int startNo; // 화면에 보이는 페이지의 게시글 시작 번호
 	private int endNo; // 화면에 보이는 페이지의 게시글 끝 번호
 
+	private String search;
+	
 	private String searchcategory; // 검색 조건
 	private String searchtarget; // 검색어
 
@@ -89,30 +91,12 @@ public class Paging {
 
 	}
 
-	
-
 	@Override
 	public String toString() {
 		return "Paging [curPage=" + curPage + ", totalCount=" + totalCount + ", listCount=" + listCount + ", totalPage="
 				+ totalPage + ", pageCount=" + pageCount + ", startPage=" + startPage + ", endPage=" + endPage
-				+ ", startNo=" + startNo + ", endNo=" + endNo + ", searchcategory=" + searchcategory + ", searchtarget="
-				+ searchtarget + "]";
-	}
-
-	public String getSearchcategory() {
-		return searchcategory;
-	}
-
-	public void setSearchcategory(String searchcategory) {
-		this.searchcategory = searchcategory;
-	}
-
-	public String getSearchtarget() {
-		return searchtarget;
-	}
-
-	public void setSearchtarget(String searchtarget) {
-		this.searchtarget = searchtarget;
+				+ ", startNo=" + startNo + ", endNo=" + endNo + ", search=" + search + ", searchcategory="
+				+ searchcategory + ", searchtarget=" + searchtarget + "]";
 	}
 
 	public int getCurPage() {
@@ -187,5 +171,28 @@ public class Paging {
 		this.endNo = endNo;
 	}
 
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
+	public String getSearchcategory() {
+		return searchcategory;
+	}
+
+	public void setSearchcategory(String searchcategory) {
+		this.searchcategory = searchcategory;
+	}
+
+	public String getSearchtarget() {
+		return searchtarget;
+	}
+
+	public void setSearchtarget(String searchtarget) {
+		this.searchtarget = searchtarget;
+	}
 
 }
