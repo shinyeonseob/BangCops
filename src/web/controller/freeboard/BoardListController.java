@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import util.Paging;
 import web.dto.BBoard;
+import web.dto.Recommend;
 import web.service.face.BoardService;
 import web.service.impl.BoardServiceImpl;
 
@@ -27,35 +28,15 @@ public class BoardListController extends HttpServlet {
 	@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-			// 패치내용
-//			Paging paging = boardService.getPaging(req);
-//			
-//			req.setAttribute("paging", paging);
-//			
-//			List<BBoard> list = boardService.getList(paging);
-//			
-//			req.setAttribute("url", req.getRequestURI());
-//			System.out.println(req.getRequestURI());
-//			req.setAttribute("list", list);
-//			
-//			
-//			
-//			req.getRequestDispatcher("/WEB-INF/views/board/freeboardList.jsp").forward(req, resp);
-
 		
 		req.setCharacterEncoding("UTF-8");
 
 		int boardno = Integer.parseInt(req.getParameter("boardno"));
-//		System.out.println(boardno);
-		
-		// 요청파라미터에서 curPage 를 구하고 Paging 객체 반환
 		
 		Paging paging = 
 				boardService.getPaging(req, boardno);
 		
-		System.out.println("[TEST] BoardListController : " + paging);		
-		paging.setSearchcategory(req.getParameter("searchcategory"));
-		paging.setSearchtarget(req.getParameter("searchtarget"));
+
 		
 
 		// Paging 객체를 MODEL 값으로 지정
@@ -64,7 +45,6 @@ public class BoardListController extends HttpServlet {
 
 		
 		  if (req.getParameter("searchcategory") != null ) {
-			  System.out.println("getSearchList 실행됨");
 			  List<BBoard> list = boardService.getSearchList(paging, boardno);
 			  
 			  String boardname = boardService.getboardname(boardno);
@@ -77,9 +57,7 @@ public class BoardListController extends HttpServlet {
 			  req.setAttribute("boardname", boardname);
 			  req.setAttribute("Userlevel", session.getAttribute("Userlevel"));
 			  
-			  System.out.println("[TEST] BoardListController_list : " + list);
 		  } else {
-			  System.out.println("getList 실행됨");
 			  List<BBoard> list = boardService.getList(paging, boardno);
 			  
 			  String boardname = boardService.getboardname(boardno);
@@ -92,32 +70,21 @@ public class BoardListController extends HttpServlet {
 			  req.setAttribute("boardname", boardname);
 			  req.setAttribute("Userlevel", session.getAttribute("Userlevel"));
 			  
-			  System.out.println("[TEST] BoardListController_list : " + list);
 		  }
+		  
+		  Recommend recommend = new Recommend();
+		  
+		  int cnt = boardService.getTotalCntRecommend(recommend);
+		  req.setAttribute("reco", cnt );
+		  
+		  
 		// 게시글 목록 조회
 		
 
 
 		// VIEW 지정
 		req.getRequestDispatcher("/WEB-INF/views/board/boardlist.jsp").forward(req, resp);
-
 	
-
-		
-		
-//============================내가한거==================================================================
-//			Paging paging = boardService.getPaging(req);
-//			
-//			req.setAttribute("paging", paging);
-//			
-//			List<BBoard> list = boardService.getList(paging);
-//			
-//			req.setAttribute("list", list);
-//			
-//			
-//			
-//			req.getRequestDispatcher("/WEB-INF/views/board/freeboardList.jsp").forward(req, resp);
-//======================================================================================================		
 
 
 	}
@@ -125,23 +92,5 @@ public class BoardListController extends HttpServlet {
 	@Override
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 				
-//				// 요청파라미터에서 curPage 를 구하고 Paging 객체 반환
-//				Paging paging = boardService.getPaging(req);
-//				System.out.println("paging" + paging);
-//				String search = req.getParameter("search");
-//				
-//				// Paging 객체를 MODEL 값으로 지정
-//				req.setAttribute("paging", paging);
-//				
-//				// 게시글 목록 조회
-//				List<BBoard> list = boardService.getSearchList(paging, search);
-//
-//				// 게시글 목록을 MODEL값으로 지정
-//				req.setAttribute("list", list);
-//				req.setAttribute("search", search);
-//
-//
-//				// VIEW 지정
-//				req.getRequestDispatcher("/WEB-INF/views/board/list.jsp").forward(req, resp);
 		}
 }

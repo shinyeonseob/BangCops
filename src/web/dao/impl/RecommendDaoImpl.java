@@ -32,6 +32,7 @@ public class RecommendDaoImpl implements RecommendDao{
 		try {
 			//DB작업
 			ps = conn.prepareStatement(sql);
+			
 			ps.setInt(1, recommend.getIdx());
 			ps.setInt(2, recommend.getUserno());
 
@@ -128,7 +129,6 @@ public class RecommendDaoImpl implements RecommendDao{
 	@Override
 	public int selectTotalCntRecommend(Recommend recommend) {
 		conn = DBconn.getConnection();
-		System.out.println("recommend : " + recommend);
 		String sql = "SELECT COUNT(*) FROM recommend WHERE idx = ?";
 		
 		int cnt = 0;
