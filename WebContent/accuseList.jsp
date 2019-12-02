@@ -6,7 +6,7 @@
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
 
-<!--그림 리스트로 보이는 화면 -->
+<!--그림 리스트로 보이는 화면, 검색시 유저에게 노출-->
 
 <script type="text/javascript">
 	var curPage = 1;
@@ -24,26 +24,6 @@ div {contain list-conta
 	width: 100%;
 }
 </style>
-
-<!--Pattern HTML-->
-<div id="pattern" class="pattern">
-	<ul class="list img-list">
-		<li><a href="#" class="inner">
-				<div class="list-container">
-					<img src="http://placehold.it/300x300" alt="Image Alt Text" />
-				</div>
-				<div class="list-container">
-					<h6>신고사이트 :</h6>
-					<h6>지역 :</h6>
-					<h6>가격 :</h6>
-					<h6>신고된 부동산 :</h6>
-					<h6>중개사명 :</h6>
-					<h6>전화번호 :</h6>
-				</div>
-		</a></li>
-
-		<!--End Pattern HTML-->
-
 
 		<div class="list-container">
 			<br>
@@ -68,25 +48,18 @@ div {contain list-conta
 						<img src="/resources/img/logo.png" alt="허위매물정보">
 						<!--       //로고부분 넣는 실제로 들어가야함 -->
 						<div class="caption">
-
-							<h6>신고사이트 :${list.Url}</h6>
-							<h6>지역 : ${city } ${gu }</h6>
-							<h6>가격 : ${depos }</h6>
-							<h6>신고된 부동산 :</h6>
-							<h6>중개사명 :</h6>
-							<h6>전화번호 :</h6>
-							<p>
-								<a href="#" class="btn btn-primary" role="button">상세보기</a>
+		
+			<c:forEach items="${ list }" var="al">
+			<h6>신고사이트 : ${al.asite }</h6>
+			<h6>지역 : ${al.city }시{al.gu }구{al.dong }동</h6>
+			<h6>가격 : 보증금 : ${al.deposit } 월세 : {al.price}</h6>
+			<h6>신고된 부동산 : ${al.property }</h6>
+			<h6>중개사명 : ${al.agent }</h6>
+			<h6>전화번호 : ${al.phoneno }</h6>
+			</c:forEach>
+				<a href="#" class="btn btn-primary" role="button">상세보기</a>
 							</p>
 							
-			<c:forEach items="${ list }" var="al">
-			<h6>${al.asite }</h6>
-			<h6>${al.city }시{al.gu }구{al.dong }동</h6>
-			<h6>보증금 : ${al.deposit } 월세 : {al.price}</h6>
-			<h6>${al.property }</h6>
-			<h6>${al.agent }</h6>
-			<h6>${al.phoneno }</h6>
-			</c:forEach>
 			
 			 
 

@@ -209,7 +209,9 @@ $(document).ready(function() {
  CKEDITOR.replace('contents', {height: 400});
 </script></td>
 	<br> <small>파일첨부(최대 5개)</small>
-
+	<small>허위매물로 예상되는 이미지를 넣어주세요<br>
+	신고하신 첫번째 이미지는 허위매물 이미지로 노출됩니다.
+	 </small>
 	<input type="file" name="upfile"/>
 	<br> <br>
 	<hr>

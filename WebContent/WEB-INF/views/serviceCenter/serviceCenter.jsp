@@ -4,6 +4,13 @@
     
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
 
+
+<div class="text-center">
+<br><br><br><br><br><br>
+<h3><strong>방캅스 고객센터</strong></h3>
+
+</div>
+
 <h5>
 
 <div class="text-center">
@@ -18,6 +25,11 @@ FAQ를 확인 후 그 외에 궁금한 사항을<br>
 <div onclick="location.href='/main/community/board?boardno=5'" style="cursor:pointer">
 <strong><u>▶FAQ 확인하기</u></strong><br>
 </div>
+<br>
+<div onclick="location.href='/main/community/board?boardno=3'" style="cursor:pointer">
+<strong><u>▶공지사항 확인하기</u></strong><br>
+</div>
+
 
 
 <br>
