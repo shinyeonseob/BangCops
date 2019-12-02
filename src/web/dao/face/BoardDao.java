@@ -32,6 +32,7 @@ public interface BoardDao {
 	// 게시글 정보 DB에 INSERT (파일첨부x)
 	public void insert(BBoard board);
 	
+	
 	// 다음 게시글 번호 반환
 	public int selectIdx();
 	
@@ -41,9 +42,13 @@ public interface BoardDao {
 	// 게시글 삭제
 	public void delete(BBoard bBoard);
 	
+	//게시글 수정
+	public void update(BBoard bBoard);
+	
 	public int selectCntBoard(HttpServletRequest req, int boardno);
 	
 	// 각 게시판 이름 반환
 	public String getboardname(int boardno);
 	
+
 }

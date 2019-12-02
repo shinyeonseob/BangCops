@@ -84,7 +84,7 @@ $(document).ready(function() {
 		<td>${ i.usernick }</td>
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>
-		<td>${ i.reco }</td>
+		<td>${ reco }</td>
 	</tr>
 </c:forEach>
 </table>
@@ -97,14 +97,14 @@ $(document).ready(function() {
 <a style="float:left" href="#myModal" class="trigger-btn" data-toggle="modal"><button onclick="loginPlease();">게시글 작성</button></a>
 </c:if>
 
-	<select id="searchcategory" >
+	
+	<button id="btnSearch" style="float:right" >검색</button>
+	<input type="text" id ="searchtarget" name="searchtarget" size="15" placeholder="검색어를 입력하세요" style="float:right" />
+	<select id="searchcategory" Style="float:right;height:26px" >
 		<option value="title">제목</option>
 		<option value="usernick">작성자</option>
 		<option value="contents">내용</option>
 	</select>
-	
-	<input type="text" id ="searchtarget" name="searchtarget" size="15" placeholder="검색어를 입력하세요" />
-	<button id="btnSearch" >검색</button>
 	
 </div>
 </div>

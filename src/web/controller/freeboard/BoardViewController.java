@@ -43,6 +43,7 @@ public class BoardViewController extends HttpServlet {
 //		System.out.println("[TEST] FBViewCon : " + list); //확인완료
 //		System.out.println(bAttached); //확인 완료
 		req.setAttribute("list", list);
+		System.out.println(list);
 		req.setAttribute("bAttached", bAttached);
 
 //		System.out.println(session.getAttribute("Userno"));
@@ -55,11 +56,18 @@ public class BoardViewController extends HttpServlet {
 		// 추천 상태 전달
 		Recommend recommend = new Recommend();
 		recommend.setIdx(list.getIdx()); // 게시글 번호
+		try {
 		recommend.setUserno((int) req.getSession().getAttribute("Userno")); // 로그인한 아이디
+		} catch(NullPointerException e) {
+			System.out.println("로그인하지 않았음");
+		}
 
 		boolean isRecommend = boardService.isRecommend(recommend);
 		req.setAttribute("isRecommend", isRecommend);
-		System.out.println(list);
+		
+		int cnt = boardService.getTotalCntRecommend(recommend);
+		
+		req.setAttribute("reco", cnt);
 
 		req.getRequestDispatcher("/WEB-INF/views/board/boardview.jsp").forward(req, resp);
 	}
