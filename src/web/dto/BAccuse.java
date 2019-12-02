@@ -11,14 +11,14 @@ public class BAccuse {
 	private String accusetype;
 	private int idx;
 	private String agent;
-	private String PhoneNo;
-	private String Property;
+	private String phoneNo;
+	private String property;
 
 	@Override
 	public String toString() {
 		return "BAccuse [accuseno=" + accuseno + ", url=" + url + ", city=" + city + ", gu=" + gu + ", sitename="
-				+ sitename + ", accusetype=" + accusetype + ", idx=" + idx + ", agent=" + agent + ", PhoneNo=" + PhoneNo
-				+ ", Property=" + Property + "]";
+				+ sitename + ", accusetype=" + accusetype + ", idx=" + idx + ", agent=" + agent + ", phoneNo=" + phoneNo
+				+ ", property=" + property + "]";
 	}
 
 	public int getAccuseno() {
@@ -86,19 +86,19 @@ public class BAccuse {
 	}
 
 	public String getPhoneNo() {
-		return PhoneNo;
+		return phoneNo;
 	}
 
 	public void setPhoneNo(String phoneNo) {
-		PhoneNo = phoneNo;
+		this.phoneNo = phoneNo;
 	}
 
 	public String getProperty() {
-		return Property;
+		return property;
 	}
 
 	public void setProperty(String property) {
-		Property = property;
+		this.property = property;
 	}
 
 }

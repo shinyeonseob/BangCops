@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import util.Paging;
 import web.dto.BAccuse;
+import web.dto.BBoard;
 
 
 
@@ -70,6 +71,14 @@ public interface AccuseService {
 
 
 	public List getList(Paging paging);
+
+
+
+	public List<BAccuse> getSearchListBAccuse(Paging paging, HttpServletRequest req);
+
+
+
+	public List<BBoard> getSearchList(Paging paging, int boardno);
 
 
 

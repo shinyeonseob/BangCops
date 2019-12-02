@@ -156,6 +156,8 @@ public class AdminBoardDaoImpl implements AdminBoardDao {
 		try {
 			ps = conn.prepareStatement(sql);
 
+			
+			System.out.println(req.getParameter("boardno"));
 			ps.setInt(1, Integer.parseInt(req.getParameter("boardno")));
 
 			rs= ps.executeQuery();
@@ -185,29 +187,36 @@ public class AdminBoardDaoImpl implements AdminBoardDao {
 		
 	}
 
+
 	@Override
-	public void deleteBoard(HttpServletRequest req) {
+	public void deleteAdminBoard(String idx) {
 
 		conn = DBconn.getConnection(); //DB 연결
 		
-		String sql ="";
-		sql+=" UPDATE bboard ";
-		sql+=" title ='삭제된 글 입니다',";
-		sql+=" title=''";
-		sql+=" WHERE boardno=?";
+		//다음 게시글 번호 조회 쿼리
+		String sql = "";
+		sql += "DELETE bboard";
+		sql += " WHERE idx = ?";
 		
+		//DB 객체
+		PreparedStatement ps = null; 
+				
 		try {
-			ps= conn.prepareStatement(sql);
-			ps.setInt(1, Integer.parseInt(req.getParameter("boardno")));
-
+			// DB작업
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, Integer.parseInt(idx));
+			
 			ps.executeQuery();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
 
+		} finally {
 			try {
-				if(ps!=null)	ps.close();
-				if(ps!=null)	rs.close();
+				// DB객체 닫기
+				if (ps != null)
+					ps.close();
+
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
