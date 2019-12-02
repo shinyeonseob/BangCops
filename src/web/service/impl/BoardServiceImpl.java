@@ -1,6 +1,7 @@
 package web.service.impl;
 
 import java.io.File;
+
 import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import java.util.List;
@@ -51,7 +52,6 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public List<BBoard> getSearchList(Paging paging, int boardno) {
-		System.out.println("[TEST] BoardServiceImpl : " + paging);
 		return boardDao.selectSearchAll(paging, boardno);
 	}
 
@@ -91,6 +91,9 @@ public class BoardServiceImpl implements BoardService {
 
 		// paging 객체 생성
 		Paging paging = new Paging(totalCount, curPage);
+		
+		paging.setSearchcategory(req.getParameter("searchcategory"));
+		paging.setSearchtarget(req.getParameter("searchtarget"));
 
 		return paging;
 	}
@@ -281,6 +284,126 @@ public class BoardServiceImpl implements BoardService {
 	public void delete(BBoard bBoard) {
 		boardDao.delete(bBoard);
 	}
+	
+	@Override
+	public void update(HttpServletRequest req) {
+		BBoard board = null;
+		BAttached boardFile = null;
+		
+		boolean isMultipart = ServletFileUpload.isMultipartContent(req);
+		
+		if(!isMultipart) {
+			//파일 첨부가 없을 경우
+			board = new BBoard();
+			
+			board.setTitle(req.getParameter("title"));
+			board.setUserid((String) req.getSession().getAttribute("userid"));
+			board.setContents(req.getParameter("contents"));
+			
+		} else {
+			//파일업로드를 사용하고 있을 경우
+			board = new BBoard();
+
+			//디스크팩토리
+			DiskFileItemFactory factory = new DiskFileItemFactory();
+
+			//메모리처리 사이즈
+			factory.setSizeThreshold(1 * 1024 * 1024); //1MB
+
+			//임시 저장소
+			File repository=new File(req.getServletContext().getRealPath("tmp"));
+			factory.setRepository(repository);
+			
+			//업로드 객체 생성
+			ServletFileUpload upload = new ServletFileUpload(factory);
+			
+			//용량 제한 설정 : 10MB
+			upload.setFileSizeMax(10 * 1024 * 1024);
+			
+			//form-data 추출 
+			List<FileItem> items = null;
+			try {
+				items = upload.parseRequest(req);
+				
+			} catch (FileUploadException e) {
+				e.printStackTrace();
+			}
+			
+			//파싱된 데이터 처리 반복자
+			Iterator<FileItem> iter = items.iterator();
+			
+			//요청정보 처리
+			while( iter.hasNext() ) {
+				FileItem item = iter.next();
+				
+				// 빈 파일 처리
+				if( item.getSize() <= 0 )	continue;
+				
+				// 빈 파일이 아닐 경우
+				if( item.isFormField() ) {
+					try {
+						if( "idx".equals( item.getFieldName() ) ) {
+							board.setIdx( Integer.parseInt(item.getString()) );
+						}
+	
+						if( "title".equals( item.getFieldName() ) ) {
+							board.setTitle( item.getString("utf-8") ); 
+						}
+						if( "contents".equals( item.getFieldName() ) ) {
+							board.setContents( item.getString("utf-8") );
+						}
+						if( "boardno".equals( item.getFieldName() ) ) {
+							board.setBoardNo(Integer.parseInt(item.getString()) );
+						}
+						board.setUserid((String) req.getSession().getAttribute("userid"));
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
+					
+				} else {
+					UUID uuid = UUID.randomUUID();
+					String u = uuid.toString().split("-")[4];
+
+					//로컬 저장소 파일
+					String stored = item.getName() + "_" + u;
+					File up = new File(
+						req.getServletContext().getRealPath("upload")
+						, stored);
+					
+					boardFile = new BAttached();
+					boardFile.setOriginName(item.getName());
+					boardFile.setStoredName(stored);
+					boardFile.setFilesize(item.getSize());
+					
+					try {
+						// 실제 업로드
+						item.write(up);
+						
+						// 임시 파일 삭제
+						item.delete();
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+					} // try end
+				} //if end
+			} //while end
+		} //if(!isMultipart) end
+		
+
+//		System.out.println(board);
+//		System.out.println(boardFile);
+		
+		if(board != null) {
+			System.out.println(board);
+			boardDao.update(board);
+		}
+		
+		if(boardFile != null) {
+			boardFile.setIdx(board.getIdx());
+			System.out.println(boardFile);
+			boardFileDao.insertFile(boardFile);
+		}
+	}
 
 	@Override
 	public String getboardname(int boardno) {
@@ -395,6 +518,8 @@ public class BoardServiceImpl implements BoardService {
 		commentDao.deleteCommentList(names);
 		
 	}
+
+	
 
 
 //	@Override

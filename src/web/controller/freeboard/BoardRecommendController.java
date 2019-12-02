@@ -30,6 +30,8 @@ public class BoardRecommendController extends HttpServlet {
 		//추천 정보 토글
 		boolean result = boardService.recommend(recommendParam);
 		
+		
+		
 		int cnt = boardService.getTotalCntRecommend(recommendParam);
 		
 		//결과 JSON 응답

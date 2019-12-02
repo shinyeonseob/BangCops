@@ -17,12 +17,13 @@
 <!-- </html> -->
 
 <script type="text/javascript">
+
 $(document).ready(function() {
 	// 댓글 입력
 	$("#btnCommInsert").click(function() {
 // 		게시글 번호.... ${list.idx}
-// 			console.log($("#commentWriter").val());
-// 			console.log($("#commentContent").val());
+			console.log($("#commentWriter").val());
+			console.log($("#commentContent").val());
 		
 		$form = $("<form>").attr({
 			action: "/comment/insert",
@@ -78,19 +79,16 @@ function deleteComment(commentno) {
 }
 
 
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
 	//추천
 	if(${isRecommend}) {
 		$("#btnRecommend")
 			.addClass("btn-warning")
-			.html('추천 취소');
+			.html('추천취소');
 		
 	} else {
 		$("#btnRecommend")
 			.addClass("btn-primary")
-			.html('추천');
+			.html('추천하기');
 	}
 	
 	$("#btnRecommend").click(function() {
@@ -131,8 +129,8 @@ $(document).ready(function() {
 	});
 });
 
-
 </script>
+
 <style type="text/css">
 th {
 	padding: 10px;
@@ -201,7 +199,8 @@ function warning() {
 					<fmt:formatDate value="${list.regDate }"
 						pattern="yy-MM-dd hh:mm:ss" />
 				<p></td>
-			<td style="text-align: right;">조회 ${list.hits } | 추천 <h5 id="recommend">${list.reco }</h5></td>
+			<td style="text-align: right;">조회 ${list.hits } | 추천</td>
+			<td id="recommend" style="text-align:center;padding-top: 3px;width: 22px;"> ${reco }</td>
 		</tr>
 	</table>
 	<hr>
