@@ -25,6 +25,7 @@ import web.dao.impl.BoardFileDaoImpl;
 import web.dto.BAccuse;
 import web.dto.BAttached;
 import web.dto.BBoard;
+import web.dto.BDeal;
 import web.service.face.AccuseService;
 
 public class AccuseServiceImpl implements AccuseService {
@@ -104,6 +105,7 @@ public class AccuseServiceImpl implements AccuseService {
 
 		Iterator<FileItem> iter = items.iterator();
 		BBoard board = new BBoard();
+		BDeal BDeal = new BDeal();
 		BAttached bAttached = null;
 		BAccuse baccuse = new BAccuse();
 
@@ -237,13 +239,44 @@ public class AccuseServiceImpl implements AccuseService {
 						baccuse.setPhoneNo(item.getString("UTF-8"));
 						System.out.println(key);
 						System.out.println(item.getString("UTF-8"));
-					} catch (NumberFormatException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+					
 					} catch (UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+				} else if ("DealType2".equals(key)) {
+
+					try {
+						BDeal.setDealtype2(item.getString("UTF-8"));
+						System.out.println(key);
+						System.out.println(item.getString("UTF-8"));
+					} catch (UnsupportedEncodingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+				}else if ("Deposit".equals(key)) {
+
+					try {
+						BDeal.setDeposit(Integer.parseInt(item.getString("UTF-8")));
+						System.out.println(key);
+						System.out.println(item.getString("UTF-8"));
+					} catch (UnsupportedEncodingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+				}else if ("Price".equals(key)) {
+
+					try {
+						BDeal.setPrice(Integer.parseInt(item.getString("UTF-8")));
+						System.out.println(key);
+						System.out.println(item.getString("UTF-8"));
+					} catch (UnsupportedEncodingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
 				}
 
 			} else { // 3) 파일처리
@@ -294,7 +327,11 @@ public class AccuseServiceImpl implements AccuseService {
 			// System.out.println(bAttached);
 		}
 		baccuse.setIdx(idx);
+		int accuseno = accuseDao.selectAccuseNo();
+		baccuse.setAccuseno(accuseno);
+		BDeal.setAccuseno(accuseno);
 		accuseDao.insert(baccuse);
+		accuseDao.insertBDeal(BDeal);
 
 	}
 
