@@ -34,7 +34,14 @@ FAQ를 확인 후 그 외에 궁금한 사항을<br>
 
 <br>
 <br>
-신고에 대한 이의 사항은 <Strong>bangcops@gmail.com</Strong>으로<br>
+신고에 대한 이의 신청은 e-mail로만 받고 있습니다.
+상세한 내용 작성 후
+<br>
+<address>
+<Strong><a href="mailto:#">bangcops@gmail.com</a></Strong></address><br>
+
+
+문의해주세요<br>
 그 외에 사항은 하단의 채팅창으로 문의해주세요<br>
 
 
