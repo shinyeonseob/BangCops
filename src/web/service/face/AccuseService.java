@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import util.Paging;
 import web.dto.BAccuse;
 import web.dto.BBoard;
+import web.dto.BDeal;
 
 
 
@@ -80,6 +81,9 @@ public interface AccuseService {
 
 	public List<BBoard> getSearchList(Paging paging, int boardno);
 
+
+
+	public BDeal getBdeal(BAccuse accuse);
 
 
 

@@ -85,13 +85,14 @@ $(document).ready(function() {
           center: {lat: 37.553226, lng: 126.980885}
         });
 
-        var labels = '';
+        var labels = '방캅스';
 
         var markers = locations.map(function(location, i) {
           return new google.maps.Marker({
             position: location,
-            label: labels[i % labels.length]
+            label: labels
           });
+          
         });
 
         var markerCluster = new MarkerClusterer(map, markers,
@@ -124,6 +125,8 @@ $(document).ready(function() {
     	  {lat: 37.5506753	, lng: 127.0409622},
     	  {lat: 37.5311008	, lng: 126.9810742}
       ]
+      
+      
     </script>
 
 	<div id="jb-sidebar" style="width: 30%">

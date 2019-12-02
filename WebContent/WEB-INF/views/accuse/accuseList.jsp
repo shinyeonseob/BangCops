@@ -24,7 +24,7 @@ div {contain list-conta
 	width: 100%;
 }
 </style>
-
+<div>
 <div class="list-container">
 	<br> <br> <br> <br>
 	<h3>검색한 결과 ${gu }구의 신고된 허위매물 목록입니다.</h3>
@@ -53,7 +53,7 @@ div {contain list-conta
 						<h6>중개사명 : ${al.agent }</h6>
 						<h6>전화번호 : ${al.phoneNo }</h6>
 
-						<a href="#" class="btn btn-primary" role="button">상세보기</a>
+						<a href="/aview?AccuseNo=${al.accuseno }" class="btn btn-primary" role="button">상세보기</a>
 
 					</div>
 				</div>
@@ -63,6 +63,6 @@ div {contain list-conta
 	</div>
 </c:forEach>
 
-
-
+<hr>
+</div>
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />
