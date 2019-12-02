@@ -1,4 +1,4 @@
-package util.crawling;
+package util.crawling.Service.impl;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,13 +9,15 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import util.crawling.Service.face.NewsCrawlingService;
+
 public class NewsCrawlingServiceImpl implements NewsCrawlingService{
 	private static String URL = "https://estate.nate.com/cp/news/research_list.asp?";
 
 	public List getCrawlingList() throws IOException{
 
 		// 1. Document를 가져온다
-		Document doc = Jsoup.connect(URL + getParameter(2)).get();
+		Document doc = Jsoup.connect(URL + getParameter(1)).get();
 
 		// 2. 목록을 가져온다
 		//		System.out.println(""+ doc.toString());

@@ -24,6 +24,7 @@ public class MainApp {
 		Document doc = Jsoup.connect(URL + getParameter(2)).get();
 		
 		// 2. 목록을 가져온다
+		System.out.println(doc);
 //		System.out.println(""+ doc.toString());
 		Elements elements = doc.select(".news_list dt");
 
@@ -33,9 +34,9 @@ public class MainApp {
 		List list = new ArrayList();
 		for(Element element : elements) {
 			
-			System.out.println(++idx + " : " + element.toString());
-//			System.out.println(++idx + " : " + element.text());
-			System.out.println("======================================");
+//			System.out.println(++idx + " : " + element.toString());
+////			System.out.println(++idx + " : " + element.text());
+//			System.out.println("======================================");
 			list.add(element.toString());
 		}
 		
