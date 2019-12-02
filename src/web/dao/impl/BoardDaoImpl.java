@@ -531,6 +531,7 @@ public class BoardDaoImpl implements BoardDao {
 		return boardname;
 	}
 
+
 	@Override
 	public void update(BBoard bBoard) {
 		
@@ -569,8 +570,5 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	
-	
-
-
 
 }

@@ -58,8 +58,7 @@ $(document).ready(function() {
 
 	<hr>
 
-	<Strong>신고 사항</Strong> <br> <br> <small>${accuseType}</small>
-	<hr>
+	<h4><Strong>신고 사항</Strong></h4> <br> <br> <h5>${accuseType}</h5><hr>
 	<small>1단계 : 신고매물 기본정보</small> <br>
 <input type="hidden" name="boardno" value="6" />
 <input type="hidden" name="accuseType" value="${accuseType}" />
@@ -108,6 +107,41 @@ $(document).ready(function() {
 			<td class="tdleft"></td>
 			<td class="tdright"><input type="text" name="PhoneNo"
 				placeholder="신고게시물에 기재된 휴대폰 번호" required="required"/></td>
+				
+				
+		<tr>
+			<td colspan="2" class="tdupper" >매물타입</td>
+		</tr>
+		<tr>
+			<td class="tdleft"></td>
+			<td class="tdright">
+			<select name="DealType2" required="required">
+					<option value="seoul">전세</option>	
+					<option value="seoul">월세</option>
+			</select></td>
+			
+					
+				
+			<tr>
+			<td colspan="2" class="tdupper" >보증금</td>
+		</tr>
+		<tr>
+			<td class="tdleft"></td>
+			<td class="tdright"><input type="number" name="Deposit"
+				placeholder="해당매물의 보증금금액" required="required"/></td>
+				
+			<tr>
+			<td colspan="2" class="tdupper" >월세</td>
+		</tr>
+		<tr>
+			<td class="tdleft"></td>
+			<td class="tdright"><input type="number" name="Price"
+				placeholder="해당매물의 월세금액" required="required"/></td>				
+				
+				
+				
+				
+				
 		<tr>
 			<td colspan="2" class="tdupper" >지역</td>
 		</tr>
@@ -175,7 +209,9 @@ $(document).ready(function() {
  CKEDITOR.replace('contents', {height: 400});
 </script></td>
 	<br> <small>파일첨부(최대 5개)</small>
-
+	<small>허위매물로 예상되는 이미지를 넣어주세요<br>
+	신고하신 첫번째 이미지는 허위매물 이미지로 노출됩니다.
+	 </small>
 	<input type="file" name="upfile"/>
 	<br> <br>
 	<hr>

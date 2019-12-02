@@ -50,8 +50,5 @@ public interface BoardDao {
 	// 각 게시판 이름 반환
 	public String getboardname(int boardno);
 	
-	
-	
-	
-	
+
 }

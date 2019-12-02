@@ -20,10 +20,12 @@ public class AdminMemberListDeleteController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		String names = req.getParameter("names");
+		String[] names = req.getParameter("names").split(",");
 		
 		if( !"".equals(names) && names != null) {
-			adminService.memberListDelete(names);
+			for (String userno : names) {
+				adminService.memberListDelete(userno);
+			}
 		}
 		
 		resp.sendRedirect("/admin/memberlist");
