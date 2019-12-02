@@ -37,8 +37,9 @@ public interface AdminBoardService {
 	
 	/**
 	 * 게시글 삭제
-	 * @param req
+	 * @param bboard
 	 */
+
 	public void deleteAdminBoard(HttpServletRequest req);
 
 }

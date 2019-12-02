@@ -34,8 +34,8 @@ public interface AdminBoardDao {
 	/**
 	 * 게시글 삭제
 	 * 
-	 * @param req
+	 * @param string - 삭제할 겟글 번호를 담은 객체
 	 */
-	void deleteBoard(HttpServletRequest req);
+	void deleteAdminBoard(String string);
 
 }

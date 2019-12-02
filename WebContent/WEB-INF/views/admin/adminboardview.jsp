@@ -26,7 +26,7 @@
 
 		//삭제버튼 동작
 		$("#btnDelete").click(function() {
-			$(location).attr("href","/admin/memberdelete?userno=${viewBuser.userno}");
+			$(location).attr("href","/admin/boarddelete?boardno=${viewBuser.boardno}");
 		});
 
 	});
@@ -45,9 +45,10 @@
 				<th class="text-center" style="width: 5%">글번호</th>
 				<th class="text-center" style="width: 15%">회원번호</th>
 				<th class="text-center" style="width: 15%">회원아이디</th>
-				<th class="text-center" style="width: 25%">제목</th>
+				<th class="text-center" style="width: 15%">제목</th>
 				<th class="text-center" style="width: 25%">내용</th>
 				<th class="text-center" style="width: 15%">작성날짜</th>
+				<th class="text-center" style="width: 10%">회원삭제</th>
 			</tr>
 			<c:forEach items="${ list }" var="i">
 				<tr style="text-align: center; height: 30">
@@ -58,6 +59,7 @@
 						href="/main/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
 					<td>${ i.contents }</td>
 					<td>${ i.regDate }</td>
+					<td><a href="/admin/boarddelete?idx=${i.idx }"><button id="btnDelete">게시글 삭제</button></a></td>
 				</tr>
 			</c:forEach>
 		</table>
