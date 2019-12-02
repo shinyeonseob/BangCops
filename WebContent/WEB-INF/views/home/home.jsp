@@ -634,7 +634,7 @@ function initMap() {
 	<br>
 
 	<div id="servicecenter">
-		<img src="/resources/img/servicecenter.png">
+		<a href="/serviceCenterView">고객센터</a>
 	</div>
 </div>
 
