@@ -69,6 +69,7 @@ function loginPlease(){
 		<hr>
 		해당 매물이 존재하지 않아 거래가 불가능한 경우<br>
 		<br> 매물등록내용을 사실과 다르게 올리거나 과장하는 경우<br>
+		
 
 	</div>
 
@@ -103,19 +104,19 @@ function loginPlease(){
 	</div>
 	<br>
 <c:if test="${login }">
-	<a href="/accuse/write?accuseType=허위/과장매물"><button class="btnAccuse">신고하기</button></a>
+	<a href="/accuse/write?accuseType=허위/과장매물"><button class="btn btn-default" type="submit">신고하기</button></a>
 	</c:if>
 	<c:if test="${empty login }">
 	<a href="#myModal" class="trigger-btn" data-toggle="modal"><button class="btnAccuse" onclick="loginPlease();">신고하기</button></a>	
 	</c:if>
 	<c:if test="${login }">
-	<a href="/accuse/write?accuseType=불량 매물"><button class="btnAccuse">신고하기</button></a>
+	<a href="/accuse/write?accuseType=불량 매물"><button class="btn btn-default" type="submit">신고하기</button></a>
 	</c:if>
 	<c:if test="${empty login }">
 	<a href="#myModal" class="trigger-btn" data-toggle="modal"><button class="btnAccuse" onclick="loginPlease();">신고하기</button></a>
 	</c:if>
 	<c:if test="${login }">
-	<a href="/accuse/write?accuseType=사기 의심 매물"><button class="btnAccuse">신고하기</button></a>
+	<a href="/accuse/write?accuseType=사기 의심 매물"><button class="btn btn-default" type="submit">신고하기</button></a>
 	</c:if>
 	<c:if test="${empty login }">
 	<a href="#myModal" class="trigger-btn" data-toggle="modal"><button class="btnAccuse" onclick="loginPlease();">신고하기</button></a>
