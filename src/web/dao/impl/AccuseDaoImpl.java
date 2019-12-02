@@ -233,6 +233,86 @@ public class AccuseDaoImpl implements AccuseDao {
 		return null;
 	}
 
+	@Override
+	public BAccuse getbaccuse(BAccuse baccuse) {
+		conn = DBconn.getConnection(); // DB 연결
+		
+		String sql = "SELECT * FROM BAccuse WHERE accuseno = ?";
+		BAccuse bAccuse = new BAccuse();
+
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, baccuse.getAccuseno());
+			
+			rs = ps.executeQuery();
+
+			
+			while (rs.next()) {
+				
+				bAccuse.setAccuseno(rs.getInt("AccuseNo"));
+				bAccuse.setUrl(rs.getString("URL"));
+				bAccuse.setCity(rs.getString("City"));
+				bAccuse.setGu(rs.getString("Gu"));
+				bAccuse.setSitename(rs.getString("sitename"));
+				bAccuse.setAccusetype(rs.getString("AccuseType"));
+				bAccuse.setIdx(rs.getInt("idx"));
+				bAccuse.setAgent(rs.getString("Agent"));
+				bAccuse.setProperty(rs.getString("Property"));
+				bAccuse.setPhoneNo(rs.getString("PhoneNo"));
+				
+				System.out.println("bAccuse : "+  bAccuse);
+
+			}		
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+		return bAccuse;
+	}
+
+	@Override
+	public BDeal getBdeal(BAccuse accuse) {
+conn = DBconn.getConnection(); // DB 연결
+		
+		String sql = "SELECT * FROM BDeal WHERE accuseno = ?";
+		BDeal bDeal = new BDeal();
+
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, accuse.getAccuseno());
+			
+			rs = ps.executeQuery();
+
+			
+			while (rs.next()) {
+				
+				bDeal.setBdealno(rs.getInt("BDealNo"));
+				bDeal.setAccuseno(rs.getInt("AccuseNo"));
+				bDeal.setDealtype2(rs.getString("DealType2"));
+				bDeal.setDeposit(rs.getInt("deposit"));
+				bDeal.setPrice(rs.getInt("price"));
+				
+				
+				System.out.println("bAccuse : "+  bDeal);
+
+			}		
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+		return bDeal;
+	}
+
 }
 
 
