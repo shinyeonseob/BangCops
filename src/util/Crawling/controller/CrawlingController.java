@@ -33,7 +33,7 @@ public class CrawlingController extends HttpServlet {
 
 //		req.getRequestDispatcher("/WEB-INF/views/home/home.jsp")
 //		.forward(req, resp);
-		req.getRequestDispatcher("/WEB-INF/views/crawling.jsp")
+		req.getRequestDispatcher("/WEB-INF/views/home/crawling.jsp")
 		.forward(req, resp);
 	}
 }
