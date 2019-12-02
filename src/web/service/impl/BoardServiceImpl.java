@@ -1,9 +1,7 @@
 package web.service.impl;
 
 import java.io.File;
-
 import java.io.UnsupportedEncodingException;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -375,6 +373,7 @@ public class BoardServiceImpl implements BoardService {
 		commentDao.deleteCommentList(names);
 		
 	}
+
 
 //	@Override
 //	public boolean recommend(BBoard recommend) {
