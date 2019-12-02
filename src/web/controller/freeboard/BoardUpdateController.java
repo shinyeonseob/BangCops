@@ -27,17 +27,30 @@ public class BoardUpdateController extends HttpServlet {
 
 		BBoard board = boardService.getIdx(req);
 
+		board = boardService.view(board);
+		
+		req.setAttribute("board", board);
+		
 		BAttached bAttached = boardService.getFile(board);
-
+		req.setAttribute("bAttached", bAttached);
+		
 		// 게시글 상세보기
-		BBoard list = boardService.view(board);
 //		System.out.println(list);
 
 		// 게시글 목록을 MODEL값으로 지정
-		req.setAttribute("list", list);
-		req.setAttribute("bAttached", bAttached);
 
 
 		req.getRequestDispatcher("/WEB-INF/views/board/boardupdate.jsp").forward(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		
+		req.setCharacterEncoding("UTF-8");
+		
+		boardService.update(req);
+		
+		resp.sendRedirect("/main/community");
 	}
 }

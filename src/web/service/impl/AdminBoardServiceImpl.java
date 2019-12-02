@@ -21,7 +21,7 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 
 	@Override
 	public Paging getPaging(HttpServletRequest req) {
-		// TOD//요청파라미터 curPage를 파싱한다
+		// 요청파라미터 curPage를 파싱한다
 		String param = req.getParameter("curPage");
 		int curPage =0;
 		if( param!=null && !"".equals(param)) {
@@ -46,9 +46,11 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 		return adminBoardDao.selecBoardByBoardno(req);
 	}
 
+
 	@Override
 	public void deleteAdminBoard(HttpServletRequest req) {
-		adminBoardDao.deleteBoard(req);
+		adminBoardDao.deleteAdminBoard(req.getParameter("idx"));
 	}
+
 
 }

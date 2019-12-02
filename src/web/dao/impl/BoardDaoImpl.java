@@ -115,17 +115,15 @@ public class BoardDaoImpl implements BoardDao {
 				list.add(bBoard);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("[TEST] BoardDaoImpl : " + list);
+		System.out.println(list);
 		return list;
 	}
 	
 	@Override
 	public List<BBoard> selectSearchAll(Paging paging, int boardno) {
 		
-		System.out.println("[TEST] BoardDaoImpl : " + paging);
 		conn = DBconn.getConnection(); //DB 연결
 		
 		// 수행할 쿼리
@@ -135,7 +133,7 @@ public class BoardDaoImpl implements BoardDao {
 		sql += "	SELECT";
 		sql += "		idx,title, contents, hits, reco, boardno, userno, regdate, (SELECT usernick FROM buser WHERE b.userno = userno)usernick ";
 		sql += "	FROM Bboard b";
-		sql += "	WHERE boardno = ? AND ? LIKE '%'||?||'%'";
+		sql += "	WHERE boardno = ? AND " + paging.getSearchcategory() +" LIKE '%'||?||'%'";
 		sql += "	ORDER BY idx DESC";
 		sql += " ) B ORDER BY rnum";
 		sql += " ) BBoard";
@@ -147,10 +145,9 @@ public class BoardDaoImpl implements BoardDao {
 			ps = conn.prepareStatement(sql);
 			
 			ps.setInt(1, boardno);
-			ps.setString(2, paging.getSearchcategory());
-			ps.setString(3,paging.getSearchtarget());
-			ps.setInt(4, paging.getStartNo());
-			ps.setInt(5, paging.getEndNo());
+			ps.setString(2,paging.getSearchtarget());
+			ps.setInt(3, paging.getStartNo());
+			ps.setInt(4, paging.getEndNo());
 			
 			rs = ps.executeQuery();
 			
@@ -168,13 +165,13 @@ public class BoardDaoImpl implements BoardDao {
 				bBoard.setUserNo(rs.getInt("UserNo"));
 				bBoard.setUsernick(rs.getString("usernick"));
 
+				System.out.println(bBoard);
 				list.add(bBoard);
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println("search_list : " + list);
 		return list;
 	}
 
@@ -355,8 +352,8 @@ public class BoardDaoImpl implements BoardDao {
 		conn = DBconn.getConnection();
 		
 		String sql = "";
-		sql += "INSERT INTO BBoard ( boardno, idx, title, contents, userno, hits, reco )";
-		sql += " VALUES ( ?, ?, ?, ?, ?, 0, 0 )";
+		sql += "INSERT INTO BBoard ( boardno, idx, title, contents, userno, usernick, hits, reco )";
+		sql += " VALUES ( ?, ?, ?, ?, ?, ?, 0, 0 )";
 		
 		try {
 			ps = conn.prepareStatement(sql);
@@ -366,6 +363,7 @@ public class BoardDaoImpl implements BoardDao {
 			ps.setString(3, board.getTitle());
 			ps.setString(4, board.getContents());
 			ps.setInt(5, board.getUserNo());
+			ps.setString(6, board.getUsernick());
 			
 			ps.executeUpdate();
 		} catch (SQLException e) {
@@ -459,12 +457,10 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public int selectCntBoard(HttpServletRequest req, int boardno) {
 		conn = DBconn.getConnection(); // DB 연결
-		System.out.println(req.getParameter("searchcategory"));
 		
 		if(req.getParameter("searchcategory")!=null) {
-			System.out.println("검색전용o");
 			String sql ="";
-			sql += "SELECT count(*) FROM bboard WHERE boardno = ? AND ? LIKE '%'||?||'%'";
+			sql += "SELECT count(*) FROM bboard WHERE boardno = ? AND " + req.getParameter("searchcategory") + " LIKE '%'||?||'%'";
 			
 			int cnt = 0;
 			
@@ -472,8 +468,7 @@ public class BoardDaoImpl implements BoardDao {
 				ps = conn.prepareStatement(sql);
 				
 				ps.setInt(1, boardno);
-				ps.setString(2, req.getParameter("searchcategory"));
-				ps.setString(3, req.getParameter("searchtarget"));
+				ps.setString(2, req.getParameter("searchtarget"));
 				
 				rs = ps.executeQuery();
 				
@@ -488,7 +483,6 @@ public class BoardDaoImpl implements BoardDao {
 			return cnt;
 			
 		} else {
-			System.out.println("검색전용x");
 			String sql = "SELECT count(*) FROM Bboard where boardno = ?";
 			
 			int cnt = 0;
@@ -536,5 +530,45 @@ public class BoardDaoImpl implements BoardDao {
 		}
 		return boardname;
 	}
+
+
+	@Override
+	public void update(BBoard bBoard) {
+		
+		String sql = "";
+		sql += "UPDATE bboard";
+		sql += " SET title = ?,";
+		sql += " 	contents = ?,";
+		sql += "    boardno = ?";
+		sql += " WHERE idx = ?";
+		
+		//DB 객체
+		PreparedStatement ps = null; 
+		
+		try {
+			//DB작업
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, bBoard.getTitle());
+			ps.setString(2, bBoard.getContents());
+			ps.setInt(3, bBoard.getBoardNo());
+			ps.setInt(4, bBoard.getIdx());
+
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				//DB객체 닫기
+				if(ps!=null) ps.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	
 
 }
