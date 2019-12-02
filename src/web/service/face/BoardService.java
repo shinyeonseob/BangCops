@@ -10,6 +10,7 @@ import web.dto.BBoard;
 import web.dto.BBoardAndBboardType;
 import web.dto.BUser;
 import web.dto.Bcomment;
+import web.dto.Recommend;
 
 public interface BoardService {
 	public List<BBoard> getList(int boardno);
@@ -52,11 +53,13 @@ public interface BoardService {
 
 	public boolean deleteComment(Bcomment comment);
 	
-	public boolean isRecommend(BBoard recommend);
+	public boolean isRecommend(Recommend recommend);
 	
-	public BBoard getRecommend(HttpServletRequest req);
+	public Recommend getRecommend(HttpServletRequest req);
 	
-	public boolean recommend(BBoard recommend);
+	public boolean recommend(Recommend recommend);
+	
+	public int getTotalCntRecommend(Recommend recommend);
 
 	public List<Bcomment> getMycommentList(Paging paging, BUser userno);
 

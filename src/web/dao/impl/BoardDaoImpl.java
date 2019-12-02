@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import util.Paging;
 import web.dao.face.BoardDao;
 import web.dbutil.DBconn;
@@ -123,6 +125,7 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public List<BBoard> selectSearchAll(Paging paging, int boardno) {
 		
+		System.out.println("[TEST] BoardDaoImpl : " + paging);
 		conn = DBconn.getConnection(); //DB 연결
 		
 		// 수행할 쿼리
@@ -171,7 +174,7 @@ public class BoardDaoImpl implements BoardDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println("[TEST] BoardDaoImpl : " + list);
+		System.out.println("search_list : " + list);
 		return list;
 	}
 
@@ -454,14 +457,43 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public int selectCntBoard(int boardno) {
+	public int selectCntBoard(HttpServletRequest req, int boardno) {
 		conn = DBconn.getConnection(); // DB 연결
+		System.out.println(req.getParameter("searchcategory"));
 		
-		String sql = "SELECT count(*) FROM Bboard where boardno = ?";
-		
-		int cnt = 0;
-		
-		try {
+		if(req.getParameter("searchcategory")!=null) {
+			System.out.println("검색전용o");
+			String sql ="";
+			sql += "SELECT count(*) FROM bboard WHERE boardno = ? AND ? LIKE '%'||?||'%'";
+			
+			int cnt = 0;
+			
+			try {
+				ps = conn.prepareStatement(sql);
+				
+				ps.setInt(1, boardno);
+				ps.setString(2, req.getParameter("searchcategory"));
+				ps.setString(3, req.getParameter("searchtarget"));
+				
+				rs = ps.executeQuery();
+				
+				while(rs.next()) {
+					cnt = rs.getInt(1);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return cnt;
+			
+		} else {
+			System.out.println("검색전용x");
+			String sql = "SELECT count(*) FROM Bboard where boardno = ?";
+			
+			int cnt = 0;
+			
+			try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, boardno);
 			
@@ -475,6 +507,10 @@ public class BoardDaoImpl implements BoardDao {
 			e.printStackTrace();
 		}
 		return cnt;
+			
+			
+		}
+		
 	}
 
 	@Override

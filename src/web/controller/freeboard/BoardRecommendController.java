@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dto.BBoard;
+import web.dto.Recommend;
 import web.service.face.BoardService;
 import web.service.impl.BoardServiceImpl;
 
@@ -25,11 +25,16 @@ public class BoardRecommendController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//추천한 사람 정보 얻기
-		BBoard recommendParam = boardService.getRecommend(req);
+		Recommend recommendParam = boardService.getRecommend(req);
 		
 		//추천 정보 토글
-		
 		boolean result = boardService.recommend(recommendParam);
+		
+		int cnt = boardService.getTotalCntRecommend(recommendParam);
+		
+		//결과 JSON 응답
+		
+		resp.getWriter().println("{\"result\": "+result+", \"cnt\": "+cnt+"}");
 	}
 	
 }

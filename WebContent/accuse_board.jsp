@@ -7,9 +7,10 @@
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
 
+<!-- 어드민에 들어갈 화면으로 보이는 데이터 -->
 <script type="text/javascript">
 $(document).ready(function() {
-	//검색 버틀 클릭
+// 	검색 버틀 클릭
 	$("#btnSearch").click(function() {
 		location.href="/board/list?search="+$("#search").val();
 	});

@@ -2,6 +2,7 @@ package web.dao.face;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 
 import util.Paging;
 import web.dto.BAttached;
@@ -40,7 +41,7 @@ public interface BoardDao {
 	// 게시글 삭제
 	public void delete(BBoard bBoard);
 	
-	public int selectCntBoard(int boardno);
+	public int selectCntBoard(HttpServletRequest req, int boardno);
 	
 	// 각 게시판 이름 반환
 	public String getboardname(int boardno);
