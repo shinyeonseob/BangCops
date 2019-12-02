@@ -396,4 +396,53 @@ public class AccuseServiceImpl implements AccuseService {
 		return null;
 	}
 
+	@Override
+	public List<BAccuse> getSearchListBAccuse(Paging paging, HttpServletRequest req) {
+		
+		return accuseDao.getSearchListBAccuse(paging, req);
+	}
+
+	@Override
+	public List<BBoard> getSearchList(Paging paging, int boardno) {
+		return accuseDao.selectSearchAll(paging, boardno);
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

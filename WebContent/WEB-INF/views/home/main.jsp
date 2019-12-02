@@ -20,12 +20,12 @@
 			<strong>부동산 허위매물 검색</strong>
 		</h2>
 	</div>
-	<form class="form-inline" action="" method="post">
+	<form class="form-inline" action="/accuselist" method="get">
 		<div class="form-group">
 			<label class="sr-only" for="city"></label> <input type="text"
 				id="city" name="city" class="form-control" size="10" list="listcity" />
 			<datalist id="listcity">
-				<option value="Seoul">서울</option>
+				<option value="seoul">서울</option>
 				<option value="_"></option>
 			</datalist>
 		</div>
