@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
 
 <script
@@ -9,6 +9,25 @@
 <script async defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCphNLUHRtOMojdg0FPMyj2F0xEkYHeyMo&callback=initMap">
     </script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		type: "get"
+		, url: "/crawling"
+		, data: {}
+		, dataType: "html"
+		, success: function( data ) {
+			console.log("success")
+			console.log(data)
+			$("#newsTable").html(data)
+		}
+		, error: function() {
+			console.log("error")
+		}
+	});
+});
+</script>
 
 <style type="text/css">
 #jb-container {
@@ -30,7 +49,7 @@
 	width: 260px;
 	padding: 20px;
 	margin-bottom: 20px;
-	float: right;
+/* 	float: right; */
 	border: 1px solid #bcbcbc;
 }
 
@@ -165,10 +184,18 @@
 	</div>
 
 	<div id="news">
-		<div
-			style="border: 1px solid black; float: left; width: 30%; height: 200px;">
+		<div 
+			style="border: 1px solid black; float: left; width: 30%; height: 200px; 
+	overflow: auto;">
 			뉴스기사
 			<hr>
+			<table id="newsTable">
+<%-- 			<c:forEach items="${ Newslist }" var="i"> --%>
+<!-- 			<tr> -->
+<!-- 				<td>1{i}</td> -->
+<!-- 			</tr> -->
+<%-- 			</c:forEach> --%>
+			</table>
 		</div>
 	</div>
 
