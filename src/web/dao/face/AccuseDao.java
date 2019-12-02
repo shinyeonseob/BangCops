@@ -1,6 +1,7 @@
 package web.dao.face;
 
 import web.dto.BAccuse;
+import web.dto.BDeal;
 
 
 public interface AccuseDao {
@@ -30,6 +31,12 @@ public interface AccuseDao {
 
 
 	public int selectCntAll(String search);
+
+
+	public int selectAccuseNo();
+
+
+	public void insertBDeal(BDeal bDeal);
 
 
 

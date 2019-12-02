@@ -537,9 +537,4 @@ public class BoardDaoImpl implements BoardDao {
 		return boardname;
 	}
 
-	
-	
-
-
-
 }
