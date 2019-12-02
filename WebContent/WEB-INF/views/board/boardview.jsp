@@ -106,13 +106,13 @@ function deleteComment(commentno) {
 					$("#btnRecommend")
 					.removeClass("btn-primary")
 					.addClass("btn-warning")
-					.html('추천 취소');
+					.html('추천취소');
 				
 				} else { //추천 취소 성공
 					$("#btnRecommend")
 					.removeClass("btn-warning")
 					.addClass("btn-primary")
-					.html('추천');
+					.html('추천하기!');
 				
 				}
 				
