@@ -153,6 +153,9 @@ public class AccuseDaoImpl implements AccuseDao {
 			ps.setInt(2, bDeal.getDeposit());
 			ps.setInt(3, bDeal.getPrice());
 			ps.setInt(4, bDeal.getAccuseno());
+			
+			ps.executeUpdate();
+
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -162,10 +165,10 @@ public class AccuseDaoImpl implements AccuseDao {
 
 	@Override
 	public List<BAccuse> getSearchListBAccuse(Paging paging, HttpServletRequest req) {
-		
+
 		System.out.println("getSearchListBAccuse");
 		conn = DBconn.getConnection(); // DB 연결
-		
+
 		// 수행할 쿼리
 		String sql = "";
 		sql += "SELECT * FROM (";
@@ -178,29 +181,29 @@ public class AccuseDaoImpl implements AccuseDao {
 		sql += " ) B ORDER BY rnum";
 		sql += " ) BBoard";
 		sql += " WHERE rnum BETWEEN ? AND ?";
-		
+
 		List<BAccuse> list = new ArrayList<>();
-		
+
 		try {
 			ps = conn.prepareStatement(sql);
-			
+
 			System.out.println(req.getParameter("city"));
 			System.out.println(req.getParameter("gu"));
 			System.out.println(req.getParameter("search"));
 			System.out.println(paging.getStartNo());
 			System.out.println(paging.getEndNo());
-			
+
 			ps.setString(1, req.getParameter("city"));
 			ps.setString(2, req.getParameter("gu"));
 			ps.setString(3, req.getParameter("search"));
 			ps.setInt(4, paging.getStartNo());
 			ps.setInt(5, paging.getEndNo());
-			
+
 			rs = ps.executeQuery();
-			
+
 			while (rs.next()) {
 				BAccuse bAccuse = new BAccuse();
-				
+
 				bAccuse.setAccuseno(rs.getInt("AccuseNo"));
 				bAccuse.setUrl(rs.getString("URL"));
 				bAccuse.setCity(rs.getString("City"));
@@ -211,18 +214,16 @@ public class AccuseDaoImpl implements AccuseDao {
 				bAccuse.setAgent(rs.getString("Agent"));
 				bAccuse.setProperty(rs.getString("Property"));
 				bAccuse.setPhoneNo(rs.getString("PhoneNo"));
-				
-				System.out.println("bAccuse : "+  bAccuse);
+
+				System.out.println("bAccuse : " + bAccuse);
 
 				list.add(bAccuse);
-			}		
+			}
 
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 
 		return list;
 	}
@@ -236,20 +237,19 @@ public class AccuseDaoImpl implements AccuseDao {
 	@Override
 	public BAccuse getbaccuse(BAccuse baccuse) {
 		conn = DBconn.getConnection(); // DB 연결
-		
+
 		String sql = "SELECT * FROM BAccuse WHERE accuseno = ?";
 		BAccuse bAccuse = new BAccuse();
 
 		try {
 			ps = conn.prepareStatement(sql);
-			
+
 			ps.setInt(1, baccuse.getAccuseno());
-			
+
 			rs = ps.executeQuery();
 
-			
 			while (rs.next()) {
-				
+
 				bAccuse.setAccuseno(rs.getInt("AccuseNo"));
 				bAccuse.setUrl(rs.getString("URL"));
 				bAccuse.setCity(rs.getString("City"));
@@ -260,90 +260,52 @@ public class AccuseDaoImpl implements AccuseDao {
 				bAccuse.setAgent(rs.getString("Agent"));
 				bAccuse.setProperty(rs.getString("Property"));
 				bAccuse.setPhoneNo(rs.getString("PhoneNo"));
-				
-				System.out.println("bAccuse : "+  bAccuse);
 
-			}		
-			
+				System.out.println("bAccuse : " + bAccuse);
+
+			}
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
 
 		return bAccuse;
 	}
 
 	@Override
 	public BDeal getBdeal(BAccuse accuse) {
-conn = DBconn.getConnection(); // DB 연결
+		conn = DBconn.getConnection(); // DB 연결
 		
-		String sql = "SELECT * FROM BDeal WHERE accuseno = ?";
+		System.out.println("accuse.getAccuseno() : "+ accuse.getAccuseno());
+
+		String sql = "SELECT * FROM BDeal WHERE AccuseNo = ?";
 		BDeal bDeal = new BDeal();
 
 		try {
 			ps = conn.prepareStatement(sql);
-			
 			ps.setInt(1, accuse.getAccuseno());
-			
+
 			rs = ps.executeQuery();
 
-			
 			while (rs.next()) {
-				
+
 				bDeal.setBdealno(rs.getInt("BDealNo"));
 				bDeal.setAccuseno(rs.getInt("AccuseNo"));
 				bDeal.setDealtype2(rs.getString("DealType2"));
 				bDeal.setDeposit(rs.getInt("deposit"));
 				bDeal.setPrice(rs.getInt("price"));
-				
-				
-				System.out.println("bAccuse : "+  bDeal);
 
-			}		
-			
+				System.out.println("bAccuse : " + bDeal);
+
+			}
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-
-
 		return bDeal;
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

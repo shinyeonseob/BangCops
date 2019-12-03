@@ -38,12 +38,14 @@ public class ViewController extends HttpServlet {
 		
 		// 게시글 번호 파싱
 		BAccuse accuse = accuseService.getBAccuse(req);
+		System.out.println("accuse1 : " +  accuse);
 
-		// 게시글 조회
-		accuse = accuseService.view(accuse);
 		
 		BDeal bDeal = accuseService.getBdeal(accuse);
 		
+//		// 게시글 조회
+//		accuse = accuseService.view(accuse);
+//		System.out.println("accuse2 : "+ accuse);
 		BBoard bBoard = new BBoard();
 		bBoard.setIdx(accuse.getIdx());
 		
@@ -84,12 +86,13 @@ public class ViewController extends HttpServlet {
 		req.setAttribute("reco", cnt);
 
 		// MODEL로 게시글 전달
-		req.setAttribute("viewABoard", accuse);
+		req.setAttribute("accuse", accuse);
 		
+		System.out.println("bDeal : " + bDeal);
 		req.setAttribute("bDeal", bDeal);
 
 		// VIEW 지정
-		req.getRequestDispatcher("/WEB-INF/view/accuse/accuserview.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/accuse/accuserview.jsp").forward(req, resp);
 
 	}
 

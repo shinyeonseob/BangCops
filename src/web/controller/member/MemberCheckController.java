@@ -38,10 +38,12 @@ public class MemberCheckController extends HttpServlet {
 		
 		if (memberService.nickcheck(usernick)) {
 			req.setAttribute("nickcheck", 1);
+			req.setAttribute("UserNick", usernick);
 			req.getRequestDispatcher("/WEB-INF/views/member/join_nickcheck.jsp").forward(req, resp);
 
 		} else {
 			req.setAttribute("nickcheck", 2);
+			req.setAttribute("UserNick", usernick);
 			req.getRequestDispatcher("/WEB-INF/views/member/join_nickcheck.jsp").forward(req, resp);
 
 		}

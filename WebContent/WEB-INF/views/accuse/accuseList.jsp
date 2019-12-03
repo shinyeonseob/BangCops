@@ -53,7 +53,7 @@ div {contain list-conta
 						<h6>중개사명 : ${al.agent }</h6>
 						<h6>전화번호 : ${al.phoneNo }</h6>
 
-						<a href="/aview?AccuseNo=${al.accuseno }" class="btn btn-primary" role="button">상세보기</a>
+						<a href="/aview?accuseno=${al.accuseno }" class="btn btn-primary" role="button">상세보기</a>
 
 					</div>
 				</div>
