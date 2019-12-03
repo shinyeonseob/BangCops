@@ -209,15 +209,15 @@ function warning() {
 	<br>
 	<table style="width: 1140">
 		<tr>
-			<td colspan="2" style="text-align: left"><div
-					style="min-height: 400">신고사이트 : ${accuse.sitename }</div>
-				<div style="min-height: 400">신고된 URL : ${accuse.url }</div>
-				<div style="min-height: 400">지역 : ${accuse.city }시 ${accuse.gu}구</div>
-				<div style="min-height: 400">가격 : 보증금 : ${bDeal.deposit } 월세 :
+			<td colspan="2" style="text-align: left"><div>신고사이트 : ${accuse.sitename }</div>
+				<div >신고된 URL : ${accuse.url }</div>
+				<div>지역 : ${accuse.city }시 ${accuse.gu}구</div>
+				<div>가격 : 보증금 : ${bDeal.deposit } 월세 :
 					${bDeal.price}</div>
-				<div style="min-height: 400">신고된 부동산 : ${accuse.property }</div>
-				<div style="min-height: 400">중개사명 : ${accuse.agent }</div>
-				<div style="min-height: 400">전화번호 : ${accuse.phoneNo }</div></td>
+				<div>신고된 부동산 : ${accuse.property }</div>
+				<div>중개사명 : ${accuse.agent }</div>
+				<div>전화번호 : ${accuse.phoneNo }<hr></div></td>
+				
 		</tr>
 		<tr>
 			<td colspan="2" style="text-align: left"><div
