@@ -519,6 +519,22 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 
+	@Override
+	public List<BBoard> getBoardTopFiveInFreeboard() {
+		return boardDao.selectFreeboardByReco();
+	}
+
+	@Override
+	public List<BBoard> getBoardTopFiveInReview() {
+		return boardDao.selectReviewByReco();
+	}
+	
+	@Override
+	public List<BBoard> getBoardTopFiveInNotice() {
+		return boardDao.selectNoticeByRegdate();
+	}
+
+
 	
 
 
