@@ -79,162 +79,83 @@
 <div id="jb-container">
 
 	<div id="map" style="height: 473px; width: 70%;"></div>
-	<script>
-<<<<<<< HEAD
-	function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 11,
-          center: {lat: 37.553226, lng: 126.980885}
-        });
-        var labels = '방캅스';
-        var markers = locations.map(function(location, i) {
-          return new google.maps.Marker({
-            position: location,
-            label: labels
-          });
-          
-        });
-        var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-      }
-      var locations = [
-    	  {lat: 37.6658609	, lng: 127.0317674},
-    	  {lat: 37.6176125	, lng: 126.9227004},
-    	  {lat: 37.5838012	, lng: 127.0507003},
-    	  {lat: 37.4965037	, lng: 126.9443073},
-    	  {lat: 37.4600969	, lng: 126.9001546},
-    	  {lat: 37.4954856	, lng: 126.858121},
-    	  {lat: 37.5990998	, lng: 126.9861493},
-    	  {lat: 37.6469954	, lng: 127.0147158},
-    	  {lat: 37.5953795	, lng: 127.0939669},
-    	  {lat: 37.4959854	, lng: 127.0664091},
-    	  {lat: 37.5657617	, lng: 126.8226561},
-    	  {lat: 37.5579452	, lng: 126.9941904},
-    	  {lat: 37.5492077	, lng: 127.1464824},
-    	  {lat: 37.5481445	, lng: 127.0857528},
-    	  {lat: 37.5622906	, lng: 126.9087803},
-    	  {lat: 37.4769528	, lng: 127.0378103},
-    	  {lat: 37.606991	, lng: 127.0232185},
-    	  {lat: 37.655264	, lng: 127.0771201},
-    	  {lat: 37.5048534	, lng: 127.1144822},
-    	  {lat: 37.5820369	, lng: 126.9356665},
-    	  {lat: 37.5270616	, lng: 126.8561534},
-    	  {lat: 37.520641	, lng: 126.9139242},
-    	  {lat: 37.4653993	, lng: 126.9438071},
-    	  {lat: 37.5506753	, lng: 127.0409622},
-    	  {lat: 37.5311008	, lng: 126.9810742}
-      ]
-      
-      
-    </script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQEQxTQiVmZG1wKszcLcNRYuApyxbGUqQ&callback=initMap"
-    async defer></script>
-=======
-		function initMap() {
 
+
+	   <script>
+	   
+	   
+
+	   var result = new Array();
+	   function initMap() {
+			
+			
 			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom : 11,
-				center : {
-					lat : 37.553226,
-					lng : 126.980885
-				}
-			});
+					center : {lat : 37.553226, lng : 126.980885 },
+					zoom : 11,
 
-			var labels = '방캅스';
-
-			var markers = locations.map(function(location, i) {
-				return new google.maps.Marker({
-					position : location,
-					label : labels
 				});
+				var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+				
 
-			});
+				<c:forEach items="${maplist}" var="maplist">
 
-			var markerCluster = new MarkerClusterer(
-					map,
-					markers,
-					{
-						imagePath : 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
-					});
+				var json = new Object();
+				
+				json.guname = "${maplist.guname}"
+				json.lat="${maplist.lat}";
+	   		    json.lng="${maplist.lng}";
+				json.totalaccuse = "${maplist.totalaccuse}";
+				json.totalagent = "${maplist.totalagent}";
+				result.push(json);
+				</c:forEach>
+				//   console.log("jsoninfo="+JSON.stringify(result));
+
+				var infowindow = new google.maps.InfoWindow();
+				var markers = new Array();
+				var marker, i;
+				for (i = 0; i < result.length; i++) {
+					marker = new google.maps.Marker(
+							{
+		 						id : result[i].guname,
+								name : result[i].guname,
+								//label : result[i].cate,
+								position : new google.maps.LatLng(result[i].lat, result[i].lng),
+								map : map
+
+							});
+					markers.push(marker);
+						     console.log(result[i]);
+							console.log(marker.position);
+					google.maps.event	
+							.addListener(
+									marker, 'click', (function(marker, i) {
+										return function() {
+	infowindow.setContent(result[i].guname + "구<br>"	+ "<b>허위매물 신고 건수 : <b>"
+			+ result[i].totalaccuse	+ "<br>" + "<b>피신고 중개인 수 : <b>" + result[i].totalagent
+			+ "<br>"
+//		 													+ "<br><button type='button' id = 'insertBtn"
+//		 													+ i
+//		 													+ "' onclick='addIndex("
+//		 													+ i
+//		 													+ ");'> 장소 추가 </button>"
+			+ ' <a href="/main/accuse"><p>해당 지역 신고글 자세히 보러 가기</p></a>');
+	infowindow.open(map, marker);
 		}
-		var locations = [ {
-			lat : 37.6658609,
-			lng : 127.0317674
-		}, {
-			lat : 37.6176125,
-			lng : 126.9227004
-		}, {
-			lat : 37.5838012,
-			lng : 127.0507003
-		}, {
-			lat : 37.4965037,
-			lng : 126.9443073
-		}, {
-			lat : 37.4600969,
-			lng : 126.9001546
-		}, {
-			lat : 37.4954856,
-			lng : 126.858121
-		}, {
-			lat : 37.5990998,
-			lng : 126.9861493
-		}, {
-			lat : 37.6469954,
-			lng : 127.0147158
-		}, {
-			lat : 37.5953795,
-			lng : 127.0939669
-		}, {
-			lat : 37.4959854,
-			lng : 127.0664091
-		}, {
-			lat : 37.5657617,
-			lng : 126.8226561
-		}, {
-			lat : 37.5579452,
-			lng : 126.9941904
-		}, {
-			lat : 37.5492077,
-			lng : 127.1464824
-		}, {
-			lat : 37.5481445,
-			lng : 127.0857528
-		}, {
-			lat : 37.5622906,
-			lng : 126.9087803
-		}, {
-			lat : 37.4769528,
-			lng : 127.0378103
-		}, {
-			lat : 37.606991,
-			lng : 127.0232185
-		}, {
-			lat : 37.655264,
-			lng : 127.0771201
-		}, {
-			lat : 37.5048534,
-			lng : 127.1144822
-		}, {
-			lat : 37.5820369,
-			lng : 126.9356665
-		}, {
-			lat : 37.5270616,
-			lng : 126.8561534
-		}, {
-			lat : 37.520641,
-			lng : 126.9139242
-		}, {
-			lat : 37.4653993,
-			lng : 126.9438071
-		}, {
-			lat : 37.5506753,
-			lng : 127.0409622
-		}, {
-			lat : 37.5311008,
-			lng : 126.9810742
-		} ]
-	</script>
->>>>>>> refs/remotes/origin/develop
+	})(marker, i));
+					// 클릭시 위치 이동 (확대 + 중앙 이동)
+// 					marker.addListener('click', function() {
+// 						map.setZoom(14);
+// 						map.setCenter(this.getPosition());
+// 					});
+
+				};
+
+			}; // map 종료
+
+
+    </script>
+
+
 
 	<div id="jb-sidebar" style="width: 30%">
 		<form class="form-inline" action="/accuselist" method="get">

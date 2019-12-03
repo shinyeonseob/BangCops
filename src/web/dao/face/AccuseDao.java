@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import util.Paging;
+import web.dto.AccuseMap;
 import web.dto.BAccuse;
 import web.dto.BBoard;
 import web.dto.BDeal;
@@ -59,6 +60,30 @@ public interface AccuseDao {
 
 
 
+
+	/**
+	 * 각 구의 신고건수
+	 * 
+	 * @param gu - 구 이름
+	 * @return - 총 신고수(게시글 수)
+	 */
+	public int getTotalaccuse(String gu);
+
+	/**
+	 * 각 구의 피신고 중개인 수
+	 * 
+	 * @param gu - 구 이름
+	 * @return - 피신고 중개인 수
+	 */
+	public int getTotalagent(String gu);
+	
+	/**
+	 * Bmap 테이블에 저장된 각 구의 좌표를 불러옴
+	 * 
+	 * @param gu - 구 이름
+	 * @return - 구의 좌표
+	 */
+	public AccuseMap getLocation(String gu);
 
 
 
