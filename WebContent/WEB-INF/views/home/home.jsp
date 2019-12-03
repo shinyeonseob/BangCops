@@ -98,36 +98,6 @@
 					label : labels
 				});
 
-        var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-      }
-      var locations = [
-    	  {lat: 37.6658609	, lng: 127.0317674},
-    	  {lat: 37.6176125	, lng: 126.9227004},
-    	  {lat: 37.5838012	, lng: 127.0507003},
-    	  {lat: 37.4965037	, lng: 126.9443073},
-    	  {lat: 37.4600969	, lng: 126.9001546},
-    	  {lat: 37.4954856	, lng: 126.858121},
-    	  {lat: 37.5990998	, lng: 126.9861493},
-    	  {lat: 37.6469954	, lng: 127.0147158},
-    	  {lat: 37.5953795	, lng: 127.0939669},
-    	  {lat: 37.4959854	, lng: 127.0664091},
-    	  {lat: 37.5657617	, lng: 126.8226561},
-    	  {lat: 37.5579452	, lng: 126.9941904},
-    	  {lat: 37.5492077	, lng: 127.1464824},
-    	  {lat: 37.5481445	, lng: 127.0857528},
-    	  {lat: 37.5622906	, lng: 126.9087803},
-    	  {lat: 37.4769528	, lng: 127.0378103},
-    	  {lat: 37.606991	, lng: 127.0232185},
-    	  {lat: 37.655264	, lng: 127.0771201},
-    	  {lat: 37.5048534	, lng: 127.1144822},
-    	  {lat: 37.5820369	, lng: 126.9356665},
-    	  {lat: 37.5270616	, lng: 126.8561534},
-    	  {lat: 37.520641	, lng: 126.9139242},
-    	  {lat: 37.4653993	, lng: 126.9438071},
-    	  {lat: 37.5506753	, lng: 127.0409622},
-    	  {lat: 37.5311008	, lng: 126.9810742}
-      ]
 			});
 
 			var markerCluster = new MarkerClusterer(
@@ -213,95 +183,6 @@
 			lat : 37.5311008,
 			lng : 126.9810742
 		} ]
->>>>>>> refs/remotes/origin/develop
-=======
-
-			});
-
-			var markerCluster = new MarkerClusterer(
-					map,
-					markers,
-					{
-						imagePath : 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
-					});
-		}
-		var locations = [ {
-			lat : 37.6658609,
-			lng : 127.0317674
-		}, {
-			lat : 37.6176125,
-			lng : 126.9227004
-		}, {
-			lat : 37.5838012,
-			lng : 127.0507003
-		}, {
-			lat : 37.4965037,
-			lng : 126.9443073
-		}, {
-			lat : 37.4600969,
-			lng : 126.9001546
-		}, {
-			lat : 37.4954856,
-			lng : 126.858121
-		}, {
-			lat : 37.5990998,
-			lng : 126.9861493
-		}, {
-			lat : 37.6469954,
-			lng : 127.0147158
-		}, {
-			lat : 37.5953795,
-			lng : 127.0939669
-		}, {
-			lat : 37.4959854,
-			lng : 127.0664091
-		}, {
-			lat : 37.5657617,
-			lng : 126.8226561
-		}, {
-			lat : 37.5579452,
-			lng : 126.9941904
-		}, {
-			lat : 37.5492077,
-			lng : 127.1464824
-		}, {
-			lat : 37.5481445,
-			lng : 127.0857528
-		}, {
-			lat : 37.5622906,
-			lng : 126.9087803
-		}, {
-			lat : 37.4769528,
-			lng : 127.0378103
-		}, {
-			lat : 37.606991,
-			lng : 127.0232185
-		}, {
-			lat : 37.655264,
-			lng : 127.0771201
-		}, {
-			lat : 37.5048534,
-			lng : 127.1144822
-		}, {
-			lat : 37.5820369,
-			lng : 126.9356665
-		}, {
-			lat : 37.5270616,
-			lng : 126.8561534
-		}, {
-			lat : 37.520641,
-			lng : 126.9139242
-		}, {
-			lat : 37.4653993,
-			lng : 126.9438071
-		}, {
-			lat : 37.5506753,
-			lng : 127.0409622
-		}, {
-			lat : 37.5311008,
-			lng : 126.9810742
-		} ]
->>>>>>> refs/remotes/origin/develop
 	</script>
 
 	<div id="jb-sidebar" style="width: 30%">
