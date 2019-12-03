@@ -21,13 +21,22 @@ public class AdminBoardCommunityWriteController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		HttpSession session = req.getSession();
+		// 관리자 로그인일 경우
+		if (req.getSession().getAttribute("adminlogin") != null) {
 
-		req.setAttribute("userid", session.getAttribute("userid"));
-		req.setAttribute("usernick", session.getAttribute("usernick"));
-		req.setAttribute("boardno", req.getParameter("boardno"));
+			HttpSession session = req.getSession();
 
-		req.getRequestDispatcher("/WEB-INF/views/admin/admincommunitywrite.jsp").forward(req, resp);
+			req.setAttribute("userid", session.getAttribute("userid"));
+			req.setAttribute("usernick", session.getAttribute("usernick"));
+			req.setAttribute("boardno", req.getParameter("boardno"));
+
+			req.getRequestDispatcher("/WEB-INF/views/admin/admincommunitywrite.jsp").forward(req, resp);
+		} else {
+
+			// 관리자 로그인 안됐을 경우
+			resp.sendRedirect("/admin/login");
+
+		}
 	}
 
 	@Override

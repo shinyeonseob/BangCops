@@ -25,41 +25,50 @@ public class AdminBoardCommunityViewController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		resp.setCharacterEncoding("UTF-8");
+		// 관리자 로그인일 경우
+		if (req.getSession().getAttribute("adminlogin") != null) {
 
-		BBoard bBoard = boardService.getIdx(req);
+			resp.setCharacterEncoding("UTF-8");
 
-		BAttached bAttached = boardService.getFile(bBoard);
+			BBoard bBoard = boardService.getIdx(req);
 
-		// 게시글 상세보기
-		BBoard list = boardService.view(bBoard);
+			BAttached bAttached = boardService.getFile(bBoard);
 
-		req.setAttribute("list", list);
-		System.out.println(list);
-		req.setAttribute("bAttached", bAttached);
+			// 게시글 상세보기
+			BBoard list = boardService.view(bBoard);
 
-		// 댓글 리스트 전달
-		Bcomment comment = new Bcomment();
-		List<Bcomment> commentList = boardService.getCommentList(list);
-		req.setAttribute("commentList", commentList);
+			req.setAttribute("list", list);
+			System.out.println(list);
+			req.setAttribute("bAttached", bAttached);
 
-		// 추천 상태 전달
-		Recommend recommend = new Recommend();
-		recommend.setIdx(list.getIdx()); // 게시글 번호
-		try {
-			recommend.setUserno((int) req.getSession().getAttribute("Userno")); // 로그인한 아이디
-		} catch (NullPointerException e) {
-			System.out.println("로그인하지 않았음");
+			// 댓글 리스트 전달
+			Bcomment comment = new Bcomment();
+			List<Bcomment> commentList = boardService.getCommentList(list);
+			req.setAttribute("commentList", commentList);
+
+			// 추천 상태 전달
+			Recommend recommend = new Recommend();
+			recommend.setIdx(list.getIdx()); // 게시글 번호
+			try {
+				recommend.setUserno((int) req.getSession().getAttribute("Userno")); // 로그인한 아이디
+			} catch (NullPointerException e) {
+			}
+
+			boolean isRecommend = boardService.isRecommend(recommend);
+			req.setAttribute("isRecommend", isRecommend);
+
+			int cnt = boardService.getTotalCntRecommend(recommend);
+
+			req.setAttribute("reco", cnt);
+
+			req.getRequestDispatcher("/WEB-INF/views/admin/admincommunityview.jsp").forward(req, resp);
+
+		} else {
+
+			// 관리자 로그인 안됐을 경우
+			resp.sendRedirect("/admin/login");
+
 		}
-
-		boolean isRecommend = boardService.isRecommend(recommend);
-		req.setAttribute("isRecommend", isRecommend);
-
-		int cnt = boardService.getTotalCntRecommend(recommend);
-
-		req.setAttribute("reco", cnt);
-
-		req.getRequestDispatcher("/WEB-INF/views/admin/admincommunityview.jsp").forward(req, resp);
 	}
 
 }

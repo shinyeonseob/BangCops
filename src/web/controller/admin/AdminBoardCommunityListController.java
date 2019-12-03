@@ -25,52 +25,61 @@ public class AdminBoardCommunityListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		req.setCharacterEncoding("UTF-8");
+		// 관리자 로그인일 경우
+		if (req.getSession().getAttribute("adminlogin") != null) {
 
-		int boardno = Integer.parseInt(req.getParameter("boardno"));
+			req.setCharacterEncoding("UTF-8");
 
-		Paging paging = boardService.getPaging(req, boardno);
+			int boardno = Integer.parseInt(req.getParameter("boardno"));
 
-		// Paging 객체를 MODEL 값으로 지정
-		req.setAttribute("paging", paging);
+			Paging paging = boardService.getPaging(req, boardno);
 
-		if (req.getParameter("searchcategory") != null) {
-			List<BBoard> list = boardService.getSearchList(paging, boardno);
+			// Paging 객체를 MODEL 값으로 지정
+			req.setAttribute("paging", paging);
 
-			String boardname = boardService.getboardname(boardno);
+			if (req.getParameter("searchcategory") != null) {
+				List<BBoard> list = boardService.getSearchList(paging, boardno);
 
-			HttpSession session = req.getSession();
+				String boardname = boardService.getboardname(boardno);
 
-			// 게시글 목록을 MODEL값으로 지정
-			req.setAttribute("list", list);
-			req.setAttribute("boardno", boardno);
-			req.setAttribute("boardname", boardname);
-			req.setAttribute("Userlevel", session.getAttribute("Userlevel"));
+				HttpSession session = req.getSession();
 
+				// 게시글 목록을 MODEL값으로 지정
+				req.setAttribute("list", list);
+				req.setAttribute("boardno", boardno);
+				req.setAttribute("boardname", boardname);
+				req.setAttribute("Userlevel", session.getAttribute("Userlevel"));
+
+			} else {
+				List<BBoard> list = boardService.getList(paging, boardno);
+
+				String boardname = boardService.getboardname(boardno);
+
+				HttpSession session = req.getSession();
+
+				// 게시글 목록을 MODEL값으로 지정
+				req.setAttribute("list", list);
+				req.setAttribute("boardno", boardno);
+				req.setAttribute("boardname", boardname);
+				req.setAttribute("Userlevel", session.getAttribute("Userlevel"));
+
+			}
+
+			Recommend recommend = new Recommend();
+
+			int cnt = boardService.getTotalCntRecommend(recommend);
+			req.setAttribute("reco", cnt);
+
+			// 게시글 목록 조회
+
+			// VIEW 지정
+			req.getRequestDispatcher("/WEB-INF/views/admin/admincommunitylist.jsp").forward(req, resp);
 		} else {
-			List<BBoard> list = boardService.getList(paging, boardno);
 
-			String boardname = boardService.getboardname(boardno);
-
-			HttpSession session = req.getSession();
-
-			// 게시글 목록을 MODEL값으로 지정
-			req.setAttribute("list", list);
-			req.setAttribute("boardno", boardno);
-			req.setAttribute("boardname", boardname);
-			req.setAttribute("Userlevel", session.getAttribute("Userlevel"));
+			// 관리자 로그인 안됐을 경우
+			resp.sendRedirect("/admin/login");
 
 		}
-
-		Recommend recommend = new Recommend();
-
-		int cnt = boardService.getTotalCntRecommend(recommend);
-		req.setAttribute("reco", cnt);
-
-		// 게시글 목록 조회
-
-		// VIEW 지정
-		req.getRequestDispatcher("/WEB-INF/views/admin/admincommunitylist.jsp").forward(req, resp);
 
 	}
 
