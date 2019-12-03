@@ -6,7 +6,7 @@
 <!-- </div></div>//footer -->
 <style type="text/css">
 .item {
-	background-color: #BDBDBD;
+	background-color: #E9ECEF;
 	
 </style>
 <div class ="item">
