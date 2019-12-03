@@ -114,7 +114,7 @@ $(document).ready(function() {
 							{
 		 						id : result[i].guname,
 								name : result[i].guname,
-// 								label : result[i].cate,
+								//label : result[i].cate,
 								position : new google.maps.LatLng(result[i].lat, result[i].lng),
 								map : map
 
@@ -148,52 +148,6 @@ $(document).ready(function() {
 
 			}; // map 종료
 
-    
-<%--
-   var labels = '';
-
-       
-        
-        
-        var markers = locations.map(function(location, i) {
-          return new google.maps.Marker({
-            position: location,
-            label: labels[i % labels.length]
-          });
-        });
-
-        var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-      } 
-   --%>
-   
-//       var locations = [
-//          {lat: 37.6658609   , lng: 127.0317674}, // 도봉구
-//          {lat: 37.6176125   , lng: 126.9227004}, // 은평구
-//          {lat: 37.5838012   , lng: 127.0507003}, // 동대문구
-//          {lat: 37.4965037   , lng: 126.9443073}, // 동작구
-//          {lat: 37.4600969   , lng: 126.9001546}, // 금천구
-//          {lat: 37.4954856   , lng: 126.858121}, // 구로구
-//          {lat: 37.5990998   , lng: 126.9861493}, // 성북구
-//          {lat: 37.6469954   , lng: 127.0147158}, // 강북구
-//          {lat: 37.5953795   , lng: 127.0939669}, // 중랑구
-//          {lat: 37.4959854   , lng: 127.0664091}, // 강남구
-//          {lat: 37.5657617   , lng: 126.8226561}, //  강서구
-//          {lat: 37.5579452   , lng: 126.9941904}, // 강남구
-//          {lat: 37.5492077   , lng: 127.1464824}, //  강동구
-//          {lat: 37.5481445   , lng: 127.0857528}, // 광진구
-//          {lat: 37.5622906   , lng: 126.9087803}, //  마포구
-//          {lat: 37.4769528   , lng: 127.0378103}, // 서초구
-//          {lat: 37.606991   , lng: 127.0232185}, // 성북구
-//          {lat: 37.655264   , lng: 127.0771201}, // 노원구
-//          {lat: 37.5048534   , lng: 127.1144822}, // 송파구
-//          {lat: 37.5820369   , lng: 126.9356665}, // 서대문구
-//          {lat: 37.5270616   , lng: 126.8561534}, // 양천구
-//          {lat: 37.520641   , lng: 126.9139242}, // 영등포구
-//          {lat: 37.4653993   , lng: 126.9438071}, // 관악구
-//          {lat: 37.5506753   , lng: 127.0409622}, // 성동구
-//          {lat: 37.5311008   , lng: 126.9810742} // 용산구
-//       ]
     </script>
 
 
