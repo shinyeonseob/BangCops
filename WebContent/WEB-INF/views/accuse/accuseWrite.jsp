@@ -149,7 +149,7 @@ $(document).ready(function() {
 			<td class="tdleft"></td>
 			<td class="tdright">
 			<select name="City" required="required">
-					<option value="seoul">서울</option>	
+					<option value="서울">서울</option>	
 			</select></td>
 		<tr>
 			<td class="tdleft"></td>
