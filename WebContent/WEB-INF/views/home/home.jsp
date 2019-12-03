@@ -97,7 +97,6 @@
 					position : location,
 					label : labels
 				});
-<<<<<<< HEAD
 
         var markerCluster = new MarkerClusterer(map, markers,
             {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
