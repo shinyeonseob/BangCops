@@ -5,7 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<jsp:include page="/WEB-INF/views/layout/header.jsp" />
+<jsp:include page="/WEB-INF/views/admin/adminheader.jsp" />
 
 <!-- 어드민에 들어갈 화면으로 보이는 데이터 -->
 <script type="text/javascript">
@@ -93,7 +93,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 <hr>
 
 <table class="table table-hover table-condensed table-striped">
-<tr class="info">
+<tr class="danger">
 	<th>
 		<input type="checkbox" id="checkAll" onclick="checkAll();" />
 	</th>

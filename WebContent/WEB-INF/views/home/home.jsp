@@ -105,7 +105,7 @@
     	  {lat: 37.5506753	, lng: 127.0409622},
     	  {lat: 37.5311008	, lng: 126.9810742}
       ]
-    </script>
+	</script>
 
 	<div id="jb-sidebar" style="width: 30%">
 		<form class="form-inline" action="" method="post">
