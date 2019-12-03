@@ -11,7 +11,7 @@
 <meta charset="utf-8" />
 <meta name="description"
 	content="The Overflowing church website's main page" />
-<title>방캅스 홈페이지</title>
+<title>허위매물신고 사이트 :: Bangcops</title>
 
 <!-- 부트스트랩 -->
 <link rel="stylesheet"
@@ -31,6 +31,24 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<!-- CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<!-- JS -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+	
+</script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
+	
+</script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
+	
+</script>
+
+
 <!--  jQuery -->
 <script type="text/javascript"
 	src=https://code.jquery.com/jquery-2.2.4.min.js></script>
@@ -42,7 +60,7 @@
 
 <style>
 #topMenu {
-	height: 40px;
+	height: 160px;
 	text-align: center;
 	display: flex;
 	justify-content: center;
@@ -51,9 +69,9 @@
 #topMenu ul li {
 	list-style: none;
 	color: white;
-	background-color: #333399;
+	background-color: #0066B2;
 	float: left;
-	line-height: 40px;
+	line-height: 100px;
 	vertical-align: middle;
 	text-align: center;
 }
@@ -65,11 +83,12 @@
 	font-size: 12px;
 	font-weight: bold;
 	font-family: "Trebuchet MS", Dotum, Arial;
-	border: 1px solid #bcbcbc;
+	border: 0.1px solid #FFFFFF;
 }
 #topMenu .menuLink:hover {
-	color: red;
-	background-color: #FFFF66;
+	color: white;
+	background-color: #FDB813;
+	
 }
 #topMenu .menulogin {
 	text-decoration: none;
@@ -146,7 +165,7 @@
 }
 .modal-login .btn {
 	color: #fff;
-	border-radius: 4px;
+	border-radius: 1px;
 	background: #60c7c1;
 	text-decoration: none;
 	transition: all 0.4s;
@@ -173,6 +192,7 @@
 #mainlogo{
 	width: 50px;
 }
+
 </style>
 
 <script type="text/javascript">
@@ -213,7 +233,10 @@
 
 </head>
 <body>
-	
+		<div class="jumbotron text-center">
+		<h1>방캅스</h1>
+		<p>KH 방갑조</p>
+	</div>
 
 	<nav id="topMenu">
 	<div id = "mainlogo" class="navbar-header">
@@ -227,6 +250,7 @@
 			<li><a class="menuLink" href="#">광고/배너</a></li>
 
 			<li>
+			
 			<c:if test="${sessionScope.login eq null }">
 			<a href="#myModal" class="trigger-btn" data-toggle="modal">
 			<button id = "btn_login" class = "btn_login" on>로그인</button></a>
@@ -269,7 +293,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<a href="/member/find" target="_blank">HOXY Forgot Password?</a>
+					<a href="/member/find" target="_blank">비밀번호를 잊으셨나요</a>
 				</div>
 			</div>
 		</div>
