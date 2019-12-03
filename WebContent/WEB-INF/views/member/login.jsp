@@ -19,7 +19,7 @@
       font-family: 'Varela Round', sans-serif;
    }
    .modal-login {      
-      color: #636363;
+      color: 0066B2;
       width: 350px;
    }
    .modal-login .modal-content {
