@@ -75,17 +75,18 @@ public class BoardDaoImpl implements BoardDao {
 		conn = DBconn.getConnection(); //DB 연결
 		
 		// 수행할 쿼리
-		String sql = "";
-		sql += "SELECT * FROM (";
-		sql += "	SELECT rownum rnum, B .* FROM (";
-		sql += "	SELECT";
-		sql += "		idx,title, contents, hits, reco, boardno, userno, regdate, (SELECT usernick FROM buser WHERE b.userno = userno)usernick ";
-		sql += "	FROM Bboard b";
-		sql += "	WHERE boardno = ? ";
-		sql += "	ORDER BY idx DESC";
-		sql += " ) B ORDER BY rnum";
-		sql += " ) BBoard";
-		sql += " WHERE rnum BETWEEN ? AND ?";
+				String sql = "";
+				sql += "SELECT * FROM (";
+				sql += 			" SELECT rownum rnum, B .* FROM (";
+				sql +=				" SELECT";
+				sql += 					" idx,title, contents, hits, boardno, userno, regdate, usernick, ( SELECT count(*) FROM recommend WHERE B.idx = idx )reco"; 
+				sql +=				" FROM Bboard b";
+				sql +=			" WHERE boardno = ? ";
+				sql +=			" ORDER BY idx DESC";
+				sql +=			" ) B ORDER BY rnum";
+				sql +=		" ) BBoard";
+				sql +=	" WHERE rnum BETWEEN ? AND ?";
+//				SELECT count(*) FROM recommend WHERE idx = 36
 		
 		List<BBoard> list = new ArrayList<>();
 		

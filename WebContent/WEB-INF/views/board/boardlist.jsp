@@ -84,7 +84,7 @@ $(document).ready(function() {
 		<td>${ i.usernick }</td>
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>
-		<td>${ reco }</td>
+		<td>${ i.reco }</td>
 	</tr>
 </c:forEach>
 </table>
