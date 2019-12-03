@@ -45,7 +45,7 @@ div .right {
 <div>
 	<ol start="1">
 	<c:forEach items="${ notice }" var="j">
-		<li><a href="/main/community/board/view?idx=${j.idx }"><span style="text-overflow:ellipsis">${j.title } [${j.commentCnt }]</span></a><span style="float:right;">${j.regDate }&nbsp;</span></li>
+		<li><a href="/main/community/board/view?idx=${j.idx }"><span style="text-overflow:ellipsis">${j.title } <c:if test="${j.commentCnt ne 0 }">[${j.commentCnt }"]</c:if></span></a><span style="float:right;">${j.regDate }&nbsp;</span></li>
 	</c:forEach>
 	</ol>
 </div>
@@ -61,7 +61,7 @@ div .right {
 <div>
 	<ol start="1">
 	<c:forEach items="${ freeboard }" var="i">
-		<li><a href="/main/community/board/view?idx=${i.idx }">${i.title } [${ i.commentCnt}]</a><span style="float:right;text-overflow:ellipsis">${i.usernick } | 추천 ${i.reco }&nbsp;</span></li>
+		<li><a href="/main/community/board/view?idx=${i.idx }">${i.title } <c:if test="${i.commentCnt ne 0 }">[${i.commentCnt }]</c:if></a><span style="float:right;text-overflow:ellipsis">${i.usernick } | 추천 ${i.reco }&nbsp;</span></li>
 	</c:forEach>
 	</ol>
 </div>
@@ -77,7 +77,7 @@ div .right {
 <div>
 	<ol start="1">
 	<c:forEach items="${ review }" var="k">
-		<li><a href="/main/community/board/view?idx=${k.idx }">${k.title } [${ k.commentCnt}]</a><span style="float:right">${k.usernick } | 추천 ${k.reco }&nbsp;</span></li>
+		<li><a href="/main/community/board/view?idx=${k.idx }">${k.title } <c:if test="${k.commentCnt ne 0 }">[${k.commentCnt }]</c:if></a><span style="float:right">${k.usernick } | 추천 ${k.reco }&nbsp;</span></li>
 	</c:forEach>
 	</ol>
 </div>
@@ -97,9 +97,22 @@ div .right {
 
 <div class="right" style="padding-top:80px">
 <div onclick="location.href='/main/community/board?boardno=5'" id="right_center" style="margin:auto;width: 300px; height: 400px; border: 1px solid black;border-radius:25px">
-<div id="right_center_inner_top" style="witdh:50px;height:168px;cursor:pointer">
+<div id="right_center_inner" style="witdh:50px;height:358px;cursor:pointer;padding-right:10px;padding-left:10px">
 <h2>&nbsp; FAQ</h2>
-<hr>
+<hr style="margin-top:10px;width:265px">
+빠르게 궁금한 점을 해결할 수 있는 자주 묻는 질문 게시판입니다.<br>
+<a href="/main/community/board?boardno=5" style="float:right"><font size="4em">FAQ 게시판 바로가기 >></font></a>
+<hr style="margin-top:10px;width:265px;background:grey;height:2px">
+
+<h2>&nbsp; 고객센터</h2>
+<hr style="margin-top:10px;width:265px">
+사이트 이용방법, 신고방법, 신고절차, 이의신청절차 등 방캅스 회원 여러분들의 궁금한 사항을 1:1대화로 해결해드립니다.<br>
+<font size="3em"  style="font-weight: bold">상담 가능 시간<br>
+오전 09:00시 ~ 오후 06:00시</font>
+<a href="/serviceCenterView" style="float:right"><font size="4em">상담하러 가기 >></font></a>
+</div>
+
+<div>
 </div>
 </div>
 </div>
