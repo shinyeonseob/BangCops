@@ -51,6 +51,14 @@ public interface AccuseDao {
 	public List<BBoard> selectSearchAll(Paging paging, int boardno);
 
 
+	public BAccuse getbaccuse(BAccuse baccuse);
+
+
+	public BDeal getBdeal(BAccuse accuse);
+
+
+
+
 
 
 

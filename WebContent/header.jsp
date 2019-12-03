@@ -11,7 +11,7 @@
 <meta charset="utf-8" />
 <meta name="description"
 	content="The Overflowing church website's main page" />
-<title>허위매물신고 사이트 :: Bangcops</title>
+<title>:::허위매물 신고는 방캅스:::</title>
 
 <!-- 부트스트랩 -->
 <link rel="stylesheet"
@@ -31,24 +31,6 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<!-- CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<!-- JS -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-	
-</script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
-	
-</script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
-	
-</script>
-
-
 <!--  jQuery -->
 <script type="text/javascript"
 	src=https://code.jquery.com/jquery-2.2.4.min.js></script>
@@ -60,7 +42,7 @@
 
 <style>
 #topMenu {
-	height: 160px;
+	height: 40px;
 	text-align: center;
 	display: flex;
 	justify-content: center;
@@ -69,9 +51,9 @@
 #topMenu ul li {
 	list-style: none;
 	color: white;
-	background-color: #0066B2;
+	background-color: #333399;
 	float: left;
-	line-height: 100px;
+	line-height: 40px;
 	vertical-align: middle;
 	text-align: center;
 }
@@ -83,12 +65,11 @@
 	font-size: 12px;
 	font-weight: bold;
 	font-family: "Trebuchet MS", Dotum, Arial;
-	border: 0.1px solid #FFFFFF;
+	border: 1px solid #bcbcbc;
 }
 #topMenu .menuLink:hover {
-	color: white;
-	background-color: #FDB813;
-	
+	color: red;
+	background-color: #FFFF66;
 }
 #topMenu .menulogin {
 	text-decoration: none;
@@ -165,7 +146,7 @@
 }
 .modal-login .btn {
 	color: #fff;
-	border-radius: 1px;
+	border-radius: 4px;
 	background: #60c7c1;
 	text-decoration: none;
 	transition: all 0.4s;
@@ -192,7 +173,17 @@
 #mainlogo{
 	width: 50px;
 }
-
+.gradient {
+/* 배경 그라데이션*/
+    background: rgb(30,87,153); /* Old browsers */
+    background: -moz-linear-gradient(-45deg, rgba(30,87,153,1) 0%, rgba(41,137,216,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(50%,rgba(41,137,216,1)), color-stop(51%,rgba(32,124,202,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* IE10+ */
+    background: linear-gradient(135deg, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
 </style>
 
 <script type="text/javascript">
@@ -233,10 +224,7 @@
 
 </head>
 <body>
-		<div class="jumbotron text-center">
-		<h1>방캅스</h1>
-		<p>KH 방갑조</p>
-	</div>
+	
 
 	<nav id="topMenu">
 	<div id = "mainlogo" class="navbar-header">
@@ -250,7 +238,6 @@
 			<li><a class="menuLink" href="#">광고/배너</a></li>
 
 			<li>
-			
 			<c:if test="${sessionScope.login eq null }">
 			<a href="#myModal" class="trigger-btn" data-toggle="modal">
 			<button id = "btn_login" class = "btn_login" on>로그인</button></a>
@@ -293,7 +280,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<a href="/member/find" target="_blank">비밀번호를 잊으셨나요</a>
+					<a href="/member/find" target="_blank">HOXY Forgot Password?</a>
 				</div>
 			</div>
 		</div>

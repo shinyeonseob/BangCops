@@ -38,16 +38,19 @@ public class AccuseServiceImpl implements AccuseService {
 
 	@Override
 	public BAccuse getBAccuse(HttpServletRequest req) {
-		// 요청파라미터 boardno를 파싱한다
-		String param = req.getParameter("idx");
-		int idx = 0;
+		// 요청파라미터 accuseno를 파싱한다
+		String param = req.getParameter("accuseno");
+		int accuseno = 0;
 		if (param != null && !"".equals(param)) {
-			idx = Integer.parseInt(param);
+			accuseno = Integer.parseInt(param);
 		}
 
-		// 게시글 번호를 DTO에 넣기
+		// accuseno를 DTO에 넣기
 		BAccuse baccuse = new BAccuse();
-		baccuse.setIdx(idx);
+		baccuse.setAccuseno(accuseno);
+		
+		baccuse = accuseDao.getbaccuse(baccuse);
+		
 
 //		
 		return baccuse;
@@ -406,6 +409,13 @@ public class AccuseServiceImpl implements AccuseService {
 	public List<BBoard> getSearchList(Paging paging, int boardno) {
 		return accuseDao.selectSearchAll(paging, boardno);
 	}
+
+	@Override
+	public BDeal getBdeal(BAccuse accuse) {
+		
+		return accuseDao.getBdeal(accuse);
+	}
+
 
 }
 

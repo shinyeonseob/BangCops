@@ -51,7 +51,7 @@ $(document).ready(function() {
 		
 	});
 	
-
+});
 //댓글 삭제
 function deleteComment(commentno) {
 	$.ajax({
@@ -127,7 +127,7 @@ function deleteComment(commentno) {
 		});
 		
 	});
-});
+
 
 </script>
 
@@ -200,12 +200,25 @@ function warning() {
 						pattern="yy-MM-dd hh:mm:ss" />
 				<p></td>
 			<td style="text-align: right;">조회 ${list.hits } | 추천</td>
-			<td id="recommend" style="text-align:center;padding-top: 3px;width: 22px;"> ${reco }</td>
+			<td id="recommend"
+				style="text-align: center; padding-top: 3px; width: 22px;">
+				${reco }</td>
 		</tr>
 	</table>
 	<hr>
 	<br>
 	<table style="width: 1140">
+		<tr>
+			<td colspan="2" style="text-align: left"><div>신고사이트 : ${accuse.sitename }</div>
+				<div >신고된 URL : ${accuse.url }</div>
+				<div>지역 : ${accuse.city }시 ${accuse.gu}구</div>
+				<div>가격 : 보증금 : ${bDeal.deposit } 월세 :
+					${bDeal.price}</div>
+				<div>신고된 부동산 : ${accuse.property }</div>
+				<div>중개사명 : ${accuse.agent }</div>
+				<div>전화번호 : ${accuse.phoneNo }<hr></div></td>
+				
+		</tr>
 		<tr>
 			<td colspan="2" style="text-align: left"><div
 					style="min-height: 400">${list.contents }</div></td>
