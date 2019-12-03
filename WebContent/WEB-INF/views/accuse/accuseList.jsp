@@ -15,7 +15,7 @@
 </script>
 
 <style type="text/css">
-div {contain list-contact;
+div {contain list-conta
 	
 }
 
@@ -38,9 +38,9 @@ div {contain list-contact;
 <br>
 
 <c:forEach items="${list }" var="al">
-	<div id="floater">
+	<div class="floater">
 		<div class="list-container">
-			<div class="col-xs-6 col-md-3">
+			<div class="col-xs-4 col-md-2">
 				<div class="thumbnail">
 					<img src="/resources/img/logo.png" alt="허위매물정보">
 					<!--       //로고부분 넣는 실제로 들어가야함 -->
@@ -62,7 +62,8 @@ div {contain list-contact;
 		</div>
 	</div>
 </c:forEach>
-a
+
 <hr>
 </div>
+<p style="clear: both"> </p>
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />
