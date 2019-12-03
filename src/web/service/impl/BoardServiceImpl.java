@@ -1,8 +1,8 @@
 package web.service.impl;
 
 import java.io.File;
-
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -518,6 +518,22 @@ public class BoardServiceImpl implements BoardService {
 		commentDao.deleteCommentList(names);
 		
 	}
+
+	@Override
+	public List<BBoard> getBoardTopFiveInFreeboard() {
+		return boardDao.selectFreeboardByReco();
+	}
+
+	@Override
+	public List<BBoard> getBoardTopFiveInReview() {
+		return boardDao.selectReviewByReco();
+	}
+	
+	@Override
+	public List<BBoard> getBoardTopFiveInNotice() {
+		return boardDao.selectNoticeByRegdate();
+	}
+
 
 	
 

@@ -13,7 +13,9 @@ public class BBoard {
 	private int userNo;
 	private String usernick;
 	private String userid;
+	private int commentCnt;
 
+	
 	
 	
 	
@@ -23,7 +25,15 @@ public class BBoard {
 	public String toString() {
 		return "BBoard [idx=" + idx + ", title=" + title + ", contents=" + contents + ", regDate=" + regDate + ", hits="
 				+ hits + ", reco=" + reco + ", boardNo=" + boardNo + ", userNo=" + userNo + ", usernick=" + usernick
-				+ ", userid=" + userid + "]";
+				+ ", userid=" + userid + ", commentCnt=" + commentCnt + "]";
+	}
+
+	public int getCommentCnt() {
+		return commentCnt;
+	}
+
+	public void setCommentCnt(int commentCnt) {
+		this.commentCnt = commentCnt;
 	}
 
 	public String getUserid() {

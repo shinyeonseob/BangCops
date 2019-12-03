@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import web.dto.BAccuse;
+import web.dto.BAttached;
+import web.dto.BBoard;
+import web.dto.BDeal;
 import web.dto.Bcomment;
+import web.dto.Recommend;
 import web.service.face.AccuseService;
 import web.service.face.BoardService;
 import web.service.impl.AccuseServiceImpl;
@@ -29,25 +33,66 @@ public class ViewController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 
-		int boardno = Integer.parseInt(req.getParameter("boardno"));
+		int boardno = 6;
 
 		
 		// 게시글 번호 파싱
-		BAccuse viewABoard = accuseService.getBAccuse(req);
+		BAccuse accuse = accuseService.getBAccuse(req);
+		System.out.println("accuse1 : " +  accuse);
 
-		// 게시글 조회
-		viewABoard = accuseService.view(viewABoard);
+		
+		BDeal bDeal = accuseService.getBdeal(accuse);
+		
+//		// 게시글 조회
+//		accuse = accuseService.view(accuse);
+//		System.out.println("accuse2 : "+ accuse);
+		BBoard bBoard = new BBoard();
+		bBoard.setIdx(accuse.getIdx());
+		
+		BAttached bAttached = boardService.getFile(bBoard);
+
+//		HttpSession session = req.getSession();
+		// 게시글 상세보기
+		BBoard list = boardService.view(bBoard);
+//		System.out.println("[TEST] freeBoardviewco_bBoard : " + bBoard); //테스트 완료
+
+//		System.out.println("[TEST] FBViewCon : " + list); //확인완료
+//		System.out.println(bAttached); //확인 완료
+		req.setAttribute("list", list);
+		System.out.println(list);
+		req.setAttribute("bAttached", bAttached);
+
+//		System.out.println(session.getAttribute("Userno"));
+
+		// 댓글 리스트 전달
+		Bcomment comment = new Bcomment();
+		List<Bcomment> commentList = boardService.getCommentList(list);
+		req.setAttribute("commentList", commentList);
+
+		// 추천 상태 전달
+		Recommend recommend = new Recommend();
+		recommend.setIdx(list.getIdx()); // 게시글 번호
+		try {
+		recommend.setUserno((int) req.getSession().getAttribute("Userno")); // 로그인한 아이디
+		} catch(NullPointerException e) {
+			System.out.println("로그인하지 않았음");
+		}
+
+		boolean isRecommend = boardService.isRecommend(recommend);
+		req.setAttribute("isRecommend", isRecommend);
+		
+		int cnt = boardService.getTotalCntRecommend(recommend);
+		
+		req.setAttribute("reco", cnt);
 
 		// MODEL로 게시글 전달
-		req.setAttribute("viewABoard", viewABoard);
-
-		// 첨부파일 전달
-
-		// 닉네임 전달
-		req.setAttribute("nick", accuseService);
+		req.setAttribute("accuse", accuse);
+		
+		System.out.println("bDeal : " + bDeal);
+		req.setAttribute("bDeal", bDeal);
 
 		// VIEW 지정
-		req.getRequestDispatcher("/WEB-INF/view/accuse/accuserview.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/accuse/accuserview.jsp").forward(req, resp);
 
 	}
 

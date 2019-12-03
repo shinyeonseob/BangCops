@@ -116,8 +116,8 @@ $(document).ready(function() {
 			<td class="tdleft"></td>
 			<td class="tdright">
 			<select name="DealType2" required="required">
-					<option value="seoul">전세</option>	
-					<option value="seoul">월세</option>
+					<option value="전세">전세</option>	
+					<option value="월세">월세</option>
 			</select></td>
 			
 					
@@ -149,7 +149,7 @@ $(document).ready(function() {
 			<td class="tdleft"></td>
 			<td class="tdright">
 			<select name="City" required="required">
-					<option value="seoul">서울</option>	
+					<option value="서울">서울</option>	
 			</select></td>
 		<tr>
 			<td class="tdleft"></td>

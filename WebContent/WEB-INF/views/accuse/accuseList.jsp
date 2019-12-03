@@ -24,7 +24,7 @@ div {contain list-conta
 	width: 100%;
 }
 </style>
-
+<div>
 <div class="list-container">
 	<br> <br> <br> <br>
 	<h3>검색한 결과 ${gu }구의 신고된 허위매물 목록입니다.</h3>
@@ -38,9 +38,9 @@ div {contain list-conta
 <br>
 
 <c:forEach items="${list }" var="al">
-	<div id="floater">
+	<div class="floater">
 		<div class="list-container">
-			<div class="col-xs-6 col-md-3">
+			<div class="col-xs-4 col-md-2">
 				<div class="thumbnail">
 					<img src="/resources/img/logo.png" alt="허위매물정보">
 					<!--       //로고부분 넣는 실제로 들어가야함 -->
@@ -53,7 +53,7 @@ div {contain list-conta
 						<h6>중개사명 : ${al.agent }</h6>
 						<h6>전화번호 : ${al.phoneNo }</h6>
 
-						<a href="#" class="btn btn-primary" role="button">상세보기</a>
+						<a href="/aview?accuseno=${al.accuseno }" class="btn btn-primary" role="button">상세보기</a>
 
 					</div>
 				</div>
@@ -63,6 +63,7 @@ div {contain list-conta
 	</div>
 </c:forEach>
 
-
-
+<hr>
+</div>
+<p style="clear: both"> </p>
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />
