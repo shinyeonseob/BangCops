@@ -67,5 +67,11 @@ public interface BoardService {
 	public List<Bcomment> getMycommentList(Paging paging, BUser userno);
 
 	public void commentMyListDelete(String names);
+	
+	public List<BBoard> getBoardTopFiveInFreeboard();
+	
+	public List<BBoard> getBoardTopFiveInNotice();
+	
+	public List<BBoard> getBoardTopFiveInReview();
 
 }

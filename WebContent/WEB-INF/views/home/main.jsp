@@ -8,19 +8,26 @@
 	justify-content: center;
 	align-items: center;
 }
+.wrapper:before { content: ""; display: inline-block; width: 1px; height: 100%; margin-right: 0; vertical-align: middle;}
+
+.form-inline { display: inline-block flex; }
+
+
 </style>
 
 
 
 
-<div class="container">
+<div class="container"  style="margin-top: 150px; margin-bottom: 250px">
 
-	<div style="margin-top: 150px; margin-bottom: 50px">
+	<div>
 		<h2>
 			<strong>부동산 허위매물 검색</strong>
 		</h2>
 	</div>
+	<div class="wrapper">
 	<form class="form-inline" action="/accuselist" method="get">
+	<div>
 		<div class="form-group">
 			<label class="sr-only" for="city"></label> <input type="text"
 				id="city" name="city" class="form-control" size="10" list="listcity" />
@@ -70,7 +77,9 @@
 		<div class="form-group">
 			<button type="submit" id="btnSearchclass" class="btn btn-default">Search</button>
 		</div>
+		</div>
 	</form>
+	</div>
 
 </div>
 

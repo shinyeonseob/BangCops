@@ -74,19 +74,21 @@ public class BoardDaoImpl implements BoardDao {
 		
 		conn = DBconn.getConnection(); //DB 연결
 		
-		// 수행할 쿼리
-		String sql = "";
-		sql += "SELECT * FROM (";
-		sql += 			" SELECT rownum rnum, B .* FROM (";
+
+		String sql= "SELECT * FROM (";
+		sql +=			" SELECT rownum rnum, B .* FROM (";
 		sql +=				" SELECT";
-		sql += 					" idx,title, contents, hits, boardno, userno, regdate, usernick, ( SELECT count(*) FROM recommend WHERE B.idx = idx )reco"; 
+		sql +=					" idx,title, contents, hits, boardno, userno, regdate, usernick,"; 
+		sql +=					" ( SELECT COUNT(*) FROM recommend WHERE B.idx = idx )reco,";
+		sql +=					" ( SELECT COUNT(*) FROM Bcomment WHERE B.idx = idx )commentCnt";
 		sql +=				" FROM Bboard b";
-		sql +=			" WHERE boardno = ? ";
-		sql +=			" ORDER BY idx DESC";
+		sql +=				" WHERE boardno = ?";
+		sql +=				" ORDER BY idx DESC";
 		sql +=			" ) B ORDER BY rnum";
 		sql +=		" ) BBoard";
-		sql +=	" WHERE rnum BETWEEN ? AND ?";
-//		SELECT count(*) FROM recommend WHERE idx = 36
+		sql +=		" WHERE rnum BETWEEN ? AND ?";
+
+		//where to_char( 대상 테이블 컬럼, 'yyyymmdd' ) = to_char( sysdate, 'yyyymmdd'); // --> 당일조건으로 출력 
 
 		List<BBoard> list = new ArrayList<>();
 		
@@ -112,6 +114,7 @@ public class BoardDaoImpl implements BoardDao {
 				bBoard.setBoardNo(rs.getInt("BoardNo"));
 				bBoard.setUserNo(rs.getInt("UserNo"));
 				bBoard.setUsernick(rs.getString("usernick"));
+				bBoard.setCommentCnt(rs.getInt("commentCnt"));
 
 				list.add(bBoard);
 			}
@@ -126,19 +129,19 @@ public class BoardDaoImpl implements BoardDao {
 	public List<BBoard> selectSearchAll(Paging paging, int boardno) {
 		
 		conn = DBconn.getConnection(); //DB 연결
-		
-		// 수행할 쿼리
-		String sql = "";
-		sql += "SELECT * FROM (";
-		sql += "	SELECT rownum rnum, B .* FROM (";
-		sql += "	SELECT";
-		sql += "		idx,title, contents, hits, reco, boardno, userno, regdate, (SELECT usernick FROM buser WHERE b.userno = userno)usernick ";
-		sql += "	FROM Bboard b";
-		sql += "	WHERE boardno = ? AND " + paging.getSearchcategory() +" LIKE '%'||?||'%'";
-		sql += "	ORDER BY idx DESC";
-		sql += " ) B ORDER BY rnum";
-		sql += " ) BBoard";
-		sql += " WHERE rnum BETWEEN ? AND ?";
+				
+		String sql= "SELECT * FROM (";
+		sql +=			" SELECT rownum rnum, B .* FROM (";
+		sql +=				" SELECT";
+		sql +=					" idx,title, contents, hits, boardno, userno, regdate, usernick,"; 
+		sql +=					" ( SELECT COUNT(*) FROM recommend WHERE B.idx = idx )reco,";
+		sql +=					" ( SELECT COUNT(*) FROM Bcomment WHERE B.idx = idx )commentCnt";
+		sql +=				" FROM Bboard b";
+		sql +=				" WHERE boardno = ? AND " + paging.getSearchcategory() +" LIKE '%'||?||'%'";
+		sql +=				" ORDER BY idx DESC";
+		sql +=			" ) B ORDER BY rnum";
+		sql +=		" ) BBoard";
+		sql +=		" WHERE rnum BETWEEN ? AND ?";
 		List<BBoard> list = new ArrayList<>();
 
 		try {
@@ -165,7 +168,7 @@ public class BoardDaoImpl implements BoardDao {
 				bBoard.setUserNo(rs.getInt("UserNo"));
 				bBoard.setUsernick(rs.getString("usernick"));
 
-				System.out.println(bBoard);
+//				System.out.println(bBoard);
 				list.add(bBoard);
 			}
 			
@@ -568,6 +571,124 @@ public class BoardDaoImpl implements BoardDao {
 			}
 		}
 	}
+
+	@Override
+	public List<BBoard> selectFreeboardByReco() {
+		conn = DBconn.getConnection();
+		
+		String sql = "";
+		sql += " select * from (";
+		sql += "	    select"; 
+		sql += " 	         idx,title, contents, hits, boardno, userno, regdate, usernick,"; 
+		sql += "	        ( SELECT count(*) FROM recommend WHERE B.idx = idx )reco,";
+		sql += "	        ( SELECT COUNT(*) FROM Bcomment WHERE B.idx = idx )commentcnt";
+		sql += "	    from Bboard b WHERE boardno = 1 order by reco desc)";
+		sql += "	where rownum <= 5";  
+		
+		List<BBoard> list = new ArrayList<>();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				BBoard bBoard = new BBoard();
+				
+				bBoard.setIdx(rs.getInt("idx"));
+				bBoard.setTitle(rs.getString("title"));
+				bBoard.setReco(rs.getInt("reco"));
+				bBoard.setRegDate(rs.getDate("regDate"));
+				bBoard.setCommentCnt(rs.getInt("commentcnt"));
+				bBoard.setUsernick(rs.getString("usernick"));
+				
+				list.add(bBoard);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+	@Override
+	public List<BBoard> selectReviewByReco() {
+		conn = DBconn.getConnection();
+		
+		String sql = "";
+		sql += " select * from (";
+		sql += "	    select"; 
+		sql += " 	         idx,title, contents, hits, boardno, userno, regdate, usernick,"; 
+		sql += "	        ( SELECT count(*) FROM recommend WHERE B.idx = idx )reco,";
+		sql += "	        ( SELECT COUNT(*) FROM Bcomment WHERE B.idx = idx )commentcnt";
+		sql += "	    from Bboard b WHERE boardno = 2 order by reco desc)";
+		sql += "	where rownum <= 5";  
+		
+		List<BBoard> list = new ArrayList<>();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				BBoard bBoard = new BBoard();
+				
+				bBoard.setIdx(rs.getInt("idx"));
+				bBoard.setTitle(rs.getString("title"));
+				bBoard.setReco(rs.getInt("reco"));
+				bBoard.setRegDate(rs.getDate("regDate"));
+				bBoard.setCommentCnt(rs.getInt("commentcnt"));
+				bBoard.setUsernick(rs.getString("usernick"));
+				
+				list.add(bBoard);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	@Override
+	public List<BBoard> selectNoticeByRegdate() {
+		conn = DBconn.getConnection();
+		
+		String sql = "";
+		sql += " select * from (";
+		sql += "	    select"; 
+		sql += " 	         idx,title, contents, hits, boardno, userno, regdate, usernick,"; 
+		sql += "	        ( SELECT count(*) FROM recommend WHERE B.idx = idx )reco,";
+		sql += "	        ( SELECT COUNT(*) FROM Bcomment WHERE B.idx = idx )commentcnt";
+		sql += "	    from Bboard b WHERE boardno = 3 order by regdate desc)";
+		sql += "	where rownum <= 5";  
+		
+		List<BBoard> list = new ArrayList<>();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				BBoard bBoard = new BBoard();
+				
+				bBoard.setIdx(rs.getInt("idx"));
+				bBoard.setTitle(rs.getString("title"));
+				bBoard.setReco(rs.getInt("reco"));
+				bBoard.setRegDate(rs.getDate("regDate"));
+				bBoard.setCommentCnt(rs.getInt("commentcnt"));
+				bBoard.setUsernick(rs.getString("usernick"));
+				
+				list.add(bBoard);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
 
 	
 

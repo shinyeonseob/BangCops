@@ -80,7 +80,7 @@ $(document).ready(function() {
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center;height:30">
 		<td>${ i.idx }</td>
-		<td style="text-align:left"><a href ="/main/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
+		<td style="text-align:left"><a href ="/main/community/board/view?idx=${ i.idx }">${ i.title } <c:if test="${i.commentCnt ne 0 }">[${i.commentCnt}]</c:if></a></td>
 		<td>${ i.usernick }</td>
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>
@@ -90,9 +90,9 @@ $(document).ready(function() {
 </table>
 <hr style="background:grey;height:2px">
 <div>
-<c:if test="${login && boardno ne 3 && boardno ne 5}">
+<%-- <c:if test="${login && boardno ne 3 && boardno ne 5}"> --%>
 <a href="/main/community/board/write?boardno=${boardno }"><button>게시글작성</button></a>
-</c:if>
+<%-- </c:if> --%>
 <c:if test="${empty login && boardno eq 3 && boardno eq 5}">
 <a style="float:left" href="#myModal" class="trigger-btn" data-toggle="modal"><button onclick="loginPlease();">게시글 작성</button></a>
 </c:if>

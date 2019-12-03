@@ -83,7 +83,16 @@ public interface AccuseService {
 
 
 
+
 	public BDeal getBdeal(BAccuse accuse);
+
+	/**
+	 * 
+	 * @return 구글맵 -  구, 좌표, 신고건수, 피신고중개인
+	 */
+	public List getLocation();
+
+
 
 
 
