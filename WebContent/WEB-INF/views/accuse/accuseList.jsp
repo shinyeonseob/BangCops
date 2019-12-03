@@ -15,7 +15,7 @@
 </script>
 
 <style type="text/css">
-div {contain list-conta
+div {contain list-contact;
 	
 }
 
@@ -62,7 +62,7 @@ div {contain list-conta
 		</div>
 	</div>
 </c:forEach>
-
+a
 <hr>
 </div>
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />
