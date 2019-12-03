@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import util.Paging;
+import web.dto.AccuseMap;
 import web.dto.BAccuse;
 import web.dto.BBoard;
 import web.dto.BDeal;
@@ -50,7 +51,15 @@ public interface AccuseDao {
 
 	public List<BBoard> selectSearchAll(Paging paging, int boardno);
 
+	public List getGuname(BAccuse baccuse);
 
+
+	public int getTotalaccuse(String gu);
+
+
+	public int getTotalagent(String gu);
+	
+	public AccuseMap getLocation(String gu);
 
 
 

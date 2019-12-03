@@ -82,6 +82,10 @@ public interface AccuseService {
 
 
 
+	public List getLocation();
+
+
+
 
 
 

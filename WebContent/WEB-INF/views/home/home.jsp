@@ -77,53 +77,82 @@ $(document).ready(function() {
 <div id="jb-container">
 
 	<div id="map" style="height: 473px; width: 70%;"></div>
-	<script>
-	function initMap() {
+	   <script>
+	   
+	   
 
-		
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 11,
-          center: {lat: 37.553226, lng: 126.980885}
-        });
-        
-<%--		var Yongsan = {
-				lat: 37.6658609	, 
-				lng: 127.0317674				
-		};
-        var marker = new google.maps.Marker({
-        	position: Yongsan,
-        	map : map,
-        	title: 'Yongsan (Ayers Rock)'
-        });
-        
-        marker.addListener('click',function(){
-        	infowindow.open(map,marker);
-        })
+	   var result = new Array();
+	   function initMap() {
+			
+			
+			var map = new google.maps.Map(document.getElementById('map'), {
+					center : {lat : 37.553226, lng : 126.980885 },
+					zoom : 11,
 
-        var contentString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-        '<div id="bodyContent">'+
-        '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-        'sandstone rock formation in the southern part of the '+
-        'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-        'south west of the nearest large town, Alice Springs; 450&#160;km '+
-        '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-        'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-        'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-        'Aboriginal people of the area. It has many springs, waterholes, '+
-        'rock caves and ancient paintings. Uluru is listed as a World '+
-        'Heritage Site.</p>'+
-        '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-        'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-        '(last visited June 22, 2009).</p>'+
-        '</div>'+
-        '</div>';
---%>
-        var labels = '';
+				});
+				var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+				
 
-        
+				<c:forEach items="${maplist}" var="maplist">
+
+				var json = new Object();
+				
+				json.guname = "${maplist.guname}"
+				json.lat="${maplist.lat}";
+	   		    json.lng="${maplist.lng}";
+				json.totalaccuse = "${maplist.totalaccuse}";
+				json.totalagent = "${maplist.totalagent}";
+				result.push(json);
+				</c:forEach>
+				//   console.log("jsoninfo="+JSON.stringify(result));
+
+				var infowindow = new google.maps.InfoWindow();
+				var markers = new Array();
+				var marker, i;
+				for (i = 0; i < result.length; i++) {
+					marker = new google.maps.Marker(
+							{
+		 						id : result[i].guname,
+								name : result[i].guname,
+// 								label : result[i].cate,
+								position : new google.maps.LatLng(result[i].lat, result[i].lng),
+								map : map
+
+							});
+					markers.push(marker);
+						     console.log(result[i]);
+							console.log(marker.position);
+					google.maps.event	
+							.addListener(
+									marker, 'click', (function(marker, i) {
+										return function() {
+	infowindow.setContent(result[i].guname + "구<br>"	+ "<b>허위매물 신고 건수 : <b>"
+			+ result[i].totalaccuse	+ "<br>" + "<b>피신고 중개인 수 : <b>" + result[i].totalagent
+			+ "<br>"
+//		 													+ "<br><button type='button' id = 'insertBtn"
+//		 													+ i
+//		 													+ "' onclick='addIndex("
+//		 													+ i
+//		 													+ ");'> 장소 추가 </button>"
+			+ ' <a href="/main/accuse"><p>해당 지역 신고글 자세히 보러 가기</p></a>');
+	infowindow.open(map, marker);
+		}
+	})(marker, i));
+					// 클릭시 위치 이동 (확대 + 중앙 이동)
+// 					marker.addListener('click', function() {
+// 						map.setZoom(14);
+// 						map.setCenter(this.getPosition());
+// 					});
+
+				};
+
+			}; // map 종료
+
+    
+<%--
+   var labels = '';
+
+       
         
         
         var markers = locations.map(function(location, i) {
@@ -135,38 +164,38 @@ $(document).ready(function() {
 
         var markerCluster = new MarkerClusterer(map, markers,
             {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-      }
-      var locations = [
-    	  {lat: 37.6658609	, lng: 127.0317674},
-    	  {lat: 37.6176125	, lng: 126.9227004},
-    	  {lat: 37.5838012	, lng: 127.0507003},
-    	  {lat: 37.4965037	, lng: 126.9443073},
-    	  {lat: 37.4600969	, lng: 126.9001546},
-    	  {lat: 37.4954856	, lng: 126.858121},
-    	  {lat: 37.5990998	, lng: 126.9861493},
-    	  {lat: 37.6469954	, lng: 127.0147158},
-    	  {lat: 37.5953795	, lng: 127.0939669},
-    	  {lat: 37.4959854	, lng: 127.0664091},
-    	  {lat: 37.5657617	, lng: 126.8226561},
-    	  {lat: 37.5579452	, lng: 126.9941904},
-    	  {lat: 37.5492077	, lng: 127.1464824},
-    	  {lat: 37.5481445	, lng: 127.0857528},
-    	  {lat: 37.5622906	, lng: 126.9087803},
-    	  {lat: 37.4769528	, lng: 127.0378103},
-    	  {lat: 37.606991	, lng: 127.0232185},
-    	  {lat: 37.655264	, lng: 127.0771201},
-    	  {lat: 37.5048534	, lng: 127.1144822},
-    	  {lat: 37.5820369	, lng: 126.9356665},
-    	  {lat: 37.5270616	, lng: 126.8561534},
-    	  {lat: 37.520641	, lng: 126.9139242},
-    	  {lat: 37.4653993	, lng: 126.9438071},
-    	  {lat: 37.5506753	, lng: 127.0409622},
-    	  {lat: 37.5311008	, lng: 126.9810742}
-      ]
+      } 
+   --%>
+   
+//       var locations = [
+//          {lat: 37.6658609   , lng: 127.0317674}, // 도봉구
+//          {lat: 37.6176125   , lng: 126.9227004}, // 은평구
+//          {lat: 37.5838012   , lng: 127.0507003}, // 동대문구
+//          {lat: 37.4965037   , lng: 126.9443073}, // 동작구
+//          {lat: 37.4600969   , lng: 126.9001546}, // 금천구
+//          {lat: 37.4954856   , lng: 126.858121}, // 구로구
+//          {lat: 37.5990998   , lng: 126.9861493}, // 성북구
+//          {lat: 37.6469954   , lng: 127.0147158}, // 강북구
+//          {lat: 37.5953795   , lng: 127.0939669}, // 중랑구
+//          {lat: 37.4959854   , lng: 127.0664091}, // 강남구
+//          {lat: 37.5657617   , lng: 126.8226561}, //  강서구
+//          {lat: 37.5579452   , lng: 126.9941904}, // 강남구
+//          {lat: 37.5492077   , lng: 127.1464824}, //  강동구
+//          {lat: 37.5481445   , lng: 127.0857528}, // 광진구
+//          {lat: 37.5622906   , lng: 126.9087803}, //  마포구
+//          {lat: 37.4769528   , lng: 127.0378103}, // 서초구
+//          {lat: 37.606991   , lng: 127.0232185}, // 성북구
+//          {lat: 37.655264   , lng: 127.0771201}, // 노원구
+//          {lat: 37.5048534   , lng: 127.1144822}, // 송파구
+//          {lat: 37.5820369   , lng: 126.9356665}, // 서대문구
+//          {lat: 37.5270616   , lng: 126.8561534}, // 양천구
+//          {lat: 37.520641   , lng: 126.9139242}, // 영등포구
+//          {lat: 37.4653993   , lng: 126.9438071}, // 관악구
+//          {lat: 37.5506753   , lng: 127.0409622}, // 성동구
+//          {lat: 37.5311008   , lng: 126.9810742} // 용산구
+//       ]
     </script>
-    <script>
-    	src = 
-    </script>
+
 
 	<div id="jb-sidebar" style="width: 30%">
 		<form class="form-inline" action="" method="post">

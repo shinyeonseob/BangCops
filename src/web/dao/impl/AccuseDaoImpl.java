@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import util.Paging;
 import web.dao.face.AccuseDao;
 import web.dbutil.DBconn;
+import web.dto.AccuseMap;
 import web.dto.BAccuse;
 import web.dto.BBoard;
 import web.dto.BDeal;
@@ -71,36 +72,36 @@ public class AccuseDaoImpl implements AccuseDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-//
-//	@Override
-//	public void updateHit(BAccuse viewABoard) {
-//		conn = DBconn.getConnection(); //DB 연결
-//
-//		//게시글 조회수 증가 쿼리
-//		String sql = "";
-//		sql+="UPDATE board";
-//		sql+=" SET hit = hit + 1";
-//		sql+=" WHERE boardno = ?";
-//	
-//		try {
-//			ps = conn.prepareStatement(sql);
-//			
-//			ps.setInt(1, viewABoard.getBoardno());
-//			
-//			ps.executeUpdate();
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			try {
-//				// 자원 해제
-//				if(ps!=null)	ps.close();
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//				
-//	}
+	//
+	//	@Override
+	//	public void updateHit(BAccuse viewABoard) {
+	//		conn = DBconn.getConnection(); //DB 연결
+	//
+	//		//게시글 조회수 증가 쿼리
+	//		String sql = "";
+	//		sql+="UPDATE board";
+	//		sql+=" SET hit = hit + 1";
+	//		sql+=" WHERE boardno = ?";
+	//	
+	//		try {
+	//			ps = conn.prepareStatement(sql);
+	//			
+	//			ps.setInt(1, viewABoard.getBoardno());
+	//			
+	//			ps.executeUpdate();
+	//			
+	//		} catch (SQLException e) {
+	//			e.printStackTrace();
+	//		} finally {
+	//			try {
+	//				// 자원 해제
+	//				if(ps!=null)	ps.close();
+	//			} catch (SQLException e) {
+	//				e.printStackTrace();
+	//			}
+	//		}
+	//				
+	//	}
 
 	@Override
 	public int selectCntAll(String search) {
@@ -162,10 +163,10 @@ public class AccuseDaoImpl implements AccuseDao {
 
 	@Override
 	public List<BAccuse> getSearchListBAccuse(Paging paging, HttpServletRequest req) {
-		
+
 		System.out.println("getSearchListBAccuse");
 		conn = DBconn.getConnection(); // DB 연결
-		
+
 		// 수행할 쿼리
 		String sql = "";
 		sql += "SELECT * FROM (";
@@ -178,29 +179,29 @@ public class AccuseDaoImpl implements AccuseDao {
 		sql += " ) B ORDER BY rnum";
 		sql += " ) BBoard";
 		sql += " WHERE rnum BETWEEN ? AND ?";
-		
+
 		List<BAccuse> list = new ArrayList<>();
-		
+
 		try {
 			ps = conn.prepareStatement(sql);
-			
+
 			System.out.println(req.getParameter("city"));
 			System.out.println(req.getParameter("gu"));
 			System.out.println(req.getParameter("search"));
 			System.out.println(paging.getStartNo());
 			System.out.println(paging.getEndNo());
-			
+
 			ps.setString(1, req.getParameter("city"));
 			ps.setString(2, req.getParameter("gu"));
 			ps.setString(3, req.getParameter("search"));
 			ps.setInt(4, paging.getStartNo());
 			ps.setInt(5, paging.getEndNo());
-			
+
 			rs = ps.executeQuery();
-			
+
 			while (rs.next()) {
 				BAccuse bAccuse = new BAccuse();
-				
+
 				bAccuse.setAccuseno(rs.getInt("AccuseNo"));
 				bAccuse.setUrl(rs.getString("URL"));
 				bAccuse.setCity(rs.getString("City"));
@@ -211,13 +212,13 @@ public class AccuseDaoImpl implements AccuseDao {
 				bAccuse.setAgent(rs.getString("Agent"));
 				bAccuse.setProperty(rs.getString("Property"));
 				bAccuse.setPhoneNo(rs.getString("PhoneNo"));
-				
+
 				System.out.println("bAccuse : "+  bAccuse);
 
 				list.add(bAccuse);
 			}		
 
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -233,6 +234,146 @@ public class AccuseDaoImpl implements AccuseDao {
 		return null;
 	}
 
+	public List getGuname(BAccuse baccuse) {
+		conn = DBconn.getConnection(); // DB 연결
+
+		// 수행할 쿼리
+		String sql = "";
+		sql += "SELECT Distinct Gu FROM BAccuse";
+
+		List<BAccuse> list = new ArrayList();
+		try {
+			ps=conn.prepareStatement(sql);
+
+			rs = ps.executeQuery();
+
+			while(rs.next()) {
+				BAccuse bAccuse = new BAccuse();
+
+				bAccuse.setGu(rs.getString("Gu"));
+
+				list.add(bAccuse);
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(ps != null) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+
+	}
+
+	@Override
+	public int getTotalaccuse(String gu) {
+		conn = DBconn.getConnection(); // DB 연결
+
+		int num = 0;
+		String sql = "";
+		sql += "SELECT count(*) FROM BAccuse";
+		sql += " WHERE Gu = ?";
+
+		try {
+			ps = conn.prepareStatement(sql);
+
+			ps.setString(1, gu);
+
+			rs = ps.executeQuery();
+
+			rs.next();
+
+			num = rs.getInt("count(*)");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(ps != null) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+
+		return num;
+	}
+
+	@Override
+	public int getTotalagent(String gu) {
+		conn = DBconn.getConnection(); // DB 연결
+
+		int num = 0;
+		
+		String sql = "";
+		sql += "SELECT count(*) FROM (";
+		sql += " select distinct agent  from baccuse where gu= ?)";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+
+			ps.setString(1, gu);
+
+			rs = ps.executeQuery();
+
+			rs.next();
+
+			num = rs.getInt("count(*)");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(ps != null) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return num;
+	}
+
+	@Override
+	public AccuseMap getLocation(String gu) {
+		conn = DBconn.getConnection(); // DB 연결
+		
+		String sql = "";
+		sql += "SELECT * FROM Bmap WHERE guname = ?";
+		
+		
+		AccuseMap acm = new AccuseMap();
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, gu);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+
+				acm.setGuname(rs.getString("guname"));
+				acm.setLat(rs.getDouble("lat"));
+				acm.setLng(rs.getDouble("lng"));
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(ps != null) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return acm;
+	};
 }
 
 
