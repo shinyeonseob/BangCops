@@ -1,7 +1,6 @@
-package web.controller.mainmenu;
+package web.controller.admin;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,30 +8,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import web.dto.BAccuse;
 import web.service.face.AccuseService;
+import web.service.face.AdminAaccuseService;
 import web.service.impl.AccuseServiceImpl;
+import web.service.impl.AdminAaccuseServiceImpl;
 
-
-@WebServlet("/main/home")
-public class HomeController extends HttpServlet {
+/**
+ * Servlet implementation class AdminDeleteController
+ */
+@WebServlet("/admin/accusedelete")
+public class AdminDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
 	private AccuseService accuseService = new AccuseServiceImpl();
+	private AdminAaccuseService adminAaccuseService = new AdminAaccuseServiceImpl();
+
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
+		BAccuse baccuse = accuseService.getBAccuse(req);
 
-		req.setCharacterEncoding("utf-8");
-		
-		List maplist =  accuseService.getLocation();
-		
-		req.setAttribute("maplist", maplist);
-//		System.out.println(maplist);
+		adminAaccuseService.delete(baccuse);
 
-		//view
-		req.getRequestDispatcher("/WEB-INF/views/home/home.jsp")
-		.forward(req, resp);
-		}
+		// 목록으로 리다이렉트
+		resp.sendRedirect("/admin/accuselist");
+	}
 
 }
