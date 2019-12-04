@@ -156,6 +156,43 @@ body {
          }
       });
    });
+<%--   var idCheck = 0;
+   var nickCheck = 0;
+   var pwdCheck = 0;
+   //닉네임 체크하여 가입버튼 비활성화, 중복확인.
+   function checkNick() {
+        var nickname = $("#UserNick").val();
+        console.log(nickname);
+        $.ajax({
+            data : {
+                nickName : nickname
+            },
+            url : "/member/check",
+            success : function(data) {
+                if(nickname=="" && data=='0') {
+                    $(".signupbtn").prop("disabled", true);
+                    $(".signupbtn").css("background-color", "#aaaaaa");
+                    $("#UserNick").css("background-color", "#FFCECE");
+                    nickCheck = 0;
+                } else if (data == '0') {
+                    $("#UserNick").css("background-color", "#B0F6AC");
+                    nickCheck = 1;
+                    if(nickCheck ==1 && pwdCheck == 1) {
+                        $(".signupbtn").prop("disabled", false);
+                        $(".signupbtn").css("background-color", "#4CAF50");
+                    } 
+                } else if (data == '1') {
+                    $(".signupbtn").prop("disabled", true);
+                    $(".signupbtn").css("background-color", "#aaaaaa");
+                    $("#nickname").css("background-color", "#FFCECE");
+                    nickCheck = 0;
+                } 
+            }
+        });
+
+   } --%>
+
+
 </script>
 </head>
 <body>

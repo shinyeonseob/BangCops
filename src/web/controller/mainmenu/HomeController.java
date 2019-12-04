@@ -28,7 +28,7 @@ public class HomeController extends HttpServlet {
 		List maplist =  accuseService.getLocation();
 		
 		req.setAttribute("maplist", maplist);
-		System.out.println(maplist);
+//		System.out.println(maplist);
 
 		//view
 		req.getRequestDispatcher("/WEB-INF/views/home/home.jsp")
