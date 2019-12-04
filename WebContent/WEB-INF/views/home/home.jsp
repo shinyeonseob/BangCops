@@ -254,7 +254,7 @@
 	<br> <br>
 
 	<div id="servicecenter">
-		<a href="/serviceCenterView">고객센터</a>
+		<a href="/serviceCenterView"><img alt="고객센터" src="/resources/img/img_SC2.png" style="width: 10%; " ></a>
 	</div>
 </div>
 
