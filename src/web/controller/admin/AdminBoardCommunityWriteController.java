@@ -26,8 +26,8 @@ public class AdminBoardCommunityWriteController extends HttpServlet {
 
 			HttpSession session = req.getSession();
 
-			req.setAttribute("userid", session.getAttribute("userid"));
-			req.setAttribute("usernick", session.getAttribute("usernick"));
+			req.setAttribute("adminloginid", session.getAttribute("adminloginid"));
+			req.setAttribute("adminloginNick", session.getAttribute("adminloginNick"));
 			req.setAttribute("boardno", req.getParameter("boardno"));
 
 			req.getRequestDispatcher("/WEB-INF/views/admin/admincommunitywrite.jsp").forward(req, resp);
@@ -42,6 +42,8 @@ public class AdminBoardCommunityWriteController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
+		
+		System.out.println(req.getParameter("boardno"));
 
 		int boardno = boardService.write(req);
 		resp.sendRedirect("/admin/community/board?boardno=" + boardno);

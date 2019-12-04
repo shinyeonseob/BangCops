@@ -80,8 +80,8 @@ $(document).ready(function() {
 <c:if test="${adminlogin && boardno ne 3 && boardno ne 5}">
 <a href="/admin/community/board/write?boardno=${boardno }"><button>게시글작성</button></a>
 </c:if>
-<c:if test="${empty adminlogin && boardno eq 3 && boardno eq 5}">
-<a style="float:left" href="#myModal" class="trigger-btn" data-toggle="modal"><button onclick="loginPlease();">게시글 작성</button></a>
+<c:if test="${!empty adminlogin && adminlogin}">
+<a style="float:left" href="/admin/community/board/write?boardno=${boardno }" class="trigger-btn"><button>게시글 작성</button></a>
 </c:if>
 
 	
