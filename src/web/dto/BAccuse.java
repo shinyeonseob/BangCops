@@ -13,6 +13,16 @@ public class BAccuse {
 	private String agent;
 	private String phoneNo;
 	private String property;
+	
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+
+	private int cnt;
 
 	@Override
 	public String toString() {

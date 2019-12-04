@@ -6,7 +6,7 @@
 
 
 <div class="text-center">
-<br><br><br><br><br><br>
+<br><br><br><br>
 <h3><strong>방캅스 고객센터</strong></h3>
 
 </div>

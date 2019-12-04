@@ -247,10 +247,14 @@ public class BoardServiceImpl implements BoardService {
 
 		HttpSession session = req.getSession();
 
-		board.setUsernick((String) session.getAttribute("UserNick"));
-		board.setUserNo((int) session.getAttribute("Userno"));
-		board.setIdx(idx);
-
+		if(session.getAttribute("adminlogin").equals(true)) {
+			board.setUsernick((String) session.getAttribute("adminloginNick"));
+			board.setIdx(idx);
+		}else {
+			board.setUsernick((String) session.getAttribute("UserNick"));
+			board.setUserNo((int) session.getAttribute("Userno"));
+			board.setIdx(idx);
+		}
 		boardDao.insert(board);
 
 		if (bAttached != null && bAttached.getFilesize() != 0) {
