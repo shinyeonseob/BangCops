@@ -227,11 +227,10 @@
 </div>
 
 		<div id="newsbar">
-			뉴스기사
-			<hr>
-			<table id="newsTable">
+			<b>최신 뉴스</b>
+			<div id="newsTable">
 
-			</table>
+			</div>
 		</div>
 
 	</div>
