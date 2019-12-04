@@ -9,14 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import web.service.face.AdminCommunityService;
 import web.service.face.BoardService;
+import web.service.impl.AdminCommunityServiceImpl;
 import web.service.impl.BoardServiceImpl;
 
 @WebServlet("/admin/community/board/write")
 public class AdminBoardCommunityWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	BoardService boardService = new BoardServiceImpl();
+	AdminCommunityService adminCommunityService = new AdminCommunityServiceImpl();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,7 +47,7 @@ public class AdminBoardCommunityWriteController extends HttpServlet {
 		
 		System.out.println(req.getParameter("boardno"));
 
-		int boardno = boardService.write(req);
+		int boardno = adminCommunityService.write(req);
 		resp.sendRedirect("/admin/community/board?boardno=" + boardno);
 	}
 

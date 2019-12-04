@@ -13,14 +13,16 @@ import web.dto.BAttached;
 import web.dto.BBoard;
 import web.dto.Bcomment;
 import web.dto.Recommend;
+import web.service.face.AdminCommunityService;
 import web.service.face.BoardService;
+import web.service.impl.AdminCommunityServiceImpl;
 import web.service.impl.BoardServiceImpl;
 
 @WebServlet("/admin/community/board/view")
 public class AdminBoardCommunityViewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private BoardService boardService = new BoardServiceImpl();
+	AdminCommunityService adminCommunityService = new AdminCommunityServiceImpl();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,12 +32,12 @@ public class AdminBoardCommunityViewController extends HttpServlet {
 
 			resp.setCharacterEncoding("UTF-8");
 
-			BBoard bBoard = boardService.getIdx(req);
+			BBoard bBoard = adminCommunityService.getIdx(req);
 
-			BAttached bAttached = boardService.getFile(bBoard);
+			BAttached bAttached = adminCommunityService.getFile(bBoard);
 
 			// 게시글 상세보기
-			BBoard list = boardService.view(bBoard);
+			BBoard list = adminCommunityService.view(bBoard);
 
 			req.setAttribute("list", list);
 			System.out.println(list);
@@ -43,7 +45,7 @@ public class AdminBoardCommunityViewController extends HttpServlet {
 
 			// 댓글 리스트 전달
 			Bcomment comment = new Bcomment();
-			List<Bcomment> commentList = boardService.getCommentList(list);
+			List<Bcomment> commentList = adminCommunityService.getCommentList(list);
 			req.setAttribute("commentList", commentList);
 
 			// 추천 상태 전달
@@ -54,10 +56,10 @@ public class AdminBoardCommunityViewController extends HttpServlet {
 			} catch (NullPointerException e) {
 			}
 
-			boolean isRecommend = boardService.isRecommend(recommend);
+			boolean isRecommend = adminCommunityService.isRecommend(recommend);
 			req.setAttribute("isRecommend", isRecommend);
 
-			int cnt = boardService.getTotalCntRecommend(recommend);
+			int cnt = adminCommunityService.getTotalCntRecommend(recommend);
 
 			req.setAttribute("reco", cnt);
 
