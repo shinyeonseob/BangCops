@@ -32,7 +32,7 @@ body {
 }
 
 .form-control:focus {
-   border-color: #5cb85c;
+   border-color: #FDB813;
 }
 
 .form-control, .btn {
@@ -118,7 +118,7 @@ body {
 }
 
 .signup-form form a {
-   color: #5cb85c;
+   color: #0066B2;
    text-decoration: none;
 }
 
@@ -156,6 +156,43 @@ body {
          }
       });
    });
+<%--   var idCheck = 0;
+   var nickCheck = 0;
+   var pwdCheck = 0;
+   //닉네임 체크하여 가입버튼 비활성화, 중복확인.
+   function checkNick() {
+        var nickname = $("#UserNick").val();
+        console.log(nickname);
+        $.ajax({
+            data : {
+                nickName : nickname
+            },
+            url : "/member/check",
+            success : function(data) {
+                if(nickname=="" && data=='0') {
+                    $(".signupbtn").prop("disabled", true);
+                    $(".signupbtn").css("background-color", "#aaaaaa");
+                    $("#UserNick").css("background-color", "#FFCECE");
+                    nickCheck = 0;
+                } else if (data == '0') {
+                    $("#UserNick").css("background-color", "#B0F6AC");
+                    nickCheck = 1;
+                    if(nickCheck ==1 && pwdCheck == 1) {
+                        $(".signupbtn").prop("disabled", false);
+                        $(".signupbtn").css("background-color", "#4CAF50");
+                    } 
+                } else if (data == '1') {
+                    $(".signupbtn").prop("disabled", true);
+                    $(".signupbtn").css("background-color", "#aaaaaa");
+                    $("#nickname").css("background-color", "#FFCECE");
+                    nickCheck = 0;
+                } 
+            }
+        });
+
+   } --%>
+
+
 </script>
 </head>
 <body>
@@ -194,12 +231,12 @@ body {
          </div>
          <div class="form-group">
             <label class="checkbox-inline"><input type="checkbox"
-               required="required"> I accept the <a href="#">Terms of
-                  Use</a> &amp; <a href="#">Privacy Policy</a></label>
+               required="required"> I accept the <a href="/termsofService">Terms of
+                  Use</a> &amp; <a href="/privacyStatement"">Privacy Policy</a></label>
          </div>
 
          <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block">회원가입
+            <button type="submit" class="btn btn-primary btn-lg btn-block">회원가입
                완료</button>
          </div>
       </form>

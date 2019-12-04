@@ -50,7 +50,7 @@ $(document).ready(function() {
 		$form.submit();
 		
 	});
-	
+});	
 
 //댓글 삭제
 function deleteComment(commentno) {
@@ -63,7 +63,7 @@ function deleteComment(commentno) {
 		}
 		, success: function(data){
 			if(data.success) {
-				
+				console.log(commentno);
 				$("[data-commentno='"+commentno+"']").remove();
 				
 			} else {
@@ -75,8 +75,9 @@ function deleteComment(commentno) {
 		}
 	});
 }
-
-
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
 	//추천
 	if(${isRecommend}) {
 		$("#btnRecommend")
@@ -125,8 +126,8 @@ function deleteComment(commentno) {
 		});
 		
 	});
-});
 
+});
 </script>
 
 <style type="text/css">

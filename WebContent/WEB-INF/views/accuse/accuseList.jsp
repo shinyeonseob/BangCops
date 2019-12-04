@@ -39,8 +39,13 @@ div {contain list-conta
 <c:forEach items="${list }" var="al">
 	<div id="floater">
 		<div class="list-container">
+<<<<<<< HEAD
+			<div class="col-xs-4 col-md-2">
+				<div class="thumbnai"WebContent/WEB-INF/views/accuse/accuseList.jsp"l">
+=======
 			<div class="col-xs-6 col-md-3">
 				<div class="thumbnail">
+>>>>>>> refs/remotes/origin/develop
 					<img src="/resources/img/logo.png" alt="허위매물정보">
 					<!--       //로고부분 넣는 실제로 들어가야함 -->
 					<div class="caption">

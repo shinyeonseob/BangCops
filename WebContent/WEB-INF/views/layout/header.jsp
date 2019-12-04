@@ -48,7 +48,6 @@
    
 <!-- </script> -->
 
-
 <!--  jQuery -->
 <script type="text/javascript"
    src=https://code.jquery.com/jquery-2.2.4.min.js></script>
@@ -60,7 +59,7 @@
 
 <style>
 #topMenu {
-   height: 160px;
+   height: 120px;
    text-align: center;
    display: flex;
    justify-content: center;
@@ -71,7 +70,7 @@
    color: white;
    background-color: #0066B2;
    float: left;
-   line-height: 100px;
+   line-height: 80px;
    vertical-align: middle;
    text-align: center;
 }
@@ -80,7 +79,7 @@
    color: white;
    display: block;
    width: 150px;
-   font-size: 12px;
+   font-size: 15px;
    font-weight: bold;
    font-family: "Trebuchet MS", Dotum, Arial;
    border: 1px solid #FFFFFF;
@@ -95,7 +94,7 @@
    color: white;
    display: block;
    width: 150px;
-   font-size: 12px;
+   font-size: 15px;
    font-weight: bold;
    font-family: "Trebuchet MS", Dotum, Arial;
    border: 1px solid #bcbcbc;
@@ -243,17 +242,17 @@
    <a href="/main"><img class="logo" src="/resources/img/logo2.png"></a>
    </div>
       <ul>
-         <li><a id = "btn_search" class="menuLink" href="#">검색</a></li>
-         <li><a id = "btn_accuse" class="menuLink" href="#">신고</a></li>
-         <li><a id = "btn_home" class="menuLink" href="#">홈</a></li>
-         <li><a id = "btn_community" class="menuLink" href="#">커뮤니티</a></li>
-         <li><a class="menuLink" href="#">광고/배너</a></li>
+         <li><a id = "btn_search" class="menuLink" href="#"><img src="/resources/img/search.png" width="30" height="30" >&nbsp;&nbsp;검색</a></li>
+         <li><a id = "btn_accuse" class="menuLink" href="#"><img src="/resources/img/accuse.png" width="30" height="30">&nbsp;신고</a></li>
+         <li><a id = "btn_home" class="menuLink" href="#"><img src="/resources/img/home.png" width="30" height="30">&nbsp;홈</a></li>
+         <li><a id = "btn_community" class="menuLink" href="#"><img src="/resources/img/community.png" width="30" height="30">&nbsp;커뮤니티</a></li>
+         <li><a class="menuLink" href="#"><img src="/resources/img/advertising.png" width="30" height="30">&nbsp;광고/배너</a></li>
 
          <li>
          
          <c:if test="${sessionScope.login eq null }">
          <a href="#myModal" class="trigger-btn" data-toggle="modal">
-         <button id = "btn_login" class = "btn_login" on>로그인</button></a>
+         <button id = "btn_login" class = "btn_login" >로그인</button></a>
          <button id="btn_join" class="btn_join">회원가입</button></li>
          </c:if>
 

@@ -32,6 +32,7 @@ public class HomeController extends HttpServlet {
 		List maplist =  accuseService.getLocation();
 		
 		req.setAttribute("maplist", maplist);
+
 		System.out.println(maplist);
 
 		int cnt = 3; //미리보기 카운트 횟수
@@ -47,6 +48,10 @@ public class HomeController extends HttpServlet {
 		
 		
 		
+
+//		System.out.println(maplist);
+
+
 		//view
 		req.getRequestDispatcher("/WEB-INF/views/home/home.jsp")
 		.forward(req, resp);
