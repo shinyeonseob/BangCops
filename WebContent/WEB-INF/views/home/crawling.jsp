@@ -47,6 +47,9 @@
     overflow: hidden;
     white-space: nowrap;
 }
+a{
+	target:"_blank";
+}
 
 </style>
 

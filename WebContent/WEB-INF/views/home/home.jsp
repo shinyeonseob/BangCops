@@ -227,7 +227,7 @@
 </div>
 
 		<div id="newsbar">
-			<b>최신 뉴스</b>
+			<b>최신 뉴스</b> <a href = "http://www.donga.com/news/List/Economy/RE" target="_blank">더보기</a>
 			<div id="newsTable">
 
 			</div>
