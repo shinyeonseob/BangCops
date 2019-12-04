@@ -31,8 +31,7 @@
 <script
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<<<<<<< HEAD
-=======
+
 <!-- <!-- CSS -->
 <!-- <link rel="stylesheet" -->
 <!--    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
@@ -50,8 +49,6 @@
    
 <!-- </script> -->
 
-
->>>>>>> refs/remotes/origin/develop
 <!--  jQuery -->
 <script type="text/javascript"
    src=https://code.jquery.com/jquery-2.2.4.min.js></script>
