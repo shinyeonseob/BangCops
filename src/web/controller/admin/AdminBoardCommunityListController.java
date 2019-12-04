@@ -13,14 +13,16 @@ import javax.servlet.http.HttpSession;
 import util.Paging;
 import web.dto.BBoard;
 import web.dto.Recommend;
+import web.service.face.AdminCommunityService;
 import web.service.face.BoardService;
+import web.service.impl.AdminCommunityServiceImpl;
 import web.service.impl.BoardServiceImpl;
 
 @WebServlet("/admin/community/board")
 public class AdminBoardCommunityListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	BoardService boardService = new BoardServiceImpl();
+	AdminCommunityService adminCommunityService = new AdminCommunityServiceImpl();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,15 +34,15 @@ public class AdminBoardCommunityListController extends HttpServlet {
 
 			int boardno = Integer.parseInt(req.getParameter("boardno"));
 
-			Paging paging = boardService.getPaging(req, boardno);
+			Paging paging = adminCommunityService.getPaging(req, boardno);
 
 			// Paging 객체를 MODEL 값으로 지정
 			req.setAttribute("paging", paging);
 
 			if (req.getParameter("searchcategory") != null) {
-				List<BBoard> list = boardService.getSearchList(paging, boardno);
+				List<BBoard> list = adminCommunityService.getSearchList(paging, boardno);
 
-				String boardname = boardService.getboardname(boardno);
+				String boardname = adminCommunityService.getboardname(boardno);
 
 				HttpSession session = req.getSession();
 
@@ -51,9 +53,9 @@ public class AdminBoardCommunityListController extends HttpServlet {
 				req.setAttribute("Userlevel", session.getAttribute("Userlevel"));
 
 			} else {
-				List<BBoard> list = boardService.getList(paging, boardno);
+				List<BBoard> list = adminCommunityService.getList(paging, boardno);
 
-				String boardname = boardService.getboardname(boardno);
+				String boardname = adminCommunityService.getboardname(boardno);
 
 				HttpSession session = req.getSession();
 
@@ -67,7 +69,7 @@ public class AdminBoardCommunityListController extends HttpServlet {
 
 			Recommend recommend = new Recommend();
 
-			int cnt = boardService.getTotalCntRecommend(recommend);
+			int cnt = adminCommunityService.getTotalCntRecommend(recommend);
 			req.setAttribute("reco", cnt);
 
 			// 게시글 목록 조회
