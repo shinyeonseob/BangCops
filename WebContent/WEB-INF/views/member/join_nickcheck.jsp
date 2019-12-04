@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="ko-KR">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -169,7 +169,7 @@ $(document).ready(function(){
 					required="required">
 			</div>
 			<div class="form-group">
-				<button type="submit" class="btn btn-success btn-lg btn-block">닉네임
+				<button type="submit" class="btn btn-primary btn-lg btn-block">닉네임
 					중복 확인</button>
 			</div>
 			<c:if test="${nickcheck eq 1 }">
@@ -181,7 +181,7 @@ $(document).ready(function(){
 				<button class="btn" data-clipboard-target="#nick">클립보드에 ${UserNick }을 복사합니다</button>
 			</c:if>
 		</form>
-		<input class="btn btn-success btn-lg btn-block" type='BUTTON'
+		<input class="btn btn-primary btn-lg btn-block" type='BUTTON'
 			value=" 창닫기" onClick='self.close()'>
 
 	</div>

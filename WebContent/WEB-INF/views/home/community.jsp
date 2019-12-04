@@ -12,14 +12,14 @@ div .left {
 	width:50%;
 	float: left;
     box-sizing: border-box;
-    border-right: 1px solid #000;
+    border-right: 1px solid #bcbcbc;
     min-height:580px;
 }
 div .right {
 	width:50%;
 	float: right;
     box-sizing: border-box;
-    border-left: 1px solid #000;
+    border-left: 1px solid #bcbcbc;
     min-height:580px;
 }
 
@@ -38,7 +38,7 @@ div .right {
 
 
 
-<div  id="left_top" style="witdh:100px;border:1px solid black;height:180px;margin-right:15px;padding:5px">
+<div  id="left_top" style="witdh:100px;border:1px solid #bcbcbc;height:180px;margin-right:15px;padding:5px">
 <div id=left_top_inner style="witdh:50px;height:168px">
 <div onclick="location.href='/main/community/board?boardno=3'" style="cursor:pointer"><h2 style="margin-top: 10px"> &nbsp;공지사항</h2></div>
 <hr style="margin-top:0px;margin-bottom:8px">
@@ -54,7 +54,7 @@ div .right {
 
 
 
-<div  id="left_middle" style="witdh:100px;border:1px solid black;height:180px;margin-right:15px;padding:5px">
+<div  id="left_middle" style="witdh:100px;border:1px solid #bcbcbc;height:180px;margin-right:15px;padding:5px">
 <div id=left_middle_inner style="witdh:50px;height:168px">
 <div onclick="location.href='/main/community/board?boardno=1'" style="cursor:pointer"><h2 style="margin-top: 10px"> &nbsp;자유게시판</h2></div>
 <hr style="margin-top:0px;margin-bottom:8px">
@@ -70,7 +70,7 @@ div .right {
 
 
 
-<div  id="left_bottom" style="witdh:100px;border:1px solid black;height:180px;margin-right:15px;padding:5px">
+<div  id="left_bottom" style="witdh:100px;border:1px solid #bcbcbc;height:180px;margin-right:15px;padding:5px">
 <div id=left_bottom_inner style="witdh:50px;height:168px">
 <div onclick="location.href='/main/community/board?boardno=2'" style="cursor:pointer"><h2 style="margin-top: 10px"> &nbsp;이용후기게시판</h2></div>
 <hr style="margin-top:0px;margin-bottom:8px">
@@ -96,7 +96,7 @@ div .right {
 
 
 <div class="right" style="padding-top:80px">
-<div  id="right_center" style="margin:auto;width: 300px; height: 400px; border: 1px solid black;border-radius:25px">
+<div  id="right_center" style="margin:auto;width: 300px; height: 400px; border: 1px solid #bcbcbc;border-radius:25px">
 <div id="right_center_inner" style="witdh:50px;height:358px;cursor:pointer;padding-right:10px;padding-left:10px">
 <h2>&nbsp; FAQ</h2>
 <hr style="margin-top:10px;width:265px">

@@ -30,6 +30,15 @@
    src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   
+<!--  폰트 -->
+<link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean" rel="stylesheet">
+<!--  @import url('https://fonts.googleapis.com/css?family=Black+Han+Sans:400'); @import url('https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean'); font-family: 'Black Han Sans', sans-serif; -->
+<link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/국립박물관문화재단클래식B.woff">
+<!-- @font-face { font-family: '국립박물관문화재단클래식B'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/국립박물관문화재단클래식B.woff') format('woff'); font-weight: normal; font-style: normal; } -->
+<!-- @font-face { font-family: 'KBIZHanmaumMyungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KBIZHanmaumMyungjo.woff') format('woff'); font-weight: normal; font-style: normal; } -->
+
+
 
 <!-- <!-- CSS -->
 <!-- <link rel="stylesheet" -->
@@ -81,7 +90,7 @@
    width: 150px;
    font-size: 15px;
    font-weight: bold;
-   font-family: "Trebuchet MS", Dotum, Arial;
+   font-family: 'KBIZHanmaumMyungjo' ;
    border: 1px solid #FFFFFF;
 }
 #topMenu .menuLink:hover {
