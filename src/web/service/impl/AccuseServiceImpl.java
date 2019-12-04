@@ -2,6 +2,7 @@ package web.service.impl;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -22,6 +23,7 @@ import web.dao.face.BoardFileDao;
 import web.dao.impl.AccuseDaoImpl;
 import web.dao.impl.BoardDaoImpl;
 import web.dao.impl.BoardFileDaoImpl;
+import web.dto.AccuseMap;
 import web.dto.BAccuse;
 import web.dto.BAttached;
 import web.dto.BBoard;
@@ -416,10 +418,38 @@ public class AccuseServiceImpl implements AccuseService {
 		return accuseDao.getBdeal(accuse);
 	}
 
+
+	public List getLocation() {
+		List list = new ArrayList();
+		
+		String guname[] = {"강남", "강동", "강서", "강북"
+						, "관악","광진","구로","금천"
+						, "노원","동대문","도봉","동작"
+						, "마포","서대문","성동","성북"
+						, "서초","송파","영등포","용산"
+						, "양천","은평","종로","중","중랑"};
+		
+		
+		
+		for(int i = 0; i<guname.length;i++) {
+			AccuseMap accusemap = new AccuseMap(); 
+			
+			accusemap.setGuname(guname[i]);
+			accusemap.setLat(accuseDao.getLocation(guname[i]).getLat());
+			accusemap.setLng(accuseDao.getLocation(guname[i]).getLng());
+			accusemap.setTotalaccuse(accuseDao.getTotalaccuse(guname[i]));
+			accusemap.setTotalagent(accuseDao.getTotalagent(guname[i]));
+			list.add(accusemap);
+		}
+		
+		
+		return list;
+	}
+
 	@Override
 	public BAccuse cntAccuse() {
-		
-		return accuseDao.selectCountByDailyAccuse();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

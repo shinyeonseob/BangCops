@@ -1,4 +1,4 @@
-package web.controller.comment;
+package web.controller.admin;
 
 import java.io.IOException;
 
@@ -8,30 +8,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dto.Bcomment;
+import web.dto.Recommend;
 import web.service.face.BoardService;
 import web.service.impl.BoardServiceImpl;
 
-@WebServlet("/comment/insert")
-public class CommentInsertController extends HttpServlet {
+@WebServlet("/admin/community/board/recommend")
+public class AdminBoardCommunityRecommendController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	private BoardService boardService = new BoardServiceImpl();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doPost(req, resp);
-	}
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Bcomment comment = boardService.getComment(req);
+		// 추천한 사람 정보 얻기
+		Recommend recommendParam = boardService.getRecommend(req);
 
-		boardService.insertComment(comment);
+		// 추천 정보 토글
+		boolean result = boardService.recommend(recommendParam);
 
-		System.out.println(comment.getIdx());
-		System.out.println(comment);
-		String referer = (String) req.getHeader("REFERER");
-		resp.sendRedirect(referer);
+		int cnt = boardService.getTotalCntRecommend(recommendParam);
+
+		// 결과 JSON 응답
+
+		resp.getWriter().println("{\"result\": " + result + ", \"cnt\": " + cnt + "}");
 	}
 
 }

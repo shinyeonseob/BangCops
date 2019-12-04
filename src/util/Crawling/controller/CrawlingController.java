@@ -25,14 +25,14 @@ public class CrawlingController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		
 		List<News> Newslist = crawling.getCrawlingList();
-//		System.out.println("Newslist" + Newslist);
+		
 		req.setAttribute("Newslist", Newslist);
 		
-		for(News n : Newslist) System.out.println(n);
+		// TEST
+//		for(News n : Newslist) System.out.println(n);
 		
 
-//		req.getRequestDispatcher("/WEB-INF/views/home/home.jsp")
-//		.forward(req, resp);
+
 		req.getRequestDispatcher("/WEB-INF/views/home/crawling.jsp")
 		.forward(req, resp);
 	}

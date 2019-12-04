@@ -74,6 +74,7 @@ public class BoardDaoImpl implements BoardDao {
 		
 		conn = DBconn.getConnection(); //DB 연결
 		
+
 		String sql= "SELECT * FROM (";
 		sql +=			" SELECT rownum rnum, B .* FROM (";
 		sql +=				" SELECT";
@@ -88,6 +89,7 @@ public class BoardDaoImpl implements BoardDao {
 		sql +=		" WHERE rnum BETWEEN ? AND ?";
 
 		//where to_char( 대상 테이블 컬럼, 'yyyymmdd' ) = to_char( sysdate, 'yyyymmdd'); // --> 당일조건으로 출력 
+
 		List<BBoard> list = new ArrayList<>();
 		
 		try {

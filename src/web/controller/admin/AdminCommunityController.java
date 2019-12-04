@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/admin/qna")
-public class AdminQnaController extends HttpServlet {
+@WebServlet("/admin/community")
+public class AdminCommunityController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -19,7 +19,7 @@ public class AdminQnaController extends HttpServlet {
 		if (req.getSession().getAttribute("adminlogin") != null) {
 
 			// view
-			req.getRequestDispatcher("/WEB-INF/views/admin/adminqna.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/views/admin/admincommunity.jsp").forward(req, resp);
 
 		} else {
 

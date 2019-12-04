@@ -19,10 +19,17 @@ public class HomeController extends HttpServlet {
 	
 	private AccuseService accuseService = new AccuseServiceImpl();
 
-	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
+
+		req.setCharacterEncoding("utf-8");
+		
+		List maplist =  accuseService.getLocation();
+		
+		req.setAttribute("maplist", maplist);
+		System.out.println(maplist);
+
 		//view
 		req.getRequestDispatcher("/WEB-INF/views/home/home.jsp")
 		.forward(req, resp);
