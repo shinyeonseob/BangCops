@@ -55,6 +55,8 @@ public interface AccuseDao {
 
 
 	public BDeal getBdeal(BAccuse accuse);
+	
+	public BAccuse selectCountByDailyAccuse();
 
 
 

@@ -2,6 +2,33 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
 
+<!-- 통계 원형그래프 -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: "'구'별 전체 신고 건수"
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
 <style type="text/css">
 .container {
 	text-align: center;
@@ -14,6 +41,7 @@
 
 
 </style>
+
 
 
 
@@ -76,7 +104,17 @@
 		</div>
 		<div class="form-group">
 			<button type="submit" id="btnSearchclass" class="btn btn-default">Search</button>
+		</div><br>
+		
 		</div>
+		<div>
+		<table>
+			<tr>
+				<td style="width:33%"><div ><h3><strong>오늘의 신고건수:</strong></h3></div></td>
+				<td style="width:33%"><div ><h3><strong>전체 신고건수:</strong></h3></div></td>
+				<td style="width:34%"><div id="piechart" style="width: 400px; height: 300px; float:right;padding-top:70px"></div></td>
+			</tr>
+		</table>
 		</div>
 	</form>
 	</div>

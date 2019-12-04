@@ -416,6 +416,12 @@ public class AccuseServiceImpl implements AccuseService {
 		return accuseDao.getBdeal(accuse);
 	}
 
+	@Override
+	public BAccuse cntAccuse() {
+		
+		return accuseDao.selectCountByDailyAccuse();
+	}
+
 
 }
 

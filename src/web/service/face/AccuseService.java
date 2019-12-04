@@ -84,6 +84,8 @@ public interface AccuseService {
 
 
 	public BDeal getBdeal(BAccuse accuse);
+	
+	public BAccuse cntAccuse();
 
 
 

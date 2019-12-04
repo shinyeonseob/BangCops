@@ -308,4 +308,9 @@ public class AccuseDaoImpl implements AccuseDao {
 		return bDeal;
 	}
 
+	@Override
+	public BAccuse selectCountByDailyAccuse() {
+		return null;
+	}
+
 }

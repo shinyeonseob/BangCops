@@ -90,9 +90,9 @@ $(document).ready(function() {
 </table>
 <hr style="background:grey;height:2px">
 <div>
-<%-- <c:if test="${login && boardno ne 3 && boardno ne 5}"> --%>
+<c:if test="${login && boardno ne 3 && boardno ne 5}">
 <a href="/main/community/board/write?boardno=${boardno }"><button>게시글작성</button></a>
-<%-- </c:if> --%>
+</c:if>
 <c:if test="${empty login && boardno eq 3 && boardno eq 5}">
 <a style="float:left" href="#myModal" class="trigger-btn" data-toggle="modal"><button onclick="loginPlease();">게시글 작성</button></a>
 </c:if>
