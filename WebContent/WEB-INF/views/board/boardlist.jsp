@@ -19,6 +19,21 @@ th {
 /* 	border:1px solid black; */
 	text-align:center;
 }
+
+#miniboard {
+	overflow:hidden;
+	width:200px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+table {
+	table-layout:fixed;
+	
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
 </style>
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
@@ -80,7 +95,7 @@ $(document).ready(function() {
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center;height:30">
 		<td>${ i.idx }</td>
-		<td style="text-align:left"><a href ="/main/community/board/view?idx=${ i.idx }">${ i.title } <c:if test="${i.commentCnt ne 0 }">[${i.commentCnt}]</c:if></a></td>
+		<td style="text-align:left;"><a href ="/main/community/board/view?idx=${ i.idx }">${ i.title } <c:if test="${i.commentCnt ne 0 }">[${i.commentCnt}]</c:if></a></td>
 		<td>${ i.usernick }</td>
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>
@@ -88,7 +103,9 @@ $(document).ready(function() {
 	</tr>
 </c:forEach>
 </table>
+
 <hr style="background:grey;height:2px">
+
 <div>
 <c:if test="${login && boardno ne 3 && boardno ne 5}">
 <a href="/main/community/board/write?boardno=${boardno }"><button>게시글작성</button></a>
@@ -107,6 +124,7 @@ $(document).ready(function() {
 	</select>
 	
 </div>
+
 </div>
 <div style="margin:0 auto" ><jsp:include page="/WEB-INF/views/layout/paging.jsp" /></div>
 
