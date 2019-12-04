@@ -74,8 +74,6 @@ function deleteComment(commentno) {
 			console.log("error");
 		}
 	});
-	
-
 }
 
 
@@ -293,7 +291,7 @@ function warning() {
 						<td><fmt:formatDate value="${comment.regDate }"
 								pattern="yy-MM-dd hh:mm:ss" /></td>
 						<td><c:if test="${sessionScope.Userno eq comment.userno }">
-								<button class="btn btn-default btn-xs"
+								<button class="btn btn-default btn-xs" 
 									onclick="deleteComment(${comment.commentno });">삭제</button>
 							</c:if></td>
 

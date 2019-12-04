@@ -50,11 +50,11 @@ public interface BoardDao {
 	// 각 게시판 이름 반환
 	public String getboardname(int boardno);
 	
-	public List<BBoard> selectFreeboardByReco();
+	public List<BBoard> selectFreeboardByReco(int cnt);
 	
-	public List<BBoard> selectReviewByReco();
+	public List<BBoard> selectReviewByReco(int cnt);
 	
-	public List<BBoard> selectNoticeByRegdate();
+	public List<BBoard> selectNoticeByRegdate(int cnt);
 	
 
 }

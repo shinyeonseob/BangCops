@@ -43,7 +43,7 @@ public class BoardViewController extends HttpServlet {
 //		System.out.println("[TEST] FBViewCon : " + list); //확인완료
 //		System.out.println(bAttached); //확인 완료
 		req.setAttribute("list", list);
-		System.out.println(list);
+//		System.out.println(list);
 		req.setAttribute("bAttached", bAttached);
 
 //		System.out.println(session.getAttribute("Userno"));
