@@ -15,7 +15,7 @@ div {
 
 #item {
 	display: inline-block;
-	background-color: #D8D8D8;
+	background-color: #FDB813;
 	width: 200px;
 	height: 260px;
 	/* 	border: 1px solid black;  */
@@ -49,7 +49,7 @@ div {
 
 	<div id="container">
 		<h2>
-			<Strong>신고</Strong>
+			<Strong><img src ="/resources/img/accuse.png" width="30" height="30">&nbsp;&nbsp;신고</Strong>
 		</h2>
 	</div>
 
@@ -66,7 +66,7 @@ div {
 			매물의 정보가 공유됩니다. </small>
 
 	</div>
-	<br> <br> <br>
+	<br> <br>
 
 
 
@@ -83,12 +83,12 @@ div {
 		</div>
 		<div>
 			<c:if test="${login }">
-				<a href="/accuse/write?accuseType=허위/과장매물"><button
-						class="btn btn-default" type="submit">신고하기</button></a>
+				<a href="/accuse/write?accuseType=허위/과장매물">
+				<button class="btn btn-primary" type="submit">신고하기</button></a>
 			</c:if>
 			<c:if test="${empty login }">
-				<a href="#myModal" class="trigger-btn" data-toggle="modal"><button
-						class="btnAccuse" onclick="loginPlease();">신고하기</button></a>
+				<a href="#myModal" data-toggle="modal">
+				<button	class="btnAccuse btn btn-primary" onclick="loginPlease();">신고하기</button></a>
 			</c:if>
 
 			<br> <br>
@@ -108,14 +108,14 @@ div {
 		</div>
 		<div>
 			<c:if test="${login }">
-				<a href="/accuse/write?accuseType=불량 매물"><button
-						class="btn btn-default" type="submit">신고하기</button></a>
+				<a href="/accuse/write?accuseType=불량 매물">
+				<button class="btn btn-primary" type="submit">신고하기</button></a>
 			</c:if>
 			<c:if test="${empty login }">
-				<a href="#myModal" class="trigger-btn" data-toggle="modal"><button
-						class="btnAccuse" onclick="loginPlease();">신고하기</button></a>
+				<a href="#myModal"data-toggle="modal"><button
+						class="btnAccuse btn btn-primary" onclick="loginPlease();">신고하기</button></a>
 			</c:if>
-			<br><br>
+			<br><br> 
 		</div>
 	</div>
 
@@ -135,12 +135,12 @@ div {
 
 		<div>
 			<c:if test="${login }">
-				<a href="/accuse/write?accuseType=사기 의심 매물"><button
-						class="btn btn-default" type="submit">신고하기</button></a>
+				<a href="/accuse/write?accuseType=사기 의심 매물">
+				<button class="btn btn-primary" type="submit">신고하기</button></a>
 			</c:if>
 			<c:if test="${empty login }">
-				<a href="#myModal" class="trigger-btn" data-toggle="modal"><button
-						class="btnAccuse" onclick="loginPlease();">신고하기</button></a>
+				<a href="#myModal" data-toggle="modal">
+				<button class="btnAccuse btn btn-primary" onclick="loginPlease();">신고하기</button></a>
 			</c:if>
 						<br><br>
 		</div>
@@ -149,7 +149,7 @@ div {
 
 
 </div>
-
+<br><br><br>
 
 
 
