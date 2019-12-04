@@ -23,9 +23,9 @@ div {
 <h6>신고된 휴대폰 번호는 본 서비스에 등록되어 선의의 거래 피해 방지에
 활용됩니다.</h6>
 <br><br><br>
-<a href ="/main/accuse"><button>추가신고</button></a>
-<a href ="/main"><button>홈화면으로</button></a>
-
+<a href ="/main/accuse"><button class="btn btn-danger">추가신고</button>&nbsp;&nbsp;</a>
+<a href ="/main"><button class="btn btn-primary">홈화면으로</button></a>
+<br><br><br><br><br><br>
 </div>
 
 

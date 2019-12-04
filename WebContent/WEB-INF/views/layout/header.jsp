@@ -31,24 +31,6 @@
 <script
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<!-- <!-- CSS --> -->
-<!-- <link rel="stylesheet" -->
-<!--    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
-<!-- <!-- JS --> -->
-<!-- <script -->
-<!--    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> -->
-   
-<!-- </script> -->
-<!-- <script -->
-<!--    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"> -->
-   
-<!-- </script> -->
-<!-- <script -->
-<!--    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"> -->
-   
-<!-- </script> -->
-
-
 <!--  jQuery -->
 <script type="text/javascript"
    src=https://code.jquery.com/jquery-2.2.4.min.js></script>
@@ -60,7 +42,7 @@
 
 <style>
 #topMenu {
-   height: 160px;
+   height: 120px;
    text-align: center;
    display: flex;
    justify-content: center;
@@ -71,7 +53,7 @@
    color: white;
    background-color: #0066B2;
    float: left;
-   line-height: 100px;
+   line-height: 80px;
    vertical-align: middle;
    text-align: center;
 }
@@ -80,7 +62,7 @@
    color: white;
    display: block;
    width: 150px;
-   font-size: 12px;
+   font-size: 15px;
    font-weight: bold;
    font-family: "Trebuchet MS", Dotum, Arial;
    border: 1px solid #FFFFFF;
@@ -95,7 +77,7 @@
    color: white;
    display: block;
    width: 150px;
-   font-size: 12px;
+   font-size: 15px;
    font-weight: bold;
    font-family: "Trebuchet MS", Dotum, Arial;
    border: 1px solid #bcbcbc;
@@ -243,11 +225,11 @@
    <a href="/main"><img class="logo" src="/resources/img/logo2.png"></a>
    </div>
       <ul>
-         <li><a id = "btn_search" class="menuLink" href="#">검색</a></li>
-         <li><a id = "btn_accuse" class="menuLink" href="#">신고</a></li>
-         <li><a id = "btn_home" class="menuLink" href="#">홈</a></li>
-         <li><a id = "btn_community" class="menuLink" href="#">커뮤니티</a></li>
-         <li><a class="menuLink" href="#">광고/배너</a></li>
+         <li><a id = "btn_search" class="menuLink" href="#"><img src="/resources/img/search.png" width="30" height="30" >&nbsp;&nbsp;검색</a></li>
+         <li><a id = "btn_accuse" class="menuLink" href="#"><img src="/resources/img/accuse.png" width="30" height="30">&nbsp;신고</a></li>
+         <li><a id = "btn_home" class="menuLink" href="#"><img src="/resources/img/home.png" width="30" height="30">&nbsp;홈</a></li>
+         <li><a id = "btn_community" class="menuLink" href="#"><img src="/resources/img/community.png" width="30" height="30">&nbsp;커뮤니티</a></li>
+         <li><a class="menuLink" href="#"><img src="/resources/img/advertising.png" width="30" height="30">&nbsp;광고/배너</a></li>
 
          <li>
          

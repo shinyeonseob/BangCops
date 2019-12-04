@@ -41,7 +41,7 @@ div {contain list-conta
 	<div class="floater">
 		<div class="list-container">
 			<div class="col-xs-4 col-md-2">
-				<div class="thumbnail">
+				<div class="thumbnai"WebContent/WEB-INF/views/accuse/accuseList.jsp"l">
 					<img src="/resources/img/logo.png" alt="허위매물정보">
 					<!--       //로고부분 넣는 실제로 들어가야함 -->
 					<div class="caption">
