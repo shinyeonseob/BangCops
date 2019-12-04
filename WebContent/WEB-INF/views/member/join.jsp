@@ -32,7 +32,7 @@ body {
 }
 
 .form-control:focus {
-   border-color: #5cb85c;
+   border-color: #FDB813;
 }
 
 .form-control, .btn {
@@ -118,7 +118,7 @@ body {
 }
 
 .signup-form form a {
-   color: #5cb85c;
+   color: #0066B2;
    text-decoration: none;
 }
 
@@ -194,12 +194,12 @@ body {
          </div>
          <div class="form-group">
             <label class="checkbox-inline"><input type="checkbox"
-               required="required"> I accept the <a href="#">Terms of
-                  Use</a> &amp; <a href="#">Privacy Policy</a></label>
+               required="required"> I accept the <a href="/termsofService">Terms of
+                  Use</a> &amp; <a href="/privacyStatement"">Privacy Policy</a></label>
          </div>
 
          <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block">회원가입
+            <button type="submit" class="btn btn-primary btn-lg btn-block">회원가입
                완료</button>
          </div>
       </form>
