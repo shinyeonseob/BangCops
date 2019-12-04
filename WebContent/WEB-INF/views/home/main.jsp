@@ -1,23 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
 
 <!-- 통계 원형그래프 -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+    
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
+    	  
+//     	var cntData = ${list};
+//     	console.log(cntData)
 
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
+        var data = google.visualization.arrayToDataTable(${list});
 
         var options = {
           title: "'구'별 전체 신고 건수"
@@ -110,8 +108,8 @@
 		<div>
 		<table>
 			<tr>
-				<td style="width:33%"><div ><h3><strong>오늘의 신고건수:</strong></h3></div></td>
-				<td style="width:33%"><div ><h3><strong>전체 신고건수:</strong></h3></div></td>
+				<td style="width:33%"><div ><h3><strong><font style="color:grey;font-size:14px">오늘의 신고건수</font><br> ${dailyCnt }</strong></h3></div></td>
+				<td style="width:33%"><div ><h3><strong><font style="color:grey;font-size:14px">전체 신고건수</font><br> ${totalCnt }</strong></h3></div></td>
 				<td style="width:34%"><div id="piechart" style="width: 400px; height: 300px; float:right;padding-top:70px"></div></td>
 			</tr>
 		</table>
