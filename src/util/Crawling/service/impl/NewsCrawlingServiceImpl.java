@@ -26,23 +26,21 @@ public class NewsCrawlingServiceImpl implements NewsCrawlingService{
 
 		// 2. 목록을 가져온다
 		//		System.out.println(""+ doc.toString());
-		Elements elements = doc.select(".articleList div a");
+		Elements elements = doc.select(".articleList "); 
 
-		// 3. 목록(배열)에서 정보를 가져온다.
 		int idx = 0;
 
 		List list = new ArrayList();
-		for(Element element : elements) {
+		for(Element e : elements) {
 			News news = new News();
+			System.out.println(++idx + " : " + e.toString());
 //			System.out.println(++idx + " : " + element.text());
-//			System.out.println(++idx + " : " + element.text());
-//			System.out.println("======================================");
-			news.setAtag(element.toString());
+			System.out.println("======================================");
+			news.setAtag(e.toString());
 //			System.out.println("daotest : " + news);
 			list.add(news);
 		}
 
-//		System.out.println("service list : " + list);
 		return list;
 
 	}

@@ -21,7 +21,7 @@
 			dataType : "html",
 			success : function(data) {
 				console.log("success")
-				console.log(data)
+// 				console.log(data)
 				$("#newsTable").html(data)
 			},
 			error : function() {
@@ -33,26 +33,28 @@
 
 <style type="text/css">
 #jb-container {
-	width: 940px;
+	width: 1200px;
 	margin: 0px auto;
 	padding: 20px;
 	border: 1px solid #bcbcbc;
 }
 
 #map {
-	width: 580px;
+	width: 1100px;
+	height : 600px;
 	padding: 20px;
-	margin-bottom: 20px;
-	float: left;
+    margin: auto auto 30px auto;
 	border: 1px solid #bcbcbc;
 }
 
 #jb-sidebar {
-	width: 260px;
-	padding: 20px;
-	margin-bottom: 20px;
-	/* 	float: right; */
-	border: 1px solid #bcbcbc;
+    width: 1102px;
+    height: 245px;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-left: 28px; 
+    /* float: right; */
+    border: 1px solid #bcbcbc;
 }
 
 #servicecenter {
@@ -61,14 +63,21 @@
 	border: 1px solid #bcbcbc;
 }
 
-.new {
-	width: 260px;
-	padding: 20px;
-	margin-bottom: 20px;
-	float: right;
-	border: 1px solid #bcbcbc;
+#searchbar{
+	width : 29%;
+	height : auto;
+	float: left;
 }
 
+#newsbar{
+	border: 1px solid black;
+	float : right;
+	width: 68%;
+	height: 200px;
+	overflow: auto;
+	border: 1px solid #bcbcbc;
+
+}
 #board {
 	clear: both;
 	padding: 20px;
@@ -78,11 +87,12 @@
 
 <div id="jb-container">
 
-	<div id="map" style="height: 473px; width: 70%;"></div>
+	<div id="map"  ></div>
+
 
 
 	   <script>
-	   
+	   //구글맵
 	   
 
 	   var result = new Array();
@@ -91,7 +101,7 @@
 			
 			var map = new google.maps.Map(document.getElementById('map'), {
 					center : {lat : 37.553226, lng : 126.980885 },
-					zoom : 11,
+					zoom : 13,
 
 				});
 				var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -138,7 +148,8 @@
 //		 													+ "' onclick='addIndex("
 //		 													+ i
 //		 													+ ");'> 장소 추가 </button>"
-			+ ' <a href="/main/accuse"><p>해당 지역 신고글 자세히 보러 가기</p></a>');
+			+ ' <a href="/accuselist?city=seoul&gu=' +  result[i].guname  + '"><p>해당 지역 신고글 자세히 보러 가기</p></a>');
+// 			+ ' <a href="/accuselist?city=seoul&gu=${ result[i].guname }"><p>해당 지역 신고글 자세히 보러 가기</p></a>');
 	infowindow.open(map, marker);
 		}
 	})(marker, i));
@@ -157,9 +168,10 @@
 
 
 
-	<div id="jb-sidebar" style="width: 30%">
+	<div id="jb-sidebar" >
+	<div id="searchbar">
 		<form class="form-inline" action="/accuselist" method="get">
-			<div class="form-group">
+			<div class="form-group" >
 				<label class="sr-only" for="city"></label> <input type="text"
 					id="city" name="city" class="form-control" size="10"
 					list="listcity" />
@@ -212,21 +224,15 @@
 		</form>
 		<a href="/main/accuse"><button id="btnAccuse"
 				class="btn btn-default">신고하기</button></a>
-	</div>
+</div>
 
-	<div id="news">
-		<div
-			style="border: 1px solid black; float: left; width: 30%; height: 200px; overflow: auto;">
-			뉴스기사
-			<hr>
-			<table id="newsTable">
-				<%-- 			<c:forEach items="${ Newslist }" var="i"> --%>
-				<!-- 			<tr> -->
-				<!-- 				<td>1{i}</td> -->
-				<!-- 			</tr> -->
-				<%-- 			</c:forEach> --%>
-			</table>
+		<div id="newsbar">
+			<b>최신 뉴스</b>
+			<div id="newsTable">
+
+			</div>
 		</div>
+
 	</div>
 
 	<div style="clear: both;"></div>
