@@ -573,7 +573,7 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public List<BBoard> selectFreeboardByReco() {
+	public List<BBoard> selectFreeboardByReco(int cnt) {
 		conn = DBconn.getConnection();
 		
 		String sql = "";
@@ -583,12 +583,14 @@ public class BoardDaoImpl implements BoardDao {
 		sql += "	        ( SELECT count(*) FROM recommend WHERE B.idx = idx )reco,";
 		sql += "	        ( SELECT COUNT(*) FROM Bcomment WHERE B.idx = idx )commentcnt";
 		sql += "	    from Bboard b WHERE boardno = 1 order by reco desc)";
-		sql += "	where rownum <= 5";  
+		sql += "	where rownum <= ?";  
 		
 		List<BBoard> list = new ArrayList<>();
 		
 		try {
 			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, cnt);
 			
 			rs = ps.executeQuery();
 			
@@ -612,7 +614,7 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public List<BBoard> selectReviewByReco() {
+	public List<BBoard> selectReviewByReco(int cnt) {
 		conn = DBconn.getConnection();
 		
 		String sql = "";
@@ -622,12 +624,14 @@ public class BoardDaoImpl implements BoardDao {
 		sql += "	        ( SELECT count(*) FROM recommend WHERE B.idx = idx )reco,";
 		sql += "	        ( SELECT COUNT(*) FROM Bcomment WHERE B.idx = idx )commentcnt";
 		sql += "	    from Bboard b WHERE boardno = 2 order by reco desc)";
-		sql += "	where rownum <= 5";  
+		sql += "	where rownum <= ?";  
 		
 		List<BBoard> list = new ArrayList<>();
 		
 		try {
 			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, cnt);
 			
 			rs = ps.executeQuery();
 			
@@ -651,7 +655,7 @@ public class BoardDaoImpl implements BoardDao {
 	}
 	
 	@Override
-	public List<BBoard> selectNoticeByRegdate() {
+	public List<BBoard> selectNoticeByRegdate(int cnt) {
 		conn = DBconn.getConnection();
 		
 		String sql = "";
@@ -661,12 +665,14 @@ public class BoardDaoImpl implements BoardDao {
 		sql += "	        ( SELECT count(*) FROM recommend WHERE B.idx = idx )reco,";
 		sql += "	        ( SELECT COUNT(*) FROM Bcomment WHERE B.idx = idx )commentcnt";
 		sql += "	    from Bboard b WHERE boardno = 3 order by regdate desc)";
-		sql += "	where rownum <= 5";  
+		sql += "	where rownum <= ?";  
 		
 		List<BBoard> list = new ArrayList<>();
 		
 		try {
 			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, cnt);
 			
 			rs = ps.executeQuery();
 			

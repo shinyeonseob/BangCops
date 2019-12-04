@@ -31,9 +31,10 @@ import web.dto.BBoardAndBboardType;
 import web.dto.BUser;
 import web.dto.Bcomment;
 import web.dto.Recommend;
+import web.service.face.AdminCommunityService;
 import web.service.face.BoardService;
 
-public class BoardServiceImpl implements BoardService {
+public class AdminCommunityServiceImpl implements AdminCommunityService {
 
 	private BoardDao boardDao = new BoardDaoImpl();
 	private BoardFileDao boardFileDao = new BoardFileDaoImpl();
@@ -247,10 +248,14 @@ public class BoardServiceImpl implements BoardService {
 
 		HttpSession session = req.getSession();
 
-		board.setUsernick((String) session.getAttribute("UserNick"));
-		board.setUserNo((int) session.getAttribute("Userno"));
-		board.setIdx(idx);
-		
+		if(session.getAttribute("adminlogin").equals(true)) {
+			board.setUsernick((String) session.getAttribute("adminloginNick"));
+			board.setIdx(idx);
+		}else {
+			board.setUsernick((String) session.getAttribute("UserNick"));
+			board.setUserNo((int) session.getAttribute("Userno"));
+			board.setIdx(idx);
+		}
 		boardDao.insert(board);
 
 		if (bAttached != null && bAttached.getFilesize() != 0) {
@@ -519,20 +524,20 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 
-	@Override
-	public List<BBoard> getBoardTopFiveInFreeboard(int cnt) {
-		return boardDao.selectFreeboardByReco(cnt);
-	}
-
-	@Override
-	public List<BBoard> getBoardTopFiveInReview(int cnt) {
-		return boardDao.selectReviewByReco(cnt);
-	}
-	
-	@Override
-	public List<BBoard> getBoardTopFiveInNotice(int cnt) {
-		return boardDao.selectNoticeByRegdate(cnt);
-	}
+//	@Override
+//	public List<BBoard> getBoardTopFiveInFreeboard() {
+//		return boardDao.selectFreeboardByReco();
+//	}
+//
+//	@Override
+//	public List<BBoard> getBoardTopFiveInReview() {
+//		return boardDao.selectReviewByReco();
+//	}
+//	
+//	@Override
+//	public List<BBoard> getBoardTopFiveInNotice() {
+//		return boardDao.selectNoticeByRegdate();
+//	}
 
 
 	

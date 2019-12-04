@@ -54,7 +54,7 @@ text-align: center;
 		});
 		
 		$("#btn_admin_faq").click(function() {
-			location.href = "/admin/faq";
+			location.href = "/admin/community/board?boardno=5";
 		});
 
 		$("#btn_admin_qna").click(function() {

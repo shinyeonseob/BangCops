@@ -25,12 +25,14 @@ public class CommunityController extends HttpServlet {
 	
 		req.setCharacterEncoding("UTF-8");
 		
+		int cnt = 5; //미리보기 카운트 횟수
+		
 		//자유게시판 목록 조회(당일, 추천순)
-		List<BBoard> list = boardService.getBoardTopFiveInFreeboard();
+		List<BBoard> list = boardService.getBoardTopFiveInFreeboard(cnt);
 		//공지사항 목록 조회(최신순)
-		List<BBoard> notice = boardService.getBoardTopFiveInNotice();
+		List<BBoard> notice = boardService.getBoardTopFiveInNotice(cnt);
 		//이용후기게시판 목록 조회(당일, 추천순)
-		List<BBoard> review = boardService.getBoardTopFiveInReview();
+		List<BBoard> review = boardService.getBoardTopFiveInReview(cnt);
 		
 		//Model값 전송
 		System.out.println(list);

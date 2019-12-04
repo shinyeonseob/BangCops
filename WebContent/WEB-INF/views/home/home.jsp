@@ -83,6 +83,13 @@
 	padding: 20px;
 	border: 1px solid #bcbcbc;
 }
+
+#miniboard {
+	overflow:hidden;
+	width:240px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
 </style>
 
 <div id="jb-container">
@@ -163,8 +170,8 @@
 
 			}; // map 종료
 
-
     </script>
+
 
 
 
@@ -239,15 +246,36 @@
 	<div id="board">
 		<div id="noticeboard"
 			style="border: 1px solid black; width: 33%; height: 100px; display: inline-block;">
-			<p>공지사항</p>
+			<a href="/main/community/board?boardno=3">&nbsp;공지사항 >></a>
+			<div >
+				<ol  start="1">
+				<c:forEach items="${notice }" var="i">
+					<li><div id="miniboard"><a id="miniboard">${i.title }</a></div></li>
+				</c:forEach>
+				</ol>
+			</div>
 		</div>
 		<div id="freeboard"
-			style="border: 1px solid black; width: 33%; height: 100px; display: inline-block;">
-			<p>자유게시판</p>
+			style="border: 1px solid black; width: 33%; height: 100px; display: inline-block">
+			<a href="/main/community/board?boardno=1">&nbsp;자유게시판 >></a>
+			<div>
+				<ol  start="1">
+				<c:forEach items="${free }" var="j">
+					<li><div id="miniboard"><a id="miniboard">${j.title }</a></div></li>
+				</c:forEach>
+				</ol>
+			</div>
 		</div>
 		<div id="reviewboard"
-			style="border: 1px solid black; width: 33%; height: 100px; display: inline-block;">
-			<p>이용후기 게시판</p>
+			style="border: 1px solid black; width: 33%; height: 100px; display: inline-block">
+			<a href="/main/community/board?boardno=2">&nbsp;이용후기 게시판 >></a>
+			<div>
+				<ol  start="1">
+				<c:forEach items="${review }" var="k">
+					<li ><div id="miniboard"><a id="miniboard">${k.title }</a></div></li>
+				</c:forEach>
+				</ol>
+			</div>
 		</div>
 	</div>
 

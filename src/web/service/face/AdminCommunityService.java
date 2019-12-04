@@ -12,7 +12,7 @@ import web.dto.BUser;
 import web.dto.Bcomment;
 import web.dto.Recommend;
 
-public interface BoardService {
+public interface AdminCommunityService {
 	public List<BBoard> getList(int boardno);
 	
 	//각 게시판 별 게시글 전체조회 (검색조건 포함)
@@ -68,10 +68,10 @@ public interface BoardService {
 
 	public void commentMyListDelete(String names);
 	
-	public List<BBoard> getBoardTopFiveInFreeboard(int cnt);
-	
-	public List<BBoard> getBoardTopFiveInNotice(int cnt);
-	
-	public List<BBoard> getBoardTopFiveInReview(int cnt);
+//	public List<BBoard> getBoardTopFiveInFreeboard();
+//	
+//	public List<BBoard> getBoardTopFiveInNotice();
+//	
+//	public List<BBoard> getBoardTopFiveInReview();
 
 }
