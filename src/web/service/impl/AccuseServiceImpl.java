@@ -447,9 +447,18 @@ public class AccuseServiceImpl implements AccuseService {
 	}
 
 	@Override
-	public BAccuse cntAccuse() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getDailyAccuse() {
+		return accuseDao.selectCountByDailyAccuse();
+	}
+
+	@Override
+	public int getTotalAccuse() {
+		return accuseDao.selectTotalCount();
+	}
+
+	@Override
+	public List<BAccuse> getTopFive() {
+		return accuseDao.getTopFiveByGu();
 	}
 
 
