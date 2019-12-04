@@ -85,6 +85,22 @@ public interface AccuseService {
 
 
 	public BDeal getBdeal(BAccuse accuse);
+	
+	/*
+	 * 오늘의 신고건수
+	 */
+	public int getDailyAccuse();
+	
+	/*
+	 * 전체 신고건수
+	 */
+	public int getTotalAccuse();
+	
+	/*
+	 * '구' 별 신고건수 TOP 5
+	 */
+	public List<BAccuse> getTopFive();
+
 
 	/**
 	 * 

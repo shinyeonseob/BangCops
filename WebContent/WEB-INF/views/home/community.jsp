@@ -96,7 +96,7 @@ div .right {
 
 
 <div class="right" style="padding-top:80px">
-<div onclick="location.href='/main/community/board?boardno=5'" id="right_center" style="margin:auto;width: 300px; height: 400px; border: 1px solid black;border-radius:25px">
+<div  id="right_center" style="margin:auto;width: 300px; height: 400px; border: 1px solid black;border-radius:25px">
 <div id="right_center_inner" style="witdh:50px;height:358px;cursor:pointer;padding-right:10px;padding-left:10px">
 <h2>&nbsp; FAQ</h2>
 <hr style="margin-top:10px;width:265px">

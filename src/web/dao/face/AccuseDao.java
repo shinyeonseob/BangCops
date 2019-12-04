@@ -56,8 +56,12 @@ public interface AccuseDao {
 
 
 	public BDeal getBdeal(BAccuse accuse);
+	
+	public int selectCountByDailyAccuse();
 
-
+	public int selectTotalCount();
+	
+	public List<BAccuse> getTopFiveByGu();
 
 
 
