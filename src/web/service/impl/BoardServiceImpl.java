@@ -520,18 +520,18 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BBoard> getBoardTopFiveInFreeboard() {
-		return boardDao.selectFreeboardByReco();
+	public List<BBoard> getBoardTopFiveInFreeboard(int cnt) {
+		return boardDao.selectFreeboardByReco(cnt);
 	}
 
 	@Override
-	public List<BBoard> getBoardTopFiveInReview() {
-		return boardDao.selectReviewByReco();
+	public List<BBoard> getBoardTopFiveInReview(int cnt) {
+		return boardDao.selectReviewByReco(cnt);
 	}
 	
 	@Override
-	public List<BBoard> getBoardTopFiveInNotice() {
-		return boardDao.selectNoticeByRegdate();
+	public List<BBoard> getBoardTopFiveInNotice(int cnt) {
+		return boardDao.selectNoticeByRegdate(cnt);
 	}
 
 
