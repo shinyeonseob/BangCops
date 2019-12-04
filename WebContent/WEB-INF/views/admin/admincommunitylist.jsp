@@ -13,9 +13,6 @@ th {
 
 <jsp:include page="/WEB-INF/views/admin/adminheader.jsp" />
 <script type="text/javascript">
-function loginPlease(){
-	alert("로그인 해주세요");
-}
 $(document).ready(function() {
 
 	$("#btnSearch").click(function() {
@@ -80,10 +77,10 @@ $(document).ready(function() {
 </table>
 <hr style="background:grey;height:2px">
 <div>
-<c:if test="${login && boardno ne 3 && boardno ne 5}">
+<c:if test="${adminlogin && boardno ne 3 && boardno ne 5}">
 <a href="/admin/community/board/write?boardno=${boardno }"><button>게시글작성</button></a>
 </c:if>
-<c:if test="${empty login && boardno eq 3 && boardno eq 5}">
+<c:if test="${empty adminlogin && boardno eq 3 && boardno eq 5}">
 <a style="float:left" href="#myModal" class="trigger-btn" data-toggle="modal"><button onclick="loginPlease();">게시글 작성</button></a>
 </c:if>
 

@@ -50,11 +50,11 @@ text-align: center;
 		});
 		
 		$("#btn_admin_accuse").click(function() {
-			location.href = "/accuselist";
+			location.href = "/admin/accuselist";
 		});
 		
 		$("#btn_admin_faq").click(function() {
-			location.href = "/admin/note";
+			location.href = "/admin/faq";
 		});
 
 		$("#btn_admin_qna").click(function() {
