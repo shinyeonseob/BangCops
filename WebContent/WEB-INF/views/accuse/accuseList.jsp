@@ -18,7 +18,6 @@
 div {contain list-conta
 	
 }
-
 .list-container {
 	text-align: center;
 	width: 100%;
@@ -38,9 +37,9 @@ div {contain list-conta
 <br>
 
 <c:forEach items="${list }" var="al">
-	<div class="floater">
+	<div id="floater">
 		<div class="list-container">
-			<div class="col-xs-4 col-md-2">
+			<div class="col-xs-6 col-md-3">
 				<div class="thumbnail">
 					<img src="/resources/img/logo.png" alt="허위매물정보">
 					<!--       //로고부분 넣는 실제로 들어가야함 -->
@@ -65,5 +64,4 @@ div {contain list-conta
 
 <hr>
 </div>
-<p style="clear: both"> </p>
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />
