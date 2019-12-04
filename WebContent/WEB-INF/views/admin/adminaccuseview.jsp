@@ -27,7 +27,7 @@ $(document).ready(function() {
 
 	//삭제버튼 동작
 	$("#btnDelete").click(function() {
-		$(location).attr("href", "/admin/accusedelete?accuseno=${list.accuseno }");
+		$(location).attr("href", "/admin/accusedelete?accuseno=${bAccuse2.accuseno }");
 	});
 	
 });

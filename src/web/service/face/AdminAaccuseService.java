@@ -16,4 +16,6 @@ public interface AdminAaccuseService {
 
 	BAccuse2 getbAccuse2(HttpServletRequest req);
 
+	void delete(BAccuse baccuse);
+
 }

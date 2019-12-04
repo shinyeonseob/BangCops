@@ -38,4 +38,16 @@ public class AdminAaccuseServiceImpl implements AdminAaccuseService {
 
 	}
 
+	@Override
+	public void delete(BAccuse baccuse) {
+		String accuseno = Integer.toString(baccuse.getAccuseno());
+		int idx = adminAaccuseDao.selectidxtoaccuseno(accuseno);
+		
+		adminAaccuseDao.deleteBAccuse(accuseno);
+		adminAaccuseDao.deleteBBoard(idx);
+		adminAaccuseDao.deleteBDeal(accuseno);
+		adminAaccuseDao.deleteBAttached(idx);
+		
+	}
+
 }
