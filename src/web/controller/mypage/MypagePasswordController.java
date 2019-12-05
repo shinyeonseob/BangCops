@@ -47,7 +47,7 @@ public class MypagePasswordController extends HttpServlet {
 //		System.out.println(memberService.getMemberByUserid(loginuser).getUserpw());
 		memberService.getMemberByUserid(loginuser).getUserpw();
 		req.setAttribute("usercurrpw", memberService.getMemberByUserid(loginuser).getUserpw());
-
+		req.setAttribute("pageno", 3);
 		//		System.out.println(userno);
 		//		System.out.println(userid);
 

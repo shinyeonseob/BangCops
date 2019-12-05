@@ -118,16 +118,17 @@ function checkAll() {
 </script>
 
 <div id = "mypage_comment" >
-	<h2>내가 쓴 댓글</h2>
+	<h2 style="font-family: 'NIXGONB-Vb';">내가 쓴 댓글</h2>
 </div>
 <br>
 <div class="container list-container table-hover">
 <hr style="background:grey;height:2px">
 <div>
-	<button  id = "btnChkDelete" class="btn btn-default">체크 삭제</button>
+	<button  id = "btnChkDelete" class="btn btn-default"
+	style="font-family: 'NIXGONB-Vb';">체크 삭제</button>
 </div>
 <table class="table table-hover">
-	<tr style="height:40">
+	<tr style="height:40;font-family: 'NIXGONB-Vb';">
 <!-- 		<th class="text-center" style="width:5%">글번호</th> -->
 		<th class="text-center" style="width:3%"><input type="checkbox" id="checkAll" onclick="checkAll();" /></th>
 		<th class="text-center" style="width:60%">댓글 내용</th>
@@ -135,7 +136,7 @@ function checkAll() {
 		<th class="text-center" style="width:10%">작성날짜</th>
 	</tr>
 <c:forEach items="${ list }" var="i">
-	<tr style="text-align:center;height:30">
+	<tr style="text-align:center;height:30;font-family: 'NIXGONB-Vb';">
 		<td><input type = "checkbox"  id = "checkRow" name="checkRow" value = "${ i.commentno }"/></td>
 		<td>${ i.contents }</td>
 		<td style="text-align:center"><a href ="/main/community/board/view?idx=${ i.idx }">${ i.title }</a></td>

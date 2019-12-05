@@ -7,39 +7,44 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-
-
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-	<link rel="stylesheet" href="assets/demo.css">
-	<link rel="stylesheet" href="assets/navigation-basic.css">
-	<link rel="stylesheet" href="assets/slicknav/slicknav.min.css">
 	
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="assets/slicknav/jquery.slicknav.min.js"></script>
 
-	<script>
-
-		$(function(){
-
-	        var menu = $('.menu-navigation-basic');
-
-	        menu.slicknav();
-
-	        // Mark the clicked item as selected
-
-	        menu.on('click', 'a', function(){
-	            var a = $(this);
-
-	            a.siblings().removeClass('selected');
-	            a.addClass('selected');
-	        });
-	    });
-	    
+<script type="text/javascript">
+// 		$(function() {
+// 			$('ul.tab li').click(function() {
+// 				var activeTab = $(this).attr('data-tab');
+// 				$('ul.tab li').removeClass('current');
+// 				$('.tabcontent').removeClass('current');
+// 				$(this).addClass('current');
+// 				$('#' + activeTab).addClass('current');
+// 			})
+// 		});
+		
+		$(document).ready(function(){
+			var pageno = "${pageno}";
+			console.log(pageno);
+			if(pageno == "1"){
+				$("#mypagemain").addClass("active");
+			}else if(pageno == "2"){
+				$("#mypageupdate").addClass("active");
+			}else if(pageno == "3"){
+				$("#mypagepw").addClass("active");
+			}else if(pageno == "4"){
+				$("#mypageboard").addClass("active");
+			}else if(pageno == "5"){
+				$("#mypagecomment").addClass("active");
+			}else if(pageno == "6"){
+				$("#withdrawal").addClass("active");
+			}
+			
+		})
 	</script>
 
 <style type="text/css">
@@ -51,79 +56,68 @@
 	align-items: stretch;
 	min-height : 100px;
 	margin-right: 660px;
+	font-family: '행복고흥L';
 }
+#container {
+			width:960px;
+			margin:0 auto;
+			text-align:center;
+			font-family: '행복고흥L';
+			font-size: 20px;
+		}
 
- #mypagemenu { 
- 	text-align: center; 
- 	display: flex; 
- 	justify-content: center; 
- 	margin-right: 240px; 
- } 
- #menubar{ 
- 	margin-top:9px; 
- 	margin-bottom:65px; 
- } 
- #logo{ 
- 	height: 10px; 
- } 
-/*  .nav-tabs{  */
-/*  	display: flex;  */
-/*  	flex-direction: row;  */
-/*  	width:100%;  */
-/*  	margin: 0;  */
-/*  	padding: 0;  */
-/*  	background-color: navy;  */
-/*  	list-style-type:none;  */
-/*  }  */
-/*  .nav-item{  */
-/*  	padding: 15px;  */
-/*  	cursor: pointer;  */
-/*  }  */
-/*  .nav-item a{  */
-/*  	text-align:cener;  */
-/*  	text-decoration: none;  */
-/*  	color:white;  */
-/*  }  */
-/*  .nav-item:nth-child(1){  */
-/*  	background-color: lightseagreen;  */
-/*  }  */
-/*  .nav-item:hover{  */
-/*  	background-color : grey;  */
-/*  }  */
-/*  .nav-container{  */
-/*  	position: fixed;  */
-/*  	top:0;  */
-/*  }  */
+		
+#menubar{
+	margin-top:9px;
+	margin-bottom:65px;
+}
 </style>
 
 
 <br>
 <br>	
-<div class="container list-container">
-<div id = "mypagetitle" class="row"><h1 >마이페이지</h1></div>
+<div id = "mypagetitle" class="row"><h1 ><b>마이페이지</b></h1></div>
+-
+	<div id="container">
 
-	<div id = "mypagemenu" role="tabpanel">
+<!-- 		<ul class="tab  nav nav-tabs"> -->
+<!-- 			<li class="current" data-tab="tab1"><a href="/mypage/main">나의정보</a></li> -->
+<!-- 			<li data-tab="tab2"><a href="/mypage/update">정보 수정</a></li> -->
+<!-- 			<li data-tab="tab3"><a href="/mypage/pw">비밀번호 변경</a></li> -->
+<!-- 			<li data-tab="tab4"><a href="/mypage/board">내가 쓴 글내역</a></li> -->
+<!-- 			<li data-tab="tab5"><a href="/mypage/comment">내가 쓴 댓글</a></li> -->
+<!-- 			<li data-tab="tab6"><a href="/mypage/with">회원 탈퇴</a></li> -->
+<!-- 		</ul> -->
+
+<!-- 	</div> -->
+
+	<div role="tabpanel">
+		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist" id="menubar">
-			<li id="mypagemain" class= "nav-item" role="presentation" ><a href="/mypage/main" aria-controls="mypagemain" role="tab">나의 정보</a></li>
-			<li id="mypageupdate" class= "nav-item" role="presentation" ><a href="/mypage/update" aria-controls="mypageupdate" role="tab">정보 수정</a></li>
-			<li id="mypagepw" class= "nav-item" role="presentation" ><a href="/mypage/pw" aria-controls="mypagepw" role="tab">비밀번호 변경</a></li>
-			<li id="myboard" class= "nav-item" role="presentation" ><a href="/mypage/board" aria-controls="myboard" role="tab">내가 쓴 글 내역</a></li>
-			<li id="mycomment" class= "nav-item" role="presentation" ><a href="/mypage/comment" aria-controls="mycomment" role="tab">내가 쓴 댓글</a></li>
-			<li id="withdrawal" class= "nav-item" role="presentation" ><a href="/mypage/with" aria-controls="withdrawal" role="tab">회원탈퇴</a></li>
+			<li role="presentation" id="mypagemain"><a href="/mypage/main" aria-controls="mypagemain" role="tab">
+			<span style="color:black">나의정보</span></a></li>
+			<li role="presentation" id="mypageupdate"><a href="/mypage/update" aria-controls="mypageupdate" role="tab">
+			<span style="color:black">정보 수정</span></a></li>
+			<li role="presentation" id="mypagepw"><a href="/mypage/pw" aria-controls="mypagepw" role="tab">
+			<span style="color:black">비밀번호 변경</span></a></li>
+			<li role="presentation" id="mypageboard"><a href="/mypage/board" aria-controls="mypageboard" role="tab">
+			<span style="color:black">내가 쓴 글 내역</span></a></li>
+			<li role="presentation" id="mypagecomment"><a href="/mypage/comment" aria-controls="mypagecomment" role="tab">
+			<span style="color:black">내가 쓴 댓글</span></a></li>
+			<li role="presentation" id="withdrawal"><a href="/mypage/with" aria-controls="withdrawal" role="tab">
+			<span style="color:black">회원 탈퇴</span></a></li>
 		</ul>
-
 		<!-- Tab panes -->
-	<%-- 	<div class="tab-content">
-			<div id="mypagemain" role="tabpanel" class="tab-pane" ></div>
-			<div id="mypageupdate" role="tabpanel" class="tab-pane" ></div>
-			<div id="mypagepw" role="tabpanel" class="tab-pane" ></div>
-			<div id="myboard" role="tabpanel" class="tab-pane" ></div>
-			<div id="mycomment" role="tabpanel" class="tab-pane" ></div>
-			<div id="withdrawal" role="tabpanel" class="tab-pane" ></div>
-		</div>--%>
-	</div>
-</div>
-
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="mypagemain"></div>
+			<div role="tabpanel" class="tab-pane" id="mypageupdate"></div>
+			<div role="tabpanel" class="tab-pane" id="mypagepw"></div>
+			<div role="tabpanel" class="tab-pane" id="mypageboard"></div>
+			<div role="tabpanel" class="tab-pane" id="mypagecomment"></div>
+			<div role="tabpanel" class="tab-pane" id="withdrawal"></div>
+		</div>
+	</div>	
+    </div>
 
 
 

@@ -66,7 +66,7 @@ public class MypageCommentController extends HttpServlet {
 		
 		
 		req.setAttribute("list", list);
-		
+		req.setAttribute("pageno", 5);
 		
 		
 		

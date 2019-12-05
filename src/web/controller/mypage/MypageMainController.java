@@ -49,7 +49,7 @@ public class MypageMainController extends HttpServlet {
 //		System.out.println(getMemberByUserid);
 		
 		req.setAttribute("BUser", getMemberByUserid);
-		
+		req.setAttribute("pageno", 1);
 		
 		//view
 		req.getRequestDispatcher("/WEB-INF/views/member/mypage.jsp")
