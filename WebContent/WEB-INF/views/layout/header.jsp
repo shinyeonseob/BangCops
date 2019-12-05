@@ -60,7 +60,9 @@
 <!--  jQuery -->
 <script type="text/javascript"
    src=https://code.jquery.com/jquery-2.2.4.min.js></script>
-
+   
+   
+  
 
 <style type="text/css">
 
@@ -107,6 +109,7 @@
    font-weight: bold;
    font-family: "Trebuchet MS", Dotum, Arial;
    border: 1px solid #bcbcbc;
+
 }
 .modal-login {
    color: #636363;
@@ -200,6 +203,13 @@
 #mainlogo{
    width: 50px;
 }
+.headergood{
+	background-color: #FFFFFF;
+	height: 200px;
+	bpx-shadow: 0px 1px 50px #5E5E5E;
+	position:fixed;
+	top:0px;
+}
 
 </style>
 
@@ -241,21 +251,20 @@
 
 </head>
 <body>
-      <div class="jumbotron text-center">
-      <h1>방캅스</h1>
-      <p>KH 방갑조</p>
-   </div>
+<div class="firstblank">
+</div>
 
+	<div id ="header.activated">
    <nav id="topMenu">
    <div id = "mainlogo" class="navbar-header">
    <a href="/main"><img class="logo" src="/resources/img/logo2.png"></a>
    </div>
       <ul>
-         <li><a id = "btn_search" class="menuLink" href="#"><img src="/resources/img/search.png" width="30" height="30" >&nbsp;&nbsp;검색</a></li>
-         <li><a id = "btn_accuse" class="menuLink" href="#"><img src="/resources/img/accuse.png" width="30" height="30">&nbsp;신고</a></li>
-         <li><a id = "btn_home" class="menuLink" href="#"><img src="/resources/img/home.png" width="30" height="30">&nbsp;홈</a></li>
-         <li><a id = "btn_community" class="menuLink" href="#"><img src="/resources/img/community.png" width="30" height="30">&nbsp;커뮤니티</a></li>
-         <li><a class="menuLink" href="#"><img src="/resources/img/advertising.png" width="30" height="30">&nbsp;광고/배너</a></li>
+         <li><a id = "btn_search" class="menuLink" href="#"><img src="/resources/img/Wsearch.png" width="30" height="30" >&nbsp;&nbsp;검색</a></li>
+         <li><a id = "btn_accuse" class="menuLink" href="#"><img src="/resources/img/Waccuse.png" width="30" height="30">&nbsp;신고</a></li>
+         <li><a id = "btn_home" class="menuLink" href="#"><img src="/resources/img/Whome.png" width="30" height="30">&nbsp;홈</a></li>
+         <li><a id = "btn_community" class="menuLink" href="#"><img src="/resources/img/Wcommunity.png" width="30" height="30">&nbsp;커뮤니티</a></li>
+<!--          <li><a class="menuLink" href="#"><img src="/resources/img/advertising.png" width="30" height="30">&nbsp;광고/배너</a></li> -->
 
          <li>
          
