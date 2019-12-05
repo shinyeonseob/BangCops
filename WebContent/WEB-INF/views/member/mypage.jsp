@@ -12,12 +12,12 @@
 	display: flex;
 	justify-content: center;
 	align-items: stretch;
-	min-height : 200px;
+	min-height : 100px;
 	margin-right: 730px;
 }
 
 .container {
-	width : 100%;
+	width : 1400px;
     display: block;
     text-align: center;
 	justify-content: center;
@@ -74,14 +74,14 @@
 
 </div>--%>
 <div id = "info_name"> 
-	<label> 이름  </label>
-	<label>${BUser.username } </label>
+	<label> 이름  </label>&nbsp;&nbsp;&nbsp;
+	<label><strong>${BUser.username }</strong></label>
 
 </div>
 <br>
 <div id = "info_nick">
-	<label> 닉네임  </label>
-	<label>${BUser.usernick } </label>
+	<label> 닉네임  </label>&nbsp;&nbsp;&nbsp;
+	<label><strong>${BUser.usernick }</strong> </label>
 </div>
 <br>
 <div id = "info_info"> ※ 닉네임 미등록 시 회원 실명이 표시됩니다.</div>

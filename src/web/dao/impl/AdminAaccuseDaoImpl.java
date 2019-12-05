@@ -234,7 +234,6 @@ public class AdminAaccuseDaoImpl implements AdminAaccuseDao {
 				bAccuse.setAgent(rs.getString("Agent"));
 				bAccuse.setProperty(rs.getString("Property"));
 				bAccuse.setPhoneNo(rs.getString("PhoneNo"));
-				
 				bAccuse.setTitle(rs.getString("title"));
 				bAccuse.setContents(rs.getString("contents"));
 				bAccuse.setRegDate(rs.getDate("regdate"));

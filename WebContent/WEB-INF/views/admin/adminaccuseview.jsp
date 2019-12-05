@@ -68,7 +68,7 @@ $(document).ready(function() {
 <td class="danger">전화번호</td><td colspan="2">${bAccuse2.phoneNo }</td>
 </tr>
 <tr>
-<td class="danger">작성자</td><td colspan="2">${bAccuse2.userid }</td>
+<td class="danger">작성자</td><td colspan="2">${bAccuse2.userNo} ,${bAccuse2.usernick }</td>
 </tr>
 <tr>
 <td class="danger">상세신고내역</td><td colspan="2">${bAccuse2.contents }</td>

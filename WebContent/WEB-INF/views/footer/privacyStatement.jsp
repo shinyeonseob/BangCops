@@ -7,7 +7,7 @@
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
 <br><br><br><br>
-<section class="showcase">
+<section class="showcase" >
     <div class="container-fluid p-0" style="background:#fff;">
         <div class="row no-gutters">
             <div class="col-lg-12 order-lg-1 my-auto showcase-text pb-4">
@@ -561,7 +561,6 @@
         </div>
 		<!--// 끝 -->
 
-    </div>
 </section>
 
 
