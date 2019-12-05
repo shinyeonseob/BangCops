@@ -39,6 +39,7 @@ public class CommunityController extends HttpServlet {
 		req.setAttribute("freeboard", list); //자유게시판
 		req.setAttribute("notice", notice); //이용후기게시판
 		req.setAttribute("review", review); //공지사항
+		req.setAttribute("flag", 4);
 		
 
 		//view

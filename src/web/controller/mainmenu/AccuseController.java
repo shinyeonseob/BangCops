@@ -17,6 +17,7 @@ public class AccuseController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		req.setAttribute("flag", 2);
 		//view
 		req.getRequestDispatcher("/WEB-INF/views/home/accuse.jsp")
 		.forward(req, resp);

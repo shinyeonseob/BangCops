@@ -63,6 +63,7 @@ public class MainController extends HttpServlet {
 		req.setAttribute("dailyCnt", dailyCnt); //오늘의 신고건수
 		req.setAttribute("totalCnt", totalCnt); //전체 신고건수
 		req.setAttribute("list", gson.toJson(arr)); //'구'별 신고건수 TOP 5 Json으로 보내기
+		req.setAttribute("flag", 1);
 
 		// VIEW
 		req.getRequestDispatcher("/WEB-INF/views/home/main.jsp")
