@@ -129,7 +129,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	<td>${list.phoneNo }</td>
 	<td>${list.usernick }</td>
 	<td>${list.regDate }</td>
-	<td><button><a href="/admin/accuseview?accuseno=${list.accuseno }">상세정보</a></button></td>
+	<td><a href="/admin/accuseview?accuseno=${list.accuseno }"><button>상세정보</button></a></td>
 	<td><a class="btn btn-primary" id="btnBoard" href='/admin/memberview?userno=${list.userNo }'">작성자정보</a></td>
     <td><a href="/admin/accusedelete?accuseno=${list.accuseno }"><button id="btnDelete">삭제</button></a></td>
 </tr>
