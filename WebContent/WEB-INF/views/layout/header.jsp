@@ -12,6 +12,8 @@
 <meta name="description"
    content="The Overflowing church website's main page" />
 <title>허위매물신고 사이트 :: Bangcops</title>
+<script type="text/javascript"
+   src=https://code.jquery.com/jquery-2.2.4.min.js></script>
 
 <!-- 부트스트랩 -->
 <link rel="stylesheet"
@@ -61,8 +63,6 @@
 <!-- </script> -->
 
 <!--  jQuery -->
-<script type="text/javascript"
-   src=https://code.jquery.com/jquery-2.2.4.min.js></script>
    
    
   
@@ -228,11 +228,12 @@ html, body{
 .active{
 	background-color: #FDB813;
 }
-ul.nav li.dropdown:hover > ul.dropdown-menu { 
+ 
+ul li.dropdown:hover > ul.dropdown-menu { 
 	display:block; margin:0; 
-	background-color: #FFFFFF;
+/* 	background-color: #FFFFFF; */
 	
-   color:white;
+/*    color:white; */
 }
 .divider{
 	color: white;
@@ -263,13 +264,19 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 //          location.href = "/main/home";
 //       });
       
-//       // 커뮤니티 버튼
+      // 커뮤니티 버튼
 //       $("#btn_community").click(function() {
 //          location.href = "/main/community";
 //       });
       
 //    });
 $(document).ready(function() {
+	
+	var uri = '<%=request.getRequestURI()%>';
+	if(uri == '/WEB-INF/views/board/boardlist.jsp') {
+		$("ul li.dropdown").css("background-color", "#FDB813")
+	}
+	
 	var flag = "${flag}";
 	console.log(flag);
 	if(flag == "1"){
@@ -326,12 +333,12 @@ $(document).ready(function() {
          <a id = "btn_home" class="menuLink" href="/main/home">
          <img src="/resources/img/Whome.png" width="30" height="30">&nbsp;<b>홈</b></a></li>
          
-         <li class="dropdown" role="presentation">
-         <a id = "btn_community" class="menuLink dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="/main/community">
+         <li class="dropdown" role="presentation" onclick="location.href='/main/community'">
+         <a href="/main/community" id = "btn_community" class="menuLink dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" >
          <img src="/resources/img/Wcommunity.png" width="30" height="30">&nbsp;<b>커뮤니티
          <span class="caret"></span> <%-- --%>
          </b></a>
-				<ul class="dropdown-menu" role="menu" style ="background-color: #242645 ; color:white !important;">
+				<ul class="dropdown-menu" role="menu" style ="background-color: #242645 ; color:white ;">
          			<li ><a style = "color:white;" href="/main/community/board?boardno=1">자유게시판</a></li>
            			<li><a style = "color:white;" href="/main/community/board?boardno=2">이용후기게시판</a></li>
            			<li class="divider" ></li>
@@ -393,7 +400,7 @@ $(document).ready(function() {
                </form>
             </div>
             <div class="modal-footer">
-               <a href="/member/find" target="_blank">비밀번호를 잊으셨나요</a>
+               <a href="/member/find" target="_blank">비밀번호를 잊으셨나요?</a>
             </div>
          </div>
       </div>
