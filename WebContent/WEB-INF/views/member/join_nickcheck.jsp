@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="ko-KR">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +19,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
+
 <style type="text/css">
 body {
 	color: #fff;
@@ -137,7 +137,25 @@ body {
 	display: inline;
 }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+<script>
+$(document).ready(function(){
 
+    var clipboard = new Clipboard('.btn');
+    clipboard.on('success', function(e) {
+        console.log("Success");
+
+        /*
+        아래 함수를 통해서 블록지정을 없앨 수 있습니다.
+        */
+        var selection = window.getSelection();
+        selection.removeAllRanges();
+    });
+    clipboard.on('error', function(e) {
+        console.log("Fail");
+    });
+});
+</script>
 </head>
 <body>
 
@@ -146,17 +164,25 @@ body {
 		<form action="/member/check" method="post">
 
 			<div class="form-group">
-				<input type="text" class="form-control" name="UserNick"
-					placeholder="닉네임을 입력해주세요" required="required">
+				<input type="text" class="form-control" id="nick"
+					name="UserNick" placeholder="닉네임을 입력해주세요" data-clipboard-action="cut" value="${UserNick }"
+					required="required">
 			</div>
 			<div class="form-group">
-				<button type="submit" class="btn btn-success btn-lg btn-block">닉네임
+				<button type="submit" class="btn btn-primary btn-lg btn-block">닉네임
 					중복 확인</button>
 			</div>
-<c:if test="${nickcheck eq 1 }"><h3>이미 존재하는 닉네임입니다</h3></c:if>
-<c:if test="${nickcheck eq 2 }"><h3>사용 가능한 닉네임입니다</h3></c:if>
+			<c:if test="${nickcheck eq 1 }">
+				<h3>이미 존재하는 닉네임입니다</h3>
+				<br>
+			</c:if>
+			<c:if test="${nickcheck eq 2 }">
+				<h3>사용 가능한 닉네임입니다</h3>
+				<button class="btn" data-clipboard-target="#nick">클립보드에 ${UserNick }을 복사합니다</button>
+			</c:if>
 		</form>
-		<input class="btn btn-success btn-lg btn-block" type='BUTTON' value=" 창닫기" onClick='self.close()'>
+		<input class="btn btn-primary btn-lg btn-block" type='BUTTON'
+			value=" 창닫기" onClick='self.close()'>
 
 	</div>
 </body>

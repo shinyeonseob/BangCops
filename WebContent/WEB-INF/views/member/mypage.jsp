@@ -12,16 +12,18 @@
 	display: flex;
 	justify-content: center;
 	align-items: stretch;
-	min-height : 200px;
+	min-height : 100px;
 	margin-right: 730px;
+	font-family: 'NIXGONB-Vb';
 }
 
 .container {
-	width : 100%;
+	width : 1400px;
     display: block;
     text-align: center;
 	justify-content: center;
 	align-items: stretch;
+	
 }
 
 #photo{
@@ -65,7 +67,7 @@
 
 
 <div id = "mypage_info" >
-	<h2>나의 정보</h2>
+	<h2  style="font-family: 'NIXGONB-Vb';">나의 정보</h2>
 </div>
 
 <div class = "container">
@@ -74,17 +76,18 @@
 
 </div>--%>
 <div id = "info_name"> 
-	<label> 이름  </label>
-	<label>${BUser.username } </label>
+	<label style="font-family: 'NIXGONB-Vb';font-size: 20px;color: black"> 이름  </label>&nbsp;&nbsp;&nbsp;
+	<label style="font-family: 'NIXGONB-Vb';font-size: 20px;color: black"><strong>${BUser.username }</strong></label>
 
 </div>
 <br>
 <div id = "info_nick">
-	<label> 닉네임  </label>
-	<label>${BUser.usernick } </label>
+	<label style="font-family: 'NIXGONB-Vb';font-size: 20px;color: black"> 닉네임  </label>&nbsp;&nbsp;&nbsp;
+	<label style="font-family: 'NIXGONB-Vb';font-size: 20px;color: black"><strong>${BUser.usernick }</strong> </label>
 </div>
 <br>
-<div id = "info_info"> ※ 닉네임 미등록 시 회원 실명이 표시됩니다.</div>
+<div id = "info_info"><span  style="font-family: 'NIXGONB-Vb';font-size: 15px;color: #bcbcbc">
+ ※ 닉네임 미등록 시 회원 실명이 표시됩니다.</span></div>
 </div>
 
 

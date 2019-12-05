@@ -45,13 +45,23 @@ text-align: center;
 			location.href = "/admin/memberlist";
 		});
 
-		$("#btn_admin_boardlist").click(function() {
+		$("#btn_admin_community").click(function() {
 			location.href = "/admin/community";
 		});
 		
+		$("#btn_admin_accuse").click(function() {
+			location.href = "/admin/accuselist";
+		});
+		
+		$("#btn_admin_faq").click(function() {
+			location.href = "/admin/community/board?boardno=5";
+		});
+
 		$("#btn_admin_qna").click(function() {
 			location.href = "/admin/qna";
 		});
+
+		
 	});
 </script>
 
@@ -65,10 +75,10 @@ text-align: center;
       <div class="card">
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a id="btn_admin_memberlist" class="menuLink" href="#" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-home"></i>  <span>회원리스트</span></a></li>
-          <li role="presentation"><a id="btn_admin_boardlist" class="menuLink" href="#" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-user"></i>  <span>공지사항</span></a></li>
-          <li role="presentation"><a aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-envelope-o"></i>  <span>게시판</span></a></li>
+          <li role="presentation"><a id="btn_admin_community" class="menuLink" href="#" aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-envelope-o"></i>  <span>게시판</span></a></li>
+          <li role="presentation"><a id="btn_admin_accuse" class="menuLink" href="#" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-plus-square-o"></i>  <span>신고글</span></a></li>
+          <li role="presentation"><a id="btn_admin_faq" class="menuLink" href="#" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-user"></i>  <span>FAQ</span></a></li>
           <li role="presentation"><a id="btn_admin_qna" class="menuLink" href="#" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-cog"></i>  <span>QnA</span></a></li>
-          <li role="presentation"><a aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-plus-square-o"></i>  <span>패치노트</span></a></li>
         </ul>
         
       </div>

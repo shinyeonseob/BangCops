@@ -250,7 +250,7 @@ public class BoardServiceImpl implements BoardService {
 		board.setUsernick((String) session.getAttribute("UserNick"));
 		board.setUserNo((int) session.getAttribute("Userno"));
 		board.setIdx(idx);
-
+		
 		boardDao.insert(board);
 
 		if (bAttached != null && bAttached.getFilesize() != 0) {
@@ -518,6 +518,22 @@ public class BoardServiceImpl implements BoardService {
 		commentDao.deleteCommentList(names);
 		
 	}
+
+	@Override
+	public List<BBoard> getBoardTopFiveInFreeboard(int cnt) {
+		return boardDao.selectFreeboardByReco(cnt);
+	}
+
+	@Override
+	public List<BBoard> getBoardTopFiveInReview(int cnt) {
+		return boardDao.selectReviewByReco(cnt);
+	}
+	
+	@Override
+	public List<BBoard> getBoardTopFiveInNotice(int cnt) {
+		return boardDao.selectNoticeByRegdate(cnt);
+	}
+
 
 	
 

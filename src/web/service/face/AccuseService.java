@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import util.Paging;
 import web.dto.BAccuse;
+import web.dto.BAccuse3;
 import web.dto.BBoard;
 import web.dto.BDeal;
 
@@ -75,7 +76,7 @@ public interface AccuseService {
 
 
 
-	public List<BAccuse> getSearchListBAccuse(Paging paging, HttpServletRequest req);
+	public List<BAccuse3> getSearchListBAccuse(Paging paging, HttpServletRequest req);
 
 
 
@@ -83,7 +84,32 @@ public interface AccuseService {
 
 
 
+
 	public BDeal getBdeal(BAccuse accuse);
+	
+	/*
+	 * 오늘의 신고건수
+	 */
+	public int getDailyAccuse();
+	
+	/*
+	 * 전체 신고건수
+	 */
+	public int getTotalAccuse();
+	
+	/*
+	 * '구' 별 신고건수 TOP 5
+	 */
+	public List<BAccuse> getTopFive();
+
+
+	/**
+	 * 
+	 * @return 구글맵 -  구, 좌표, 신고건수, 피신고중개인
+	 */
+	public List getLocation();
+
+
 
 
 

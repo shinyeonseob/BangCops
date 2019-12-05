@@ -6,15 +6,15 @@
 
 
 <div class="text-center">
-<br><br><br><br><br><br>
+<br><br><hr>
 <h3><strong>방캅스 고객센터</strong></h3>
-
+<hr>
 </div>
 
 <h5>
 
 <div class="text-center">
-<br><br><br><br><br><br>
+<br><br><br><br>
 안녕하세요 방캅스 입니다.<br>
 FAQ를 확인 후 그 외에 궁금한 사항을<br>
 1:1로 문의해 주시면, <br>
@@ -38,12 +38,10 @@ FAQ를 확인 후 그 외에 궁금한 사항을<br>
 상세한 내용 작성 후
 <br>
 <address>
-<Strong><a href="mailto:#">bangcops@gmail.com</a></Strong></address><br>
-
-
+<Strong><a href="mailto:#">bangcops@gmail.com</a></Strong></address>
 문의해주세요<br>
 그 외에 사항은 하단의 채팅창으로 문의해주세요<br>
-
+<br><br><br><br>
 
 <!-- Channel Plugin Scripts -->
 <script>

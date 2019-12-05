@@ -19,6 +19,25 @@ th {
 /* 	border:1px solid black; */
 	text-align:center;
 }
+
+#miniboard {
+	overflow:hidden;
+	width:200px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+table {
+	table-layout:fixed;
+
+	
+}
+
+td {
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
 </style>
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
@@ -41,11 +60,11 @@ $(document).ready(function() {
 <br>
 <table style="margin:0 auto;width:1200;height:50;table-layout:fixed">
 	<tr>
-		<th><div class="text-center"><button onclick="location.href='/main/community/board?boardno=1'" style="width:120px">자유게시판</button></div></th>
-		<th><div class="text-center"><button onclick="location.href='/main/community/board?boardno=2'"style="width:120px">이용후기</button></div></th>
-		<th><div class="text-center"><button onclick="location.href='/main/community/board?boardno=3'"style="width:120px">공지사항</button></div></th>
-		<th><div class="text-center"><button onclick="location.href='/main/community/board?boardno=5'"style="width:120px">FAQ</button></div></th>
-		<th><div class="text-center"><button style="width:120px">고객센터</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" onclick="location.href='/main/community/board?boardno=1'" style="width:120px">자유게시판</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" onclick="location.href='/main/community/board?boardno=2'"style="width:120px">이용후기</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" onclick="location.href='/main/community/board?boardno=3'"style="width:120px">공지사항</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" onclick="location.href='/main/community/board?boardno=5'"style="width:120px">FAQ</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" onclick="location.href='/serviceCenterView'"style="width:120px">고객센터</button></div></th>
 	</tr>
 </table>
 
@@ -80,7 +99,7 @@ $(document).ready(function() {
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center;height:30">
 		<td>${ i.idx }</td>
-		<td style="text-align:left"><a href ="/main/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
+		<td style="text-align:left;"><a href ="/main/community/board/view?idx=${ i.idx }">${ i.title } <c:if test="${i.commentCnt ne 0 }">[${i.commentCnt}]</c:if></a></td>
 		<td>${ i.usernick }</td>
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>
@@ -88,25 +107,28 @@ $(document).ready(function() {
 	</tr>
 </c:forEach>
 </table>
+
 <hr style="background:grey;height:2px">
+
 <div>
 <c:if test="${login && boardno ne 3 && boardno ne 5}">
-<a href="/main/community/board/write?boardno=${boardno }"><button>게시글작성</button></a>
+<a href="/main/community/board/write?boardno=${boardno }"><button type="button" class="btn btn-primary" >게시글작성</button></a>
 </c:if>
 <c:if test="${empty login && boardno eq 3 && boardno eq 5}">
-<a style="float:left" href="#myModal" class="trigger-btn" data-toggle="modal"><button onclick="loginPlease();">게시글 작성</button></a>
+<a style="float:left" href="#myModal" class="trigger-btn" data-toggle="modal"><button type="button" class="btn btn-primary" onclick="loginPlease();">게시글 작성</button></a>
 </c:if>
 
 	
-	<button id="btnSearch" style="float:right" >검색</button>
-	<input type="text" id ="searchtarget" name="searchtarget" size="15" placeholder="검색어를 입력하세요" style="float:right" />
-	<select id="searchcategory" Style="float:right;height:26px" >
+	<button  class="btn btn-primary" type="button" id="btnSearch" style="float:right;margin-left: 3px" >검색</button>
+	<input type="text" id ="searchtarget" name="searchtarget" size="15" placeholder="검색어를 입력하세요" style="float: right;margin-top: 0px;height: 34px;width: 154px;border-left-width: 2px;margin-left: 3px;" />
+	<select id="searchcategory" Style="float:right;height: 34px;" >
 		<option value="title">제목</option>
 		<option value="usernick">작성자</option>
 		<option value="contents">내용</option>
 	</select>
 	
 </div>
+
 </div>
 <div style="margin:0 auto" ><jsp:include page="/WEB-INF/views/layout/paging.jsp" /></div>
 

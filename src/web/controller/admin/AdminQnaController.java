@@ -15,9 +15,18 @@ public class AdminQnaController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		// view
-		req.getRequestDispatcher("/WEB-INF/views/admin/adminqna.jsp").forward(req, resp);
-	
+		// 관리자 로그인일 경우
+		if (req.getSession().getAttribute("adminlogin") != null) {
+
+			// view
+			req.getRequestDispatcher("/WEB-INF/views/admin/adminqna.jsp").forward(req, resp);
+
+		} else {
+
+			// 관리자 로그인 안됐을 경우
+			resp.sendRedirect("/admin/login");
+
+		}
 	}
 
 }

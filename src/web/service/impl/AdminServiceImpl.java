@@ -116,7 +116,7 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
-	// 체크리스트로 삭제 - 아직 안함
+	// 체크리스트로 삭제
 	@Override
 	public void memberListDelete(String names) {
 		

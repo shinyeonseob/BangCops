@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import sun.dc.pr.PRError;
 import util.Paging;
 import web.dao.face.AdminDao;
 import web.dbutil.DBconn;
@@ -184,7 +183,7 @@ public class AdminDaoImpl implements AdminDao {
 		
 		conn = DBconn.getConnection();
 		
-		// 게시글 조회쿼리
+		// 회원리스트 조회쿼리
 		String sql = "";
 		sql += "SELECT ";
 		sql += "	userno";
@@ -313,7 +312,7 @@ public class AdminDaoImpl implements AdminDao {
 		
 		conn = DBconn.getConnection();
 		
-		String sql = "update buser set userid='탈퇴회원', userpw='', usernick='', username='', usertel='' where userno=?";
+		String sql = "update buser set userid='탈퇴회원', userpw='', usernick='탈퇴회원', username='', usertel='' where userno=?";
 
 		PreparedStatement ps =null;
 		try {

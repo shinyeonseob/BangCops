@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import util.Paging;
 import web.dao.face.AccuseDao;
 import web.dbutil.DBconn;
+import web.dto.AccuseMap;
 import web.dto.BAccuse;
+import web.dto.BAccuse3;
 import web.dto.BBoard;
 import web.dto.BDeal;
 
@@ -71,36 +73,36 @@ public class AccuseDaoImpl implements AccuseDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-//
-//	@Override
-//	public void updateHit(BAccuse viewABoard) {
-//		conn = DBconn.getConnection(); //DB 연결
-//
-//		//게시글 조회수 증가 쿼리
-//		String sql = "";
-//		sql+="UPDATE board";
-//		sql+=" SET hit = hit + 1";
-//		sql+=" WHERE boardno = ?";
-//	
-//		try {
-//			ps = conn.prepareStatement(sql);
-//			
-//			ps.setInt(1, viewABoard.getBoardno());
-//			
-//			ps.executeUpdate();
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			try {
-//				// 자원 해제
-//				if(ps!=null)	ps.close();
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//				
-//	}
+	//
+	// @Override
+	// public void updateHit(BAccuse viewABoard) {
+	// conn = DBconn.getConnection(); //DB 연결
+	//
+	// //게시글 조회수 증가 쿼리
+	// String sql = "";
+	// sql+="UPDATE board";
+	// sql+=" SET hit = hit + 1";
+	// sql+=" WHERE boardno = ?";
+	//
+	// try {
+	// ps = conn.prepareStatement(sql);
+	//
+	// ps.setInt(1, viewABoard.getBoardno());
+	//
+	// ps.executeUpdate();
+	//
+	// } catch (SQLException e) {
+	// e.printStackTrace();
+	// } finally {
+	// try {
+	// // 자원 해제
+	// if(ps!=null) ps.close();
+	// } catch (SQLException e) {
+	// e.printStackTrace();
+	// }
+	// }
+	//
+	// }
 
 	@Override
 	public int selectCntAll(String search) {
@@ -154,6 +156,8 @@ public class AccuseDaoImpl implements AccuseDao {
 			ps.setInt(3, bDeal.getPrice());
 			ps.setInt(4, bDeal.getAccuseno());
 
+			ps.executeUpdate();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -161,46 +165,46 @@ public class AccuseDaoImpl implements AccuseDao {
 	}
 
 	@Override
-	public List<BAccuse> getSearchListBAccuse(Paging paging, HttpServletRequest req) {
-		
+	public List<BAccuse3> getSearchListBAccuse(Paging paging, HttpServletRequest req) {
+
 		System.out.println("getSearchListBAccuse");
 		conn = DBconn.getConnection(); // DB 연결
-		
+
 		// 수행할 쿼리
 		String sql = "";
 		sql += "SELECT * FROM (";
 		sql += "	SELECT rownum rnum, B.* FROM (";
 		sql += "	SELECT";
-		sql += "		a.ACCUSENO , a.URL , a.CITY , a.GU , a.SITENAME , a.ACCUSETYPE , a.IDX , a.AGENT , a.PROPERTY , a.PHONENO";
-		sql += "	FROM Bboard b, BAccuse a";
-		sql += "	WHERE b.idx = a.idx AND City = ? AND Gu = ? AND Contents LIKE '%'||?||'%'";
-		sql += "	ORDER BY idx DESC";
+		sql += "		a.ACCUSENO , a.URL , a.CITY , a.GU , a.SITENAME , a.ACCUSETYPE , a.IDX , a.AGENT , a.PROPERTY , a.PHONENO, t.FileNo, t.FileRoot, t.StoredName";
+		sql += "	FROM Bboard b, BAccuse a, BAttached t";
+		sql += "	WHERE b.idx = a.idx AND b.idx = t.idx AND City = ? AND Gu = ? AND Contents LIKE '%'||?||'%'";
+		sql += "	ORDER BY a.ACCUSENO DESC";
 		sql += " ) B ORDER BY rnum";
 		sql += " ) BBoard";
 		sql += " WHERE rnum BETWEEN ? AND ?";
-		
-		List<BAccuse> list = new ArrayList<>();
-		
+
+		List<BAccuse3> list = new ArrayList<>();
+
 		try {
 			ps = conn.prepareStatement(sql);
-			
+
 			System.out.println(req.getParameter("city"));
 			System.out.println(req.getParameter("gu"));
 			System.out.println(req.getParameter("search"));
 			System.out.println(paging.getStartNo());
 			System.out.println(paging.getEndNo());
-			
+
 			ps.setString(1, req.getParameter("city"));
 			ps.setString(2, req.getParameter("gu"));
 			ps.setString(3, req.getParameter("search"));
 			ps.setInt(4, paging.getStartNo());
 			ps.setInt(5, paging.getEndNo());
-			
+
 			rs = ps.executeQuery();
-			
+
 			while (rs.next()) {
-				BAccuse bAccuse = new BAccuse();
-				
+				BAccuse3 bAccuse = new BAccuse3();
+
 				bAccuse.setAccuseno(rs.getInt("AccuseNo"));
 				bAccuse.setUrl(rs.getString("URL"));
 				bAccuse.setCity(rs.getString("City"));
@@ -211,18 +215,23 @@ public class AccuseDaoImpl implements AccuseDao {
 				bAccuse.setAgent(rs.getString("Agent"));
 				bAccuse.setProperty(rs.getString("Property"));
 				bAccuse.setPhoneNo(rs.getString("PhoneNo"));
+				bAccuse.setFileNo(rs.getInt("fileNo"));
+				bAccuse.setFileRoot(rs.getString("fileRoot"));
+				bAccuse.setStoredName(rs.getString("storedName"));
+
 				
-				System.out.println("bAccuse : "+  bAccuse);
+				
+				System.out.println(rs.getString("fileRoot") + rs.getString("storedName"));
+
+				System.out.println("bAccuse : " + bAccuse);
 
 				list.add(bAccuse);
-			}		
+			}
 
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 
 		return list;
 	}
@@ -236,20 +245,19 @@ public class AccuseDaoImpl implements AccuseDao {
 	@Override
 	public BAccuse getbaccuse(BAccuse baccuse) {
 		conn = DBconn.getConnection(); // DB 연결
-		
+
 		String sql = "SELECT * FROM BAccuse WHERE accuseno = ?";
 		BAccuse bAccuse = new BAccuse();
 
 		try {
 			ps = conn.prepareStatement(sql);
-			
+
 			ps.setInt(1, baccuse.getAccuseno());
-			
+
 			rs = ps.executeQuery();
 
-			
 			while (rs.next()) {
-				
+
 				bAccuse.setAccuseno(rs.getInt("AccuseNo"));
 				bAccuse.setUrl(rs.getString("URL"));
 				bAccuse.setCity(rs.getString("City"));
@@ -260,90 +268,290 @@ public class AccuseDaoImpl implements AccuseDao {
 				bAccuse.setAgent(rs.getString("Agent"));
 				bAccuse.setProperty(rs.getString("Property"));
 				bAccuse.setPhoneNo(rs.getString("PhoneNo"));
-				
-				System.out.println("bAccuse : "+  bAccuse);
 
-			}		
-			
+				System.out.println("bAccuse : " + bAccuse);
+
+			}
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
 
 		return bAccuse;
 	}
 
 	@Override
 	public BDeal getBdeal(BAccuse accuse) {
-conn = DBconn.getConnection(); // DB 연결
-		
-		String sql = "SELECT * FROM BDeal WHERE accuseno = ?";
+		conn = DBconn.getConnection(); // DB 연결
+
+		System.out.println("accuse.getAccuseno() : " + accuse.getAccuseno());
+
+		String sql = "SELECT * FROM BDeal WHERE AccuseNo = ?";
 		BDeal bDeal = new BDeal();
 
 		try {
 			ps = conn.prepareStatement(sql);
-			
 			ps.setInt(1, accuse.getAccuseno());
-			
+
 			rs = ps.executeQuery();
 
-			
 			while (rs.next()) {
-				
+
 				bDeal.setBdealno(rs.getInt("BDealNo"));
 				bDeal.setAccuseno(rs.getInt("AccuseNo"));
 				bDeal.setDealtype2(rs.getString("DealType2"));
 				bDeal.setDeposit(rs.getInt("deposit"));
 				bDeal.setPrice(rs.getInt("price"));
-				
-				
-				System.out.println("bAccuse : "+  bDeal);
 
-			}		
-			
+				System.out.println("bAccuse : " + bDeal);
+
+			}
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-
-
 		return bDeal;
 	}
 
+	public List getGuname(BAccuse baccuse) {
+		conn = DBconn.getConnection(); // DB 연결
+
+		// 수행할 쿼리
+		String sql = "";
+		sql += "SELECT Distinct Gu FROM BAccuse";
+
+		List<BAccuse> list = new ArrayList();
+		try {
+			ps = conn.prepareStatement(sql);
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				BAccuse bAccuse = new BAccuse();
+
+				bAccuse.setGu(rs.getString("Gu"));
+
+				list.add(bAccuse);
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+
+	}
+
+	@Override
+	public int getTotalaccuse(String gu) {
+		conn = DBconn.getConnection(); // DB 연결
+
+		int num = 0;
+		String sql = "";
+		sql += "SELECT count(*) FROM BAccuse";
+		sql += " WHERE Gu = ?";
+
+		try {
+			ps = conn.prepareStatement(sql);
+
+			ps.setString(1, gu);
+
+			rs = ps.executeQuery();
+
+			rs.next();
+
+			num = rs.getInt("count(*)");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return num;
+	}
+
+	@Override
+	public int getTotalagent(String gu) {
+		conn = DBconn.getConnection(); // DB 연결
+
+		int num = 0;
+
+		String sql = "";
+		sql += "SELECT count(*) FROM (";
+		sql += " select distinct agent  from baccuse where gu= ?)";
+
+		try {
+			ps = conn.prepareStatement(sql);
+
+			ps.setString(1, gu);
+
+			rs = ps.executeQuery();
+
+			rs.next();
+
+			num = rs.getInt("count(*)");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return num;
+	}
+
+	@Override
+	public AccuseMap getLocation(String gu) {
+		conn = DBconn.getConnection(); // DB 연결
+
+		String sql = "";
+		sql += "SELECT * FROM Bmap WHERE guname = ?";
+
+		AccuseMap acm = new AccuseMap();
+		try {
+			ps = conn.prepareStatement(sql);
+
+			ps.setString(1, gu);
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+
+				acm.setGuname(rs.getString("guname"));
+				acm.setLat(rs.getDouble("lat"));
+				acm.setLng(rs.getDouble("lng"));
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return acm;
+	}
+
+	@Override
+	public int selectCountByDailyAccuse() {
+		conn = DBconn.getConnection();
+
+		String sql = "";
+		sql += " SELECT count(*) FROM BBoard WHERE to_char( regdate, 'yyyymmdd' ) = to_char( sysdate, 'yyyymmdd' ) AND boardno = 6 ";
+
+		int cnt = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				cnt = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null)
+					ps.close();
+				if (rs != null)
+					rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return cnt;
+	}
+
+	@Override
+	public int selectTotalCount() {
+		conn = DBconn.getConnection();
+
+		String sql = "";
+		sql += " SELECT count(*) FROM BBoard WHERE boardno = 6 ";
+
+		int cnt = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				cnt = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null)
+					ps.close();
+				if (rs != null)
+					rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return cnt;
+	}
+
+	@Override
+	public List<BAccuse> getTopFiveByGu() {
+		conn = DBconn.getConnection();
+		
+		String sql = "";
+		sql += " select * from";
+		sql += " (select gu, count(*) cnt from baccuse group by gu order by cnt desc)";
+		sql += " where rownum <= 5";
+		
+		List<BAccuse> list = new ArrayList<>();
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				BAccuse bAccuse = new BAccuse();
+				
+				bAccuse.setGu(rs.getString("gu"));
+				bAccuse.setCnt(rs.getInt("cnt"));
+				
+				list.add(bAccuse);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	};
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

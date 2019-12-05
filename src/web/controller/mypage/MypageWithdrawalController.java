@@ -49,7 +49,7 @@ public class MypageWithdrawalController extends HttpServlet {
 //		System.out.println(memberService.getcurrpw(req).getUserpw());
 		memberService.getMemberByUserid(loginuser).getUserpw();
 		req.setAttribute("usercurrpw", memberService.getMemberByUserid(loginuser).getUserpw());
-		
+		req.setAttribute("pageno", 6);
 		
 		//view
 		req.getRequestDispatcher("/WEB-INF/views/member/mypagewithdrawal.jsp")

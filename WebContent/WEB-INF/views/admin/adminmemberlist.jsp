@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
 <jsp:include page="/WEB-INF/views/admin/adminheader.jsp" />
 
@@ -120,9 +121,9 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	<td>${list.usernick }</td>
 	<td>${list.username }</td>
 	<td>${list.usertel }</td>
-	<td><button><a href="/admin/memberview?userno=${list.userno }">상세정보</a></button></td>
-	<td><a class="btn btn-primary" id="btnBoard" href='/admin/boardlist?userno=${list.userno }'">회원글</a></td>
-    <td><a href="/admin/memberdelete?userno=${list.userno }"><button id="btnDelete">회원삭제</button></a></td>
+	<td><a class="btn btn-outline-success btn-sm" href="/admin/memberview?userno=${list.userno }">상세정보</a></td>
+	<td><a class="btn btn-outline-primary btn-sm" id="btnBoard" href="/admin/boardlist?userno=${list.userno }">회원글</a></td>
+    <td><a class="btn btn-outline-secondary btn-sm" id="btnDelete" href="/admin/memberdelete?userno=${list.userno }">회원삭제</a></td>
 </tr>
 </c:forEach>
 	

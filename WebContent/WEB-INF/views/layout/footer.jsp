@@ -6,7 +6,7 @@
 <!-- </div></div>//footer -->
 <style type="text/css">
 .item {
-	background-color: #BDBDBD;
+	background-color: #E9ECEF;
 	
 </style>
 <div class ="item">
@@ -16,9 +16,11 @@
 	<div class="text-center">
 		<hr>
 		<p style="color: #000000; font-size: 11px;">
+			<div style="cursor:pointer">
 			<h8><a href ="/siteIntroduce">사이트소개 |</a></h8>
-			<h8><a href="/termsofService">서비스이용약관 | </a></h8>
-			<h8> <strong>개인정보 취급방침</strong></h8>
+			<h8><a href="/termsofService"	>서비스이용약관 | </a></h8>
+			<h8><a href="/privacyStatement"><strong>개인정보 취급방침</strong></a></h8>
+			</div>
 		</p>
 		</div>
 		<hr>

@@ -2,6 +2,7 @@ package web.service.impl;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -22,7 +23,9 @@ import web.dao.face.BoardFileDao;
 import web.dao.impl.AccuseDaoImpl;
 import web.dao.impl.BoardDaoImpl;
 import web.dao.impl.BoardFileDaoImpl;
+import web.dto.AccuseMap;
 import web.dto.BAccuse;
+import web.dto.BAccuse3;
 import web.dto.BAttached;
 import web.dto.BBoard;
 import web.dto.BDeal;
@@ -79,7 +82,7 @@ public class AccuseServiceImpl implements AccuseService {
 
 		// 용량이 1메가이상 10메가 이하일 경우 임시파일을 만들어서 처리
 		ServletContext context = req.getServletContext();
-		String path = context.getRealPath("tmp");
+		String path = context.getRealPath("upload");
 
 		File repository = new File(path);
 
@@ -127,17 +130,7 @@ public class AccuseServiceImpl implements AccuseService {
 
 				// Board board = new Board();
 
-				if ("title".equals(key)) {
-					try {
-						board.setTitle(item.getString("UTF-8"));
-						System.out.println(key);
-						System.out.println(item.getString("UTF-8"));
-					} catch (UnsupportedEncodingException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-				} else if ("contents".equals(key)) {
+				 if ("contents".equals(key)) {
 
 					try {
 						board.setContents(item.getString("UTF-8"));
@@ -294,10 +287,10 @@ public class AccuseServiceImpl implements AccuseService {
 				// 로컬 파일 저장소에 파일 저장하기
 
 				// 로컬 저장소 파일 객체
-				File up = new File(context.getRealPath("upload"), item.getName() + "_" + u);
+				File up = new File(context.getRealPath("upload"), u + "_" +item.getName());
 
 				bAttached.setOriginName(item.getName());
-				bAttached.setStoredName(item.getName() + "_" + u);
+				bAttached.setStoredName(u + "_" +item.getName());
 				bAttached.setFilesize(item.getSize());
 				bAttached.setFileRoot(path);
 				// bAttached.setIdx(boardDao.selectIdx());
@@ -400,7 +393,7 @@ public class AccuseServiceImpl implements AccuseService {
 	}
 
 	@Override
-	public List<BAccuse> getSearchListBAccuse(Paging paging, HttpServletRequest req) {
+	public List<BAccuse3> getSearchListBAccuse(Paging paging, HttpServletRequest req) {
 		
 		return accuseDao.getSearchListBAccuse(paging, req);
 	}
@@ -414,6 +407,49 @@ public class AccuseServiceImpl implements AccuseService {
 	public BDeal getBdeal(BAccuse accuse) {
 		
 		return accuseDao.getBdeal(accuse);
+	}
+
+
+	public List getLocation() {
+		List list = new ArrayList();
+		
+		String guname[] = {"강남", "강동", "강서", "강북"
+						, "관악","광진","구로","금천"
+						, "노원","동대문","도봉","동작"
+						, "마포","서대문","성동","성북"
+						, "서초","송파","영등포","용산"
+						, "양천","은평","종로","중","중랑"};
+		
+		
+		
+		for(int i = 0; i<guname.length;i++) {
+			AccuseMap accusemap = new AccuseMap(); 
+			
+			accusemap.setGuname(guname[i]);
+			accusemap.setLat(accuseDao.getLocation(guname[i]).getLat());
+			accusemap.setLng(accuseDao.getLocation(guname[i]).getLng());
+			accusemap.setTotalaccuse(accuseDao.getTotalaccuse(guname[i]));
+			accusemap.setTotalagent(accuseDao.getTotalagent(guname[i]));
+			list.add(accusemap);
+		}
+		
+		
+		return list;
+	}
+
+	@Override
+	public int getDailyAccuse() {
+		return accuseDao.selectCountByDailyAccuse();
+	}
+
+	@Override
+	public int getTotalAccuse() {
+		return accuseDao.selectTotalCount();
+	}
+
+	@Override
+	public List<BAccuse> getTopFive() {
+		return accuseDao.getTopFiveByGu();
 	}
 
 
