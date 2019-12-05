@@ -44,11 +44,11 @@ th {
 <br>
 <table style="margin:0 auto;width:1200;height:50;table-layout:fixed">
 	<tr>
-		<th><div class="text-center"><button style="width:120px">자유게시판</button></div></th>
-		<th><div class="text-center"><button style="width:120px">이용후기</button></div></th>
-		<th><div class="text-center"><button style="width:120px">공지사항</button></div></th>
-		<th><div class="text-center"><button style="width:120px">FAQ</button></div></th>
-		<th><div class="text-center"><button style="width:120px">고객센터</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" style="width:120px">자유게시판</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" style="width:120px">이용후기</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" style="width:120px">공지사항</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" style="width:120px">FAQ</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" style="width:120px">고객센터</button></div></th>
 	</tr>
 </table>
 
@@ -67,11 +67,11 @@ th {
 	</tr>
 	<tr style="height:40">
 		<th class="text-center" style="width:10%">제목</th>
-		<td colspan="3" class="text-center" style="width:90%"><input id="title" name="title" type="text" size="125" value="${list.title }"/></td>
+		<td colspan="3" class="text-center" style="width:90%"><input id="title" name="title" type="text" size="125" value="${board.title }"/></td>
 	</tr>
 	<tr style="height:250">
 		<th class="text-center">내용</th>
-		<td colspan="3"><textarea class="form-control" id="contents" name="contents" value="${list.contents }" ></textarea>
+		<td colspan="3"><textarea class="form-control" id="contents" name="contents"  >${board.contents }</textarea>
 <script type="text/javascript">
  CKEDITOR.replace('contents', {height: 400});
 </script></td>
@@ -82,11 +82,11 @@ th {
 	</tr>
 </table>
 
-${boardno }
+
 <input type="hidden" name="boardno" value="${board.boardNo }" />
 <input type="hidden" name="idx" value="${board.idx }" />
 
-<a style="float:right"><button id="btnWrite">등록</button></a>
+<a style="float:right"><button id="btnWrite" class="btn btn-primary" type="button">등록</button></a>
 </form>
 </div>
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />

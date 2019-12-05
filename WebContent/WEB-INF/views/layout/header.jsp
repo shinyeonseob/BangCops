@@ -94,6 +94,7 @@ html, body{
    vertical-align: middle;
    text-align: center;
    
+   
 }
 #topMenu .menuLink {
    text-decoration: none;
@@ -223,10 +224,19 @@ html, body{
 	position:fixed;
 	top:0px;
 }
+
 .active{
 	background-color: #FDB813;
 }
-
+ul.nav li.dropdown:hover > ul.dropdown-menu { 
+	display:block; margin:0; 
+	background-color: #FFFFFF;
+	
+   color:white;
+}
+.divider{
+	color: white;
+}
 </style>
 
 <script type="text/javascript">
@@ -302,39 +312,58 @@ $(document).ready(function() {
    <div id = "mainlogo" class="navbar-header">
    <a href="/main"><img class="logo" src="/resources/img/logo(no_text).png"></a>
    </div>
+
       <ul  role="tablist" style="margin-bottom: 0px;">
          <li role="presentation">
          <a id = "btn_search" class="menuLink " href="/main">
          <img src="/resources/img/Wsearch.png" width="30" height="30" >&nbsp;&nbsp;<b>검색</b></a></li>
+         
          <li role="presentation">
          <a id = "btn_accuse" class="menuLink" href="/main/accuse">
          <img src="/resources/img/Waccuse.png" width="30" height="30">&nbsp;<b>신고</b></a></li>
+         
          <li role="presentation">
          <a id = "btn_home" class="menuLink" href="/main/home">
          <img src="/resources/img/Whome.png" width="30" height="30">&nbsp;<b>홈</b></a></li>
-         <li role="presentation">
-         <a id = "btn_community" class="menuLink" href="/main/community">
-         <img src="/resources/img/Wcommunity.png" width="30" height="30">&nbsp;<b>커뮤니티</b></a></li>
-<!--          <li><a class="menuLink" href="#"><img src="/resources/img/advertising.png" width="30" height="30">&nbsp;광고/배너</a></li> -->
-
+         
+         <li class="dropdown" role="presentation">
+         <a id = "btn_community" class="menuLink dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="/main/community">
+         <img src="/resources/img/Wcommunity.png" width="30" height="30">&nbsp;<b>커뮤니티
+         <span class="caret"></span> <%-- --%>
+         </b></a>
+				<ul class="dropdown-menu" role="menu" style ="background-color: #242645 ; color:white !important;">
+         			<li ><a style = "color:white;" href="/main/community/board?boardno=1">자유게시판</a></li>
+           			<li><a style = "color:white;" href="#">이용후기게시판</a></li>
+           			<li class="divider" ></li>
+           			<li><a style = "color:white;" href="#">공지사항</a></li>
+           			<li><a style = "color:white;" href="#">FAQ</a></li>
+         		</ul>
+         	</li>
 	<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-         <li>
-         
-         
+   <li>
          <c:if test="${sessionScope.login eq null }">
+         
          <a href="#myModal" class="trigger-btn" data-toggle="modal">
-         <button id = "btn_login" class = "btn_login btn btn-primary btn-lg" >로그인</button></a>
-         <button id="btn_join" class="btn_join btn btn-primary btn-lg">회원가입</button>
+         <button id = "btn_login" class = "btn_login btn btn-warning btn-lg" ><b>로그인</b></button></a>&nbsp;
+         <button id="btn_join" class="btn_join btn btn-warning btn-lg"><b>회원가입</b></button>
          </c:if>
 
          <c:if test="${sessionScope.login eq true }">
-            <a href="/member/logout"><button class = "btn btn-primary btn-lg">로그아웃</button></a>
-            <a href="/mypage/main"><button class = "btn btn-primary btn-lg">마이페이지</button></a>
+            <a href="/member/logout"><button class = "btn btn-warning btn-lg"><b>로그아웃</b></button></a>&nbsp;
+            <a href="/mypage/main"><button class = "btn btn-warning btn-lg"><b>마이페이지</b></button></a>
          </c:if>
- </li>
-      </ul>
-      </div>
-   </nav>
+	 </li>
+
+	</ul>
+	</div>
+ </nav>
+<!--          <li><a class="menuLink" href="#"><img src="/resources/img/advertising.png" width="30" height="30">&nbsp;광고/배너</a></li> -->
+
+
+        
+
+         
+
    <!-- Modal HTML -->
    <div id="myModal" class="modal fade">
       <div class="modal-dialog modal-login">
