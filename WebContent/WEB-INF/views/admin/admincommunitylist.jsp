@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
 <style type="text/css">
 th {
 	padding:10px;
@@ -77,7 +79,7 @@ $(document).ready(function() {
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>
 		<td>${ i.reco }</td>
-		<td><a href="/admin/community/board/delete?boardno=${boardno }&idx=${i.idx }"><button id="btnDelete">게시글 삭제</button></a></td>
+		<td><a class="btn btn-outline-secondary" id="btnDelete" href="/admin/community/board/delete?boardno=${boardno }&idx=${i.idx }">게시글 삭제</a></td>
 	</tr>
 </c:forEach>
 </table>
