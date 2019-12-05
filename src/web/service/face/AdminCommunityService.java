@@ -68,10 +68,10 @@ public interface AdminCommunityService {
 
 	public void commentMyListDelete(String names);
 	
-//	public List<BBoard> getBoardTopFiveInFreeboard();
-//	
-//	public List<BBoard> getBoardTopFiveInNotice();
-//	
-//	public List<BBoard> getBoardTopFiveInReview();
+	public List<BBoard> getBoardTopFiveInFreeboard(int cnt);
+	
+	public List<BBoard> getBoardTopFiveInNotice(int cnt);
+	
+	public List<BBoard> getBoardTopFiveInReview(int cnt);
 
 }

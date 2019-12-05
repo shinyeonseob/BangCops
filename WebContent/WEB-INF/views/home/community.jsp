@@ -23,6 +23,23 @@ div .right {
     min-height:580px;
 }
 
+table {
+	width: 522px;
+    margin-left: 13px;
+    
+     table-layout:fixed;  
+
+/* 	overflow:hidden; */
+/* 	white-space:nowrap; */
+/* 	text-overflow:ellipsis; */
+}
+
+td {
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
 </style>
 
 <div class="container">
@@ -43,11 +60,14 @@ div .right {
 <div onclick="location.href='/main/community/board?boardno=3'" style="cursor:pointer"><h2 style="margin-top: 10px"> &nbsp;공지사항</h2></div>
 <hr style="margin-top:0px;margin-bottom:8px">
 <div>
-	<ol start="1">
+	<table>
 	<c:forEach items="${ notice }" var="j">
-		<li><a href="/main/community/board/view?idx=${j.idx }"><span style="text-overflow:ellipsis">${j.title } <c:if test="${j.commentCnt ne 0 }">[${j.commentCnt }"]</c:if></span></a><span style="float:right;">${j.regDate }&nbsp;</span></li>
+	<tr>
+		<td style="width:400px"><a href="/main/community/board/view?idx=${j.idx }">${j.title } <c:if test="${j.commentCnt ne 0 }">[${j.commentCnt }"]</c:if></a></td>
+		<td style="float:right"><span style="float:right;"><font style="color:grey">${j.regDate }&nbsp;</font></span></td>
+	<tr>
 	</c:forEach>
-	</ol>
+	</table>
 </div>
 </div>
 </div><br>
@@ -59,11 +79,14 @@ div .right {
 <div onclick="location.href='/main/community/board?boardno=1'" style="cursor:pointer"><h2 style="margin-top: 10px"> &nbsp;자유게시판</h2></div>
 <hr style="margin-top:0px;margin-bottom:8px">
 <div>
-	<ol start="1">
+	<table>
 	<c:forEach items="${ freeboard }" var="i">
-		<li><a href="/main/community/board/view?idx=${i.idx }">${i.title } <c:if test="${i.commentCnt ne 0 }">[${i.commentCnt }]</c:if></a><span style="float:right;text-overflow:ellipsis">${i.usernick } | 추천 ${i.reco }&nbsp;</span></li>
+		<tr>
+			<td style="width:400px"><a href="/main/community/board/view?idx=${i.idx }">${i.title } <c:if test="${i.commentCnt ne 0 }">[${i.commentCnt }]</c:if></a></td>
+			<td style="float:right"><span style="float:right;"><font style="color:grey">${i.usernick } |&nbsp;추천&nbsp;${i.reco }</font></span></td>
+		<tr>
 	</c:forEach>
-	</ol>
+	</table>
 </div>
 </div>
 </div><br>
@@ -75,11 +98,14 @@ div .right {
 <div onclick="location.href='/main/community/board?boardno=2'" style="cursor:pointer"><h2 style="margin-top: 10px"> &nbsp;이용후기게시판</h2></div>
 <hr style="margin-top:0px;margin-bottom:8px">
 <div>
-	<ol start="1">
+	<table>
 	<c:forEach items="${ review }" var="k">
-		<li><a href="/main/community/board/view?idx=${k.idx }">${k.title } <c:if test="${k.commentCnt ne 0 }">[${k.commentCnt }]</c:if></a><span style="float:right">${k.usernick } | 추천 ${k.reco }&nbsp;</span></li>
+	<tr>
+		<td style="width:400px"><a href="/main/community/board/view?idx=${k.idx }">${k.title } <c:if test="${k.commentCnt ne 0 }">[${k.commentCnt }]</c:if></a></td>
+		<td style="float:right"><span style="float:right;"><font style="color:grey">${k.usernick } |&nbsp;추천&nbsp;${k.reco }</font></span></td>
+	<tr>
 	</c:forEach>
-	</ol>
+	</table>
 </div>
 </div>
 </div>

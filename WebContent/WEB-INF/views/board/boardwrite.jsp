@@ -43,11 +43,26 @@ th {
 <br>
 <table style="margin:0 auto;width:1200;height:50;table-layout:fixed">
 	<tr>
-		<th><div class="text-center"><button style="width:120px">자유게시판</button></div></th>
-		<th><div class="text-center"><button style="width:120px">이용후기</button></div></th>
-		<th><div class="text-center"><button style="width:120px">공지사항</button></div></th>
-		<th><div class="text-center"><button style="width:120px">FAQ</button></div></th>
-		<th><div class="text-center"><button style="width:120px">고객센터</button></div></th>
+		<th><div class="text-center">
+				<button class="btn" onclick="location.href='/main/community/board?boardno=1'"
+					style="width: 120px">자유게시판</button>
+			</div></th>
+		<th><div class="text-center">
+				<button class="btn" onclick="location.href='/main/community/board?boardno=2'"
+					style="width: 120px">이용후기</button>
+			</div></th>
+		<th><div class="text-center">
+				<button class="btn" onclick="location.href='/main/community/board?boardno=3'"
+					style="width: 120px">공지사항</button>
+			</div></th>
+		<th><div class="text-center">
+				<button class="btn" onclick="location.href='/main/community/board?boardno=5'"
+					style="width: 120px">FAQ</button>
+			</div></th>
+		<th><div class="text-center">
+				<button class="btn" onclick="location.href='/serviceCenterView'"
+					style="width: 120px" >고객센터</button>
+			</div></th>
 	</tr>
 </table>
 

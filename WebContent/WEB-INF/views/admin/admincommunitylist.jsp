@@ -57,29 +57,35 @@ $(document).ready(function() {
 <br>
 <table style="width:1140">
 	<tr style="height:40">
+	<th>
+		<input type="checkbox" id="checkAll" onclick="checkAll();" />
+	</th>
 		<th class="text-center" style="width:5%">글번호</th>
-		<th class="text-center" style="width:55%">제목</th>
+		<th class="text-center" style="width:40%">제목</th>
 		<th class="text-center" style="width:15%">닉네임</th>
 		<th class="text-center" style="width:15%">작성일</th>
 		<th class="text-center" style="width:5%">조회수</th>
 		<th class="text-center" style="width:5%">추천수</th>
+		<th class="text-center" style="width:15%">추천수</th>
 	</tr>
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center;height:30">
+		<td><input type="checkbox" name="checkRow" value="${i.userNo }" /></td>
 		<td>${ i.idx }</td>
 		<td style="text-align:left"><a href ="/admin/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
 		<td>${ i.usernick }</td>
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>
 		<td>${ i.reco }</td>
+		<td><a href="/admin/community/board/delete?boardno=${i.boardNo }"><button id="btnDelete">게시글 삭제</button></a></td>
 	</tr>
 </c:forEach>
 </table>
 <hr style="background:grey;height:2px">
 <div>
-<c:if test="${adminlogin && boardno ne 3 && boardno ne 5}">
-<a href="/admin/community/board/write?boardno=${boardno }"><button>게시글작성</button></a>
-</c:if>
+<%-- <c:if test="${adminlogin && boardno ne 3 && boardno ne 5}"> --%>
+<%-- <a href="/admin/community/board/write?boardno=${boardno }"><button>게시글작성</button></a> --%>
+<%-- </c:if> --%>
 <c:if test="${!empty adminlogin && adminlogin}">
 <a style="float:left" href="/admin/community/board/write?boardno=${boardno }" class="trigger-btn"><button>게시글 작성</button></a>
 </c:if>
