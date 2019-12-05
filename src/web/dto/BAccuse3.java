@@ -12,7 +12,6 @@ public class BAccuse3 {
 	private String sitename; // 사이트이름
 	private String accusetype; // 신고타입
 	private int idx; // 게시물번호
-	private String title; // 중계사
 	private String agent; // 중계사
 	private String phoneNo; // 전화번호
 	private String property; // 부동산
@@ -23,9 +22,9 @@ public class BAccuse3 {
 	@Override
 	public String toString() {
 		return "BAccuse3 [accuseno=" + accuseno + ", url=" + url + ", city=" + city + ", gu=" + gu + ", sitename="
-				+ sitename + ", accusetype=" + accusetype + ", idx=" + idx + ", title=" + title + ", agent=" + agent
-				+ ", phoneNo=" + phoneNo + ", property=" + property + ", fileNo=" + fileNo + ", fileRoot=" + fileRoot
-				+ ", storedName=" + storedName + "]";
+				+ sitename + ", accusetype=" + accusetype + ", idx=" + idx + ", agent=" + agent + ", phoneNo=" + phoneNo
+				+ ", property=" + property + ", fileNo=" + fileNo + ", fileRoot=" + fileRoot + ", storedName="
+				+ storedName + "]";
 	}
 
 	public int getAccuseno() {
@@ -82,14 +81,6 @@ public class BAccuse3 {
 
 	public void setIdx(int idx) {
 		this.idx = idx;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	public String getAgent() {
