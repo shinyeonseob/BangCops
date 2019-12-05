@@ -155,7 +155,8 @@
 //		 													+ "' onclick='addIndex("
 //		 													+ i
 //		 													+ ");'> 장소 추가 </button>"
-			+ ' <a href="/accuselist?city=seoul&gu=' +  result[i].guname  + '"><p>해당 지역 신고글 자세히 보러 가기</p></a>');
+// city=seoul 은 이제 작동하지 않음. city=서울 이라고 교체함
+			+ ' <a href="/accuselist?city=서울&gu=' +  result[i].guname  + '"><p>해당 지역 신고글 자세히 보러 가기</p></a>');
 // 			+ ' <a href="/accuselist?city=seoul&gu=${ result[i].guname }"><p>해당 지역 신고글 자세히 보러 가기</p></a>');
 	infowindow.open(map, marker);
 		}
