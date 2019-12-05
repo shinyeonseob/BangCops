@@ -69,7 +69,7 @@ public class MypageBoardController extends HttpServlet {
 //		System.out.println("test list : " + list);
 		//게시글 목록을 MODEL값으로 지정
 		req.setAttribute("list", list);
-		
+		req.setAttribute("pageno", 4);
 		//VIEW 지정
 		req.getRequestDispatcher("/WEB-INF/views/member/mypageboard.jsp")
 			.forward(req, resp);

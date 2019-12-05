@@ -39,6 +39,9 @@
 <!-- @font-face { font-family: 'KBIZHanmaumMyungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KBIZHanmaumMyungjo.woff') format('woff'); font-weight: normal; font-style: normal; } -->
 
 
+<!-- 닉스곤폰트B -->
+<link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONB-Vb.woff">
+<!-- @font-face { font-family: 'NIXGONB-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONB-Vb.woff') format('woff'); font-weight: normal; font-style: normal; } -->
 
 <!-- <!-- CSS -->
 <!-- <link rel="stylesheet" -->

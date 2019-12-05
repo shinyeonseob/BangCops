@@ -64,7 +64,7 @@
 
 
 <div id = "mypage_update" >
-	<h2>정보 수정</h2>
+	<h2 style="font-family: 'NIXGONB-Vb';">정보 수정</h2>
 </div>
 <br><br>
 
@@ -103,19 +103,19 @@
       <input type="hidden" name="userno" value="${BUser.userno }" />
 <div class="row">
   <div class="col-md-1"></div>
-  <div class="col-md-2">이름</div>
-  <div class="col-md-4">${BUser.username }</div>
+  <div class="col-md-2" style="font-family: 'NIXGONB-Vb';font-size: 20px;">이름</div>
+  <div class="col-md-4"style="font-family: 'NIXGONB-Vb';font-size: 16px;">${BUser.username }</div>
 </div>
 <div class="row"><br><div class="col-lg-1"></div><div class = "col-md-8"><hr></div><br><div class="col-lg-2"></div></div>
 <div class="row">
   <div class="col-md-1"></div>
-  <div class="col-md-2">닉네임</div>
+  <div class="col-md-2"style="font-family: 'NIXGONB-Vb';font-size: 20px;">닉네임</div>
   <div class="col-md-4">
   <input type="text" class="form-control" id="usernick" name="usernick" value="${BUser.usernick }" />
   </div>
   <div class="col-md-4"> 
   <a href="/member/check" target="_blank">
-  <button id = "nickcheck" class="btn btn-success">
+  <button id = "nickcheck" class="btn btn-success"style="font-family: 'NIXGONB-Vb';">
             	 중복검사 
             	 </button> </a>
   </div>
@@ -124,15 +124,15 @@
 <div class="row"><br><div class="col-lg-1"></div><div class = "col-md-8"><hr></div><br><div class="col-lg-2"></div></div>
 <div class="row">
   <div class="col-md-1"></div>
-  <div class="col-md-2">연락처</div>
+  <div class="col-md-2"style="font-family: 'NIXGONB-Vb';font-size: 20px;">연락처</div>
   <div class="col-md-6">
   	<input type="text" class="form-control" id="usertel" name="usertel" value="${BUser.usertel }" />
   </div>
 </div>
 <div class="row"><br><div class="col-lg-1"></div><div class = "col-md-8"><hr></div><br><div class="col-lg-2"></div></div>
 <div class="row text-center" >
-       <button type="button" id="btnUpdate" class="btn btn-info">정보 수정</button>
-         <button type="button" id="btnCancel" class="btn btn-danger">취소</button>
+       <button type="button" id="btnUpdate" class="btn btn-info"style="font-family: 'NIXGONB-Vb';">정보 수정</button>
+         <button type="button" id="btnCancel" class="btn btn-danger"style="font-family: 'NIXGONB-Vb';">취소</button>
 </div>
 
 </form>

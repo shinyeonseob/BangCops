@@ -58,7 +58,7 @@ public class MypageUpdateController extends HttpServlet {
 
 		// 모델 값 뷰로 전달
 		req.setAttribute("BUser", getMemberByUserid);
-
+		req.setAttribute("pageno", 2);
 
 		//view
 		req.getRequestDispatcher("/WEB-INF/views/member/mypageupdate.jsp")

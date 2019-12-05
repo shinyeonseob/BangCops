@@ -7,22 +7,16 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-
-
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-	<link rel="stylesheet" href="assets/demo.css">
-	<link rel="stylesheet" href="assets/navigation-basic.css">
-	<link rel="stylesheet" href="assets/slicknav/slicknav.min.css">
 	
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="assets/slicknav/jquery.slicknav.min.js"></script>
 
-<script>
+<script type="text/javascript">
 // 		$(function() {
 // 			$('ul.tab li').click(function() {
 // 				var activeTab = $(this).attr('data-tab');
@@ -34,25 +28,20 @@
 // 		});
 		
 		$(document).ready(function(){
-			var datatab = $('data-tab')
-			if(datatab == "tab1"){
-				$(this).addClass('current');
-				$('/mypage/main' + activeTab).addClass('current');
-			}else if(datatab == "tab2"){
-				$(this).addClass('current');
-				$('/mypage/update' + activeTab).addClass('current');
-			}else if(datatab == "tab3"){
-				$(this).addClass('current');
-				$('/mypage/pw' + activeTab).addClass('current');
-			}else if(datatab == "tab4"){
-				$(this).addClass('current');
-				$('/mypage/board' + activeTab).addClass('current');
-			}else if(datatab == "tab5"){
-				$(this).addClass('current');
-				$('/mypage/comment' + activeTab).addClass('current');
-			}else if(datatab == "tab6"){
-				$(this).addClass('current');
-				$('/mypage/with' + activeTab).addClass('current');
+			var pageno = "${pageno}";
+			console.log(pageno);
+			if(pageno == "1"){
+				$("#mypagemain").addClass("active");
+			}else if(pageno == "2"){
+				$("#mypageupdate").addClass("active");
+			}else if(pageno == "3"){
+				$("#mypagepw").addClass("active");
+			}else if(pageno == "4"){
+				$("#mypageboard").addClass("active");
+			}else if(pageno == "5"){
+				$("#mypagecomment").addClass("active");
+			}else if(pageno == "6"){
+				$("#withdrawal").addClass("active");
 			}
 			
 		})
@@ -67,68 +56,68 @@
 	align-items: stretch;
 	min-height : 100px;
 	margin-right: 660px;
+	font-family: '행복고흥L';
 }
 #container {
 			width:960px;
 			margin:0 auto;
 			text-align:center;
+			font-family: '행복고흥L';
+			font-size: 20px;
 		}
-		.tab {
-			list-style: none;
-			margin: 0;
-			padding: 0;
-			overflow: hidden;
-		}
-		/* Float the list items side by side */
-		.tab li {
-			float: left;
-		}
-		/* Style the links inside the list items */
-		.tab li a {
-			display: inline-block;
-			color: #000;
-			text-align: center;
-			text-decoration: none;
-			padding: 14px 16px;
-			font-size: 17px;
-			transition:0.3s;
-		}
-		/* Style the tab content */
-		.tabcontent {
-			display: none;
-			background-color:rgb(0,154,200);
-			padding: 6px 12px;
-			color:#fff;
-		}
-		ul.tab li.current{
-			background-color: grey;
-			color: #222;
-		}
-		.tabcontent.current {
-			display: block;
-		}
+
+		
+#menubar{
+	margin-top:9px;
+	margin-bottom:65px;
+}
 </style>
 
 
 <br>
 <br>	
-<div id = "mypagetitle" class="row"><h1 >마이페이지</h1></div>
+<div id = "mypagetitle" class="row"><h1 ><b>마이페이지</b></h1></div>
 -
 	<div id="container">
 
-		<ul class="tab  nav nav-tabs">
-			<li class="current" data-tab="tab1"><a href="/mypage/main">나의정보</a></li>
-			<li data-tab="tab2"><a href="/mypage/update">정보 수정</a></li>
-			<li data-tab="tab3"><a href="/mypage/pw">비밀번호 변경</a></li>
-			<li data-tab="tab4"><a href="/mypage/board">내가 쓴 글내역</a></li>
-			<li data-tab="tab5"><a href="/mypage/comment">내가 쓴 댓글</a></li>
-			<li data-tab="tab6"><a href="/mypage/with">회원 탈퇴</a></li>
+<!-- 		<ul class="tab  nav nav-tabs"> -->
+<!-- 			<li class="current" data-tab="tab1"><a href="/mypage/main">나의정보</a></li> -->
+<!-- 			<li data-tab="tab2"><a href="/mypage/update">정보 수정</a></li> -->
+<!-- 			<li data-tab="tab3"><a href="/mypage/pw">비밀번호 변경</a></li> -->
+<!-- 			<li data-tab="tab4"><a href="/mypage/board">내가 쓴 글내역</a></li> -->
+<!-- 			<li data-tab="tab5"><a href="/mypage/comment">내가 쓴 댓글</a></li> -->
+<!-- 			<li data-tab="tab6"><a href="/mypage/with">회원 탈퇴</a></li> -->
+<!-- 		</ul> -->
+
+<!-- 	</div> -->
+
+	<div role="tabpanel">
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" role="tablist" id="menubar">
+			<li role="presentation" id="mypagemain"><a href="/mypage/main" aria-controls="mypagemain" role="tab">
+			<span style="color:black">나의정보</span></a></li>
+			<li role="presentation" id="mypageupdate"><a href="/mypage/update" aria-controls="mypageupdate" role="tab">
+			<span style="color:black">정보 수정</span></a></li>
+			<li role="presentation" id="mypagepw"><a href="/mypage/pw" aria-controls="mypagepw" role="tab">
+			<span style="color:black">비밀번호 변경</span></a></li>
+			<li role="presentation" id="mypageboard"><a href="/mypage/board" aria-controls="mypageboard" role="tab">
+			<span style="color:black">내가 쓴 글 내역</span></a></li>
+			<li role="presentation" id="mypagecomment"><a href="/mypage/comment" aria-controls="mypagecomment" role="tab">
+			<span style="color:black">내가 쓴 댓글</span></a></li>
+			<li role="presentation" id="withdrawal"><a href="/mypage/with" aria-controls="withdrawal" role="tab">
+			<span style="color:black">회원 탈퇴</span></a></li>
 		</ul>
-
-	</div>
-
-	
-    
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="mypagemain"></div>
+			<div role="tabpanel" class="tab-pane" id="mypageupdate"></div>
+			<div role="tabpanel" class="tab-pane" id="mypagepw"></div>
+			<div role="tabpanel" class="tab-pane" id="mypageboard"></div>
+			<div role="tabpanel" class="tab-pane" id="mypagecomment"></div>
+			<div role="tabpanel" class="tab-pane" id="withdrawal"></div>
+		</div>
+	</div>	
+    </div>
 
 
 
