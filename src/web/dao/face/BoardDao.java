@@ -55,6 +55,6 @@ public interface BoardDao {
 	public List<BBoard> selectReviewByReco(int cnt);
 	
 	public List<BBoard> selectNoticeByRegdate(int cnt);
-	
+
 
 }
