@@ -27,7 +27,14 @@ $(document).ready(function() {
 
 	//삭제버튼 동작
 	$("#btnDelete").click(function() {
+		var delConfirm = confirm('정말 탈퇴하시겠습니까~?');
+		if (delConfirm) {
 		$(location).attr("href", "/admin/memberdelete?userno=${viewBuser.userno}");
+		      alert('탈퇴되었습니다.');
+		   }
+		   else {
+		      alert('탈퇴가 취소되었습니다.');
+		   }
 	});
 	
 });

@@ -128,7 +128,7 @@ th {
 </style>
 <script type="text/javascript">
 function warning() {
-	alert("게시글을 삭제합니다..");
+	alert("게시글을 삭제합니다.");
 }
 </script>
 

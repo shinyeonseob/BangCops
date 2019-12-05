@@ -8,9 +8,15 @@
 <style type="text/css">
 th {
 	padding:10px;
-/* 	border:1px solid black; */
-	text-align:center;
+c	text-align:center;
 }
+
+td {
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
 </style>
 
 <jsp:include page="/WEB-INF/views/admin/adminheader.jsp" />
@@ -107,7 +113,7 @@ function checkAll() {
 </c:if>
 <hr style="background:grey;height:2px">
 <br>
-<table style="width:1140">
+<table style="width:1140; table-layout: fixed;">
 	<tr style="height:40">
 	<th>
 		<input type="checkbox" id="checkAll" onclick="checkAll();" />
@@ -121,7 +127,7 @@ function checkAll() {
 		<th class="text-center" style="width:15%">게시글삭제</th>
 	</tr>
 <c:forEach items="${ list }" var="i">
-	<tr style="text-align:center;height:30">
+	<tr style="text-align:center; height:30">
 		<td><input type="checkbox" name="checkRow" value="${i.userNo }" /></td>
 		<td>${ i.idx }</td>
 		<td style="text-align:left"><a href ="/admin/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
