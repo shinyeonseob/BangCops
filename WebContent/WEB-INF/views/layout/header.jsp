@@ -333,10 +333,10 @@ $(document).ready(function() {
          </b></a>
 				<ul class="dropdown-menu" role="menu" style ="background-color: #242645 ; color:white !important;">
          			<li ><a style = "color:white;" href="/main/community/board?boardno=1">자유게시판</a></li>
-           			<li><a style = "color:white;" href="#">이용후기게시판</a></li>
+           			<li><a style = "color:white;" href="/main/community/board?boardno=2">이용후기게시판</a></li>
            			<li class="divider" ></li>
-           			<li><a style = "color:white;" href="#">공지사항</a></li>
-           			<li><a style = "color:white;" href="#">FAQ</a></li>
+           			<li><a style = "color:white;" href="/main/community/board?boardno=3">공지사항</a></li>
+           			<li><a style = "color:white;" href="/main/community/board?boardno=5">FAQ</a></li>
          		</ul>
          	</li>
 	<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>

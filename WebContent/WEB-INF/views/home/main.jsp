@@ -33,6 +33,14 @@
 	justify-content: center;
 	align-items: center;
 }
+body{
+	background-color: #22578d;
+}
+rect{
+	fill : #22578d !important;
+
+}
+
 .wrapper:before { content: ""; display: inline-block; width: 1px; height: 100%; margin-right: 0; vertical-align: middle;}
 
 .form-inline { display: inline-block flex; }
@@ -48,7 +56,7 @@
 
 	<div>
 		<h2>
-			<strong>부동산 허위매물 검색</strong>
+			<strong style="font-size: 45px; color:white;">부동산 허위매물 검색</strong>
 		</h2>
 	</div>
 	<div class="wrapper">
@@ -108,9 +116,9 @@
 		<div>
 		<table>
 			<tr>
-				<td style="width:33%"><div ><h3><strong><font style="color:grey;font-size:14px">오늘의 신고건수</font><br> ${dailyCnt }</strong></h3></div></td>
-				<td style="width:33%"><div ><h3><strong><font style="color:grey;font-size:14px">전체 신고건수</font><br> ${totalCnt }</strong></h3></div></td>
-				<td style="width:34%"><div id="piechart" style="width: 400px; height: 300px; float:right;padding-top:70px"></div></td>
+				<td style="width:33%"><div ><h3><strong style="color:white;font-size:32px"><font style="font-size:25px">오늘의 신고건수</font><br><br> ${dailyCnt }</strong></h3></div></td>
+				<td style="width:33%"><div ><h3><strong style="color:white;font-size:32px"><font style="font-size:25px">전체 신고건수</font><br><br> ${totalCnt }</strong></h3></div></td>
+				<td style="width:34%"><div id="piechart" style="color:white; width: 400px; height: 300px; float:right;padding-top:70px"></div></td>
 			</tr>
 		</table>
 		</div>
