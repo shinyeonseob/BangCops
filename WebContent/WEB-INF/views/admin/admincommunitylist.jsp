@@ -66,7 +66,7 @@ $(document).ready(function() {
 		<th class="text-center" style="width:15%">작성일</th>
 		<th class="text-center" style="width:5%">조회수</th>
 		<th class="text-center" style="width:5%">추천수</th>
-		<th class="text-center" style="width:15%">추천수</th>
+		<th class="text-center" style="width:15%">게시글삭제</th>
 	</tr>
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center;height:30">
@@ -77,7 +77,7 @@ $(document).ready(function() {
 		<td>${ i.regDate }</td>
 		<td>${ i.hits }</td>
 		<td>${ i.reco }</td>
-		<td><a href="/admin/community/board/delete?boardno=${i.boardNo }"><button id="btnDelete">게시글 삭제</button></a></td>
+		<td><a href="/admin/community/board/delete?boardno=${boardno }&idx=${i.idx }"><button id="btnDelete">게시글 삭제</button></a></td>
 	</tr>
 </c:forEach>
 </table>

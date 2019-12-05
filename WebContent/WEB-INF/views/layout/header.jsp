@@ -210,6 +210,9 @@
 	position:fixed;
 	top:0px;
 }
+ul.nav li.dropdown:hover > ul.dropdown-menu { 
+	display:block; margin:0; 
+}
 
 </style>
 
@@ -259,14 +262,25 @@
    <div id = "mainlogo" class="navbar-header">
    <a href="/main"><img class="logo" src="/resources/img/logo2.png"></a>
    </div>
-      <ul>
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
          <li><a id = "btn_search" class="menuLink" href="#"><img src="/resources/img/Wsearch.png" width="30" height="30" >&nbsp;&nbsp;검색</a></li>
          <li><a id = "btn_accuse" class="menuLink" href="#"><img src="/resources/img/Waccuse.png" width="30" height="30">&nbsp;신고</a></li>
          <li><a id = "btn_home" class="menuLink" href="#"><img src="/resources/img/Whome.png" width="30" height="30">&nbsp;홈</a></li>
-         <li><a id = "btn_community" class="menuLink" href="#"><img src="/resources/img/Wcommunity.png" width="30" height="30">&nbsp;커뮤니티</a></li>
+         <li class="dropdown">
+         	<a id = "btn_community" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"href="#">
+         	<img src="/resources/img/Wcommunity.png" width="30" height="30">&nbsp;커뮤니티<span class="caret"></span></a>
+         		<ul class="dropdown-menu" role="menu">
+         			<li><a href="/main/community/board?boardno=1">자유게시판</a></li>
+           			<li><a href="#">이용후기게시판</a></li>
+           			<li class="divider"></li>
+           			<li><a href="#">공지사항</a></li>
+           			<li><a href="#">FAQ</a></li>
+         		</ul>
+         </li>
+	</ul>
+	</div>
 <!--          <li><a class="menuLink" href="#"><img src="/resources/img/advertising.png" width="30" height="30">&nbsp;광고/배너</a></li> -->
-
-         <li>
          
          <c:if test="${sessionScope.login eq null }">
          <a href="#myModal" class="trigger-btn" data-toggle="modal">

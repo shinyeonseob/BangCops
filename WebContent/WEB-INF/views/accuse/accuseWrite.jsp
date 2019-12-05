@@ -344,7 +344,7 @@ able, td {
 			넣어주세요<br> 신고하신 첫번째 이미지는 허위매물 이미지로 노출됩니다.
 		</small> <br><br>
 		<div class= "zidx">
-		<br><input type="file" name="upfile" class/> <br> <br>
+		<br><input type="file" name="upfile" required="required"/> <br> <br>
 		</div>
 		
 		</div>

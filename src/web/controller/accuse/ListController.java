@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import util.Paging;
 import web.dto.BAccuse;
+import web.dto.BAccuse3;
 import web.service.face.AccuseService;
 import web.service.face.BoardService;
 import web.service.impl.AccuseServiceImpl;
@@ -41,7 +42,7 @@ public class ListController extends HttpServlet {
 
 		// 게시글 목록 조회
 
-		List<BAccuse> listBAccuse = accuseService.getSearchListBAccuse(paging, req);
+		List<BAccuse3> listBAccuse = accuseService.getSearchListBAccuse(paging, req);
 
 		String boardname = boardService.getboardname(boardno);
 

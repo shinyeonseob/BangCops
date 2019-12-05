@@ -60,11 +60,11 @@ $(document).ready(function() {
 <br>
 <table style="margin:0 auto;width:1200;height:50;table-layout:fixed">
 	<tr>
-		<th><div class="text-center"><button class="btn" onclick="location.href='/main/community/board?boardno=1'" style="width:120px">자유게시판</button></div></th>
-		<th><div class="text-center"><button class="btn" onclick="location.href='/main/community/board?boardno=2'"style="width:120px">이용후기</button></div></th>
-		<th><div class="text-center"><button class="btn" onclick="location.href='/main/community/board?boardno=3'"style="width:120px">공지사항</button></div></th>
-		<th><div class="text-center"><button class="btn" onclick="location.href='/main/community/board?boardno=5'"style="width:120px">FAQ</button></div></th>
-		<th><div class="text-center"><button class="btn" onclick="location.href='/serviceCenterView'"style="width:120px">고객센터</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=1'" style="width:120px">자유게시판</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=2'"style="width:120px">이용후기</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=3'"style="width:120px">공지사항</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=5'"style="width:120px">FAQ</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button"" onclick="location.href='/serviceCenterView'"style="width:120px">고객센터</button></div></th>
 	</tr>
 </table>
 
@@ -112,14 +112,14 @@ $(document).ready(function() {
 
 <div>
 <c:if test="${login && boardno ne 3 && boardno ne 5}">
-<a href="/main/community/board/write?boardno=${boardno }"><button class="btn" >게시글작성</button></a>
+<a href="/main/community/board/write?boardno=${boardno }"><button type="button" class="btn btn-primary" >게시글작성</button></a>
 </c:if>
 <c:if test="${empty login && boardno eq 3 && boardno eq 5}">
-<a style="float:left" href="#myModal" class="trigger-btn" data-toggle="modal"><button class="btn" onclick="loginPlease();">게시글 작성</button></a>
+<a style="float:left" href="#myModal" class="trigger-btn" data-toggle="modal"><button type="button" class="btn btn-primary" onclick="loginPlease();">게시글 작성</button></a>
 </c:if>
 
 	
-	<button  class="btn" id="btnSearch" style="float:right;margin-left: 3px" >검색</button>
+	<button  class="btn btn-primary" type="button" id="btnSearch" style="float:right;margin-left: 3px" >검색</button>
 	<input type="text" id ="searchtarget" name="searchtarget" size="15" placeholder="검색어를 입력하세요" style="float:right;margin-top:4px;" />
 	<select id="searchcategory" Style="float:right;height:26px;margin-top: 4px;" >
 		<option value="title">제목</option>
