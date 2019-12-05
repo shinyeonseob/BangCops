@@ -178,7 +178,7 @@ public class AccuseDaoImpl implements AccuseDao {
 		sql += "		a.ACCUSENO , a.URL , a.CITY , a.GU , a.SITENAME , a.ACCUSETYPE , t.IDX , a.AGENT , a.PROPERTY , a.PHONENO, t.FileNo, t.FileRoot, t.StoredName, b.Title ";
 		sql += "	FROM Bboard b, BAccuse a, BAttached t";
 		sql += "	WHERE b.idx = a.idx AND City = ? AND Gu = ? AND Contents LIKE '%'||?||'%'";
-		sql += "	ORDER BY idx DESC";
+		sql += "	ORDER BY a.ACCUSENO DESC";
 		sql += " ) B ORDER BY rnum";
 		sql += " ) BBoard";
 		sql += " WHERE rnum BETWEEN ? AND ?";
