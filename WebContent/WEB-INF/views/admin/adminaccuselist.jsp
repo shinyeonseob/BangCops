@@ -104,16 +104,14 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	</th>
 	<th style="width: 5%">글번호</th>
 	<th style="width: 10%">신고 사이트</th>
-	<th style="width: 10%">URL</th>
-	<th style="width: 10%">지역</th>
+	<th style="width: 15%">지역</th>
 	<th style="width: 10%">신고된 부동산</th>
 	<th style="width: 7%">중계사명</th>
-	<th style="width: 16%">전화번호</th>
 	<th style="width: 9%">작성자</th>
-	<th style="width: 9%">작성일</th>
-	<th style="width: 5%">상세정보</th>
+	<th style="width: 18%">작성일</th>
+	<th style="width: 12%">상세정보</th>
 	<th style="width: 5%">작성자정보</th>
-	<th style="width: 5%">삭제</th>
+	<th style="width: 10%">삭제</th>
 	
 </tr>
 
@@ -122,11 +120,9 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	<td><input type="checkbox" name="checkRow" value="${list.accuseno }" /></td>
 	<td>${list.idx }</td>
 	<td>${list.sitename }</td>
-	<td>${list.url }</td>
 	<td>${list.city }시 ${list.gu }</td>
 	<td>${list.property }</td>
 	<td>${list.agent }</td>
-	<td>${list.phoneNo }</td>
 	<td>${list.usernick }</td>
 	<td>${list.regDate }</td>
 	<td><a href="/admin/accuseview?accuseno=${list.accuseno }"><button>상세정보</button></a></td>
