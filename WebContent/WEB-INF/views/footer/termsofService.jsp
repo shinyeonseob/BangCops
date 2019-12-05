@@ -26,7 +26,7 @@
 <body>
 <!-- Image Showcases -->
 <section class="showcase">
-    <div class="container-fluid p-0" style="background:#fff;">
+    <div class="container-fluid p-0" style="background:#fff; width: 1000px;">
         <div class="row no-gutters">
             <div class="col-lg-12 order-lg-1 my-auto showcase-text pb-4">
                 <div>

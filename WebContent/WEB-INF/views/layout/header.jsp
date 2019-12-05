@@ -238,6 +238,7 @@ ul li.dropdown:hover > ul.dropdown-menu {
 .divider{
 	color: white;
 }
+
 </style>
 
 <script type="text/javascript">
@@ -365,7 +366,6 @@ $(document).ready(function() {
 	</div>
  </nav>
 <!--          <li><a class="menuLink" href="#"><img src="/resources/img/advertising.png" width="30" height="30">&nbsp;광고/배너</a></li> -->
-
 
         
 
