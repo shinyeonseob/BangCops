@@ -34,8 +34,14 @@
 				<div class="col-xs-4 col-md-2">
 					<div class="thumbnai">
 						<div class="thumbnail">
-							<img src="/upload/${al.storedName }" alt="허위매물정보" />
-							<!--       //로고부분 넣는 실제로 들어가야함 -->
+							<c:if test="${al.idx eq al.title }">
+								<img src="/upload/${al.storedName }" alt="허위매물정보" />
+								<!--       //로고부분 넣는 실제로 들어가야함 -->
+							</c:if>
+							<c:if test="${al.idx ne  al.title }">
+								<img src="/resources/img/logo.png" alt="허위매물정보" />
+								<!--       //로고부분 넣는 실제로 들어가야함 -->
+							</c:if>
 							<div class="caption">
 
 

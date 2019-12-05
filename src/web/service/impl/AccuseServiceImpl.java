@@ -130,17 +130,7 @@ public class AccuseServiceImpl implements AccuseService {
 
 				// Board board = new Board();
 
-				if ("title".equals(key)) {
-					try {
-						board.setTitle(item.getString("UTF-8"));
-						System.out.println(key);
-						System.out.println(item.getString("UTF-8"));
-					} catch (UnsupportedEncodingException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-				} else if ("contents".equals(key)) {
+				 if ("contents".equals(key)) {
 
 					try {
 						board.setContents(item.getString("UTF-8"));

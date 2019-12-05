@@ -175,7 +175,7 @@ public class AccuseDaoImpl implements AccuseDao {
 		sql += "SELECT * FROM (";
 		sql += "	SELECT rownum rnum, B.* FROM (";
 		sql += "	SELECT";
-		sql += "		a.ACCUSENO , a.URL , a.CITY , a.GU , a.SITENAME , a.ACCUSETYPE , a.IDX , a.AGENT , a.PROPERTY , a.PHONENO, t.FileNo, t.FileRoot, t.StoredName ";
+		sql += "		a.ACCUSENO , a.URL , a.CITY , a.GU , a.SITENAME , a.ACCUSETYPE , t.IDX , a.AGENT , a.PROPERTY , a.PHONENO, t.FileNo, t.FileRoot, t.StoredName, b.Title ";
 		sql += "	FROM Bboard b, BAccuse a, BAttached t";
 		sql += "	WHERE b.idx = a.idx AND City = ? AND Gu = ? AND Contents LIKE '%'||?||'%'";
 		sql += "	ORDER BY idx DESC";
@@ -218,6 +218,7 @@ public class AccuseDaoImpl implements AccuseDao {
 				bAccuse.setFileNo(rs.getInt("fileNo"));
 				bAccuse.setFileRoot(rs.getString("fileRoot"));
 				bAccuse.setStoredName(rs.getString("storedName"));
+				bAccuse.setTitle(rs.getString("Title"));
 				
 				
 				System.out.println(rs.getString("fileRoot") + rs.getString("storedName"));
