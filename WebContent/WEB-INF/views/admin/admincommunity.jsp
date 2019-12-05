@@ -212,7 +212,7 @@ text-align: center;
 		<div class="row">
 			<h2>
 				<b>커뮤니티 게시글 관리</b>
-			</h2><br><br>
+			</h2><br>
 			
 			<div class="board">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel"

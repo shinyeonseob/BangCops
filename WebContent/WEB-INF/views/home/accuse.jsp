@@ -22,6 +22,8 @@ div {
 	margin: 40px;
 	text-align: center;
 	padding: 10px;
+	border-radius: 10px;
+	color: white;
 }
 
 .btnAccuse {
@@ -35,6 +37,11 @@ div {
 	float: none;
 	padding: 20px;
 }
+.title{
+	background-color : #0066B2;
+	height : 14px;
+}
+
 </style>
 <hr>
 
@@ -49,7 +56,8 @@ div {
 
 	<div id="container">
 		<h2>
-			<Strong><img src ="/resources/img/accuse.png" width="30" height="30">&nbsp;&nbsp;신고</Strong>
+			<Strong>
+			<img src ="/resources/img/accuse.png" width="30" height="30">&nbsp;&nbsp;신고</Strong>
 		</h2>
 	</div>
 
