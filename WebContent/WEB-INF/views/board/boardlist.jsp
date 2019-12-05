@@ -60,11 +60,11 @@ $(document).ready(function() {
 <br>
 <table style="margin:0 auto;width:1200;height:50;table-layout:fixed">
 	<tr>
-		<th><div class="text-center"><button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=1'" style="width:120px">자유게시판</button></div></th>
-		<th><div class="text-center"><button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=2'"style="width:120px">이용후기</button></div></th>
-		<th><div class="text-center"><button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=3'"style="width:120px">공지사항</button></div></th>
-		<th><div class="text-center"><button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=5'"style="width:120px">FAQ</button></div></th>
-		<th><div class="text-center"><button class="btn btn-primary" type="button"" onclick="location.href='/serviceCenterView'"style="width:120px">고객센터</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" onclick="location.href='/main/community/board?boardno=1'" style="width:120px">자유게시판</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" onclick="location.href='/main/community/board?boardno=2'"style="width:120px">이용후기</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" onclick="location.href='/main/community/board?boardno=3'"style="width:120px">공지사항</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" onclick="location.href='/main/community/board?boardno=5'"style="width:120px">FAQ</button></div></th>
+		<th><div class="text-center"><button class="btn btn-primary" type="button" onclick="location.href='/serviceCenterView'"style="width:120px">고객센터</button></div></th>
 	</tr>
 </table>
 
@@ -120,8 +120,8 @@ $(document).ready(function() {
 
 	
 	<button  class="btn btn-primary" type="button" id="btnSearch" style="float:right;margin-left: 3px" >검색</button>
-	<input type="text" id ="searchtarget" name="searchtarget" size="15" placeholder="검색어를 입력하세요" style="float:right;margin-top:4px;" />
-	<select id="searchcategory" Style="float:right;height:26px;margin-top: 4px;" >
+	<input type="text" id ="searchtarget" name="searchtarget" size="15" placeholder="검색어를 입력하세요" style="float: right;margin-top: 0px;height: 34px;width: 154px;border-left-width: 2px;margin-left: 3px;" />
+	<select id="searchcategory" Style="float:right;height: 34px;" >
 		<option value="title">제목</option>
 		<option value="usernick">작성자</option>
 		<option value="contents">내용</option>
