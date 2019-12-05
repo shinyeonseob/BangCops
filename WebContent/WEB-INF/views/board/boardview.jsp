@@ -154,23 +154,23 @@ function warning() {
 	style="margin: 0 auto; width: 1200; height: 50; table-layout: fixed">
 	<tr>
 		<th><div class="text-center">
-				<button class="btn" onclick="location.href='/main/community/board?boardno=1'"
+				<button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=1'"
 					style="width: 120px">자유게시판</button>
 			</div></th>
 		<th><div class="text-center">
-				<button class="btn" onclick="location.href='/main/community/board?boardno=2'"
+				<button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=2'"
 					style="width: 120px">이용후기</button>
 			</div></th>
 		<th><div class="text-center">
-				<button class="btn" onclick="location.href='/main/community/board?boardno=3'"
+				<button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=3'"
 					style="width: 120px">공지사항</button>
 			</div></th>
 		<th><div class="text-center">
-				<button class="btn" onclick="location.href='/main/community/board?boardno=5'"
+				<button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=5'"
 					style="width: 120px">FAQ</button>
 			</div></th>
 		<th><div class="text-center">
-				<button class="btn" onclick="location.href='/serviceCenterView'"
+				<button class="btn btn-primary" type="button"" onclick="location.href='/serviceCenterView'"
 					style="width: 120px" >고객센터</button>
 			</div></th>
 	</tr>
@@ -233,18 +233,18 @@ function warning() {
 				href="/upload/${bAttached.storedName}">${bAttached.originName }</a></td>
 		</tr>
 	</table>
-	<br> <a href="/main/community/board?boardno=${list.boardNo }"><button class="btn">목록보기</button></a>
+	<br> <a href="/main/community/board?boardno=${list.boardNo }"><button class="btn btn-primary" type="button"">목록보기</button></a>
 	<%-- ${session.Userno } | ${list.userNo } --%>
 	<c:if test="${Userno eq list.userNo || adminlogin }">
 		<a style="float: right"
-			href="/main/community/board/update?idx=${list.idx }&boardno=${list.boardNo}"><button style="margin-left:2px;"class="btn">수정하기</button></a>
+			href="/main/community/board/update?idx=${list.idx }&boardno=${list.boardNo}"><button style="margin-left:2px;" class="btn btn-primary" type="button">수정하기</button></a>
 		<a style="float: right"
 			href="/main/community/board/delete?idx=${list.idx }&boardno=${list.boardNo}"
-			onclick="warning();"><button style="margin-left:2px;"class="btn">삭제하기</button></a>
-		<a style="float: right"><button id="writecomment" class="btn">댓글작성</button></a>
+			onclick="warning();"><button style="margin-left:2px;"class="btn btn-primary" type="button"">삭제하기</button></a>
+		<a style="float: right"><button id="writecomment" class="btn btn-primary" type="button"">댓글작성</button></a>
 	</c:if>
 	<c:if test="${Userno ne list.userNo || empty login }">
-		<a style="float: right"><button id="writecomment" class="btn">댓글작성</button></a>
+		<a style="float: right"><button id="writecomment" class="btn btn-primary" type="button"">댓글작성</button></a>
 	</c:if>
 
 
@@ -273,7 +273,7 @@ function warning() {
 					value="${UserNick }" readonly="readonly" />
 				<textarea rows="4" cols="60" class="form-control"
 					id="commentContent" placeholder="타인의 권리를 침해하거나 명예를 훼손하는 댓글은 운영원칙 및 관련 법률의 제재를 받을 수 있습니다."></textarea>
-				<button id="btnCommInsert" class="btn">입력</button>
+				<button id="btnCommInsert" class="btn btn-primary" type="button"">입력</button>
 			</div>
 			<!-- 댓글 입력 end -->
 		</c:if>
