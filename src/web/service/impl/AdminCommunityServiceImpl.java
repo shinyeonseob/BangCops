@@ -284,11 +284,6 @@ public class AdminCommunityServiceImpl implements AdminCommunityService {
 		bBoard.setIdx(idx);
 		return bBoard;
 	}
-
-	@Override
-	public void delete(BBoard bBoard) {
-		boardDao.delete(bBoard);
-	}
 	
 	@Override
 	public void update(HttpServletRequest req) {
@@ -524,20 +519,32 @@ public class AdminCommunityServiceImpl implements AdminCommunityService {
 		
 	}
 
-//	@Override
-//	public List<BBoard> getBoardTopFiveInFreeboard() {
-//		return boardDao.selectFreeboardByReco();
-//	}
-//
-//	@Override
-//	public List<BBoard> getBoardTopFiveInReview() {
-//		return boardDao.selectReviewByReco();
-//	}
-//	
-//	@Override
-//	public List<BBoard> getBoardTopFiveInNotice() {
-//		return boardDao.selectNoticeByRegdate();
-//	}
+	@Override
+	public List<BBoard> getBoardTopFiveInFreeboard(int cnt) {
+		return boardDao.selectFreeboardByReco(cnt);
+	}
+
+	@Override
+	public List<BBoard> getBoardTopFiveInReview(int cnt) {
+		return boardDao.selectReviewByReco(cnt);
+	}
+	
+	@Override
+	public List<BBoard> getBoardTopFiveInNotice(int cnt) {
+		return boardDao.selectNoticeByRegdate(cnt);
+	}
+	
+	@Override
+	public void delete(BBoard bBoard) {
+		boardDao.delete(bBoard);
+	}
+
+	@Override
+	public void communityListDelete(String names) {
+		
+		boardDao.deleteCommunityList(names);
+	}
+
 
 
 	

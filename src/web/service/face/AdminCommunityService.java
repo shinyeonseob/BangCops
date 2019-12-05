@@ -39,9 +39,6 @@ public interface AdminCommunityService {
 	//게시판 idx 추출
 	public BBoard getIdx(HttpServletRequest req);
 	
-	//게시글 삭제
-	public void delete(BBoard bBoard);
-	
 	//게시글 수정
 	public void update(HttpServletRequest req);
 
@@ -68,10 +65,24 @@ public interface AdminCommunityService {
 
 	public void commentMyListDelete(String names);
 	
-//	public List<BBoard> getBoardTopFiveInFreeboard();
-//	
-//	public List<BBoard> getBoardTopFiveInNotice();
-//	
-//	public List<BBoard> getBoardTopFiveInReview();
+	public List<BBoard> getBoardTopFiveInFreeboard(int cnt);
+	
+	public List<BBoard> getBoardTopFiveInNotice(int cnt);
+	
+	public List<BBoard> getBoardTopFiveInReview(int cnt);
+	
+	/**
+	 * 회원 삭제
+	 * 
+	 * @param buser - 삭제할 회원 번호를 가진 객체
+	 */
+	public void delete(BBoard bBoard);
+
+	/**
+	 * 게시글리스트 삭제
+	 * 
+	 * @param names - 지울 idx를 문자열로 합친 것
+	 */
+	public void communityListDelete(String names);
 
 }

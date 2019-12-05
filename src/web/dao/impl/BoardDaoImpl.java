@@ -704,7 +704,35 @@ public class BoardDaoImpl implements BoardDao {
 		return list;
 	}
 
+	@Override
+	public void deleteCommunityList(String names) {
 
-	
+		conn = DBconn.getConnection();
+		
+		String sql = "";
+		sql += "DELETE FROM Bboard WHERE idx = ?";
+		
+		PreparedStatement ps =null;
+		try {
+			ps = conn.prepareStatement(sql);
+
+			ps.setInt(1, Integer.parseInt(names));
+			
+//			ps.executeQuery();
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null)
+					ps.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 
 }

@@ -48,7 +48,7 @@
 				<th class="text-center" style="width: 15%">제목</th>
 				<th class="text-center" style="width: 25%">내용</th>
 				<th class="text-center" style="width: 15%">작성날짜</th>
-				<th class="text-center" style="width: 10%">회원삭제</th>
+				<th class="text-center" style="width: 10%">게시글삭제</th>
 			</tr>
 			<c:forEach items="${ list }" var="i">
 				<tr style="text-align: center; height: 30">
@@ -56,7 +56,7 @@
 					<td>${ i.userNo }</td>
 					<td>${ i.userid }</td>
 					<td style="text-align: left"><a
-						href="/main/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
+						href="/admin/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
 					<td>${ i.contents }</td>
 					<td>${ i.regDate }</td>
 					<td><a href="/admin/boarddelete?idx=${i.idx }"><button id="btnDelete">게시글 삭제</button></a></td>

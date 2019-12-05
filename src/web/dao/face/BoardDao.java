@@ -39,7 +39,11 @@ public interface BoardDao {
 	// 조회수 상승
 	public void updateHit(BBoard bBoard);
 	
-	// 게시글 삭제
+	/**
+	 * 게시글 삭제
+	 * 
+	 * @param bBoard - 삭제할 게시글 담은 객체
+	 */
 	public void delete(BBoard bBoard);
 	
 	//게시글 수정
@@ -55,6 +59,13 @@ public interface BoardDao {
 	public List<BBoard> selectReviewByReco(int cnt);
 	
 	public List<BBoard> selectNoticeByRegdate(int cnt);
-	
+
+	/**
+	 * 리스트에서 게시글 삭제하기
+	 * 
+	 * @param names - 삭제할 게시글번호 목록들 문자열
+	 */
+	public void deleteCommunityList(String names);
+
 
 }
