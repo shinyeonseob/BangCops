@@ -32,8 +32,8 @@ div. sexyback{
 
 <div class="container">
 
-<br><hr><br>
-<h2 style="text-align:center"><strong>커뮤니티</strong></h2><br>
+<br><hr>
+<h2 style="text-align:center"><strong>커뮤니티</strong></h2>
 <hr>
 <br><br><br>
 <div class="text-center"><h2><strong>부동산과 관련된 여러 정보를 공유해주세요. &nbsp;<img src="/resources/img/thumb.png" width="40" height="40"></strong></h2></div><br>
