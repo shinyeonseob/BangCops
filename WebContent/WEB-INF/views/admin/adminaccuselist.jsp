@@ -9,6 +9,7 @@
 <!-- Bootstrap 3.3.2 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <jsp:include page="/WEB-INF/views/admin/adminheader.jsp" />
@@ -125,9 +126,9 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	<td>${list.agent }</td>
 	<td>${list.usernick }</td>
 	<td>${list.regDate }</td>
-	<td><a href="/admin/accuseview?accuseno=${list.accuseno }"><button>상세정보</button></a></td>
-	<td><a class="btn btn-primary" id="btnBoard" href='/admin/memberview?userno=${list.userNo }'">작성자정보</a></td>
-    <td><a href="/admin/accusedelete?accuseno=${list.accuseno }"><button id="btnDelete">삭제</button></a></td>
+	<td><a href="/admin/accuseview?accuseno=${list.accuseno }"><button class="btn btn-success btn-sm">상세정보</button></a></td>
+	<td><a class="btn btn-primary btn-sm" id="btnBoard" href='/admin/memberview?userno=${list.userNo }'">작성자정보</a></td>
+    <td><a href="/admin/accusedelete?accuseno=${list.accuseno }"><button class="btn btn-warning btn-sm" id="btnDelete">삭제</button></a></td>
 </tr>
 </c:forEach>
 	

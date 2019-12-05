@@ -121,9 +121,9 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	<td>${list.usernick }</td>
 	<td>${list.username }</td>
 	<td>${list.usertel }</td>
-	<td><a class="btn btn-outline-success" href="/admin/memberview?userno=${list.userno }">상세정보</a></td>
-	<td><a class="btn btn-outline-primary" id="btnBoard" href='/admin/boardlist?userno=${list.userno }'">회원글</a></td>
-    <td><a class="btn btn-outline-secondary" id="btnDelete" href="/admin/memberdelete?userno=${list.userno }">회원삭제</a></td>
+	<td><a class="btn btn-outline-success btn-sm" href="/admin/memberview?userno=${list.userno }">상세정보</a></td>
+	<td><a class="btn btn-outline-primary btn-sm" id="btnBoard" href='/admin/boardlist?userno=${list.userno }'">회원글</a></td>
+    <td><a class="btn btn-outline-secondary btn-sm" id="btnDelete" href="/admin/memberdelete?userno=${list.userno }">회원삭제</a></td>
 </tr>
 </c:forEach>
 	
