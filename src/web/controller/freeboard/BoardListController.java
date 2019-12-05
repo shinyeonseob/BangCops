@@ -31,10 +31,11 @@ public class BoardListController extends HttpServlet {
 		
 		req.setCharacterEncoding("UTF-8");
 
+		//boardno 얻기
 		int boardno = Integer.parseInt(req.getParameter("boardno"));
 		
-		Paging paging = 
-				boardService.getPaging(req, boardno);
+		//페이징
+		Paging paging = boardService.getPaging(req, boardno);
 		
 
 
@@ -72,25 +73,10 @@ public class BoardListController extends HttpServlet {
 			  
 		  }
 		  
-//		  Recommend recommend = new Recommend();
-//		  
-//		  int cnt = boardService.getTotalCntRecommend(recommend);
-//		  req.setAttribute("reco", cnt );
-		  
-		  
-		// 게시글 목록 조회
-		
-
-
 		// VIEW 지정
 		req.getRequestDispatcher("/WEB-INF/views/board/boardlist.jsp").forward(req, resp);
 	
 
 
 	}
-	
-	@Override
-		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-				
-		}
 }
