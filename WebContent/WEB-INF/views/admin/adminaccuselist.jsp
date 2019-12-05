@@ -103,16 +103,16 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	<th>
 		<input type="checkbox" id="checkAll" onclick="checkAll();" />
 	</th>
-	<th style="width: 5%">글번호</th>
+	<th style="width: 7%">글번호</th>
 	<th style="width: 10%">신고 사이트</th>
 	<th style="width: 15%">지역</th>
-	<th style="width: 10%">신고된 부동산</th>
+	<th style="width: 13%">신고된 부동산</th>
 	<th style="width: 7%">중계사명</th>
 	<th style="width: 9%">작성자</th>
-	<th style="width: 18%">작성일</th>
-	<th style="width: 12%">상세정보</th>
-	<th style="width: 5%">작성자정보</th>
-	<th style="width: 10%">삭제</th>
+	<th style="width: 13%">작성일</th>
+	<th style="width: 10%">상세정보</th>
+	<th style="width: 9%">작성자정보</th>
+	<th style="width: 8%">삭제</th>
 	
 </tr>
 

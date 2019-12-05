@@ -29,15 +29,6 @@ th {
 
 <jsp:include page="/WEB-INF/views/admin/adminheader.jsp" />
 <br>
-<table style="margin:0 auto;width:1200;height:50;table-layout:fixed">
-	<tr>
-		<th><div class="text-center"><button style="width:120px">자유게시판</button></div></th>
-		<th><div class="text-center"><button style="width:120px">이용후기</button></div></th>
-		<th><div class="text-center"><button style="width:120px">공지사항</button></div></th>
-		<th><div class="text-center"><button style="width:120px">FAQ</button></div></th>
-		<th><div class="text-center"><button style="width:120px">고객센터</button></div></th>
-	</tr>
-</table>
 
 <div class="container">
 <h1>게시글 작성</h1>

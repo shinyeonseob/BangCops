@@ -128,7 +128,7 @@ th {
 </style>
 <script type="text/javascript">
 function warning() {
-	alert("게시글을 삭제합니다..");
+	alert("게시글을 삭제합니다.");
 }
 </script>
 
@@ -217,15 +217,12 @@ function warning() {
 		</tr>
 	</table>
 	<br> <a href="/admin/community/board?boardno=${list.boardNo }"><button>목록보기</button></a>
-	<%-- ${session.Userno } | ${list.userNo } --%>
-	<c:if test="${Userno eq list.userNo}">
 		<a style="float: right"
 			href="/admin/community/board/update?idx=${list.idx }&boardno=${list.boardNo}"><button>수정하기</button></a>
 		<a style="float: right"
 			href="/admin/community/board/delete?idx=${list.idx }&boardno=${list.boardNo}"
 			onclick="warning();"><button>삭제하기</button></a>
 		<a style="float: right"><button>댓글작성</button></a>
-	</c:if>
 	<c:if test="${Userno ne list.userNo || empty login }">
 		<a style="float: right"><button>댓글작성</button></a>
 	</c:if>
