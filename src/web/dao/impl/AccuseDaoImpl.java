@@ -14,6 +14,7 @@ import web.dao.face.AccuseDao;
 import web.dbutil.DBconn;
 import web.dto.AccuseMap;
 import web.dto.BAccuse;
+import web.dto.BAccuse3;
 import web.dto.BBoard;
 import web.dto.BDeal;
 
@@ -164,7 +165,7 @@ public class AccuseDaoImpl implements AccuseDao {
 	}
 
 	@Override
-	public List<BAccuse> getSearchListBAccuse(Paging paging, HttpServletRequest req) {
+	public List<BAccuse3> getSearchListBAccuse(Paging paging, HttpServletRequest req) {
 
 		System.out.println("getSearchListBAccuse");
 		conn = DBconn.getConnection(); // DB 연결
@@ -174,15 +175,15 @@ public class AccuseDaoImpl implements AccuseDao {
 		sql += "SELECT * FROM (";
 		sql += "	SELECT rownum rnum, B.* FROM (";
 		sql += "	SELECT";
-		sql += "		a.ACCUSENO , a.URL , a.CITY , a.GU , a.SITENAME , a.ACCUSETYPE , a.IDX , a.AGENT , a.PROPERTY , a.PHONENO";
-		sql += "	FROM Bboard b, BAccuse a";
+		sql += "		a.ACCUSENO , a.URL , a.CITY , a.GU , a.SITENAME , a.ACCUSETYPE , a.IDX , a.AGENT , a.PROPERTY , a.PHONENO, t.FileNo, t.FileRoot, t.StoredName ";
+		sql += "	FROM Bboard b, BAccuse a, BAttached t";
 		sql += "	WHERE b.idx = a.idx AND City = ? AND Gu = ? AND Contents LIKE '%'||?||'%'";
 		sql += "	ORDER BY idx DESC";
 		sql += " ) B ORDER BY rnum";
 		sql += " ) BBoard";
 		sql += " WHERE rnum BETWEEN ? AND ?";
 
-		List<BAccuse> list = new ArrayList<>();
+		List<BAccuse3> list = new ArrayList<>();
 
 		try {
 			ps = conn.prepareStatement(sql);
@@ -202,7 +203,7 @@ public class AccuseDaoImpl implements AccuseDao {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				BAccuse bAccuse = new BAccuse();
+				BAccuse3 bAccuse = new BAccuse3();
 
 				bAccuse.setAccuseno(rs.getInt("AccuseNo"));
 				bAccuse.setUrl(rs.getString("URL"));
@@ -214,6 +215,12 @@ public class AccuseDaoImpl implements AccuseDao {
 				bAccuse.setAgent(rs.getString("Agent"));
 				bAccuse.setProperty(rs.getString("Property"));
 				bAccuse.setPhoneNo(rs.getString("PhoneNo"));
+				bAccuse.setFileNo(rs.getInt("fileNo"));
+				bAccuse.setFileRoot(rs.getString("fileRoot"));
+				bAccuse.setStoredName(rs.getString("storedName"));
+				
+				
+				System.out.println(rs.getString("fileRoot") + rs.getString("storedName"));
 
 				System.out.println("bAccuse : " + bAccuse);
 
