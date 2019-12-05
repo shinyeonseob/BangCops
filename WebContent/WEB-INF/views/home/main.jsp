@@ -18,12 +18,15 @@
         var data = google.visualization.arrayToDataTable(${list});
 
         var options = {
-          title: "'구'별 전체 신고 건수"
+          title: "'구'별 전체 신고 건수",
+//           fontColor:white;
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
         chart.draw(data, options);
+        
+        $("#piechart text").attr("fill", "#fff");
       }
     </script>
 
@@ -47,8 +50,6 @@ rect{
 
 
 </style>
-
-
 
 
 
@@ -116,8 +117,8 @@ rect{
 		<div>
 		<table>
 			<tr>
-				<td style="width:33%"><div ><h3><strong style="color:white;font-size:32px"><font style="font-size:25px">오늘의 신고건수</font><br><br> ${dailyCnt }</strong></h3></div></td>
-				<td style="width:33%"><div ><h3><strong style="color:white;font-size:32px"><font style="font-size:25px">전체 신고건수</font><br><br> ${totalCnt }</strong></h3></div></td>
+				<td style="width:33%"><div ><h3><strong style="color:white;font-size:32px"><font style="font-size:15px">오늘의 신고건수</font><br><br> ${dailyCnt }</strong></h3></div></td>
+				<td style="width:33%"><div ><h3><strong style="color:white;font-size:32px"><font style="font-size:15px">전체 신고건수</font><br><br> ${totalCnt }</strong></h3></div></td>
 				<td style="width:34%"><div id="piechart" style="color:white; width: 400px; height: 300px; float:right;padding-top:70px"></div></td>
 			</tr>
 		</table>
