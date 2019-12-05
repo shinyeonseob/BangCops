@@ -39,6 +39,9 @@
 <!-- @font-face { font-family: 'KBIZHanmaumMyungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KBIZHanmaumMyungjo.woff') format('woff'); font-weight: normal; font-style: normal; } -->
 
 
+<!-- 닉스곤폰트B -->
+<link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONB-Vb.woff">
+<!-- @font-face { font-family: 'NIXGONB-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONB-Vb.woff') format('woff'); font-weight: normal; font-style: normal; } -->
 
 <!-- <!-- CSS -->
 <!-- <link rel="stylesheet" -->
@@ -65,35 +68,45 @@
   
 
 <style type="text/css">
-
+p, span, div, form, a, button, strong{
+ 	font-family: 'NIXGONB-Vb'; 
+}
+html, body{
+	font-family: 'NIXGONB-Vb'; 
+}
 </style>
 
 <style>
 #topMenu {
-   height: 120px;
+/*    height: 120px; */
    text-align: center;
    display: flex;
    justify-content: center;
    align-items: stretch;
+   background-color: #242645;
 }
 #topMenu ul li {
    list-style: none;
    color: white;
-   background-color: #0066B2;
+   background-color: #242645;  /*#0066B2  #BDCACC  다크네이비: #242645 #858A99  하늘보라: #36428C  매트블루: #487890*/
    float: left;
    line-height: 80px;
    vertical-align: middle;
    text-align: center;
+   
+   
 }
 #topMenu .menuLink {
    text-decoration: none;
    color: white;
    display: block;
+   
    width: 150px;
-   font-size: 15px;
+   font-size: 18px;
    font-weight: bold;
    font-family: 'KBIZHanmaumMyungjo' ;
-   border: 1px solid #FFFFFF;
+   border-left: 1px solid #878a91; 
+   border-right: 1px solid #777;
 }
 #topMenu .menuLink:hover {
    color: white;
@@ -194,11 +207,12 @@
 
 
    /* 화면 크기에 따라 적응하도록 설정 */
-      width: 120px;
-      height: 80px;
+      width: 145px;
+    height: 65px;
 /*     object-fit: none; */
    /* 이미지 크기 보정 */
        margin-left: -75px;
+           padding-top: 10px;
 }
 #mainlogo{
    width: 50px;
@@ -210,45 +224,81 @@
 	position:fixed;
 	top:0px;
 }
+
+.active{
+	background-color: #FDB813;
+}
 ul.nav li.dropdown:hover > ul.dropdown-menu { 
 	display:block; margin:0; 
+	background-color: #FFFFFF;
+	
+   color:white;
 }
-
+.divider{
+	color: white;
+}
 </style>
 
 <script type="text/javascript">
-   $(document).ready(function() {
-      // 회원가입 버튼
-      $("#btn_join").click(function() {
-         location.href = "/member/join";
-      });
+//    $(document).ready(function() {
+  
       
-      <%--// 로그인 버튼
-      $("#btn_login").click(function() {
-         location.href = "/member/login";
-      }); --%>
+<%--       // 로그인 버튼
+<%--       $("#btn_login").click(function() { --%>
+<%--          location.href = "/member/login"; --%>
+<%--       }); --%> 
       
-      // 검색 버튼
-      $("#btn_search").click(function() {
-         location.href = "/main";
-      });
+//       // 검색 버튼
+//       $("#btn_search").click(function() {
+//          location.href = "/main";
+//       });
       
-      // 신고 버튼
-      $("#btn_accuse").click(function() {
-         location.href = "/main/accuse";
-      });
+//       // 신고 버튼
+//       $("#btn_accuse").click(function() {
+//          location.href = "/main/accuse";
+//       });
       
-      // 홈 버튼
-      $("#btn_home").click(function() {
-         location.href = "/main/home";
-      });
+//       // 홈 버튼
+//       $("#btn_home").click(function() {
+//          location.href = "/main/home";
+//       });
       
-      // 커뮤니티 버튼
-      $("#btn_community").click(function() {
-         location.href = "/main/community";
-      });
+//       // 커뮤니티 버튼
+//       $("#btn_community").click(function() {
+//          location.href = "/main/community";
+//       });
       
-   });
+//    });
+$(document).ready(function() {
+	var flag = "${flag}";
+	console.log(flag);
+	if(flag == "1"){
+		$("#btn_search").addClass("active");
+		$("#btn_accuse").removeClass("active");
+		$("#btn_home").removeClass("active");
+		$("#btn_community").removeClass("active");
+	}else if(flag == "2"){
+		$("#btn_accuse").addClass("active");
+		$("#btn_search").removeClass("active");
+		$("#btn_home").removeClass("active");
+		$("#btn_community").removeClass("active");
+	}else if(flag == "3"){
+		$("#btn_home").addClass("active");
+		$("#btn_search").removeClass("active");
+		$("#btn_accuse").removeClass("active");
+		$("#btn_community").removeClass("active");
+	}else if(flag == "4"){
+		$("#btn_community").addClass("active");
+		$("#btn_search").removeClass("active");
+		$("#btn_accuse").removeClass("active");
+		$("#btn_home").removeClass("active");
+	}
+    // 회원가입 버튼
+    $("#btn_join").click(function() {
+       location.href = "/member/join";
+    });
+	   
+})
 </script>
 
 
@@ -260,41 +310,60 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	<div id ="header.activated">
    <nav id="topMenu">
    <div id = "mainlogo" class="navbar-header">
-   <a href="/main"><img class="logo" src="/resources/img/logo2.png"></a>
+   <a href="/main"><img class="logo" src="/resources/img/logo(no_text).png"></a>
    </div>
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-         <li><a id = "btn_search" class="menuLink" href="#"><img src="/resources/img/Wsearch.png" width="30" height="30" >&nbsp;&nbsp;검색</a></li>
-         <li><a id = "btn_accuse" class="menuLink" href="#"><img src="/resources/img/Waccuse.png" width="30" height="30">&nbsp;신고</a></li>
-         <li><a id = "btn_home" class="menuLink" href="#"><img src="/resources/img/Whome.png" width="30" height="30">&nbsp;홈</a></li>
-         <li class="dropdown">
-         	<a id = "btn_community" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"href="#">
-         	<img src="/resources/img/Wcommunity.png" width="30" height="30">&nbsp;커뮤니티<span class="caret"></span></a>
-         		<ul class="dropdown-menu" role="menu">
-         			<li><a href="/main/community/board?boardno=1">자유게시판</a></li>
-           			<li><a href="#">이용후기게시판</a></li>
-           			<li class="divider"></li>
-           			<li><a href="#">공지사항</a></li>
-           			<li><a href="#">FAQ</a></li>
-         		</ul>
-         </li>
-	</ul>
-	</div>
-<!--          <li><a class="menuLink" href="#"><img src="/resources/img/advertising.png" width="30" height="30">&nbsp;광고/배너</a></li> -->
+
+      <ul  role="tablist" style="margin-bottom: 0px;">
+         <li role="presentation">
+         <a id = "btn_search" class="menuLink " href="/main">
+         <img src="/resources/img/Wsearch.png" width="30" height="30" >&nbsp;&nbsp;<b>검색</b></a></li>
          
+         <li role="presentation">
+         <a id = "btn_accuse" class="menuLink" href="/main/accuse">
+         <img src="/resources/img/Waccuse.png" width="30" height="30">&nbsp;<b>신고</b></a></li>
+         
+         <li role="presentation">
+         <a id = "btn_home" class="menuLink" href="/main/home">
+         <img src="/resources/img/Whome.png" width="30" height="30">&nbsp;<b>홈</b></a></li>
+         
+         <li class="dropdown" role="presentation">
+         <a id = "btn_community" class="menuLink dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="/main/community">
+         <img src="/resources/img/Wcommunity.png" width="30" height="30">&nbsp;<b>커뮤니티
+         <span class="caret"></span> <%-- --%>
+         </b></a>
+				<ul class="dropdown-menu" role="menu" style ="background-color: #242645 ; color:white !important;">
+         			<li ><a style = "color:white;" href="/main/community/board?boardno=1">자유게시판</a></li>
+           			<li><a style = "color:white;" href="/main/community/board?boardno=2">이용후기게시판</a></li>
+           			<li class="divider" ></li>
+           			<li><a style = "color:white;" href="/main/community/board?boardno=3">공지사항</a></li>
+           			<li><a style = "color:white;" href="/main/community/board?boardno=5">FAQ</a></li>
+         		</ul>
+         	</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+   <li>
          <c:if test="${sessionScope.login eq null }">
+         
          <a href="#myModal" class="trigger-btn" data-toggle="modal">
-         <button id = "btn_login" class = "btn_login" >로그인</button></a>
-         <button id="btn_join" class="btn_join">회원가입</button></li>
+         <button id = "btn_login" class = "btn_login btn btn-warning btn-lg" ><b>로그인</b></button></a>&nbsp;
+         <button id="btn_join" class="btn_join btn btn-warning btn-lg"><b>회원가입</b></button>
          </c:if>
 
          <c:if test="${sessionScope.login eq true }">
-            <a href="/member/logout"><button>로그아웃</button></a>
-            <a href="/mypage/main"><button>마이페이지</button></a>
+            <a href="/member/logout"><button class = "btn btn-warning btn-lg"><b>로그아웃</b></button></a>&nbsp;
+            <a href="/mypage/main"><button class = "btn btn-warning btn-lg"><b>마이페이지</b></button></a>
          </c:if>
- 
-      </ul>
-   </nav>
+	 </li>
+
+	</ul>
+	</div>
+ </nav>
+<!--          <li><a class="menuLink" href="#"><img src="/resources/img/advertising.png" width="30" height="30">&nbsp;광고/배너</a></li> -->
+
+
+        
+
+         
+
    <!-- Modal HTML -->
    <div id="myModal" class="modal fade">
       <div class="modal-dialog modal-login">

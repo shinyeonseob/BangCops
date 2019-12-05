@@ -76,6 +76,11 @@
 	text-align: center;
 	margin-right: 265px;
 }
+.form-control{
+	font-size: 27px;
+	height: 38px;
+	margin-top: -7px;
+}
 </style>
 
 <script type="text/javascript">
@@ -152,7 +157,7 @@
 	});
 </script>
 <div id="mypage_pw">
-	<h2>비밀번호 변경</h2>
+	<h2 style="font-family: 'NIXGONB-Vb';">비밀번호 변경</h2>
 </div>
 
 <div class="container list-container">
@@ -171,7 +176,8 @@
 		</div>
 
 		<div id="div_currpw" class="form-group">
-			<label for="userpw" class="col-lg-4 control-label"> 현재 비밀번호 </label>
+			<label for="userpw" class="col-lg-4 control-label">
+			<span style="font-family: 'NIXGONB-Vb'; font-size: 19px; color: black"> 현재 비밀번호</span> </label>
 
 			<div class="col-lg-8">
 				<input type="password" class="form-control" id="userpw"
@@ -192,7 +198,8 @@
 
 		<div id="div_updatepw" class="row">
 
-			<label class="col-lg-4 control-label"> 변경 비밀번호 </label>
+			<label class="col-lg-4 control-label"> 
+			<span style="font-family: 'NIXGONB-Vb'; font-size: 19px; color: black">변경 비밀번호</span> </label>
 
 			<div class="col-md-8">
 				<input type="password" class="form-control" id="updatepw"
@@ -213,7 +220,8 @@
 
 		<div id="div_updatepw_chk" class="row">
 
-			<label class="col-lg-4 control-label"> 비밀번호 확인 </label>
+			<label class="col-lg-4 control-label"> 
+			<span style="font-family: 'NIXGONB-Vb'; font-size: 19px; color: black">비밀번호 확인</span> </label>
 
 			<div class="col-md-8">
 				<input type="password" class="form-control" id="updatepw_chk"
@@ -222,9 +230,11 @@
 		</div>
 		<div id="check_info" class="row ">
 
-			<div class="alert alert-success col-lg-8" id="alert-success">비밀번호가
+			<div class="alert alert-success col-lg-8" id="alert-success"
+			style="font-family: 'NIXGONB-Vb'; font-size: 17px">비밀번호가
 				일치합니다.</div>
-			<div class="alert alert-danger col-lg-8" id="alert-danger">비밀번호가
+			<div class="alert alert-danger col-lg-8" id="alert-danger"
+			style="font-family: 'NIXGONB-Vb'; font-size: 17px">비밀번호가
 				일치하지 않습니다.</div>
 
 		</div>
@@ -240,10 +250,13 @@
 			<br>
 			<div class="col-lg-2"></div>
 		</div>
-
-		<button type="submit" id="btn_updatepw" class="btn btn-info">
-			비밀번호 변경</button>
-		<button type="button" id="btnCancel" class="btn btn-danger">취소</button>
+<div class="row text-center" style="margin-right: 300px;">
+		<button type="submit" id="btn_updatepw" class="btn btn-info"
+		style="font-family: 'NIXGONB-Vb'; ">비밀번호 변경</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button type="button" id="btnCancel" class="btn btn-danger"
+		style="font-family: 'NIXGONB-Vb'; ">취소</button>
+	</div>
 	</form>
 </div>
 

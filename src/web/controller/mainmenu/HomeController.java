@@ -45,7 +45,7 @@ public class HomeController extends HttpServlet {
 		req.setAttribute("free", free);
 		req.setAttribute("review", review);
 		req.setAttribute("notice", notice);
-		
+		req.setAttribute("flag", 3);
 		
 		
 

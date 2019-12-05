@@ -30,7 +30,7 @@ tr td:not(:first-child), tr th:not(:first-child){
 </style>
 
 <div id = "mypage_board" >
-	<h2>내가 쓴 글</h2>
+	<h2 style="font-family: 'NIXGONB-Vb';">내가 쓴 글</h2>
 </div>
 
 <br>
@@ -39,7 +39,7 @@ tr td:not(:first-child), tr th:not(:first-child){
 <hr style="background:grey;height:2px">
 <br>
 <table class="table table-hover">
-	<tr style="height:40">
+	<tr style="height:40; font-family: 'NIXGONB-Vb'; font-size:14px">
 		<th class="text-center" style="width:7%">글번호</th>
 		<th class="text-center" style="width:15%">작성게시판</th>
 		<th class="text-center" style="width:51%">제목</th>
@@ -48,7 +48,7 @@ tr td:not(:first-child), tr th:not(:first-child){
 		<th class="text-center" style="width:6%">추천수</th>
 	</tr>
 <c:forEach items="${ list }" var="i">
-	<tr style="text-align:center;height:30">
+	<tr style="text-align:center;height:30; font-family: 'NIXGONB-Vb';">
 		<td>${ i.idx }</td>
 		<td>${ i.boardname }</td>
 		<td style="text-align:left"><a href ="/main/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
