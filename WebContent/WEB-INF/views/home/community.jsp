@@ -52,7 +52,7 @@ body{
 <h2 style="text-align:center"><strong>커뮤니티</strong></h2>
 <hr>
 <br>
-<div class="text-center"><h2><strong>부동산과 관련된 여러 정보를 공유해주세요. &nbsp;<img src="/resources/img/thumb.png" width="40" height="40"></strong></h2></div>
+<div class="text-center"><h2><strong>부동산과 관련된 여러 정보를 공유해주세요. &nbsp;<img src="/resources/img/thumb.png" width="40" height="40"> </strong></h2></div>
 <div class="text-center"><small style="color: #6E6E6E">회원 여러분의 소중한 정보는 저희 방캅스가 소중하게 보관하겠습니다.</small></div>
 <br><br><br><br><br>
 <div class="left" >
@@ -64,7 +64,7 @@ body{
 <div  id="left_top" style="witdh:100px;border:1px solid #bcbcbc;height:180px;margin-right:15px;padding:5px">
 <div id=left_top_inner style="witdh:50px;height:168px">
 <div onclick="location.href='/main/community/board?boardno=3'" style="cursor:pointer">
-<h4 style="margin-top: 10px"><Strong>&nbsp;공지사항 <img src="/resources/img/chat2.png" width="20" height="20"> </Strong></h4></div>
+<h4 style="margin-top: 10px"><Strong>&nbsp;공지사항&nbsp;<img src="/resources/img/chat2.png" width="20" height="20"></Strong></h4></div>
 <hr style="margin-top:0px;margin-bottom:8px">
 <div>
 	<table>
@@ -84,8 +84,7 @@ body{
 <div  id="left_middle" style="witdh:100px;border:1px solid #bcbcbc;height:180px;margin-right:15px;padding:5px">
 <div id=left_middle_inner style="witdh:50px;height:168px">
 <div onclick="location.href='/main/community/board?boardno=1'" style="cursor:pointer"><h4 style="margin-top: 10px">
-<Strong>&nbsp;자유게시판<img src="/resources/img/chat2.png" width="20" height="20">
-</Strong></h4></div>
+<Strong>&nbsp;자유게시판&nbsp;<img src="/resources/img/chat2.png" width="20" height="20"></Strong></h4></div>
 <hr style="margin-top:0px;margin-bottom:8px">
 <div>
 	<table>
@@ -105,7 +104,7 @@ body{
 <div  id="left_bottom" style="witdh:100px;border:1px solid #bcbcbc;height:180px;margin-right:15px;padding:5px">
 <div id=left_bottom_inner style="witdh:50px;height:168px">
 <div onclick="location.href='/main/community/board?boardno=2'" style="cursor:pointer"><h4 style="margin-top: 10px">
-<img src="/resources/img/chat2.png" width="20" height="20"><Strong>&nbsp;이용후기게시판</Strong> </h4></div>
+<Strong>&nbsp;이용후기게시판&nbsp;</Strong><img src="/resources/img/chat2.png" width="20" height="20"> </h4></div>
 <hr style="margin-top:0px;margin-bottom:8px">
 <div>
 	<table>

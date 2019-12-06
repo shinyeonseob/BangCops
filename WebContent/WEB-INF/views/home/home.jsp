@@ -268,7 +268,7 @@ body{
 	<div id="board">
 		<div id="noticeboard"
 			style="border: 1px solid #bcbcbc; width: 33%; height: 100px; display: inline-block;">
-			<a href="/main/community/board?boardno=3">&nbsp;공지사항 >></a>
+			<a href="/main/community/board?boardno=3" style="color: #000000">&nbsp;공지사항&nbsp;<img src="/resources/img/chat2.png" width="15" height="15"></a>
 			<div >
 				<ol  start="1">
 				<c:forEach items="${notice }" var="i">
@@ -279,7 +279,7 @@ body{
 		</div>
 		<div id="freeboard"
 			style="border: 1px solid #bcbcbc; width: 33%; height: 100px; display: inline-block">
-			<a href="/main/community/board?boardno=1">&nbsp;자유게시판 >></a>
+			<a href="/main/community/board?boardno=1" style="color: #000000">&nbsp;자유게시판&nbsp;<img src="/resources/img/chat2.png" width="15" height="15"></a>
 			<div>
 				<ol  start="1">
 				<c:forEach items="${free }" var="j">
@@ -288,9 +288,9 @@ body{
 				</ol>
 			</div>
 		</div>
-		<div id="reviewboard"
+		<div id="reviewboard" style-color="black"
 			style="border: 1px solid #bcbcbc; width: 33%; height: 100px; display: inline-block">
-			<a href="/main/community/board?boardno=2">&nbsp;이용후기 게시판 >></a>
+			<a href="/main/community/board?boardno=2" style="color: #000000">&nbsp;이용후기 게시판&nbsp;<img src="/resources/img/chat2.png" width="15" height="15"></a>
 			<div>
 				<ol  start="1">
 				<c:forEach items="${review }" var="k">
