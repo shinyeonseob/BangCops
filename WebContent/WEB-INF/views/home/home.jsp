@@ -90,6 +90,18 @@
 	white-space:nowrap;
 	text-overflow:ellipsis;
 }
+
+table {
+ 	table-layout: fixed;
+}
+
+#td1 {
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	
+	width:25px;
+}
 </style>
 
 <div id="jb-container">
@@ -251,7 +263,7 @@
 			<div >
 				<ol  start="1">
 				<c:forEach items="${notice }" var="i">
-					<li><div id="miniboard"><a id="miniboard">${i.title }</a></div></li>
+					<li><div id="miniboard"><a id="miniboard"  href="/main/community/board/view?idx=${i.idx }">${i.title } <c:if test="${i.commentCnt ne 0 }">[${i.commentCnt }]</c:if></a></div></li>
 				</c:forEach>
 				</ol>
 			</div>
@@ -262,7 +274,7 @@
 			<div>
 				<ol  start="1">
 				<c:forEach items="${free }" var="j">
-					<li><div id="miniboard"><a id="miniboard">${j.title }</a></div></li>
+					<li><div id="miniboard"><a id="miniboard"  href="/main/community/board/view?idx=${j.idx }">${j.title } <c:if test="${j.commentCnt ne 0 }">[${j.commentCnt }]</c:if></a></div></li>
 				</c:forEach>
 				</ol>
 			</div>
@@ -273,7 +285,7 @@
 			<div>
 				<ol  start="1">
 				<c:forEach items="${review }" var="k">
-					<li ><div id="miniboard"><a id="miniboard">${k.title }</a></div></li>
+					<li ><div id="miniboard"><a id="miniboard"  href="/main/community/board/view?idx=${k.idx }">${k.title } <c:if test="${k.commentCnt ne 0 }">[${k.commentCnt }]</c:if></a></div></li>
 				</c:forEach>
 				</ol>
 			</div>

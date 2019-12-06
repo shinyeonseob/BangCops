@@ -238,6 +238,10 @@ ul li.dropdown:hover > ul.dropdown-menu {
 .divider{
 	color: white;
 }
+
+.modal-backdrop {
+  z-index: -1;
+}
 </style>
 
 <script type="text/javascript">
