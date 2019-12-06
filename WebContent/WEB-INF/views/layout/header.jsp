@@ -197,7 +197,7 @@ html, body{
    border: none;
 }
 .modal-login .btn:hover, .modal-login .btn:focus {
-   background: #45aba6;
+   background: #225793;
    outline: none;
 }
 .trigger-btn {
