@@ -47,6 +47,7 @@ body{
 .form-inline { display: inline-block flex; }
 
 rect{
+	background-color:  #22578D;
 	fill:#22578D;
 }
 
@@ -58,7 +59,7 @@ rect{
 
 	<div>
 		<h2>
-			<strong style="font-size: 45px; color:white;">부동산 허위매물 검색</strong>
+			<strong style="font-size: 46px; color:white;">부동산 허위매물 검색</strong>
 		</h2>
 	</div>
 	<div class="wrapper">
@@ -113,7 +114,7 @@ rect{
 		<div class="form-group">
 			<button type="submit" id="btnSearchclass" class="btn btn-primary">검색</button>
 		</div><br>
-		<div class = "text-center"><img alt="abc" src="/resources/img/img_maintxt.PNG"> </div>
+		<div class = "text-center"><img alt="abc" src="/resources/img/img_maintxt.PNG" style="width:60%;"> </div>
 		</div>
 		<div>
 		<table>
@@ -126,7 +127,7 @@ rect{
 				<td style="width:34%"><div id="piechart" style="color:white; width: 400px; height: 300px; float:right;padding-top:70px"></div></td>
 
 <!-- 				<td style="width:34%"><div id="piechart" style="color:white; width: 400px; height: 300px; float:right;padding-top:70px;"></div></td> -->
-<!-- >>>>>>> refs/remotes/origin/develop -->
+
 			</tr>
 		</table>
 		</div>

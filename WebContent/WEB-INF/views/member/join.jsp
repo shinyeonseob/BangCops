@@ -232,8 +232,8 @@ body {
          <div class="form-group">
             <label class="checkbox-inline"><input type="checkbox"
                required="required"> I accept the 
-               <a href="/termsofService" onclick = "window.open(this.href, '_blank', 'width = 1300px, height=700px, left=350, top = 30, toolbars=no,scrollbars=no');return false; ">Terms of
-                  Use</a> &amp; <a href="/privacyStatement" onclick = "window.open(this.href, '_blank', 'width = 1300px, height=700px, left=350, top = 30, toolbars=no,scrollbars=no');return false; ">Privacy Policy</a></label>
+               <a href="/member/join2/Terms" onclick = "window.open(this.href, '_blank', 'width = 1300px, height=700px, left=350, top = 30, toolbars=no,scrollbars=no');return false; ">Terms of
+                  Use</a> &amp; <a href="/member/join2/privacy" onclick = "window.open(this.href, '_blank', 'width = 1300px, height=700px, left=350, top = 30, toolbars=no,scrollbars=no');return false; ">Privacy Policy</a></label>
          </div>
 
          <div class="form-group">
