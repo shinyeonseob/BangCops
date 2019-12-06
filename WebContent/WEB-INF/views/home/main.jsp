@@ -27,7 +27,7 @@
         chart.draw(data, options);
         
         $("#piechart text").attr("fill", "#fff");
-      }
+      } 
     </script>
 
 <style type="text/css">
@@ -47,7 +47,12 @@ body{
 .form-inline { display: inline-block flex; }
 
 rect{
+	background-color:  #22578D;
 	fill:#22578D;
+}
+
+piechart{
+	z-index:-2;
 }
 
 </style>
@@ -58,7 +63,7 @@ rect{
 
 	<div>
 		<h2>
-			<strong style="font-size: 45px; color:white;">부동산 허위매물 검색</strong>
+			<strong style="font-size: 46px; color:white;">부동산 허위매물 검색</strong>
 		</h2>
 	</div>
 	<div class="wrapper">
@@ -111,16 +116,22 @@ rect{
 				placeholder="상세 정보" />
 		</div>
 		<div class="form-group">
-			<button type="submit" id="btnSearchclass" class="btn btn-default">Search</button>
+			<button type="submit" id="btnSearchclass" class="btn btn-primary">검색</button>
 		</div><br>
-		
+		<div class = "text-center"><img alt="abc" src="/resources/img/img_maintxt.PNG" style="width:60%;"> </div>
 		</div>
 		<div>
 		<table>
 			<tr>
+
+				
 				<td style="width:33%"><div ><h3><strong style="color:white;font-size:32px"><font style="font-size:15px">오늘의 신고건수</font><br><br> ${dailyCnt }</strong></h3></div></td>
 				<td style="width:33%"><div ><h3><strong style="color:white;font-size:32px"><font style="font-size:15px">전체 신고건수</font><br><br> ${totalCnt }</strong></h3></div></td>
-				<td style="width:34%"><div id="piechart" style="color:white; width: 400px; height: 300px; float:right;padding-top:70px;"></div></td>
+
+				<td style="width:34%"><div id="piechart" style="color:white; width: 400px; height: 300px; float:right;padding-top:70px"></div></td>
+
+<!-- 				<td style="width:34%"><div id="piechart" style="color:white; width: 400px; height: 300px; float:right;padding-top:70px;"></div></td> -->
+
 			</tr>
 		</table>
 		</div>

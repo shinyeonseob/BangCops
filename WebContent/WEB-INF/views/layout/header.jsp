@@ -239,6 +239,7 @@ ul li.dropdown:hover > ul.dropdown-menu {
 	color: white;
 }
 
+
 .modal-backdrop {
   z-index: -1;
 }
@@ -369,7 +370,6 @@ $(document).ready(function() {
 	</div>
  </nav>
 <!--          <li><a class="menuLink" href="#"><img src="/resources/img/advertising.png" width="30" height="30">&nbsp;광고/배너</a></li> -->
-
 
         
 

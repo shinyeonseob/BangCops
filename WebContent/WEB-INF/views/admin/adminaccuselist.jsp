@@ -82,11 +82,16 @@ table, th {
 
 tr td:nth-child(3) {
 	text-align:left;
-}
+	
+	overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+} 
 
 tr td:not(:first-child), tr th:not(:first-child) {
 	border-left: 1px solid white;
 }
+
 
 </style>
 </head>
@@ -97,7 +102,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 <h1>신고 게시물 목록</h1>
 <hr>
 
-<table class="table table-hover table-condensed table-striped">
+<table class="table table-hover table-condensed table-striped" style="table-layout: fixed">
 
 <tr class="danger">
 	<th>

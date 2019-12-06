@@ -150,33 +150,45 @@ function warning() {
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
 <br>
+
+<!-- 상단 각 게시판 버튼 다섯개 -->
 <table
 	style="margin: 0 auto; width: 1200; height: 50; table-layout: fixed">
 	<tr>
-		<th><div class="text-center">
+		<th>
+			<div class="text-center">
 				<button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=1'"
 					style="width: 120px">자유게시판</button>
-			</div></th>
-		<th><div class="text-center">
+			</div>
+		</th>
+		<th>
+			<div class="text-center">
 				<button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=2'"
 					style="width: 120px">이용후기</button>
 			</div></th>
-		<th><div class="text-center">
+		<th>
+			<div class="text-center">
 				<button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=3'"
 					style="width: 120px">공지사항</button>
-			</div></th>
-		<th><div class="text-center">
+			</div>
+		</th>
+		<th>
+			<div class="text-center">
 				<button class="btn btn-primary" type="button"" onclick="location.href='/main/community/board?boardno=5'"
 					style="width: 120px">FAQ</button>
-			</div></th>
-		<th><div class="text-center">
+			</div>
+		</th>
+		<th>
+			<div class="text-center">
 				<button class="btn btn-primary" type="button"" onclick="location.href='/serviceCenterView'"
 					style="width: 120px" >고객센터</button>
-			</div></th>
+			</div>
+		</th>
 	</tr>
 </table>
 
 <div class="container">
+<!-- 각게시판제목 -->
 	<c:if test="${list.boardNo eq 1}">
 		<h1>자유게시판</h1>
 		<h4>당신의 자유로운 이야기를 들려주세요.</h4>
@@ -193,6 +205,7 @@ function warning() {
 		<h1>FAQ</h1>
 		<h4>방캅스 회원 여러분의 궁금한 사항을 빠르게 해결해드립니다.</h4>
 	</c:if>
+	
 	<hr style="background: grey; height: 2px">
 	<table style="width: 1140">
 		<tr>
@@ -227,24 +240,24 @@ function warning() {
 			</td>
 		</tr>
 		<tr style="border: 1px solid black; height: 50">
-			<th style="width: 10">첨부<br>파일
+			<th style="width: 10%">첨부<br>파일
 			</th>
-			<td style="width: 90" class="info"><a
+			<td style="width: 90%" class="info"><a
 				href="/upload/${bAttached.storedName}">${bAttached.originName }</a></td>
 		</tr>
 	</table>
-	<br> <a href="/main/community/board?boardno=${list.boardNo }"><button class="btn btn-primary" type="button"">목록보기</button></a>
+	<br> <a href="/main/community/board?boardno=${list.boardNo }"><button class="btn btn-primary" type="button">목록보기</button></a>
 	<%-- ${session.Userno } | ${list.userNo } --%>
 	<c:if test="${Userno eq list.userNo || adminlogin }">
 		<a style="float: right"
 			href="/main/community/board/update?idx=${list.idx }&boardno=${list.boardNo}"><button style="margin-left:2px;" class="btn btn-primary" type="button">수정하기</button></a>
 		<a style="float: right"
 			href="/main/community/board/delete?idx=${list.idx }&boardno=${list.boardNo}"
-			onclick="warning();"><button style="margin-left:2px;"class="btn btn-primary" type="button"">삭제하기</button></a>
-		<a style="float: right"><button id="writecomment" class="btn btn-primary" type="button"">댓글작성</button></a>
+			onclick="warning();"><button style="margin-left:2px;"class="btn btn-primary" type="button">삭제하기</button></a>
+		<a style="float: right"><button id="writecomment" class="btn btn-primary" type="button">댓글작성</button></a>
 	</c:if>
 	<c:if test="${Userno ne list.userNo || empty login }">
-		<a style="float: right"><button id="writecomment" class="btn btn-primary" type="button"">댓글작성</button></a>
+		<a style="float: right"><button id="writecomment" class="btn btn-primary" type="button">댓글작성</button></a>
 	</c:if>
 
 
@@ -273,7 +286,7 @@ function warning() {
 					value="${UserNick }" readonly="readonly" />
 				<textarea rows="4" cols="60" class="form-control"
 					id="commentContent" placeholder="타인의 권리를 침해하거나 명예를 훼손하는 댓글은 운영원칙 및 관련 법률의 제재를 받을 수 있습니다."></textarea>
-				<button id="btnCommInsert" class="btn btn-primary" type="button"">입력</button>
+				<button id="btnCommInsert" class="btn btn-primary" type="button">입력</button>
 			</div>
 			<!-- 댓글 입력 end -->
 		</c:if>

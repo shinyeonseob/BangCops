@@ -6,7 +6,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" />
+<style type = "text/css">
+body{
+	background-color: #22578d;
+}
 
+</style>
 
 
 <div class="text-center">
