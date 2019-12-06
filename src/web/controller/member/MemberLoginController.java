@@ -47,7 +47,11 @@ public class MemberLoginController extends HttpServlet {
 			session.setAttribute("Userlevel", getMemberByUserid.getUserlevel());
 			
 			System.out.println("로그인 성공");
-			resp.sendRedirect("/main");
+			String nowurl = req.getParameter("nowurl");
+			System.out.println(nowurl);
+			resp.sendRedirect(nowurl);
+			
+//			resp.sendRedirect("/main");
 		} else {
 			System.out.println("로그인 실패");
 			req.getRequestDispatcher("/WEB-INF/views/member/loginfail.jsp").forward(req, resp);
