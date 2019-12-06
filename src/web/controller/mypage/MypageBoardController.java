@@ -58,10 +58,10 @@ public class MypageBoardController extends HttpServlet {
 		int user ;
 		user = 
 		memberService.getMemberByUserid(buser).getUserno();
-//		System.out.println(user);
+		System.out.println(user);
 		BUser userno = new BUser();
 		userno.setUserno(user);
-//		System.out.println(userno);
+		System.out.println(userno);
 		//게시글 목록 조회
 		List<BBoardAndBboardType> list = boardService.getMyboardList(paging, userno);
 

@@ -34,7 +34,7 @@
 <style type="text/css">
 #jb-container {
 	width: 1200px;
-	margin: 0px auto;
+	margin: 5px auto;
 	padding: 20px;
 	border: 1px solid #bcbcbc;
 }
@@ -64,7 +64,7 @@
 }
 
 #searchbar{
-	width : 29%;
+	width : 20%;
 	height : auto;
 	float: left;
 }
@@ -72,7 +72,7 @@
 #newsbar{
 	border: 1px solid black;
 	float : right;
-	width: 68%;
+	width: 79%;
 	height: 200px;
 	overflow: auto;
 	border: 1px solid #bcbcbc;
@@ -101,6 +101,12 @@ table {
 	text-overflow:ellipsis;
 	
 	width:25px;
+}
+.articleList{
+	margin-left: 5px;
+}
+body{
+	background-color: #E9E3E9;
 }
 </style>
 
@@ -193,18 +199,18 @@ table {
 		<form class="form-inline" action="/accuselist" method="get">
 			<div class="form-group" >
 				<label class="sr-only" for="city"></label> <input type="text"
-					id="city" name="city" class="form-control" size="10"
-					list="listcity" />
+					id="city" name="city" class="form-control" size="5"
+					list="listcity" placeholder="시"/>
 				<datalist id="listcity">
-					<option value="서울">서울</option>
+					<option value="서울"></option>
 				</datalist>
-			</div>
+			</div> 
 
 			<div class="form-group">
 				<label class="sr-only" for="gu"></label> <input type="text" id="gu"
-					name="gu" class="form-control" size="10" list="listgu" />
-				<datalist id="listgu">
-					<option value="강남">강남구</option>
+					name="gu" class="form-control" size="7" list="listgu" placeholder="구"/>
+				<datalist id="listgu"  >
+					<option selected value="강남">강남구</option>
 					<option value="강동">강동구</option>
 					<option value="강북">강북구</option>
 					<option value="강서">강서구</option>
@@ -230,24 +236,27 @@ table {
 					<option value="중">중구</option>
 					<option value="중랑">중랑구</option>
 				</datalist>
-			</div>
-
+			</div> 
+			<br><br>
 			<div class="form-group">
 				<label class="sr-only" for="search"></label> <input type="text"
 					id="search" class="form-control" name="search" size="70"
-					placeholder="상세 정보" style="width: 200px;" />
+					placeholder="상세 정보" style="width: 182px;" />
 			</div>
+			<br><br>
 			<div class="form-group">
-				<button type="submit" id="btnSearch" class="btn btn-default">검색</button>
-				<hr>
+				<button type="submit" id="btnSearch" class="btn btn-default" style="width: 183px;">검색</button>
+				
 			</div>
 		</form>
+		<br>
 		<a href="/main/accuse"><button id="btnAccuse"
-				class="btn btn-default">신고하기</button></a>
-</div>
+				class="btn btn-default"style = "width: 182px; height: 55px; background-color: #fbb;">신고하기</button></a>
+				<!-- style = "width: 182px; height: 78px; background-color: #fbb;" -->
+	</div>
 
+	&nbsp;&nbsp;<b>최신 뉴스</b> <a href = "http://www.donga.com/news/List/Economy/RE" target="_blank">더보기</a>
 		<div id="newsbar">
-			<b>최신 뉴스</b> <a href = "http://www.donga.com/news/List/Economy/RE" target="_blank">더보기</a>
 			<div id="newsTable">
 
 			</div>
@@ -294,8 +303,8 @@ table {
 
 	<br> <br>
 
-	<div id="servicecenter">
-		<a href="/serviceCenterView"><img alt="고객센터" src="/resources/img/img_SC2.png" style="width: 10%; " ></a>
+	<div id="servicecenter" class="text-center">
+		<a href="/serviceCenterView"><img alt="고객센터" src="/resources/img/img_SC.png" style="width: 10%; " ></a>
 	</div>
 </div>
 
