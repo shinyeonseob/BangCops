@@ -47,19 +47,19 @@ $(document).ready(function() {
 
 <div class="container">
 <c:if test="${boardno eq 1}">
-<h1>자유게시판</h1>
+<h1>💬 자유게시판</h1>
 <h4>당신의 자유로운 이야기를 들려주세요.</h4>
 </c:if>
 <c:if test="${boardno eq 2}">
-<h1>이용후기게시판</h1>
+<h1>💬 이용후기게시판</h1>
 <h4>피해사례와 방캅스 이용에 대한 다양한 후기를 남겨주세요.</h4>
 </c:if>
 <c:if test="${boardno eq 3}">
-<h1>공지사항</h1>
+<h1>📢 공지사항</h1>
 <h4>방캅스 회원 여러분들에게 공지사항을 전해드립니다.</h4>
 </c:if>
 <c:if test="${boardno eq 5}">
-<h1>FAQ</h1>
+<h1>📑 FAQ</h1>
 <h4>방캅스 회원 여러분의 궁금한 사항을 빠르게 해결해드립니다.</h4>
 </c:if>
 <hr style="background:grey;height:2px">

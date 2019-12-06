@@ -94,7 +94,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 <body>
 <div class="container">
 
-<h1>회원정보 목록</h1>
+<h1>📂 회원정보 목록</h1>
 <hr>
 
 <table class="table table-hover table-condensed table-striped">

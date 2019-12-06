@@ -11,11 +11,11 @@ import web.dto.BBoardAndBboardType;
 import web.dto.BUser;
 
 public interface BoardDao {
-	public List<BBoard> selectAll(int boardno);
 	
 	// 내림차순으로 리스트 정렬 및 게시목록 조회
 	public List<BBoard> selectAll(Paging paging, int boardno);
 	
+	// 검색어 키워드로 게시판 전체목록 조회
 	public List<BBoard> selectSearchAll(Paging paging, int boardno);
 	
 	public List<BBoardAndBboardType> selectMyboard(Paging paging, BUser userno);

@@ -40,10 +40,10 @@ public class BoardServiceImpl implements BoardService {
 	private CommentDao commentDao = new CommentDaoImpl();
 	private RecommendDao recommendDao = new RecommendDaoImpl();
 
-	@Override
-	public List<BBoard> getList(int boardno) {
-		return boardDao.selectAll(boardno);
-	}
+//	@Override
+//	public List<BBoard> getList(int boardno) {
+//		return boardDao.selectAll(boardno);
+//	}
 
 	@Override
 	public List<BBoard> getList(Paging paging, int boardno) {

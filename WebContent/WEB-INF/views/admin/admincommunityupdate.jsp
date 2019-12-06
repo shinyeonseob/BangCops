@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    
 <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -41,8 +44,16 @@ th {
 </table>
 
 <div class="container">
-<h1>자유게시판</h1>
-<h4>당신의 자유로운 이야기를 올려주세요.</h4>
+<h1>📝 게시글 수정</h1>
+<c:if test="${boardno eq 1 }">
+<h4>💬 자유게시판</h4>
+</c:if>
+<c:if test="${boardno eq 2 }">
+<h4>💬 이용후기게시판</h4>
+</c:if>
+<c:if test="${boardno eq 3 }">
+<h4>📢 공지사항</h4>
+</c:if>
 <hr style="background:grey;height:2px">
 <br>
 <form id="write" action="/admin/community/board/update" method="POST" enctype="multipart/form-data">

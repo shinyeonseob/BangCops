@@ -13,7 +13,7 @@ import web.dto.Bcomment;
 import web.dto.Recommend;
 
 public interface BoardService {
-	public List<BBoard> getList(int boardno);
+//	public List<BBoard> getList(int boardno);
 	
 	//각 게시판 별 게시글 전체조회 (검색조건 포함)
 	public List<BBoard> getList(Paging paging, int boardno);

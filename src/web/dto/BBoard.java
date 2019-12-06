@@ -15,12 +15,6 @@ public class BBoard {
 	private String userid;
 	private int commentCnt;
 
-	
-	
-	
-	
-	
-
 	@Override
 	public String toString() {
 		return "BBoard [idx=" + idx + ", title=" + title + ", contents=" + contents + ", regDate=" + regDate + ", hits="

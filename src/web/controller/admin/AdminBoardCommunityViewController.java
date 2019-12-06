@@ -14,9 +14,7 @@ import web.dto.BBoard;
 import web.dto.Bcomment;
 import web.dto.Recommend;
 import web.service.face.AdminCommunityService;
-import web.service.face.BoardService;
 import web.service.impl.AdminCommunityServiceImpl;
-import web.service.impl.BoardServiceImpl;
 
 @WebServlet("/admin/community/board/view")
 public class AdminBoardCommunityViewController extends HttpServlet {

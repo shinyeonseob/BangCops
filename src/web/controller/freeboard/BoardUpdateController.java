@@ -34,7 +34,7 @@ public class BoardUpdateController extends HttpServlet {
 		
 		BAttached bAttached = boardService.getFile(board);
 		req.setAttribute("bAttached", bAttached);
-		
+		req.setAttribute("boardno", req.getParameter("boardno"));
 		// 게시글 상세보기
 //		System.out.println(list);
 

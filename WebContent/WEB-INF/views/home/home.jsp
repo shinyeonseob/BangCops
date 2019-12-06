@@ -304,9 +304,15 @@ body{
 
 	<br> <br>
 
-	<div id="servicecenter" class="text-center">
-		<a href="/serviceCenterView"><img alt="고객센터" src="/resources/img/img_SC.png" style="width: 10%; " ></a>
+	<div id="servicecenter" class="text-center" style="min-width:541px;min-height:300px;">
+		<div style="float:left">
+		<a href="/serviceCenterView"><img alt="고객센터" src="/resources/img/img_SC.png" style="width:540px; " ><br><h3><strong>상담가능시간: 09:00시 ~ 18:00시</strong></h3></a>
+		</div>
+		<div style="float:right;border:2px solid grey">
+			<img src="/resources/img/자라나라머리머리.png">
+		</div>
 	</div>
+
 </div>
 
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />
