@@ -32,7 +32,15 @@
 	});
 </script>
 
+<style type="text/css">
+td {
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+</style>
 </head>
+
 <body>
 	<div class="container">
 
@@ -40,7 +48,7 @@
 
 		<hr>
 
-		<table style="width: 1140">
+		<table style="width: 1140; table-layout: fixed;">
 			<tr style="height: 40">
 				<th class="text-center" style="width: 5%">글번호</th>
 				<th class="text-center" style="width: 15%">회원번호</th>
