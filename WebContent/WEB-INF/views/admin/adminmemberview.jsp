@@ -44,7 +44,7 @@ $(document).ready(function() {
 <body>
 <div class="container">
 
-<h1>회원정보 - 상세보기</h1>
+<h1>📁 회원정보 - 상세보기</h1>
 
 <hr>
 

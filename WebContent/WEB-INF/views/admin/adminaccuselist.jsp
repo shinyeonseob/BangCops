@@ -99,7 +99,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 <body>
 <div class="container">
 
-<h1>신고 게시물 목록</h1>
+<h1>🔔 신고 게시물 목록</h1>
 <hr>
 
 <table class="table table-hover table-condensed table-striped" style="table-layout: fixed">
