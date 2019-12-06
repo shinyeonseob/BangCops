@@ -144,8 +144,8 @@ body {
          </div>
         
          <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block"> 이메일로 비밀번호 보내기</button>
-		<input class="btn btn-success btn-lg btn-block" type='BUTTON' value=" 창닫기" onClick='self.close()'>
+            <button type="submit" class="btn btn-primary btn-lg btn-block"> 이메일로 비밀번호 보내기</button>
+		<input class="btn btn-primary btn-lg btn-block" type='BUTTON' value=" 창닫기" onClick='self.close()'>
          </div>
       </form>
       
