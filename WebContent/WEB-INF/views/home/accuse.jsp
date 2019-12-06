@@ -15,7 +15,7 @@ div {
 
 #item {
 	display: inline-block;
-	background-color: #FDB813;
+	background-color: #aaa;
 	width: 200px;
 	height: 260px;
 	/* 	border: 1px solid black;  */
@@ -41,7 +41,9 @@ div {
 	background-color : #0066B2;
 	height : 14px;
 }
-
+body{
+	background-color: #F8F8F8;
+}
 </style>
 <hr>
 
@@ -65,7 +67,7 @@ div {
 	<br> 
 	<div id="container">
 		<h2>
-			<Strong>허위매물 피해사례를 신고하세요</Strong>
+			<Strong>허위매물 피해사례를 <span style = "color : #FDB813;"><b>신고</b></span>하세요</Strong>
 		</h2>
 	</div>
 
@@ -92,11 +94,11 @@ div {
 		<div>
 			<c:if test="${login }">
 				<a href="/accuse/write?accuseType=허위/과장매물">
-				<button class="btn btn-primary" type="submit">신고하기</button></a>
+				<button class="btn btn-primary" type="submit"style="background-color: #FDB813 !important ;border-color: #FDB813 !important;">신고하기</button></a>
 			</c:if>
 			<c:if test="${empty login }">
 				<a href="#myModal" data-toggle="modal">
-				<button	class="btnAccuse btn btn-primary" onclick="loginPlease();">신고하기</button></a>
+				<button	class="btnAccuse btn btn-primary" style="background-color: #FDB813 !important;border-color: #FDB813 !important;"onclick="loginPlease();">신고하기</button></a>
 			</c:if>
 
 			<br> <br>
@@ -117,11 +119,11 @@ div {
 		<div>
 			<c:if test="${login }">
 				<a href="/accuse/write?accuseType=불량 매물">
-				<button class="btn btn-primary" type="submit">신고하기</button></a>
+				<button class="btn btn-primary" type="submit"style="background-color: #FDB813 !important;border-color: #FDB813 !important;">신고하기</button></a>
 			</c:if>
 			<c:if test="${empty login }">
 				<a href="#myModal"data-toggle="modal"><button
-						class="btnAccuse btn btn-primary" onclick="loginPlease();">신고하기</button></a>
+						class="btnAccuse btn btn-primary" style="background-color: #FDB813 !important;border-color: #FDB813 !important;"onclick="loginPlease();">신고하기</button></a>
 			</c:if>
 			<br><br> 
 		</div>
@@ -144,11 +146,11 @@ div {
 		<div>
 			<c:if test="${login }">
 				<a href="/accuse/write?accuseType=사기 의심 매물">
-				<button class="btn btn-primary" type="submit">신고하기</button></a>
+				<button class="btn btn-primary" type="submit" style="background-color: #FDB813 !important;border-color: #FDB813 !important;">신고하기</button></a>
 			</c:if>
 			<c:if test="${empty login }">
 				<a href="#myModal" data-toggle="modal">
-				<button class="btnAccuse btn btn-primary" onclick="loginPlease();">신고하기</button></a>
+				<button class="btnAccuse btn btn-primary"style="background-color: #FDB813 !important;border-color: #FDB813 !important;" onclick="loginPlease();">신고하기</button></a>
 			</c:if>
 						<br><br>
 		</div>
