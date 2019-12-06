@@ -105,8 +105,8 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	</th>
 	<th style="width: 12%">회원번호</th>
 	<th style="width: 15%">아이디</th>
-	<th style="width: 15%">닉네임</th>
 	<th style="width: 10%">이름</th>
+	<th style="width: 15%">닉네임</th>
 	<th style="width: 18%">전화번호</th>
 	<th style="width: 10%">회원정보</th>
 	<th style="width: 10%">회원글</th>
@@ -118,8 +118,8 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	<td><input type="checkbox" name="checkRow" value="${list.userno }" /></td>
 	<td>${list.userno }</td>
 	<td>${list.userid }</td>
-	<td>${list.usernick }</td>
 	<td>${list.username }</td>
+	<td>${list.usernick }</td>
 	<td>${list.usertel }</td>
 	<td><a class="btn btn-outline-success btn-sm" href="/admin/memberview?userno=${list.userno }">상세정보</a></td>
 	<td><a class="btn btn-outline-primary btn-sm" id="btnBoard" href="/admin/boardlist?userno=${list.userno }">회원글</a></td>
@@ -130,7 +130,6 @@ tr td:not(:first-child), tr th:not(:first-child) {
 </table>
 
 <button id="btndelete" class="btn btn-warning pull-left">삭제</button>
-<div class="clearfix"></div>
 
 <c:import url="/WEB-INF/views/layout/paging.jsp">
 	<c:param name="url" value="${url }" />

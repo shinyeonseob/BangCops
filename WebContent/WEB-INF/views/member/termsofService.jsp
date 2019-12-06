@@ -1,32 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>방캅스 :: 서비스 이용약관</title>
 
-<!-- 이용약관 -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<script type="text/javascript"
+   src=https://code.jquery.com/jquery-2.2.4.min.js></script>
+ <!-- 부트스트랩 -->
+<link rel="stylesheet"
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script
+   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"
+   rel="stylesheet">
+<link rel="stylesheet"
+   href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+   src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+<!--  폰트 -->
+<link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean" rel="stylesheet">
+<!--  @import url('https://fonts.googleapis.com/css?family=Black+Han+Sans:400'); @import url('https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean'); font-family: 'Black Han Sans', sans-serif; -->
+<link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/국립박물관문화재단클래식B.woff">
+<!-- @font-face { font-family: '국립박물관문화재단클래식B'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/국립박물관문화재단클래식B.woff') format('woff'); font-weight: normal; font-style: normal; } -->
+<!-- @font-face { font-family: 'KBIZHanmaumMyungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KBIZHanmaumMyungjo.woff') format('woff'); font-weight: normal; font-style: normal; } -->
 
-<jsp:include page="/WEB-INF/views/layout/header.jsp" />
 
-<br><br><br><br><br><br>
-   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>방캅스 :: 서비스 이용약관</title>
-    <!-- Bootstrap core CSS -->
-    <link href="./bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom fonts for this template -->
-    <link href="./bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="./bootstrap/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic,Nanum+Gothic" rel="stylesheet" type="text/css">
-    <!-- Custom styles for this template -->
-    <link href="./bootstrap/css/landing-page.css?" rel="stylesheet">
+<!-- 닉스곤폰트B -->
+<link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONB-Vb.woff">
+<!-- @font-face { font-family: 'NIXGONB-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONB-Vb.woff') format('woff'); font-weight: normal; font-style: normal; } -->
+  <style type="text/css">
+p, span, div, form, a, button, strong{
+ 	font-family: 'NIXGONB-Vb'; 
+}
+html, body{
+	font-family: 'NIXGONB-Vb'; 
+}
+</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+$("#ok").on("click", function(){
+	close();
+});
+	
+});
+
+</script> 
 </head>
-
 <body>
 <!-- Image Showcases -->
 <section class="showcase">
     <div class="container-fluid p-0" style="background:#fff; width: 1000px;">
+<br><hr><br>
         <div class="row no-gutters">
             <div class="col-lg-12 order-lg-1 my-auto showcase-text pb-4">
                 <div>
@@ -441,16 +475,14 @@
             </div>
         </div>
 		<!--// 끝 -->
+<br><br><br>
+<div class="text-center"><button class = "btn btn-default" id="ok">확인</button></div>
+
+<br><hr><br>
 
     </div>
 </section>
-
 <!-- Bootstrap core JavaScript -->
 
 </body>
-
 </html>
-
-
-
-<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
