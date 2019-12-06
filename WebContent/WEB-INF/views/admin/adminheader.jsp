@@ -74,7 +74,7 @@ text-align: center;
       <!-- Nav tabs -->
       <div class="card">
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a id="btn_admin_memberlist" class="menuLink" href="#" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-home"></i>  <span>회원리스트</span></a></li>
+          <li role="presentation"><a id="btn_admin_memberlist" class="menuLink" href="#" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-home"></i>  <span>회원리스트</span></a></li>
           <li role="presentation"><a id="btn_admin_community" class="menuLink" href="#" aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-envelope-o"></i>  <span>게시판</span></a></li>
           <li role="presentation"><a id="btn_admin_accuse" class="menuLink" href="#" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-plus-square-o"></i>  <span>신고글</span></a></li>
           <li role="presentation"><a id="btn_admin_faq" class="menuLink" href="#" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-user"></i>  <span>FAQ</span></a></li>
