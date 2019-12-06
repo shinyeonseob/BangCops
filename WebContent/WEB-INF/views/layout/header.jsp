@@ -239,6 +239,10 @@ ul li.dropdown:hover > ul.dropdown-menu {
 	color: white;
 }
 
+
+.modal-backdrop {
+  z-index: -1;
+}
 </style>
 
 <script type="text/javascript">
