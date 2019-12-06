@@ -41,7 +41,7 @@ th {
 </table>
 
 <div class="container">
-<h1>자유게시판</h1>
+<h1>💬 자유게시판</h1>
 <h4>당신의 자유로운 이야기를 올려주세요.</h4>
 <hr style="background:grey;height:2px">
 <br>
