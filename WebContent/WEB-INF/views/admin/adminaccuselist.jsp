@@ -82,11 +82,16 @@ table, th {
 
 tr td:nth-child(3) {
 	text-align:left;
-}
+	
+	overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+} 
 
 tr td:not(:first-child), tr th:not(:first-child) {
 	border-left: 1px solid white;
 }
+
 
 </style>
 </head>
@@ -97,7 +102,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 <h1>신고 게시물 목록</h1>
 <hr>
 
-<table class="table table-hover table-condensed table-striped">
+<table class="table table-hover table-condensed table-striped" style="table-layout: fixed">
 
 <tr class="danger">
 	<th>
@@ -107,7 +112,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	<th style="width: 10%">신고 사이트</th>
 	<th style="width: 15%">지역</th>
 	<th style="width: 13%">신고된 부동산</th>
-	<th style="width: 7%">중계사명</th>
+	<th style="width: 7%">중개사명</th>
 	<th style="width: 9%">작성자</th>
 	<th style="width: 13%">작성일</th>
 	<th style="width: 10%">상세정보</th>

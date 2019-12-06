@@ -62,7 +62,7 @@ div {
 	</div>
 
 	<hr>
-	<br> <br>
+	<br> 
 	<div id="container">
 		<h2>
 			<Strong>허위매물 피해사례를 신고하세요</Strong>
