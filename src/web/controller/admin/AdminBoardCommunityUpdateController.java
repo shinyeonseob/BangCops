@@ -26,6 +26,7 @@ public class AdminBoardCommunityUpdateController extends HttpServlet {
 
 		// 관리자 로그인일 경우
 		if (req.getSession().getAttribute("adminlogin") != null) {
+			
 			BBoard board = adminCommunityService.getIdx(req);
 
 			board = adminCommunityService.view(board);
@@ -34,6 +35,7 @@ public class AdminBoardCommunityUpdateController extends HttpServlet {
 
 			BAttached bAttached = adminCommunityService.getFile(board);
 			req.setAttribute("bAttached", bAttached);
+			req.setAttribute("boardno", req.getParameter("boardno"));
 
 			// 게시글 목록을 MODEL값으로 지정
 

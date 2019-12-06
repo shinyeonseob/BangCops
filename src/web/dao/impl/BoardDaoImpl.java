@@ -26,48 +26,7 @@ public class BoardDaoImpl implements BoardDao {
 	private PreparedStatement ps = null; // SQL 수행 객체
 	private ResultSet rs = null; // SQL 수행 결과 객체
 	
-	@Override
-	public List<BBoard> selectAll(int boardno) {
-		
-		conn = DBconn.getConnection(); //DB 연걸
-		
-		String sql = "";
-		sql = " SELECT * FROM board ORDER BY idx DESC";
-		
-		List<BBoard> list = new ArrayList<>();
-		
-		try {
-			ps = conn.prepareStatement(sql);
-			
-			rs = ps.executeQuery();
-			
-			while(rs.next()) {
-				
-				BBoard boardlist = new BBoard();
-				
-				boardlist.setIdx(rs.getInt("idx"));
-				boardlist.setTitle(rs.getString("title"));
-				boardlist.setContents(rs.getString("contents"));
-				boardlist.setRegDate(rs.getDate("regDate"));
-				boardlist.setHits(rs.getInt("hits"));
-				boardlist.setReco(rs.getInt("reco"));
-				boardlist.setBoardNo(rs.getInt("boardno"));
-				boardlist.setUserNo(rs.getInt("userno"));
-				
-				list.add(boardlist);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if(ps!=null) ps.close();
-				if(rs!=null) rs.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return list;
-	}
+
 
 	@Override
 	public List<BBoard> selectAll(Paging paging,int boardno) {
@@ -183,6 +142,13 @@ public class BoardDaoImpl implements BoardDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null) ps.close();
+				if(rs!=null) rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return list;
 	}

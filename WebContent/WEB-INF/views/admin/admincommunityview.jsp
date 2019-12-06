@@ -182,7 +182,7 @@ function warning() {
 			<th colspan="2"><h3>${list.title }</h3></th>
 		</tr>
 		<tr>
-			<td><p>${list.usernick }
+			<td><p>${list.usernick }</p>
 					|
 					<fmt:formatDate value="${list.regDate }"
 						pattern="yy-MM-dd hh:mm:ss" />
