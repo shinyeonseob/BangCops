@@ -7,7 +7,7 @@
 <div class="qna" style="text-align: center;">
 	<a href="https://desk.channel.io/#/signin" style="float: center;"><br>
 		<img src="/resources/img/click.png" width="40" height="40"><font
-		size="4em"><Strong>QnA 바로가기</Strong></font></a><br>
+		size="4em"><Strong>  QnA 바로가기</Strong></font></a><br>
 	<br><br><br><br>
 </div>
 

@@ -8,9 +8,15 @@
 <style type="text/css">
 th {
 	padding:10px;
-/* 	border:1px solid black; */
-	text-align:center;
+c	text-align:center;
 }
+
+td {
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
 </style>
 
 <jsp:include page="/WEB-INF/views/admin/adminheader.jsp" />
@@ -27,14 +33,64 @@ $(document).ready(function() {
 	
 });
 </script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	// 선택체크 삭제
+	$("#btndelete").click(function() {
+		// 선택된 체크박스
+		var $checkboxes = $("input:checkbox[name='checkRow']:checked");
+
+		var map = $checkboxes.map(function() {
+			return $(this).val();
+		});
+		var names = map.get().join(",");
+		
+		// 전송 폼
+		var $form = $("<form>")
+			.attr("action", "/admin/memberlistdelete")
+			.attr("method", "post")
+			.append(
+				$("<input>")
+					.attr("type", "hidden")
+					.attr("name", "names")
+					.attr("value", names)
+			);
+		$(document.body).append($form);
+		$form.submit();
+	
+	});
+});
+		
+//전체 체크/해제
+function checkAll() {
+	// checkbox들
+	var $checkboxes=$("input:checkbox[name='checkRow']");
+
+	// checkAll 체크상태 (true:전체선택, false:전체해제)
+	var check_status = $("#checkAll").is(":checked");
+	
+	if( check_status ) {
+		// 전체 체크박스를 checked로 바꾸기
+		$checkboxes.each(function() {
+			this.checked = true;	
+		});
+	} else {
+		// 전체 체크박스를 checked 해제하기
+		$checkboxes.each(function() {
+			this.checked = false;	
+		});
+	}
+}
+</script>		
 <br>
 <table style="margin:0 auto;width:1200;height:50;table-layout:fixed">
 	<tr>
-		<th><div class="text-center"><button onclick="location.href='/admin/community/board?boardno=1'" style="width:120px">자유게시판</button></div></th>
-		<th><div class="text-center"><button onclick="location.href='/admin/community/board?boardno=2'"style="width:120px">이용후기</button></div></th>
-		<th><div class="text-center"><button onclick="location.href='/admin/community/board?boardno=3'"style="width:120px">공지사항</button></div></th>
-		<th><div class="text-center"><button onclick="location.href='/admin/community/board?boardno=5'"style="width:120px">FAQ</button></div></th>
-		<th><div class="text-center"><button style="width:120px">고객센터</button></div></th>
+		<th><div class="text-center"><button class="btn btn-secondary" onclick="location.href='/admin/community/board?boardno=1'" style="width:120px">자유게시판</button></div></th>
+		<th><div class="text-center"><button class="btn btn-secondary" onclick="location.href='/admin/community/board?boardno=2'"style="width:120px">이용후기</button></div></th>
+		<th><div class="text-center"><button class="btn btn-secondary" onclick="location.href='/admin/community/board?boardno=3'"style="width:120px">공지사항</button></div></th>
+		<th><div class="text-center"><button class="btn btn-secondary" onclick="location.href='/admin/community/board?boardno=5'"style="width:120px">FAQ</button></div></th>
+		<th><div class="text-center"><button class="btn btn-secondary" onclick="location.href='/admin/qna'"style="width:120px">고객센터</button></div></th>
 	</tr>
 </table>
 
@@ -57,7 +113,7 @@ $(document).ready(function() {
 </c:if>
 <hr style="background:grey;height:2px">
 <br>
-<table style="width:1140">
+<table style="width:1140; table-layout: fixed;">
 	<tr style="height:40">
 	<th>
 		<input type="checkbox" id="checkAll" onclick="checkAll();" />
@@ -71,7 +127,7 @@ $(document).ready(function() {
 		<th class="text-center" style="width:15%">게시글삭제</th>
 	</tr>
 <c:forEach items="${ list }" var="i">
-	<tr style="text-align:center;height:30">
+	<tr style="text-align:center; height:30">
 		<td><input type="checkbox" name="checkRow" value="${i.userNo }" /></td>
 		<td>${ i.idx }</td>
 		<td style="text-align:left"><a href ="/admin/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
@@ -90,6 +146,9 @@ $(document).ready(function() {
 <%-- </c:if> --%>
 <c:if test="${!empty adminlogin && adminlogin}">
 <a style="float:left" href="/admin/community/board/write?boardno=${boardno }" class="trigger-btn"><button>게시글 작성</button></a>
+<button id="btndelete"><a style="float:left" href="/admin/community/board/delete?boardno=${boardno }&idx=${i.idx }" class="trigger-btn">삭제</a></button>
+
+<%-- <button id="btndelete" onclick="location.href='/admin/community/board/delete?boardno=${boardno }&idx=${i.idx }'">삭제</button> --%>
 </c:if>
 
 	
