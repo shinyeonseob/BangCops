@@ -106,7 +106,7 @@ table {
 	margin-left: 5px;
 }
 body{
-	background-color: #E9E3E9;
+	background-color: #F8F8F8;
 }
 </style>
 
@@ -251,7 +251,8 @@ body{
 		</form>
 		<br>
 		<a href="/main/accuse"><button id="btnAccuse"
-				class="btn btn-default"style = "width: 182px; height: 55px; background-color: #fbb;">신고하기</button></a>
+				class="btn btn-default"style = "width: 182px; height: 55px; background-color: #FDB813;">
+				<span style ="font-size: 18px; color: white;"><b>신고하기</b></span></button></a>
 				<!-- style = "width: 182px; height: 78px; background-color: #fbb;" -->
 	</div>
 

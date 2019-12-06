@@ -40,7 +40,9 @@ td {
 	white-space:nowrap;
 	text-overflow:ellipsis;
 }
-
+body{
+	background-color: #F8F8F8;
+}
 </style>
 
 <div class="container" style="width:1170px;">

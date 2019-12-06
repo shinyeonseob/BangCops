@@ -71,6 +71,9 @@
 	margin-top:9px;
 	margin-bottom:65px;
 }
+body{
+	background-color: #F8F8F8;
+}
 </style>
 
 
