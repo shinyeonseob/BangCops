@@ -36,7 +36,7 @@
 	width: 1200px;
 	margin: 5px auto;
 	padding: 20px;
-	border: 1px solid #bcbcbc;
+	border: 0px solid #bcbcbc;
 }
 
 #map {
@@ -54,13 +54,13 @@
     margin-bottom: 20px;
     margin-left: 28px; 
     /* float: right; */
-    border: 1px solid #bcbcbc;
+    border: 0px solid #bcbcbc;
 }
 
 #servicecenter {
 	clear: both;
 	padding: 20px;
-	border: 1px solid #bcbcbc;
+	border: 0px solid #bcbcbc;
 }
 
 #searchbar{
@@ -70,7 +70,7 @@
 }
 
 #newsbar{
-	border: 1px solid black;
+	border: 1.5px solid black;
 	float : right;
 	width: 79%;
 	height: 200px;
@@ -81,7 +81,7 @@
 #board {
 	clear: both;
 	padding: 20px;
-	border: 1px solid #bcbcbc;
+	border: 0px solid #bcbcbc;
 }
 
 #miniboard {
@@ -180,10 +180,10 @@ body{
 		}
 	})(marker, i));
 					// 클릭시 위치 이동 (확대 + 중앙 이동)
-// 					marker.addListener('click', function() {
-// 						map.setZoom(14);
-// 						map.setCenter(this.getPosition());
-// 					});
+					marker.addListener('click', function() {
+						map.setZoom(14);
+						map.setCenter(this.getPosition());
+					});
 
 				};
 
