@@ -34,55 +34,6 @@ $(document).ready(function() {
 });
 </script>
 
-<script type="text/javascript">
-$(document).ready(function() {
-	// 선택체크 삭제
-	$("#btndelete").click(function() {
-		// 선택된 체크박스
-		var $checkboxes = $("input:checkbox[name='checkRow']:checked");
-
-		var map = $checkboxes.map(function() {
-			return $(this).val();
-		});
-		var names = map.get().join(",");
-		
-		// 전송 폼
-		var $form = $("<form>")
-			.attr("action", "/admin/memberlistdelete")
-			.attr("method", "post")
-			.append(
-				$("<input>")
-					.attr("type", "hidden")
-					.attr("name", "names")
-					.attr("value", names)
-			);
-		$(document.body).append($form);
-		$form.submit();
-	
-	});
-});
-		
-//전체 체크/해제
-function checkAll() {
-	// checkbox들
-	var $checkboxes=$("input:checkbox[name='checkRow']");
-
-	// checkAll 체크상태 (true:전체선택, false:전체해제)
-	var check_status = $("#checkAll").is(":checked");
-	
-	if( check_status ) {
-		// 전체 체크박스를 checked로 바꾸기
-		$checkboxes.each(function() {
-			this.checked = true;	
-		});
-	} else {
-		// 전체 체크박스를 checked 해제하기
-		$checkboxes.each(function() {
-			this.checked = false;	
-		});
-	}
-}
-</script>		
 <br>
 <table style="margin:0 auto;width:1200;height:50;table-layout:fixed">
 	<tr>
@@ -115,15 +66,12 @@ function checkAll() {
 <br>
 <table style="width:1140; table-layout: fixed;">
 	<tr style="height:40">
-	<th>
-		<input type="checkbox" id="checkAll" onclick="checkAll();" />
-	</th>
-		<th class="text-center" style="width:5%">글번호</th>
-		<th class="text-center" style="width:40%">제목</th>
+		<th class="text-center" style="width:9%">글번호</th>
+		<th class="text-center" style="width:34%">제목</th>
 		<th class="text-center" style="width:15%">닉네임</th>
 		<th class="text-center" style="width:15%">작성일</th>
-		<th class="text-center" style="width:5%">조회수</th>
-		<th class="text-center" style="width:5%">추천수</th>
+		<th class="text-center" style="width:6%">조회수</th>
+		<th class="text-center" style="width:6%">추천수</th>
 		<th class="text-center" style="width:15%">게시글삭제</th>
 	</tr>
 <c:forEach items="${ list }" var="i">
@@ -146,7 +94,7 @@ function checkAll() {
 <%-- </c:if> --%>
 <c:if test="${!empty adminlogin && adminlogin}">
 <a style="float:left" href="/admin/community/board/write?boardno=${boardno }" class="trigger-btn"><button>게시글 작성</button></a>
-<button id="btndelete"><a style="float:left" href="/admin/community/board/delete?boardno=${boardno }&idx=${i.idx }" class="trigger-btn">삭제</a></button>
+<button id="btndelete" style="float:left" href="/admin/community/board/delete?boardno=${boardno }&idx=${i.idx }" class="trigger-btn">삭제</button>
 
 <%-- <button id="btndelete" onclick="location.href='/admin/community/board/delete?boardno=${boardno }&idx=${i.idx }'">삭제</button> --%>
 </c:if>

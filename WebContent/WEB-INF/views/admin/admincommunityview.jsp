@@ -199,15 +199,6 @@ function warning() {
 					style="min-height: 400">${list.contents }</div></td>
 		</tr>
 		<tr>
-			<td colspan="2">
-				<div>
-					<div class="center"
-						style="height: 150; padding-right: 400px; padding-left: 400px; padding-top: 60px; text-align: center">
-						게시글이 마음에 드신다면?
-						<button class="btn" id="btnRecommend">추천하기!</button>
-					</div>
-				</div>
-			</td>
 		</tr>
 		<tr style="border: 1px solid black; height: 50">
 			<th style="width: 10">첨부<br>파일
@@ -222,15 +213,9 @@ function warning() {
 		<a style="float: right"
 			href="/admin/community/board/delete?idx=${list.idx }&boardno=${list.boardNo}"
 			onclick="warning();"><button>삭제하기</button></a>
-		<a style="float: right"><button>댓글작성</button></a>
-	<c:if test="${Userno ne list.userNo || empty login }">
-		<a style="float: right"><button>댓글작성</button></a>
-	</c:if>
 
-	<!-- 댓글 처리 -->
 	<div>
 		<div id="commentbody"></div>
-		<%-- 댓글입력 시 이동 위치 --%>
 		<hr>
 
 		<!-- 로그인상태 -->
@@ -243,7 +228,6 @@ function warning() {
 					id="commentContent"></textarea>
 				<button id="btnCommInsert" class="btn">입력</button>
 			</div>
-			<!-- 댓글 입력 end -->
 		</c:if>
 		<!-- 댓글 리스트 -->
 		<table class="table table-striped table-hover table-condensed">

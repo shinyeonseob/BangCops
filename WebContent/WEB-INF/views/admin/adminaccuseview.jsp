@@ -27,7 +27,13 @@ $(document).ready(function() {
 
 	//삭제버튼 동작
 	$("#btnDelete").click(function() {
-		$(location).attr("href", "/admin/accusedelete?accuseno=${bAccuse2.accuseno }");
+		var delConfirm = confirm('삭제 하시겠습니까?');
+		if (delConfirm) {
+			$(location).attr("href", "/admin/accusedelete?accuseno=${bAccuse2.accuseno }");
+			alert('삭제 되었습니다.');
+		} else {
+			alert('삭제가 취소되었습니다.');
+		}
 	});
 	
 });
