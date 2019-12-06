@@ -177,7 +177,7 @@ html, body{
    height: 95px;
    border-radius: 50%;
    z-index: 9;
-   background: #60c7c1;
+   background: #242645;
    padding: 15px;
    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
 }
@@ -190,14 +190,14 @@ html, body{
 .modal-login .btn {
    color: #fff;
    border-radius: 4px;
-   background: #60c7c1;
+   background: #242645;
    text-decoration: none;
    transition: all 0.4s;
    line-height: normal;
    border: none;
 }
 .modal-login .btn:hover, .modal-login .btn:focus {
-   background: #45aba6;
+   background: #225793;
    outline: none;
 }
 .trigger-btn {

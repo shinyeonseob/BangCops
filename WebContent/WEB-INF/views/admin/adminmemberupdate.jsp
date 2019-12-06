@@ -18,7 +18,7 @@ $(document).ready(function() {
 	
 	//작성버튼 동작
 	$("#btnUpdate").click(function() {
-
+		alert("수정 되었습니다.");
 	});
 	
 	//취소버튼 동작
