@@ -51,6 +51,10 @@ rect{
 	fill:#22578D;
 }
 
+piechart{
+	z-index:-2;
+}
+
 </style>
 
 

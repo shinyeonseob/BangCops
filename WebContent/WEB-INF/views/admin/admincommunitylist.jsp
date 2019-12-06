@@ -35,7 +35,7 @@ $(document).ready(function() {
 </script>
 
 <br>
-<table style="margin:0 auto;width:1200;height:50;table-layout:fixed">
+<table style="margin:0 auto;width:1200;height:50;table-layout:fixed" >
 	<tr>
 		<th><div class="text-center"><button class="btn btn-secondary" onclick="location.href='/admin/community/board?boardno=1'" style="width:120px">자유게시판</button></div></th>
 		<th><div class="text-center"><button class="btn btn-secondary" onclick="location.href='/admin/community/board?boardno=2'"style="width:120px">이용후기</button></div></th>
@@ -64,7 +64,7 @@ $(document).ready(function() {
 </c:if>
 <hr style="background:grey;height:2px">
 <br>
-<table style="width:1140; table-layout: fixed;">
+<table style="width:1140; table-layout: fixed;" class="table table-hover">
 	<tr style="height:40">
 		<th class="text-center" style="width:9%">글번호</th>
 		<th class="text-center" style="width:34%">제목</th>

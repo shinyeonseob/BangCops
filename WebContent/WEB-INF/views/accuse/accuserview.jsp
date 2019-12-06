@@ -148,46 +148,11 @@ function warning() {
 <br>
 <table
 	style="margin: 0 auto; width: 1200; height: 50; table-layout: fixed">
-	<tr>
-		<th><div class="text-center">
-				<button onclick="location.href='/main/community/board?boardno=1'"
-					style="width: 120px">자유게시판</button>
-			</div></th>
-		<th><div class="text-center">
-				<button onclick="location.href='/main/community/board?boardno=2'"
-					style="width: 120px">이용후기</button>
-			</div></th>
-		<th><div class="text-center">
-				<button onclick="location.href='/main/community/board?boardno=3'"
-					style="width: 120px">공지사항</button>
-			</div></th>
-		<th><div class="text-center">
-				<button onclick="location.href='/main/community/board?boardno=5'"
-					style="width: 120px">FAQ</button>
-			</div></th>
-		<th><div class="text-center">
-				<button style="width: 120px">고객센터</button>
-			</div></th>
-	</tr>
+	
 </table>
 
 <div class="container">
-	<c:if test="${list.boardNo eq 1}">
-		<h1>자유게시판</h1>
-		<h4>당신의 자유로운 이야기를 들려주세요.</h4>
-	</c:if>
-	<c:if test="${list.boardNo eq 2}">
-		<h1>이용후기게시판</h1>
-		<h4>방캅스를 이용해 주신 여러분의 후기를 들려주세요.</h4>
-	</c:if>
-	<c:if test="${list.boardNo eq 3}">
-		<h1>공지사항</h1>
-		<h4>방캅스 회원 여러분들에게 전달사항을 공지해드립니다.</h4>
-	</c:if>
-	<c:if test="${boardno eq 5}">
-		<h1>FAQ</h1>
-		<h4>방캅스 회원 여러분의 궁금한 사항을 빠르게 해결해드립니다.</h4>
-	</c:if>
+	
 	<hr style="background: grey; height: 2px">
 	<table style="width: 1140">
 		<tr>

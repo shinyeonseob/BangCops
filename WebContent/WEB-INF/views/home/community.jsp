@@ -43,7 +43,7 @@ td {
 
 </style>
 
-<div class="container">
+<div class="container" style="width:1170px;">
 
 <hr>
 <h2 style="text-align:center"><strong>커뮤니티</strong></h2>
