@@ -76,7 +76,6 @@ $(document).ready(function() {
 	</tr>
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center; height:30">
-		<td><input type="checkbox" name="checkRow" value="${i.userNo }" /></td>
 		<td>${ i.idx }</td>
 		<td style="text-align:left"><a href ="/admin/community/board/view?idx=${ i.idx }">${ i.title }</a></td>
 		<td>${ i.usernick }</td>
@@ -94,8 +93,6 @@ $(document).ready(function() {
 <%-- </c:if> --%>
 <c:if test="${!empty adminlogin && adminlogin}">
 <a style="float:left" href="/admin/community/board/write?boardno=${boardno }" class="trigger-btn"><button>게시글 작성</button></a>
-<button id="btndelete" style="float:left" href="/admin/community/board/delete?boardno=${boardno }&idx=${i.idx }" class="trigger-btn">삭제</button>
-
 <%-- <button id="btndelete" onclick="location.href='/admin/community/board/delete?boardno=${boardno }&idx=${i.idx }'">삭제</button> --%>
 </c:if>
 
