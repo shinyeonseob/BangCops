@@ -20,11 +20,6 @@ $(document).ready(function() {
 		$(location).attr("href", "/admin/accuselist");
 	});
 	
-/* 	//수정버튼 동작
-	$("#btnUpdate").click(function() {
-		$(location).attr("href", "/admin/memberupdate?userno=${viewBuser.userno}");
-	}); */
-
 	//삭제버튼 동작
 	$("#btnDelete").click(function() {
 		var delConfirm = confirm('삭제 하시겠습니까?');
@@ -49,7 +44,7 @@ $(document).ready(function() {
 
 <table class="table table-bordered">
 <tr>
-<td class="danger">신고사이트</td><td colspan="2">${bAccuse2.sitename }</td>
+<td class="danger" width="200px">신고 사이트</td><td colspan="2">${bAccuse2.sitename }</td>
 </tr>
 
 <tr>
