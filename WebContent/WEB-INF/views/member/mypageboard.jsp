@@ -35,7 +35,7 @@ tr td:not(:first-child), tr th:not(:first-child){
 
 <br>
 
-<div class="container list-container">
+<div class="container">
 <hr style="background:grey;height:2px">
 <br>
 <table class="table table-hover">

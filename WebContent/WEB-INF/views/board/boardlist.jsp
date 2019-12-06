@@ -87,14 +87,14 @@ $(document).ready(function() {
 </c:if>
 <hr style="background:grey;height:2px">
 <br>
-<table style="width:1140">
+<table style="width:1140" class="table table-hover">
 	<tr style="height:40">
-		<th class="text-center" style="width:5%">글번호</th>
-		<th class="text-center" style="width:55%">제목</th>
+		<th class="text-center" style="width:7%">글번호</th>
+		<th class="text-center" style="width:49%">제목</th>
 		<th class="text-center" style="width:15%">닉네임</th>
 		<th class="text-center" style="width:15%">작성일</th>
-		<th class="text-center" style="width:5%">조회수</th>
-		<th class="text-center" style="width:5%">추천수</th>
+		<th class="text-center" style="width:7%">조회수</th>
+		<th class="text-center" style="width:7%">추천수</th>
 	</tr>
 <c:forEach items="${ list }" var="i">
 	<tr style="text-align:center;height:30">

@@ -219,21 +219,21 @@ text-align: center;
 				data-interval="0">
 						<div class="community">
 							<div class="thumb-wrapper">
-							<div onclick="location.href='/admin/community/board?boardno=3'">
+							<div onclick="location.href='/admin/community/board?boardno=3'" style="cursor:pointer">
 							<h2>공지사항</h2></div>
 								<span class="wish-icon"><i class="fa fa-heart-o"></i></span>
 							</div>
 						</div>
 						<div class="community">
 							<div class="thumb-wrapper">
-							<div onclick="location.href='/admin/community/board?boardno=1'">
+							<div onclick="location.href='/admin/community/board?boardno=1'" style="cursor:pointer">
 							<h2>자유 게시판</h2></div>
 								<span class="wish-icon"><i class="fa fa-heart-o"></i></span>
 							</div>
 						</div>
 						<div class="community">
 							<div class="thumb-wrapper">
-							<div onclick="location.href='/admin/community/board?boardno=2'">
+							<div onclick="location.href='/admin/community/board?boardno=2'" style="cursor:pointer">
 							<h2>이용후기 게시판</h2></div>
 								<span class="wish-icon"><i class="fa fa-heart-o"></i></span>
 							</div>
