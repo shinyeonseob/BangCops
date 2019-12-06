@@ -376,7 +376,7 @@ $(document).ready(function() {
          
 
    <!-- Modal HTML -->
-   <div id="myModal" class="modal fade">
+   <div id="myModal" class="modal fade" data-backdrop="static">
       <div class="modal-dialog modal-login">
          <div class="modal-content">
             <div class="modal-header">
