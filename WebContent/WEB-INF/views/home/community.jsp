@@ -40,6 +40,9 @@ td {
 	white-space:nowrap;
 	text-overflow:ellipsis;
 }
+body{
+	background-color: #F8F8F8;
+}
 
 </style>
 
@@ -60,7 +63,8 @@ td {
 
 <div  id="left_top" style="witdh:100px;border:1px solid #bcbcbc;height:180px;margin-right:15px;padding:5px">
 <div id=left_top_inner style="witdh:50px;height:168px">
-<div onclick="location.href='/main/community/board?boardno=3'" style="cursor:pointer"><h4 style="margin-top: 10px"><Strong>&nbsp;공지사항</Strong></h4></div>
+<div onclick="location.href='/main/community/board?boardno=3'" style="cursor:pointer">
+<h4 style="margin-top: 10px"><Strong>&nbsp;공지사항 <img src="/resources/img/chat2.png" width="20" height="20"> </Strong></h4></div>
 <hr style="margin-top:0px;margin-bottom:8px">
 <div>
 	<table>
@@ -79,7 +83,9 @@ td {
 
 <div  id="left_middle" style="witdh:100px;border:1px solid #bcbcbc;height:180px;margin-right:15px;padding:5px">
 <div id=left_middle_inner style="witdh:50px;height:168px">
-<div onclick="location.href='/main/community/board?boardno=1'" style="cursor:pointer"><h4 style="margin-top: 10px"><Strong>&nbsp;자유게시판</Strong></h4></div>
+<div onclick="location.href='/main/community/board?boardno=1'" style="cursor:pointer"><h4 style="margin-top: 10px">
+<Strong>&nbsp;자유게시판<img src="/resources/img/chat2.png" width="20" height="20">
+</Strong></h4></div>
 <hr style="margin-top:0px;margin-bottom:8px">
 <div>
 	<table>
@@ -98,7 +104,8 @@ td {
 
 <div  id="left_bottom" style="witdh:100px;border:1px solid #bcbcbc;height:180px;margin-right:15px;padding:5px">
 <div id=left_bottom_inner style="witdh:50px;height:168px">
-<div onclick="location.href='/main/community/board?boardno=2'" style="cursor:pointer"><h4 style="margin-top: 10px"><Strong>&nbsp;이용후기게시판</Strong> </h4></div>
+<div onclick="location.href='/main/community/board?boardno=2'" style="cursor:pointer"><h4 style="margin-top: 10px">
+<img src="/resources/img/chat2.png" width="20" height="20"><Strong>&nbsp;이용후기게시판</Strong> </h4></div>
 <hr style="margin-top:0px;margin-bottom:8px">
 <div>
 	<table>
@@ -116,25 +123,21 @@ td {
 
 
 
-
-
-
-
-
-
-
-
 <div class="right" style="padding-top:50px">
 <div  id="right_center" style="margin:auto;width: 400px; height: 500px; border: 1px solid #bcbcbc;">
 <div id="right_center_inner" style="witdh:50px;height:358px;cursor:pointer;padding-right:10px;padding-left:10px">
-<br><h4><Strong>&nbsp; FAQ</Strong></h4>
+<br><h4><Strong>&nbsp; FAQ
+<img src="/resources/img/faq.png" width="20" height="20">
+</Strong></h4>
 <hr style="margin-top:10px;width:265px"><br>
 방캅스에 대해 궁금한 사항을 먼저 확인할 수 있습니다.<br><br><br>
 <a href="/main/community/board?boardno=5" style="float:right"><br>
-<img src="/resources/img/click.png" width="20" height="20"><font size="2em"><Strong>FAQ 게시판 바로가기</Strong></font></a><br><br>
+<img src="/resources/img/click.png" width="20" height="20"><font size="2em"><Strong>FAQ 게시판 바로가기
+
+</Strong></font></a><br><br>
 <br><hr style="margin-top:10px;width:265px;background:gray;height:1px">
 
-<br><h4><Strong>&nbsp; 고객센터</Strong></h4>
+<br><h4><Strong>&nbsp; 고객센터 <img src="/resources/img/customerService.png" width="20" height="20"></Strong></h4>
 <hr style="margin-top:10px;width:265px">
 사이트 이용방법, 신고방법, 신고절차, 이의신청절차 등 방캅스 회원 여러분들의 궁금한 사항을 1:1대화로 해결해드립니다.<br>
 
