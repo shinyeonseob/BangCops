@@ -81,6 +81,9 @@
 	height: 38px;
 	margin-top: -7px;
 }
+body{
+	background-color: #F8F8F8;
+}
 </style>
 
 <script type="text/javascript">

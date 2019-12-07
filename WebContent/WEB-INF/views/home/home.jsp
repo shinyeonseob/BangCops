@@ -104,6 +104,7 @@ table {
 }
 .articleList{
 	margin-left: 5px;
+	width: 780px !important;
 }
 body{
 	background-color: #F8F8F8;
