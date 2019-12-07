@@ -118,7 +118,7 @@ piechart{
 		<div class="form-group">
 			<button type="submit" id="btnSearchclass" class="btn btn-primary">검색</button>
 		</div><br>
-		<div class = "text-center"><img alt="abc" src="/resources/img/img_maintxt.PNG" style="width:60%;"> </div>
+		<div class = "text-center"><img alt="abc" src="/resources/img/img_maintxt.PNG" style="width:70%;"> </div>
 		</div>
 		<div>
 		<table>
