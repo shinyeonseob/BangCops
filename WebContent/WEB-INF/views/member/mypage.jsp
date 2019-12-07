@@ -86,8 +86,8 @@
 	<label style="font-family: 'NIXGONB-Vb';font-size: 20px;color: black"><strong>${BUser.usernick }</strong> </label>
 </div>
 <br>
-<div id = "info_info"><span  style="font-family: 'NIXGONB-Vb';font-size: 15px;color: #bcbcbc">
- ※ 닉네임 미등록 시 회원 실명이 표시됩니다.</span></div>
+<!-- <div id = "info_info"><span  style="font-family: 'NIXGONB-Vb';font-size: 15px;color: #bcbcbc"> -->
+<!--  ※ 닉네임 미등록 시 회원 실명이 표시됩니다.</span></div> -->
 </div>
 
 

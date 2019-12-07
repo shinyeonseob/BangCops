@@ -397,20 +397,22 @@ $(document).ready(function() {
 				<li><c:if test="${sessionScope.login eq null }">
 
 						<a href="#myModal" class="trigger-btn" data-toggle="modal">
-							<button id="btn_login" class="btn_login btn btn-warning btn-lg">
+							<button id="btn_login" class="btn_login btn btn-warning btn-lg" 
+							style = "background-color: #FDB813 !important; border-color: #FDB813 !important;">
 								<b>로그인</b>
 							</button>
 						</a>&nbsp;
-         <button id="btn_join" class="btn_join btn btn-warning btn-lg">
+         <button id="btn_join" class="btn_join btn btn-warning btn-lg"
+         style = "background-color: #FDB813 !important; border-color: #FDB813 !important;">
 							<b>회원가입</b>
 						</button>
 					</c:if> <c:if test="${sessionScope.login eq true }">
-						<a href="/member/logout"><button
-								class="btn btn-warning btn-lg">
+						<a href="/member/logout"><button class="btn btn-warning btn-lg"
+						style = "background-color: #FDB813 !important; border-color: #FDB813 !important;">
 								<b>로그아웃</b>
 							</button></a>&nbsp;
-            <a href="/mypage/main"><button
-								class="btn btn-warning btn-lg">
+            <a href="/mypage/main"><button class="btn btn-warning btn-lg"
+            style = "background-color: #FDB813 !important; border-color: #FDB813 !important;">
 								<b>마이페이지</b>
 							</button></a>
 					</c:if></li>
