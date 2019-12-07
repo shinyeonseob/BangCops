@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="web.controller.mypage.MypageUpdateController" project="BangCops" 
+    file="/BangCops/src/web/controller/mypage/MypageUpdateController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="990" y="148"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="web.controller.mypage.MypageMainController" project="BangCops" 
+    file="/BangCops/src/web/controller/mypage/MypageMainController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="644" y="145"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="web.controller.mypage.MypageCommentDeleteListController" project="BangCops" 
+    file="/BangCops/src/web/controller/mypage/MypageCommentDeleteListController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2568" y="336"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="web.controller.mypage.MypageBoardController" project="BangCops" 
+    file="/BangCops/src/web/controller/mypage/MypageBoardController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2070" y="128"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="web.controller.mypage.MypageCommentController" project="BangCops" 
+    file="/BangCops/src/web/controller/mypage/MypageCommentController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2433" y="114"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="web.controller.mypage.MypagePasswordController" project="BangCops" 
+    file="/BangCops/src/web/controller/mypage/MypagePasswordController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1343" y="146"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="web.controller.mypage.MypageWithdrawalController" project="BangCops" 
+    file="/BangCops/src/web/controller/mypage/MypageWithdrawalController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1712" y="132"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="web.service.impl.MemberServiceImpl" project="BangCops" 
+    file="/BangCops/src/web/service/impl/MemberServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="676" y="542"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="9" language="java" name="web.service.face.MemberService" project="BangCops" 
+    file="/BangCops/src/web/service/face/MemberService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1113" y="603"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="10" language="java" name="web.dao.impl.MemberDaoImpl" project="BangCops" 
+    file="/BangCops/src/web/dao/impl/MemberDaoImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="680" y="1325"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="11" language="java" name="web.dao.face.BoardDao" project="BangCops" 
+    file="/BangCops/src/web/dao/face/BoardDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1559" y="1296"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="12" language="java" name="web.dao.face.MemberDao" project="BangCops" 
+    file="/BangCops/src/web/dao/face/MemberDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="663" y="965"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="13" language="java" name="web.dao.impl.BoardDaoImpl" project="BangCops" 
+    file="/BangCops/src/web/dao/impl/BoardDaoImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1139" y="1292"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="14" language="java" name="web.dao.face.CommentDao" project="BangCops" 
+    file="/BangCops/src/web/dao/face/CommentDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1953" y="1183"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="15" language="java" name="web.dao.impl.CommentDaoImpl" project="BangCops" 
+    file="/BangCops/src/web/dao/impl/CommentDaoImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1956" y="1434"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="16" language="java" name="web.service.face.BoardService" project="BangCops" 
+    file="/BangCops/src/web/service/face/BoardService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2128" y="650"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="17" language="java" name="web.service.impl.BoardServiceImpl" project="BangCops" 
+    file="/BangCops/src/web/service/impl/BoardServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1634" y="788"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="18">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="19" name="memberService">        
+        <position height="0" width="0" x="-588" y="-104"/>      
+      </attribute>      
+      <multiplicity id="20" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-588" y="-104"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="21">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="22" name="memberService">        
+        <position height="0" width="0" x="-588" y="-104"/>      
+      </attribute>      
+      <multiplicity id="23" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-588" y="-104"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="24">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <association id="25">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="26" name="memberDao">        
+        <position height="0" width="0" x="-490" y="-188"/>      
+      </attribute>      
+      <multiplicity id="27" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-490" y="-188"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="28">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <association id="29">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="30" name="boardService"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="33" name="memberService">        
+        <position height="0" width="0" x="-588" y="-104"/>      
+      </attribute>      
+      <multiplicity id="34" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-588" y="-104"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="36" name="commentDao"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="38">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="14"/>  
+  </realization>  
+  <association id="39">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="40" name="memberService">        
+        <position height="0" width="0" x="-588" y="-104"/>      
+      </attribute>      
+      <multiplicity id="41" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-588" y="-104"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="42">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <association id="43">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="44" name="boardService"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="46">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="47" name="boardDao"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="49">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="50" name="memberService">        
+        <position height="0" width="0" x="-588" y="-104"/>      
+      </attribute>      
+      <multiplicity id="51" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-588" y="-104"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="52">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <association id="53">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="54" name="memberService">        
+        <position height="0" width="0" x="-588" y="-104"/>      
+      </attribute>      
+      <multiplicity id="55" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-588" y="-104"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="56">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="57" name="boardService"/>      
+      <multiplicity id="58" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
