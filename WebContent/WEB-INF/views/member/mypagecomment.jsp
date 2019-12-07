@@ -125,7 +125,7 @@ function checkAll() {
 <hr style="background:grey;height:2px">
 <div>
 	<button  id = "btnChkDelete" class="btn btn-default"
-	style="font-family: 'NIXGONB-Vb';">체크 삭제</button>
+	style="font-family: 'NIXGONB-Vb'; margin-bottom: 10px;">체크 삭제</button>
 </div>
 <table class="table table-hover">
 	<tr style="height:40;font-family: 'NIXGONB-Vb';">

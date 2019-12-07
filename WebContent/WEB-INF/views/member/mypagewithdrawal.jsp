@@ -84,7 +84,6 @@
     font-family: dotum;
     line-height: 150%;
     text-align: left;
-	margin-left: 30px;
 }
 </style>
 
