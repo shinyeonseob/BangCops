@@ -133,6 +133,7 @@ body{
 				var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 				
 
+				// 모델에서 받은 '구' 좌표
 				<c:forEach items="${maplist}" var="maplist">
 
 				var json = new Object();
@@ -140,22 +141,22 @@ body{
 				json.guname = "${maplist.guname}"
 				json.lat="${maplist.lat}";
 	   		    json.lng="${maplist.lng}";
-				json.totalaccuse = "${maplist.totalaccuse}";
-				json.totalagent = "${maplist.totalagent}";
+				json.totalaccuse = "${maplist.totalaccuse}"; // 구에 해당하는 총 신고건수
+				json.totalagent = "${maplist.totalagent}"; // 구에 해당하는 총 피중개인 수
 				result.push(json);
 				</c:forEach>
 				//   console.log("jsoninfo="+JSON.stringify(result));
 
-				var infowindow = new google.maps.InfoWindow();
-				var markers = new Array();
-				var marker, i;
+				var infowindow = new google.maps.InfoWindow(); // 핀 클릭 시 정보 팝업
+				var markers = new Array(); // 핀 리스트
+				var marker, i; // 핀 객체
 				for (i = 0; i < result.length; i++) {
 					marker = new google.maps.Marker(
 							{
-		 						id : result[i].guname,
-								name : result[i].guname,
+		 						id : result[i].guname, // 구  id
+								name : result[i].guname, // 구 이름
 								//label : result[i].cate,
-								position : new google.maps.LatLng(result[i].lat, result[i].lng),
+								position : new google.maps.LatLng(result[i].lat, result[i].lng), // 맵의 좌표 설정
 								map : map
 
 							});
@@ -165,7 +166,7 @@ body{
 					google.maps.event	
 							.addListener(
 									marker, 'click', (function(marker, i) {
-										return function() {
+										return function() { // 정보창 내용
 	infowindow.setContent(result[i].guname + "구<br>"	+ "<b>허위매물 신고 건수 : <b>"
 			+ result[i].totalaccuse	+ "<br>" + "<b>피신고 중개인 수 : <b>" + result[i].totalagent
 			+ "<br>"
