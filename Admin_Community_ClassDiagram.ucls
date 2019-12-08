@@ -4,7 +4,7 @@
   <class id="1" language="java" name="web.controller.admin.AdminBoardCommunityDeleteController" project="BangCops" 
     file="/BangCops/src/web/controller/admin/AdminBoardCommunityDeleteController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1704" y="1362"/>    
+    <position height="-1" width="-1" x="1606" y="223"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -14,7 +14,7 @@
   <class id="2" language="java" name="web.controller.admin.AdminBoardCommunityListController" project="BangCops" 
     file="/BangCops/src/web/controller/admin/AdminBoardCommunityListController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="597" y="1330"/>    
+    <position height="-1" width="-1" x="499" y="191"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -24,7 +24,7 @@
   <class id="3" language="java" name="web.controller.admin.AdminBoardCommunityRecommendController" project="BangCops" 
     file="/BangCops/src/web/controller/admin/AdminBoardCommunityRecommendController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2074" y="1464"/>    
+    <position height="-1" width="-1" x="1976" y="325"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -34,7 +34,7 @@
   <class id="4" language="java" name="web.controller.admin.AdminBoardCommunityUpdateController" project="BangCops" 
     file="/BangCops/src/web/controller/admin/AdminBoardCommunityUpdateController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2333" y="1636"/>    
+    <position height="-1" width="-1" x="2235" y="497"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -44,7 +44,7 @@
   <class id="5" language="java" name="web.controller.admin.AdminBoardCommunityViewController" project="BangCops" 
     file="/BangCops/src/web/controller/admin/AdminBoardCommunityViewController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="967" y="1307"/>    
+    <position height="-1" width="-1" x="869" y="168"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -54,7 +54,7 @@
   <class id="6" language="java" name="web.controller.admin.AdminBoardCommunityWriteController" project="BangCops" 
     file="/BangCops/src/web/controller/admin/AdminBoardCommunityWriteController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1334" y="1313"/>    
+    <position height="-1" width="-1" x="1236" y="174"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -63,7 +63,7 @@
   </class>  
   <class id="7" language="java" name="web.controller.admin.AdminCommunityController" project="BangCops" 
     file="/BangCops/src/web/controller/admin/AdminCommunityController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="218" y="1331"/>    
+    <position height="-1" width="-1" x="120" y="192"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -72,7 +72,7 @@
   </class>  
   <interface id="8" language="java" name="web.service.face.AdminCommunityService" project="BangCops" 
     file="/BangCops/src/web/service/face/AdminCommunityService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1277" y="1856"/>    
+    <position height="-1" width="-1" x="1179" y="717"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -81,7 +81,7 @@
   </interface>  
   <class id="9" language="java" name="web.service.impl.AdminCommunityServiceImpl" project="BangCops" 
     file="/BangCops/src/web/service/impl/AdminCommunityServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="678" y="1918"/>    
+    <position height="-1" width="-1" x="580" y="779"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -90,7 +90,7 @@
   </class>  
   <interface id="10" language="java" name="web.dao.face.BoardDao" project="BangCops" 
     file="/BangCops/src/web/dao/face/BoardDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="156" y="1687"/>    
+    <position height="-1" width="-1" x="58" y="548"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -99,7 +99,7 @@
   </interface>  
   <interface id="11" language="java" name="web.dao.face.BoardFileDao" project="BangCops" 
     file="/BangCops/src/web/dao/face/BoardFileDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="495" y="2447"/>    
+    <position height="-1" width="-1" x="397" y="1308"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -108,7 +108,7 @@
   </interface>  
   <interface id="12" language="java" name="web.dao.face.CommentDao" project="BangCops" 
     file="/BangCops/src/web/dao/face/CommentDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="813" y="2481"/>    
+    <position height="-1" width="-1" x="715" y="1342"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -117,7 +117,7 @@
   </interface>  
   <interface id="13" language="java" name="web.dao.face.RecommendDao" project="BangCops" 
     file="/BangCops/src/web/dao/face/RecommendDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1183" y="2332"/>    
+    <position height="-1" width="-1" x="1085" y="1193"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -126,7 +126,7 @@
   </interface>  
   <class id="14" language="java" name="web.dao.impl.BoardDaoImpl" project="BangCops" 
     file="/BangCops/src/web/dao/impl/BoardDaoImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="157" y="2200"/>    
+    <position height="-1" width="-1" x="59" y="1061"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -135,7 +135,7 @@
   </class>  
   <class id="15" language="java" name="web.dao.impl.BoardFileDaoImpl" project="BangCops" 
     file="/BangCops/src/web/dao/impl/BoardFileDaoImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="387" y="2678"/>    
+    <position height="-1" width="-1" x="289" y="1539"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -144,7 +144,7 @@
   </class>  
   <class id="16" language="java" name="web.dao.impl.CommentDaoImpl" project="BangCops" 
     file="/BangCops/src/web/dao/impl/CommentDaoImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="817" y="2794"/>    
+    <position height="-1" width="-1" x="719" y="1655"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -153,7 +153,7 @@
   </class>  
   <class id="17" language="java" name="web.dao.impl.RecommendDaoImpl" project="BangCops" 
     file="/BangCops/src/web/dao/impl/RecommendDaoImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1295" y="2615"/>    
+    <position height="-1" width="-1" x="1197" y="1476"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -162,7 +162,7 @@
   </class>  
   <class id="18" language="java" name="web.dto.BAttached" project="BangCops" file="/BangCops/src/web/dto/BAttached.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1989" y="2032"/>    
+    <position height="-1" width="-1" x="1891" y="893"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -171,7 +171,7 @@
   </class>  
   <class id="19" language="java" name="web.dto.BBoardAndBboardType" project="BangCops" 
     file="/BangCops/src/web/dto/BBoardAndBboardType.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2215" y="2166"/>    
+    <position height="-1" width="-1" x="2117" y="1027"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -180,7 +180,7 @@
   </class>  
   <class id="20" language="java" name="web.dto.Recommend" project="BangCops" file="/BangCops/src/web/dto/Recommend.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1784" y="1903"/>    
+    <position height="-1" width="-1" x="1686" y="764"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -190,7 +190,7 @@
   <class id="21" language="java" name="web.controller.admin.AdminBoardCommunityDeleteController" project="BangCops" 
     file="/BangCops/src/web/controller/admin/AdminBoardCommunityDeleteController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1704" y="1362"/>    
+    <position height="-1" width="-1" x="1606" y="223"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -200,7 +200,7 @@
   <class id="22" language="java" name="web.controller.admin.AdminBoardCommunityListController" project="BangCops" 
     file="/BangCops/src/web/controller/admin/AdminBoardCommunityListController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="597" y="1330"/>    
+    <position height="-1" width="-1" x="499" y="191"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -210,7 +210,7 @@
   <class id="23" language="java" name="web.controller.admin.AdminBoardCommunityViewController" project="BangCops" 
     file="/BangCops/src/web/controller/admin/AdminBoardCommunityViewController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="967" y="1307"/>    
+    <position height="-1" width="-1" x="869" y="168"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -220,7 +220,7 @@
   <class id="24" language="java" name="web.controller.admin.AdminBoardCommunityWriteController" project="BangCops" 
     file="/BangCops/src/web/controller/admin/AdminBoardCommunityWriteController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1334" y="1313"/>    
+    <position height="-1" width="-1" x="1236" y="174"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -229,7 +229,7 @@
   </class>  
   <class id="25" language="java" name="web.controller.admin.AdminCommunityController" project="BangCops" 
     file="/BangCops/src/web/controller/admin/AdminCommunityController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="218" y="1331"/>    
+    <position height="-1" width="-1" x="120" y="192"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -238,7 +238,7 @@
   </class>  
   <interface id="26" language="java" name="web.service.face.AdminCommunityService" project="BangCops" 
     file="/BangCops/src/web/service/face/AdminCommunityService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1277" y="1856"/>    
+    <position height="-1" width="-1" x="1179" y="717"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -247,7 +247,7 @@
   </interface>  
   <class id="27" language="java" name="web.service.impl.AdminCommunityServiceImpl" project="BangCops" 
     file="/BangCops/src/web/service/impl/AdminCommunityServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="678" y="1918"/>    
+    <position height="-1" width="-1" x="580" y="779"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -256,7 +256,7 @@
   </class>  
   <interface id="28" language="java" name="web.dao.face.BoardDao" project="BangCops" 
     file="/BangCops/src/web/dao/face/BoardDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="156" y="1687"/>    
+    <position height="-1" width="-1" x="58" y="548"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -265,7 +265,7 @@
   </interface>  
   <interface id="29" language="java" name="web.dao.face.BoardFileDao" project="BangCops" 
     file="/BangCops/src/web/dao/face/BoardFileDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="495" y="2447"/>    
+    <position height="-1" width="-1" x="397" y="1308"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -274,7 +274,7 @@
   </interface>  
   <interface id="30" language="java" name="web.dao.face.CommentDao" project="BangCops" 
     file="/BangCops/src/web/dao/face/CommentDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="813" y="2481"/>    
+    <position height="-1" width="-1" x="715" y="1342"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -283,7 +283,7 @@
   </interface>  
   <interface id="31" language="java" name="web.dao.face.RecommendDao" project="BangCops" 
     file="/BangCops/src/web/dao/face/RecommendDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1183" y="2332"/>    
+    <position height="-1" width="-1" x="1085" y="1193"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -292,7 +292,7 @@
   </interface>  
   <class id="32" language="java" name="web.dao.impl.BoardDaoImpl" project="BangCops" 
     file="/BangCops/src/web/dao/impl/BoardDaoImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="157" y="2200"/>    
+    <position height="-1" width="-1" x="59" y="1061"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -301,7 +301,7 @@
   </class>  
   <class id="33" language="java" name="web.dao.impl.BoardFileDaoImpl" project="BangCops" 
     file="/BangCops/src/web/dao/impl/BoardFileDaoImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="387" y="2678"/>    
+    <position height="-1" width="-1" x="289" y="1539"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -310,7 +310,7 @@
   </class>  
   <class id="34" language="java" name="web.dao.impl.CommentDaoImpl" project="BangCops" 
     file="/BangCops/src/web/dao/impl/CommentDaoImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="817" y="2794"/>    
+    <position height="-1" width="-1" x="719" y="1655"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -319,7 +319,7 @@
   </class>  
   <class id="35" language="java" name="web.dao.impl.RecommendDaoImpl" project="BangCops" 
     file="/BangCops/src/web/dao/impl/RecommendDaoImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1295" y="2615"/>    
+    <position height="-1" width="-1" x="1197" y="1476"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -328,7 +328,7 @@
   </class>  
   <class id="36" language="java" name="web.dto.BAttached" project="BangCops" file="/BangCops/src/web/dto/BAttached.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1989" y="2032"/>    
+    <position height="-1" width="-1" x="1891" y="893"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -337,7 +337,7 @@
   </class>  
   <class id="37" language="java" name="web.dto.Recommend" project="BangCops" file="/BangCops/src/web/dto/Recommend.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1784" y="1903"/>    
+    <position height="-1" width="-1" x="1686" y="764"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -346,7 +346,7 @@
   </class>  
   <class id="38" language="java" name="web.dto.BBoard" project="BangCops" file="/BangCops/src/web/dto/BBoard.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2427" y="2138"/>    
+    <position height="-1" width="-1" x="2329" y="999"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -355,7 +355,7 @@
   </class>  
   <class id="39" language="java" name="web.dto.Bcomment" project="BangCops" file="/BangCops/src/web/dto/Bcomment.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1791" y="2361"/>    
+    <position height="-1" width="-1" x="1693" y="1222"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -364,7 +364,7 @@
   </class>  
   <class id="40" language="java" name="web.dto.BUser" project="BangCops" file="/BangCops/src/web/dto/BUser.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1603" y="2162"/>    
+    <position height="-1" width="-1" x="1505" y="1023"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -372,143 +372,143 @@
     </display>  
   </class>  
   <association id="41">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="42" name="adminCommunityService">        
-        <position height="0" width="0" x="-59" y="-459"/>      
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="42" name="commentDao">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
       </attribute>      
       <multiplicity id="43" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-59" y="-459"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="44">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <realization id="45">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="13"/>  
-  </realization>  
-  <association id="46">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="47" name="boardFileDao">        
-        <position height="0" width="0" x="-59" y="-459"/>      
-      </attribute>      
-      <multiplicity id="48" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-59" y="-459"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="49">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="50" name="adminCommunityService">        
-        <position height="0" width="0" x="-59" y="-459"/>      
-      </attribute>      
-      <multiplicity id="51" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-59" y="-459"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="52">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="53" name="adminCommunityService">        
-        <position height="0" width="0" x="-59" y="-459"/>      
-      </attribute>      
-      <multiplicity id="54" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-59" y="-459"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="55">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="56" name="commentDao">        
-        <position height="0" width="0" x="-59" y="-459"/>      
-      </attribute>      
-      <multiplicity id="57" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-59" y="-459"/>      
+        <position height="0" width="0" x="-157" y="-1598"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="58">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="59" name="adminCommunityService">        
-        <position height="0" width="0" x="-59" y="-459"/>      
-      </attribute>      
-      <multiplicity id="60" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-59" y="-459"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="61">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="62" name="adminCommunityService">        
-        <position height="0" width="0" x="-59" y="-459"/>      
-      </attribute>      
-      <multiplicity id="63" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-59" y="-459"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="64">    
+  <realization id="44">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="13"/>  
+  </realization>  
+  <realization id="45">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <realization id="46">    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="8"/>  
   </realization>  
-  <realization id="65">    
+  <realization id="47">    
     <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="10"/>  
   </realization>  
-  <association id="66">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="67" name="boardDao">        
-        <position height="0" width="0" x="-59" y="-459"/>      
+  <association id="48">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="49" name="adminCommunityService">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
       </attribute>      
-      <multiplicity id="68" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-59" y="-459"/>      
+      <multiplicity id="50" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="51">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="52" name="boardFileDao">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
+      </attribute>      
+      <multiplicity id="53" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="55" name="adminCommunityService">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
+      </attribute>      
+      <multiplicity id="56" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="58" name="boardDao">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
+      </attribute>      
+      <multiplicity id="59" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="69">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="12"/>  
-  </realization>  
-  <association id="70">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="71" name="adminCommunityService">        
-        <position height="0" width="0" x="-59" y="-459"/>      
+  <association id="60">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="61" name="recommendDao">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
       </attribute>      
-      <multiplicity id="72" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-59" y="-459"/>      
+      <multiplicity id="62" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="63">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="64" name="adminCommunityService">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
+      </attribute>      
+      <multiplicity id="65" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="73">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="74" name="recommendDao">        
-        <position height="0" width="0" x="-59" y="-459"/>      
+  <association id="66">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="67" name="adminCommunityService">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
       </attribute>      
-      <multiplicity id="75" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-59" y="-459"/>      
+      <multiplicity id="68" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="70" name="adminCommunityService">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
+      </attribute>      
+      <multiplicity id="71" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="72">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <association id="73">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="74" name="adminCommunityService">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
+      </attribute>      
+      <multiplicity id="75" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-157" y="-1598"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
