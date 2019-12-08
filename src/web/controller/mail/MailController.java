@@ -75,7 +75,7 @@ public class MailController extends HttpServlet {
 		final String SUBJECT = "방캅스 이메일 인증번호"; // <<------------------------------수정하세요
 
 		// 메일 본문
-		final String BODY = String.join("<h1>구글 SMTP Email Test</h1>", "<p>javax.mail을 이용한 구글 smtp 이메일 전송 테스트</p>",
+		final String BODY = String.join( "<p></p>","<h1>안녕하세요 방캅스입니다</h1><br><p>아래 인증번호를 입력 후 진행하시면 회원가입이 완료됩니다</p>",
 				"<p>다음 인증번호를 입력하세요</p>",
 
 				u);// <<------------------------------수정하세요
