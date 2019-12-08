@@ -74,7 +74,7 @@ public class MemberFindController extends HttpServlet {
 		final String SUBJECT = "방캅스 이메일 인증번호"; // <<------------------------------수정하세요
 
 		// 메일 본문
-		final String BODY = String.join("", "<p>javax.mail을 이용한 구글 smtp 이메일 전송 테스트</p>",
+		final String BODY = String.join("", "<p></p>",
 				bUser.getUsernick(),"<p>님의 임시 비밀번호는 </p><br><h2>", u, "</h2><br><p>입니다 </p>"
 
 				);// <<------------------------------수정하세요

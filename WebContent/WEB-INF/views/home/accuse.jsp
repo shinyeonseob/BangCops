@@ -50,7 +50,7 @@ body{
 <script type="text/javascript">
 	function loginPlease() {
 		alert("로그인 해주세요");
-	}
+	}zz
 </script>
 
 

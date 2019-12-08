@@ -48,15 +48,15 @@ body {
    text-align: center;
 }
 
-.signup-form h2:before, .signup-form h2:after {
-   content: "";
-   height: 2px;
-   width: 30%;
-   background: #d4d4d4;
-   position: absolute;
-   top: 50%;
-   z-index: 2;
-}
+	/* .signup-form h2:before, .signup-form h2:after { */
+	/*    content: ""; */
+	/*    height: 2px; */
+	/*    width: 30%; */
+	/*    background: #d4d4d4; */
+	/*    position: absolute; */
+	/*    top: 50%; */
+	/*    z-index: 2; */
+	/* } */
 
 .signup-form h2:before {
    left: 0;
