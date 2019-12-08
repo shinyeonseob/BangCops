@@ -221,6 +221,8 @@
                                 <name>conn</name>
                                 <type>Connection</type>
                                 <isStatic>false</isStatic>
+                                <isFinal>false</isFinal>
+                                <isEnumCst>false</isEnumCst>
                               </net.java.amateras.uml.classdiagram.model.AttributeModel>
                               <net.java.amateras.uml.classdiagram.model.AttributeModel>
                                 <showIcon>true</showIcon>
@@ -238,6 +240,8 @@
                                 <name>ps</name>
                                 <type>PreparedStatement</type>
                                 <isStatic>false</isStatic>
+                                <isFinal>false</isFinal>
+                                <isEnumCst>false</isEnumCst>
                               </net.java.amateras.uml.classdiagram.model.AttributeModel>
                               <net.java.amateras.uml.classdiagram.model.AttributeModel>
                                 <showIcon>true</showIcon>
@@ -255,6 +259,8 @@
                                 <name>rs</name>
                                 <type>ResultSet</type>
                                 <isStatic>false</isStatic>
+                                <isFinal>false</isFinal>
+                                <isEnumCst>false</isEnumCst>
                               </net.java.amateras.uml.classdiagram.model.AttributeModel>
                               <net.java.amateras.uml.classdiagram.model.OperationModel>
                                 <showIcon>true</showIcon>
@@ -279,6 +285,7 @@
                                 </params>
                                 <isAbstract>false</isAbstract>
                                 <isStatic>false</isStatic>
+                                <isFinal>false</isFinal>
                               </net.java.amateras.uml.classdiagram.model.OperationModel>
                               <net.java.amateras.uml.classdiagram.model.OperationModel>
                                 <showIcon>true</showIcon>
@@ -303,6 +310,7 @@
                                 </params>
                                 <isAbstract>false</isAbstract>
                                 <isStatic>false</isStatic>
+                                <isFinal>false</isFinal>
                               </net.java.amateras.uml.classdiagram.model.OperationModel>
                               <net.java.amateras.uml.classdiagram.model.OperationModel>
                                 <showIcon>true</showIcon>
@@ -327,6 +335,7 @@
                                 </params>
                                 <isAbstract>false</isAbstract>
                                 <isStatic>false</isStatic>
+                                <isFinal>false</isFinal>
                               </net.java.amateras.uml.classdiagram.model.OperationModel>
                               <net.java.amateras.uml.classdiagram.model.OperationModel>
                                 <showIcon>true</showIcon>
@@ -351,6 +360,7 @@
                                 </params>
                                 <isAbstract>false</isAbstract>
                                 <isStatic>false</isStatic>
+                                <isFinal>false</isFinal>
                               </net.java.amateras.uml.classdiagram.model.OperationModel>
                               <net.java.amateras.uml.classdiagram.model.OperationModel>
                                 <showIcon>true</showIcon>
@@ -375,6 +385,7 @@
                                 </params>
                                 <isAbstract>false</isAbstract>
                                 <isStatic>false</isStatic>
+                                <isFinal>false</isFinal>
                               </net.java.amateras.uml.classdiagram.model.OperationModel>
                               <net.java.amateras.uml.classdiagram.model.OperationModel>
                                 <showIcon>true</showIcon>
@@ -399,6 +410,7 @@
                                 </params>
                                 <isAbstract>false</isAbstract>
                                 <isStatic>false</isStatic>
+                                <isFinal>false</isFinal>
                               </net.java.amateras.uml.classdiagram.model.OperationModel>
                               <net.java.amateras.uml.classdiagram.model.OperationModel>
                                 <showIcon>true</showIcon>
@@ -423,6 +435,7 @@
                                 </params>
                                 <isAbstract>false</isAbstract>
                                 <isStatic>false</isStatic>
+                                <isFinal>false</isFinal>
                               </net.java.amateras.uml.classdiagram.model.OperationModel>
                             </children>
                             <filterProperty/>
@@ -568,6 +581,8 @@
                           <name>adminAaccuseDao</name>
                           <type>AdminAaccuseDao</type>
                           <isStatic>false</isStatic>
+                          <isFinal>false</isFinal>
+                          <isEnumCst>false</isEnumCst>
                         </net.java.amateras.uml.classdiagram.model.AttributeModel>
                         <net.java.amateras.uml.classdiagram.model.OperationModel>
                           <showIcon>true</showIcon>
@@ -592,6 +607,7 @@
                           </params>
                           <isAbstract>false</isAbstract>
                           <isStatic>false</isStatic>
+                          <isFinal>false</isFinal>
                         </net.java.amateras.uml.classdiagram.model.OperationModel>
                         <net.java.amateras.uml.classdiagram.model.OperationModel>
                           <showIcon>true</showIcon>
@@ -616,6 +632,7 @@
                           </params>
                           <isAbstract>false</isAbstract>
                           <isStatic>false</isStatic>
+                          <isFinal>false</isFinal>
                         </net.java.amateras.uml.classdiagram.model.OperationModel>
                         <net.java.amateras.uml.classdiagram.model.OperationModel>
                           <showIcon>true</showIcon>
@@ -640,6 +657,7 @@
                           </params>
                           <isAbstract>false</isAbstract>
                           <isStatic>false</isStatic>
+                          <isFinal>false</isFinal>
                         </net.java.amateras.uml.classdiagram.model.OperationModel>
                         <net.java.amateras.uml.classdiagram.model.OperationModel>
                           <showIcon>true</showIcon>
@@ -664,6 +682,7 @@
                           </params>
                           <isAbstract>false</isAbstract>
                           <isStatic>false</isStatic>
+                          <isFinal>false</isFinal>
                         </net.java.amateras.uml.classdiagram.model.OperationModel>
                       </children>
                       <filterProperty/>
@@ -890,6 +909,8 @@
               <name>serialVersionUID</name>
               <type>long</type>
               <isStatic>true</isStatic>
+              <isFinal>false</isFinal>
+              <isEnumCst>false</isEnumCst>
             </net.java.amateras.uml.classdiagram.model.AttributeModel>
             <net.java.amateras.uml.classdiagram.model.AttributeModel>
               <showIcon>true</showIcon>
@@ -907,6 +928,8 @@
               <name>adminService</name>
               <type>AdminService</type>
               <isStatic>false</isStatic>
+              <isFinal>false</isFinal>
+              <isEnumCst>false</isEnumCst>
             </net.java.amateras.uml.classdiagram.model.AttributeModel>
             <net.java.amateras.uml.classdiagram.model.AttributeModel>
               <showIcon>true</showIcon>
@@ -924,6 +947,8 @@
               <name>adminAaccuseService</name>
               <type>AdminAaccuseService</type>
               <isStatic>false</isStatic>
+              <isFinal>false</isFinal>
+              <isEnumCst>false</isEnumCst>
             </net.java.amateras.uml.classdiagram.model.AttributeModel>
             <net.java.amateras.uml.classdiagram.model.AttributeModel>
               <showIcon>true</showIcon>
@@ -941,6 +966,8 @@
               <name>boardService</name>
               <type>BoardService</type>
               <isStatic>false</isStatic>
+              <isFinal>false</isFinal>
+              <isEnumCst>false</isEnumCst>
             </net.java.amateras.uml.classdiagram.model.AttributeModel>
             <net.java.amateras.uml.classdiagram.model.OperationModel>
               <showIcon>true</showIcon>
@@ -969,6 +996,7 @@
               </params>
               <isAbstract>false</isAbstract>
               <isStatic>false</isStatic>
+              <isFinal>false</isFinal>
             </net.java.amateras.uml.classdiagram.model.OperationModel>
           </children>
           <filterProperty/>
@@ -1043,8 +1071,8 @@
         </java.beans.PropertyChangeSupport>
       </listeners>
       <constraint>
-        <height>59</height>
-        <width>100</width>
+        <height>72</height>
+        <width>117</width>
         <x>55</x>
         <y>95</y>
       </constraint>
