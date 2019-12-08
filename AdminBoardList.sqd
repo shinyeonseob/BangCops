@@ -992,7 +992,7 @@
                     <movable>true</movable>
                   </target>
                   <bendpoints/>
-                  <name>회원별 게시글 목록 접속</name>
+                  <name>회원별 내 게시글 목록 접속</name>
                   <direction>true</direction>
                   <order>1</order>
                   <oldOrder>1</oldOrder>
